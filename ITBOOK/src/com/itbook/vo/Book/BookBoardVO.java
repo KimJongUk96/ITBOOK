@@ -21,11 +21,25 @@ public class BookBoardVO {
 	private Date bookBrdDate;
 	private int bookBrdCount;
 	private String bookNum;
+	private String bookTitle;
 	private String memNum;
 	private String writer; //책저자
 	private String publisher; //출판사
+	private String imgPath; //이미지 경로
 	
 	
+	public String getImgPath() {
+		return imgPath;
+	}
+	public void setImgPath(String imgPath) {
+		this.imgPath = imgPath;
+	}
+	public String getBookTitle() {
+		return bookTitle;
+	}
+	public void setBookTitle(String bookTitle) {
+		this.bookTitle = bookTitle;
+	}
 	public String getWriter() {
 		return writer;
 	}
@@ -84,8 +98,11 @@ public class BookBoardVO {
 	public String toString() {
 		return "BookBoardVO [bookBrdNum=" + bookBrdNum + ", bookBrdTitle=" + bookBrdTitle + ", bookBrdContent="
 				+ bookBrdContent + ", bookBrdDate=" + bookBrdDate + ", bookBrdCount=" + bookBrdCount + ", bookNum="
-				+ bookNum + ", memNum=" + memNum + ", writer=" + writer + ", publisher=" + publisher + "]";
+				+ bookNum + ", bookTitle=" + bookTitle + ", memNum=" + memNum + ", writer=" + writer + ", publisher="
+				+ publisher + ", imgPath=" + imgPath + "]";
 	}
+	
+	
 	
 	
 	
