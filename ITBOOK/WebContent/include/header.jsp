@@ -121,7 +121,7 @@
 						   <a class="dropdown-item" onclick="logout();">로그아웃</a>
 						  </div>
 						</c:if>
-						</div>
+						</div> 
 						
 						<div class="dropdown">
 					<c:if test = "${LoginUser.authority ne 1 and LoginUser.authority ne 2 and LoginUser.authority ne 3}">						
