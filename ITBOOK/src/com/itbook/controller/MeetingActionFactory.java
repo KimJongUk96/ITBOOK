@@ -2,7 +2,7 @@ package com.itbook.controller;
 
 import com.itbook.controller.action.Action;
 
-import meeting.MeetingListAction;
+import com.itbook.controller.action.meeting.MeetingListAction;
 
 public class MeetingActionFactory {
 

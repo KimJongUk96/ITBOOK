@@ -54,7 +54,7 @@ public class MeetingDAO {
 			while(rs.next()) {
 				MeetingVO mVo = new MeetingVO();
 				
-				mVo.setMetNum(rs.getInt("metNum"));
+				mVo.setMetNum(rs.getString("metNum"));
 				mVo.setMetName(rs.getString("metName"));
 				mVo.setMetIntro(rs.getString("metIntro"));
 				mVo.setRepresent(rs.getString("represent"));
