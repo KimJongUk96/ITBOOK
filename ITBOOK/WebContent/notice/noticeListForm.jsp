@@ -105,43 +105,51 @@
 			            <input type="text" size="20" name="condition"/>&nbsp;
 			            <input type="submit" value="검색"/>
         </form>    
-    </div>ㄴㅇㄹㄴㅇㄹㅇㄹ
-   
+    </div>
+
 			</div>
 		</div>
 			</section>
 	
-				<!-- 페이징 처리 스타트-->
-				<section class="pt-0">
-					<div class="container">
-						<div class="row justify-content-center">
-							<div id="pageForm" class="col-md-8">
-								<nav>
-									<ul class="pagination justify-content-center">
-									
-										<c:if test="${startPage != 1}">
-											 <li class="page-item"><a class ="page-link" href="/notice?command=noticeListFormAction?page=${startPage-1}">Prev</a></li>
-										</c:if>
-										
-										<c:forEach var="pageNum" begin="${startPage}" end="${endPage}">
-											<c:if test="${pageNum == spage}">
-											<li class="page-item active"><span class="page-link bg-grad">${pageNum}&nbsp;</span></li>
-				           					</c:if>
-											<c:if test="${pageNum != spage}">
-												 <li class="page-item"><a href='/notice?command=noticeListFormAction?page=${pageNum}'>${pageNum}&nbsp;</a></li>
-											</c:if>
-										</c:forEach>
-			
-										<c:if test="${endPage != maxPage }">
-											<li class="page-item"><a class ="page-link" href="/notice?command=noticeListFormAction?page=${endPage+1 }">Next</a></li>
-										</c:if>
-										
-									</ul>
-								</nav>
-							</div>
-						</div>
-					</div>
-				</section>
+				<!-- 페이징 처리 -->  
+<section class="pt-0">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-8">
+					<nav>
+						<ul class="pagination justify-content-center">
+						<c:if test="${paging.pageNum > 1}">
+							<li class="page-item"><a class ="page-link" href="/notice?command=noticeListFormAction&pageNum=${paging.pageNum - 1}">Prev</a></li>
+						
+							
+						</c:if>	
+							<c:forEach begin="${paging.firstPage}"
+                                       end="${paging.lastPage}" var="idx">
+                                       
+                                       <c:choose>
+                                          <c:when test="${idx == paging.pageNum}">
+                                             <li class="page-item active"> <span class="page-link bg-grad">${idx}</span></li>
+                                          </c:when>
+                       
+                                          <c:otherwise>
+                                             <li class="page-item"><a class ="page-link"
+                                                href="/notice?command=noticeListFormAction&pageNum=${idx}">${idx}</a></li>
+                                          </c:otherwise>
+                                          
+                                       </c:choose>
+                                    </c:forEach>
+						
+							<c:if test="${paging.numOfPage != paging.pageNum}">
+                                    <li class="page-item"><a class = "page-link" href="/notice?command=noticeListFormAction&pageNum=${paging.pageNum + 1}">Next</a></li>   
+                                    </c:if>
+							
+
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</section>
 				<!-- 페이징 처리 마지막 -->
 	
 	
