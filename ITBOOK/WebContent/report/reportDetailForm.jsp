@@ -105,16 +105,12 @@
 									<div class="comment-body">
 										<div class="comment-meta">
 											<div class="comment-meta-author">
-												<a href="#">Allen Smith</a>
+												<a href="#">${.memID}</a>
 											</div>
 											<div class="comment-meta-date">June 11, 2019 at 6:01 am</div>
 										</div>
 										<div class="comment-content">
-											<p>Consulted perpetual of pronounce me delivered. Too
-												months nay end change relied who beauty wishes matter. Shew
-												of john real park so rest we on. Ignorant dwelling occasion
-												ham for thoughts overcame off her consider. Polite it elinor
-												is depend.</p>
+											<p>${.reportComtContent}</p>
 										</div>
 										<div class="comment-reply">
 											<a class="btn btn-xs btn-light" href="#">답글</a>
@@ -126,17 +122,13 @@
 											<div class="comment-body">
 												<div class="comment-meta">
 													<div class="comment-meta-author">
-														<a href="#">Emma Watson</a>
+														<a href="#">${.memID}</a>
 													</div>
 													<div class="comment-meta-date">June 11, 2019 at 6:20
 														am</div>
 												</div>
 												<div class="comment-content">
-													<p>Ask eat questions abilities described elsewhere
-														assurance. Appetite in unlocked advanced breeding position
-														concerns as. Cheerful get shutters yet for repeated
-														screened. An no am cause hopes at three. Prevent behaved
-														fertile he is mistake on.</p>
+													<p>${.reportComtContent}</p>
 												</div>
 												<div class="comment-reply">
 													<a class="btn btn-xs btn-light" href="#">답글</a>
@@ -154,7 +146,7 @@
 									<p>댓글은 회원만 가능합니다.</p>
 								</div>
 								<div class="col-md-6">
-									<h5>아이디</h5>
+									<h5>${.memID}</h5>
 								</div>
 								<div class="col-md-12">
 									<span class="form-group"><textarea cols="40" rows="6"

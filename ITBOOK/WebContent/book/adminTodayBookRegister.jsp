@@ -116,7 +116,7 @@
          
                <button type ="submit" class ="btn btn-success" ><i class="fa fa-check-circle-o"></i>등록</button>
                
-               <button type = "button" class="btn btn-warning" onclick="location.href='book?command=adminTodayBookList'">
+               <button type = "button" class="btn btn-warning" onclick="location.href='admin?command=adminTodayBookList'">
                <i class="fa  fa-close"></i>취소</button>
          </form>      
             </div>

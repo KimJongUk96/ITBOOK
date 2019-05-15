@@ -42,7 +42,7 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">희망의 책 독후감 등록</h1>
+					<h1 class="innerpage-title">희망의 책 독후감 수정</h1>
 					<h6 class="subtitle">I can find the answer in the book and the
 						book is the way to help me.</h6>
 					<nav aria-label="breadcrumb">
@@ -60,16 +60,18 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
-				<form name="frm" method="post" action="report?command=Report_List">
+				<form name="frm" method="post" action="report?command=Report_Detail">
 				<!-- <input type="hidden" name = "bookNum" value=> -->
-				 <input type="hidden" name = "memNum" value=20152511>
-				 					
+				<input type="hidden" name="bookNum" value="${reportList.bookNum}">
+				 <input type="hidden" name = "memNum" value="${reportList.memNum}">
+				 				
 					<div class="form-group">
-						<label>제목</label> <input class="form-control" name="reportTitle"
+						<label>${reportList.reportTitle}</label> <input class="form-control" name="reportTitle"
 							placeholder="제목을 입력하세요.">
 					</div>
+					
 					<div class="form-group">
-						<label>내용</label>
+						<label>${reportList.reportContent}</label>
 						<textarea class="form-control" rows="10" name="reportContent"
 							placeholder="내용을 입력하세요."></textarea>
 					</div>

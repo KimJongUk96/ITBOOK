@@ -32,28 +32,29 @@
 	<tr><th colspan="5" style = "text-align: center;">등록된 책</th></tr>
 	<tr>
 	    <th style="width: 10px; text-align:center;"><input type = "checkbox" name = "AllCheck" ></th>
+		<th style="width: 100px; text-align: center;">번호</th>
 		<th style="width: 100px; text-align: center;">제목</th>
+		<th style="width: 100px; text-align: center;">키워드</th>
 		<th style="width: 100px;text-align: center;">저자</th>
 		<th style="width: 100px;text-align: center;">출판사</th>
-		<th style="width: 50px;text-align: center;">출판일</th>
+		<th style="width: 50px;text-align: center;">책등록자</th>
 	</tr>
 	</thead>
 
-<c:forEach items="${bookList}" var="BookVO">
-	<tbody >
-	<tr style ="text-align:center;">
-		<td><input type ="checkbox" value="${BookVO.bookNum}" name="bookNum" ></td>
-		<td><a href ="/subject?command=subModifyForm&subId=${BookVO.bookTitle}">${BookVO.bookTitle}</a></td>
-		<td>${BookVO.writer}</td>
-		<td>${BookVO.publisher}</td>
-		<td>${BookVO.publisherDate}</td>		     
-	</tr>
-	</tbody>
-</c:forEach>
+<c:forEach var="bookList" items="${bookList}">
+                        <tr>
+                           <th scope = "row"><a href="admin?command=bookUpdateFormAction&bookNum=${bookList.bookNum}">${bookList.bookNum}</a></th>
+                           <td>${bookList.bookTitle}</td>
+                           <td>${bookList.bookKeyword1}, ${bookList.bookKeyword2}, ${bookList.bookKeyword3}</td>
+                           <td>${bookList.writer}</td>
+                           <td>${bookList.publisher}</td>
+                           <td>${bookList.memNum}</td>
+                        </tr>
+     				</c:forEach>
 </table> 
 </div>
 		    <button type = "submit" class="btn btn-danger" style = "float : right">삭제</button> 
-			<button type="button" class="btn btn-primary" style = "float : right">신규등록</button>	
+			<a class="btn btn-primary" href="admin?command=bookRegFormAction">책 등록</a>	
 </div>
 </form>
 			</div>

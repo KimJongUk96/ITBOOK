@@ -16,7 +16,7 @@ public class ReportUpdateFormAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String url = "/report/reporUpdateForm.jsp";
+		String url = "report/reportUpdateForm.jsp";
 
 		String reportNum = request.getParameter("reportNum");
 		
@@ -29,7 +29,7 @@ public class ReportUpdateFormAction implements Action {
 		rVo.setReportNum(reportNum);
 		rDao.updateReport(rVo);
 
-		request.setAttribute("Report", rVo);
+		request.setAttribute("reportList", rVo);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
