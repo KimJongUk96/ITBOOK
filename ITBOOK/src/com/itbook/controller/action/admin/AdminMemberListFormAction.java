@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
 import com.itbook.dao.MemberDAO;
+import com.itbook.vo.BookVO;
 import com.itbook.vo.MemberVO;
+import com.itbook.vo.Paging;
 
 public class AdminMemberListFormAction implements Action{
 
@@ -20,8 +22,14 @@ public class AdminMemberListFormAction implements Action{
 		String url = "admin/memberList.jsp";
 		
 		MemberDAO mDao = MemberDAO.getInstance();
-		ArrayList<MemberVO> list = mDao.memberList();
-		
+		Paging paging = new Paging(10,1);
+	    int pageNum = request.getParameter("pageNum") == null ? 1 : Integer.parseInt(request.getParameter("pageNum"));
+	    
+	    paging.setPageNum(pageNum);
+	    mDao.memberRowCount(paging);
+	    ArrayList<MemberVO> list = mDao.memberListP(paging);
+	      
+		request.setAttribute("paging", paging);
 		request.setAttribute("memberList", list);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);

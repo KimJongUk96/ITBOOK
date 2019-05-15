@@ -48,7 +48,7 @@
 								<button type="button" class="btn btn-grad border-radius-left-0 mb-0">Search</button>
 							</div>
 						</form>
-						<p class="small mt-2 mb-0"><strong>e.g.</strong>Template, Wizixo, WordPress theme </p>
+						<p class="small mt-2 mb-0"><strong>e.g.</strong>희망의 책 대전본부 홈페이지 </p>
 					</div>
 					<a class="position-absolute top-0 right-0 mt-3 mr-3" data-toggle="collapse" href="#search-open"><i class="fa fa-window-close"></i></a>
 				</div>
@@ -76,10 +76,10 @@
 						<!-- Top info -->
 						<ul class="nav list-unstyled ml-3">
 							<li class="nav-item mr-3">
-								<a class="navbar-link" href="#"><strong>Phone:</strong> (251) 854-6308</a>
+								<a class="navbar-link" href="#"><strong>전화:</strong> (042) 252-9540</a>
 							</li>
 							<li class="nav-item mr-3">
-								<a class="navbar-link" href="#"><strong>Email:</strong> help@wizixo.com</a>
+								<a class="navbar-link" href="#"><strong>이메일:</strong> help@wizixo.com</a>
 							</li>
 						</ul>
 					</div>
@@ -101,13 +101,13 @@
 					<div class="d-flex align-items-center" id = "navbar">
 					<c:if test = "${LoginUser.authority eq 1 or LoginUser.authority eq 2 or LoginUser.authority eq 3}">
 					<span class = "loginfo"> 
-					<span class= "dept_of_top"></span> <b>${LoginUser.memName}</b>님 반갑습니다.
+					<span class= "dept_of_top"></span> <b>${LoginUser.memName}</b>님 반갑습니다. 
 					</span>
 					</c:if>
 						<!-- Top Account -->					
 						<div class="dropdown">
 					<c:if test = "${LoginUser.authority eq 1 or LoginUser.authority eq 2}">
-						  <a class="dropdown-toggle" href="#" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-user mr-2"></i>Account </a>
+						  <a class="dropdown-toggle" href="#" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-user mr-2"></i>로그인 </a>
 						  <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownAccount">
 						    <a class="dropdown-item" href="member/myPage.jsp">내 정보</a>
 						   <a class="dropdown-item" onclick="logout();">로그아웃</a>
@@ -117,27 +117,25 @@
 						<c:if test = "${LoginUser.authority eq 3}">
 						  <a class="dropdown-toggle" href="#" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-user mr-2"></i>Account </a>
 						  <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownAccount">
-						    <a class="dropdown-item" href="admin?command=memberListForm">관리자 화면</a>
 						    <a class="dropdown-item" href="member/myPage.jsp">내 정보</a>
 						   <a class="dropdown-item" onclick="logout();">로그아웃</a>
 						  </div>
 						</c:if>
-						</div>
+						</div> 
 						
 						<div class="dropdown">
 					<c:if test = "${LoginUser.authority ne 1 and LoginUser.authority ne 2 and LoginUser.authority ne 3}">						
-						  <a class="dropdown-toggle" href="#" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-user mr-2"></i>Account </a>
-						  <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownAccount">
-						    <a class="dropdown-item" href="login.jsp">로그인</a>
-						    <a class="dropdown-item" href="signup.jsp">회원가입</a>
-						  </div>
+						  <!-- <a class="dropdown-toggle" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href = "login.jsp"><i class="ti-user mr-2"></i>로그인 </a> -->
+						  <a class="nav-link" href="login.jsp">로그인</a>
 						</c:if>
 						</div>
 						
 						<!-- top link -->
 						<ul class="nav">
               <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact</a>
+              <c:if test = "${LoginUser.authority eq 3}">
+                  <a class="nav-link" href="admin?command=memberListForm">관리자 화면</a>
+                  </c:if>
               </li>
             </ul>
 						<!-- top social -->
@@ -162,7 +160,7 @@
 		<nav class="navbar navbar-expand-lg">
 			<div class="container">
 				<!-- Logo -->
-				<a class="navbar-brand" href="index.jsp">
+				<a class="navbar-brand" href="main?command=loginForm">
 					<!-- SVG Logo Start -->
 					<svg class="navbar-brand-item" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMid" width="325.656" height="100" viewBox="0 0 325.656 100">
 					  <defs>

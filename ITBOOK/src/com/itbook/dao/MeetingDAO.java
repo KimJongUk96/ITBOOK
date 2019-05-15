@@ -23,7 +23,7 @@ public class MeetingDAO {
 		return instance;
 	} 
 	
-	// �룆�꽌紐⑥엫 議고쉶
+	// �룆�꽌紐⑥엫議고쉶 
 	/*private int metNum;
 	private String metName;
 	private String metIntro;

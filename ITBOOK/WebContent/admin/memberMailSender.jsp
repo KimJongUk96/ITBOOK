@@ -25,7 +25,7 @@
 				<form name = "frm" method = "post" action = "email?command=senderEmail&email=${MemberVO.email}">
 				<div class="box-body">
 
-<div>
+<div> 
 
  <table class="table table-bordered" id="user-table">
 	<thead>
@@ -56,7 +56,6 @@
 </table> 
 </div>
 		    <button type = "submit" class="btn btn-danger" style = "float : right">메일전송</button> 
-			<button type="button" class="btn btn-primary" style = "float : right">신규등록</button>	
 </div>
 			</form>
 			</div>

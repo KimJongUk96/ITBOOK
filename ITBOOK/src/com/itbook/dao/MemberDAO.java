@@ -6,9 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import javax.print.attribute.standard.PresentationDirection;
 
 import com.itbook.vo.MemberVO;
+import com.itbook.vo.Paging;
 
 public class MemberDAO {
 	
@@ -274,6 +274,83 @@ public class MemberDAO {
 		   return list ;
 
 	   }
+	 
+
+	 // 총게시글 수 보기
+		public Paging memberRowCount(Paging paging) {
+			int cnt = 0;
+			String sql = "SELECT COUNT(*) CNT"
+		            + "     FROM itbook.member";
+		      
+		         Connection conn = null;
+		         PreparedStatement stmt = null;
+		         ResultSet rs = null;
+		         
+		         try
+		         {
+		            conn = DBManager.getConnection();
+		            stmt = conn.prepareStatement(sql);
+		            
+		            rs = stmt.executeQuery();
+		            
+		            while (rs.next())
+		            {
+		               cnt = rs.getInt("CNT");
+		               paging.setNumOfRow(cnt);;
+		            }
+		            
+		         }
+		         catch (Exception e)
+		         {
+		            e.printStackTrace();
+		         }finally {
+		 			DBManager.close(conn, stmt);
+		 		}
+		         return paging;
+		   }
+	 
+	 
+	 public ArrayList<MemberVO> memberListP(Paging paging){
+		 String sql = "SELECT * FROM ITBOOK.MEMBER order by memNum desc limit ?, 10";
+		 
+		 Connection conn = null;
+		 PreparedStatement pstmt = null;
+		 ResultSet rs = null;
+		 
+		 ArrayList<MemberVO> list = new ArrayList<MemberVO>();
+		 
+		 try {
+			 conn = DBManager.getConnection();
+			 pstmt = conn.prepareStatement(sql);
+			 pstmt.setInt(1, ((paging.getPageNum() - 1) * paging.getPerPage()));
+			 rs = pstmt.executeQuery();
+			 
+			 while(rs.next()) {
+				 MemberVO mVO = new MemberVO();
+				 
+				   mVO.setMemNum(rs.getString("memNum"));
+				   mVO.setMemId(rs.getString("memId"));
+				   mVO.setMemName(rs.getString("memName"));
+				   mVO.setMemPw(rs.getString("memPw"));
+				   mVO.setJumin(rs.getString("jumin"));
+				   mVO.setAdr(rs.getString("adr"));
+				   mVO.setAuthority(rs.getString("authority"));
+				   mVO.setEmail(rs.getString("email"));
+				   mVO.setPhone(rs.getString("phone"));
+				   mVO.setSignDate(rs.getTimestamp("signDate"));
+
+	 			   list.add(mVO);
+			 }
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+		DBManager.close(conn, pstmt, rs);
+
+		}
+		 return list;
+		 
+	 }
 	
 
 }
