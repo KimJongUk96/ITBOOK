@@ -105,8 +105,8 @@
 			            <input type="text" size="20" name="condition"/>&nbsp;
 			            <input type="submit" value="검색"/>
         </form>    
-    </div>
-
+    </div>ㄴㅇㄹㄴㅇㄹㅇㄹ
+   
 			</div>
 		</div>
 			</section>
