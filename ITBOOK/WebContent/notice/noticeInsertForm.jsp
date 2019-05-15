@@ -78,7 +78,7 @@
             </tr> -->
             <tr>
                 <th>내용: </th>
-                <td><textarea cols="10" placeholder="내용을 입력하세요. " name="noticeContent" class="form-control"></textarea></td>
+                <td><textarea placeholder="내용을 입력하세요. " name="noticeContent" class="form-control"></textarea></td>
             </tr>
             <tr>
                 <th>첨부파일: </th>

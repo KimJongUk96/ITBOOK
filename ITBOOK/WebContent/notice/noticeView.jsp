@@ -55,7 +55,7 @@
 								</tr>
 								<tr>
 									<th scope="col">작성자</th>
-									<td>아무개</td>
+									<td>관리자</td>
 									<th>작성일</th>
 									<td>${notice.noticeDate }</td>
 									<th>조회수</th>
@@ -67,8 +67,7 @@
 								</tr>
 								<tr>
 									<th scope="col">내용</th>
-									<td colspan="5"><textarea name="noticeContent"
-													rows="28" cols="93" style="margin: 0px; width: 1051px; height: 246px;" >
+									<td><textarea name="noticeContent" class="form-control" rows="5">
 													${notice.noticeContent}</textarea></td>
 								</tr>
 								
