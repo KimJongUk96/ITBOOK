@@ -139,7 +139,7 @@ public class NoticeDAO {
 				{
 					NoticeVO nVo = new NoticeVO();
 					
-					nVo.setNoticeNum(rs.getInt("noticeNum"));
+					nVo.setNoticeNum(rs.getString("noticeNum"));
 					nVo.setNoticeTitle(rs.getString("noticeTitle"));
 					nVo.setNoticeContent(rs.getString("noticeContent"));
 					nVo.setNoticeDate(rs.getDate("noticeDate"));
@@ -350,7 +350,7 @@ public class NoticeDAO {
 			
 			if(rs.next()) {
 				nVo=new NoticeVO();
-				nVo.setNoticeNum(rs.getInt("noticeNum"));
+				nVo.setNoticeNum(rs.getString("noticeNum"));
 				nVo.setNoticeTitle(rs.getString("noticeTitle"));
 				nVo.setNoticeDate(rs.getDate("noticeDate"));
 				nVo.setNoticeContent(rs.getString("noticeContent"));
@@ -380,7 +380,7 @@ public class NoticeDAO {
 			
 			pstmt.setString(1, nVo.getNoticeTitle());
 			pstmt.setString(2, nVo.getNoticeContent());
-			pstmt.setInt(3, nVo.getNoticeNum());
+			pstmt.setString(3, nVo.getNoticeNum());
 			
 			pstmt.executeUpdate();
 			

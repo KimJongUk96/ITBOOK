@@ -20,7 +20,7 @@ public class NoticeUpdateAction implements Action{
 		
 		
 		
-		nVo.setNoticeNum(Integer.parseInt(request.getParameter("noticeNum")));
+		nVo.setNoticeNum(request.getParameter("noticeNum"));
 		
 		
 		nVo.setNoticeTitle(request.getParameter("noticeTitle"));
