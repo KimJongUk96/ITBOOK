@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.itbook.vo.Paging1;
+import com.itbook.vo.Paging;
 import com.itbook.vo.Report.ReportBoardVO;
 import util.DBManager;
 
@@ -41,13 +41,13 @@ public class ReportDAO {
 			while (rs.next()) {
 				ReportBoardVO rVo = new ReportBoardVO();
 
-				rVo.setReportNum(rs.getInt("reportNum"));
+				rVo.setReportNum(rs.getString("reportNum"));
 				rVo.setReportTitle(rs.getString("reportTitle"));
 				rVo.setReportContent(rs.getString("reportContent"));
 				rVo.setReportDate(rs.getDate("reportDate"));
 				rVo.setReportCount(rs.getInt("reportCount"));
-				rVo.setBookNum(rs.getInt("bookNum"));
-				rVo.setMemNum(rs.getInt("memNum"));
+				rVo.setBookNum(rs.getString("bookNum"));
+				rVo.setMemNum(rs.getString("memNum"));
 
 				list.add(rVo);
 			}
@@ -72,8 +72,8 @@ public class ReportDAO {
 
 			pstmt.setString(1, rpVo.getReportTitle());
 			pstmt.setString(2, rpVo.getReportContent());
-			pstmt.setInt(3, rpVo.getBookNum());
-			pstmt.setInt(4, rpVo.getMemNum());
+			pstmt.setString(3, rpVo.getBookNum());
+			pstmt.setString(4, rpVo.getMemNum());
 
 			pstmt.executeUpdate();
 
@@ -103,13 +103,13 @@ public class ReportDAO {
 			if (rs.next()) {
 //				rVo = new ReportBoardVO();
 
-				rVo.setReportNum(rs.getInt("reportNum"));
+				rVo.setReportNum(rs.getString("reportNum"));
 				rVo.setReportTitle(rs.getString("reportTitle"));
 				rVo.setReportContent(rs.getString("reportContent"));
 				rVo.setReportDate(rs.getDate("reportDate"));
 				rVo.setReportCount(rs.getInt("reportCount"));
-				rVo.setBookNum(rs.getInt("bookNum"));
-				rVo.setMemNum(rs.getInt("memNum"));
+				rVo.setBookNum(rs.getString("bookNum"));
+				rVo.setMemNum(rs.getString("memNum"));
 
 			}
 
@@ -154,8 +154,8 @@ public class ReportDAO {
 
 			pstmt.setString(1, rVo.getReportTitle());
 			pstmt.setString(2, rVo.getReportContent());
-			pstmt.setInt(3, rVo.getBookNum());
-			pstmt.setInt(4, rVo.getMemNum());
+			pstmt.setString(3, rVo.getBookNum());
+			pstmt.setString(4, rVo.getMemNum());
 
 			pstmt.executeUpdate();
 
@@ -187,7 +187,7 @@ public class ReportDAO {
 	}
 
 	// 독후감 리스트 총 게시글 수 보기
-	public Paging1 selectReportRowCount(Paging1 paging) {
+	public Paging selectReportRowCount(Paging paging) {
 		int cnt = 0;
 		String sql = "SELECT COUNT(*) CNT" + "     FROM itbook.report_board";
 
@@ -216,7 +216,7 @@ public class ReportDAO {
 	}
 
 	// 독후감 리스트 페이징 처리
-	public ArrayList<ReportBoardVO> selectBookPage(Paging1 paging) {
+	public ArrayList<ReportBoardVO> selectBookPage(Paging paging) {
 
 		String sql = "select reportNum,reportTitle,reportContent,reportCount from itbook.report_board order by ReportNum desc limit ?, 10";
 
@@ -235,7 +235,7 @@ public class ReportDAO {
 			while (rs.next()) {
 				ReportBoardVO rVo = new ReportBoardVO();
 
-				rVo.setReportNum(rs.getInt("reportNum"));
+				rVo.setReportNum(rs.getString("reportNum"));
 				rVo.setReportTitle(rs.getString("reportTitle"));
 				rVo.setReportContent(rs.getString("reportContent"));
 				rVo.setReportCount(rs.getInt("reportCount"));

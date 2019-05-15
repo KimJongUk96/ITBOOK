@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
 import com.itbook.dao.ReportDAO;
-import com.itbook.vo.Paging1;
+import com.itbook.vo.Paging;
 import com.itbook.vo.Report.ReportBoardVO;
 
 public class ReportListFormAction implements Action{
