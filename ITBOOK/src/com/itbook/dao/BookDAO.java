@@ -46,8 +46,8 @@ public class BookDAO {
 				while (rs.next()) {
 					BookBoardVO bVo = new BookBoardVO();
 					
-					bVo.setBookNum(rs.getInt("bookNum"));
-					bVo.setBookBrdNum(rs.getInt("bookBrdNum"));
+					bVo.setBookNum(rs.getString("bookNum"));
+					bVo.setBookBrdNum(rs.getString("bookBrdNum"));
 					bVo.setBookTitle(rs.getString("bookTitle"));
 					bVo.setBookBrdTitle(rs.getString("bookBrdTitle"));
 					bVo.setBookBrdContent(rs.getString("bookBrdContent"));
@@ -84,8 +84,8 @@ public class BookDAO {
 			while (rs.next()) {
 				BookBoardVO bVo = new BookBoardVO();
 				
-				bVo.setBookNum(rs.getInt("bookNum"));
-				bVo.setBookBrdNum(rs.getInt("bookBrdNum"));
+				bVo.setBookNum(rs.getString("bookNum"));
+				bVo.setBookBrdNum(rs.getString("bookBrdNum"));
 				bVo.setBookTitle(rs.getString("bookTitle"));
 				bVo.setBookBrdTitle(rs.getString("bookBrdTitle"));
 				bVo.setWriter(rs.getString("writer"));
@@ -114,8 +114,8 @@ public class BookDAO {
 			pstmt.setString(1, bVo.getBookBrdTitle());
 			pstmt.setString(2, bVo.getBookBrdContent());
 			pstmt.setString(3, bVo.getImgPath());
-			pstmt.setInt(4, bVo.getMemNum());
-			pstmt.setInt(5, bVo.getBookNum());
+			pstmt.setString(4, bVo.getMemNum());
+			pstmt.setString(5, bVo.getBookNum());
 			
 			pstmt.executeUpdate();
 
@@ -140,8 +140,8 @@ public class BookDAO {
 			pstmt.setString(2, bVo.getWriter());
 			pstmt.setString(3, bVo.getPublisher());
 			
-			pstmt.setInt(4, bVo.getMemNum());
-			pstmt.setInt(5, bVo.getBookNum());
+			pstmt.setString(4, bVo.getMemNum());
+			pstmt.setString(5, bVo.getBookNum());
 			
 			pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -193,7 +193,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 				//梨� 由ъ뒪�듃
 				BookVO bVo = new BookVO();
 				
-				bVo.setBookNum(rs.getInt("bookNum"));
+				bVo.setBookNum(rs.getString("bookNum"));
 				bVo.setBookTitle(rs.getString("bookTitle"));
 				bVo.setBookKeyword1(rs.getString("bookKeyword1"));
 				bVo.setBookKeyword2(rs.getString("bookKeyword2"));
@@ -267,7 +267,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 			pstmt.setString(6, bVo.getPublisher());
 			
 
-			pstmt.setInt(7, bVo.getMemNum());
+			pstmt.setString(7, bVo.getMemNum());
 
 			pstmt.executeUpdate();
 
@@ -300,7 +300,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 			if (rs.next()) {
 				bVo = new BookVO();
 
-				bVo.setBookNum(rs.getInt("bookNum"));
+				bVo.setBookNum(rs.getString("bookNum"));
 				bVo.setBookTitle(rs.getString("bookTitle"));
 				bVo.setBookKeyword1(rs.getString("bookKeyword1"));
 				bVo.setBookKeyword2(rs.getString("bookKeyword2"));
@@ -335,8 +335,8 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 			pstmt.setString(5, bVo.getWriter());
 			pstmt.setString(6, bVo.getPublisher());
 			
-			pstmt.setInt(7, bVo.getMemNum());
-			pstmt.setInt(8, bVo.getBookNum());
+			pstmt.setString(7, bVo.getMemNum());
+			pstmt.setString(8, bVo.getBookNum());
 			
 			pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -434,7 +434,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
             while (rs.next()) {
               BookVO bVo = new BookVO();
                
-               	bVo.setBookNum(rs.getInt("bookNum"));
+               	bVo.setBookNum(rs.getString("bookNum"));
                	bVo.setBookTitle(rs.getString("bookTitle"));
 				bVo.setBookKeyword1(rs.getString("bookKeyword1"));
 				bVo.setBookKeyword2(rs.getString("bookKeyword2"));

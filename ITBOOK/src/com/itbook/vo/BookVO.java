@@ -1,12 +1,12 @@
 package com.itbook.vo;
-/**ì±…ë“±ë¡ í…Œì´ë¸”
- * ì±…ë²ˆí˜¸
- * ì±…ì œëª©
- * ì €ì
- * ì¶œíŒì‚¬
- * ì¶œíŒì¼
- * íšŒì›ë²ˆí˜¸
- * @author ì¢…ìš±
+/**Ã¥µî·Ï Å×ÀÌºí
+ * Ã¥¹øÈ£
+ * Ã¥Á¦¸ñ
+ * ÀúÀÚ
+ * ÃâÆÇ»ç
+ * ÃâÆÇÀÏ
+ * È¸¿ø¹øÈ£
+ * @author Á¾¿í
  *
  */
 
@@ -20,7 +20,28 @@ public class BookVO {
 	private String publisher;
 	private Date publishDate;
 	private String memNum;
+	private String bookKeyword1;
+	private String bookKeyword2;
+	private String bookKeyword3;
 	
+	public String getBookKeyword1() {
+		return bookKeyword1;
+	}
+	public void setBookKeyword1(String bookKeyword1) {
+		this.bookKeyword1 = bookKeyword1;
+	}
+	public String getBookKeyword2() {
+		return bookKeyword2;
+	}
+	public void setBookKeyword2(String bookKeyword2) {
+		this.bookKeyword2 = bookKeyword2;
+	}
+	public String getBookKeyword3() {
+		return bookKeyword3;
+	}
+	public void setBookKeyword3(String bookKeyword3) {
+		this.bookKeyword3 = bookKeyword3;
+	}
 	public String getBookNum() {
 		return bookNum;
 	}
@@ -57,12 +78,14 @@ public class BookVO {
 	public void setMemNum(String memNum) {
 		this.memNum = memNum;
 	}
-	
 	@Override
 	public String toString() {
-		return "Book [bookNum=" + bookNum + ", bookTitle=" + bookTitle + ", writer=" + writer + ", publisher="
-				+ publisher + ", publishDate=" + publishDate + ", memNum=" + memNum + "]";
+		return "BookVO [bookNum=" + bookNum + ", bookTitle=" + bookTitle + ", writer=" + writer + ", publisher="
+				+ publisher + ", publishDate=" + publishDate + ", memNum=" + memNum + ", bookKeyword1=" + bookKeyword1
+				+ ", bookKeyword2=" + bookKeyword2 + ", bookKeyword3=" + bookKeyword3 + "]";
 	}
+	
+	
 	
 	
 }
