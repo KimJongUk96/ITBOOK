@@ -21,12 +21,8 @@ public class AdminTodayBookRegisterAction implements Action {
 		
 		bVo.setBookBrdTitle(request.getParameter("bookTitle"));
 		bVo.setBookBrdContent(request.getParameter("bookContent"));
-		
-		int bookNum = Integer.parseInt(request.getParameter("bookNum"));
-		bVo.setBookNum(bookNum);
-		
-		int memNum = Integer.parseInt(request.getParameter("memNum"));
-		bVo.setMemNum(memNum);
+		bVo.setBookNum(request.getParameter("bookNum"));
+		bVo.setMemNum(request.getParameter("memNum"));
 		
 		BookDAO bDao = BookDAO.getInstance();
 		

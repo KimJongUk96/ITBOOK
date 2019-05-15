@@ -14,13 +14,13 @@ import com.itbook.vo.Book.BookBoardVO;
 
 import util.DBManager;
 
-//梨� 寃뚯떆�뙋
+//책 게시판
 public class BookDAO {
 	private BookDAO() {
 
 	}
 
-	// �떛湲��넠 �뙣�꽩
+	// 싱글톤 패턴
 	private static BookDAO instance = new BookDAO();
 
 	public static BookDAO getInstance() {
@@ -30,7 +30,7 @@ public class BookDAO {
 	
 	
 	
-	// �씠�떖�쓽 梨� 由ъ뒪�듃. (�씪諛섑쉶�썝)
+	// 이달의 책 리스트. (일반회원)
 		public List<BookBoardVO> selectTodayBookList() {
 			String sql = "select b.bookNum,bb.bookBrdNum,b.bookTitle,bb.bookBrdTitle,bb.bookBrdContent,b.writer,b.publisher,bb.imgPath,bb.bookBrdDate "
 						+ "from itbook.book_board bb,itbook.book b where bb.bookNum = b.bookNum order by bb.bookBrdNum desc";
@@ -57,18 +57,18 @@ public class BookDAO {
 					bVo.setImgPath(rs.getString("imgPath"));
 					bVo.setBookBrdDate(rs.getDate("bookBrdDate"));
 					list.add(bVo);
-				} 
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
-				DBManager.close(conn, stmt, rs); // �삁�쟾�뿉�뒗 �떎 �띁吏�留� �씠�젣 �뵒鍮꾨ℓ�꼫吏�瑜� �넻�빐�꽌 �븳以꾨줈 ��.
+				DBManager.close(conn, stmt, rs); // 예전에는 다 썼지만 이제 디비매너지를 통해서 한줄로 씀.
 			}
 			return list;
 		}
 		
 		
 		
-	// �씠�떖�쓽 梨� 由ъ뒪�듃 愿�由ъ옄
+	// 이달의 책 리스트 관리자
 	public List<BookBoardVO> selectAdminTodayBookList() {
 		String sql = "select b.bookNum,b.bookTitle,bb.bookBrdNum,bb.bookBrdTitle,b.writer,b.publisher,bb.memNum "
 				 	+"from itbook.book_board bb,itbook.book b where bb.bookNum = b.bookNum order by bb.bookBrdNum desc";
@@ -95,13 +95,13 @@ public class BookDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManager.close(conn, stmt, rs); // �삁�쟾�뿉�뒗 �떎 �띁吏�留� �씠�젣 �뵒鍮꾨ℓ�꼫吏�瑜� �넻�빐�꽌 �븳以꾨줈 ��.
+			DBManager.close(conn, stmt, rs); // 예전에는 다 썼지만 이제 디비매너지를 통해서 한줄로 씀.
 		}
 		return list;
 	}
-	//�씠�떖�쓽 梨� �벑濡�(愿�由ъ옄)
+	//이달의 책 등록(관리자)
 	public void insertAdminTodayBookRegister(BookBoardVO bVo) {
-		//sql�� �떎�뻾o
+		//sql은 실행o
 		String sql = "insert into itbook.book_board(bookBrdTitle,bookBrdContent,imgPath,memNum,bookNum) values (?,?,?,?,?);";
 		
 		Connection conn = null;
@@ -153,7 +153,7 @@ public class BookDAO {
 	}
 	
 	
-	//�씠�떖�쓽 梨낆뿉�꽌 寃��깋�븷 �븣 �븘�슂�븳 遺�遺�
+	//이달의 책에서 검색할 때 필요한 부분
 public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 		
 		ArrayList<BookVO> bookList = new ArrayList<BookVO>();
@@ -162,21 +162,21 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String opt = (String)listOpt.get("opt"); // 寃��깋�샃�뀡(�젣紐�, �궡�슜, 湲��벖�씠 �벑...)
-		String condition = (String)listOpt.get("condition"); //寃��깋�궡�슜
+		String opt = (String)listOpt.get("opt"); // 검색옵션(제목, 내용, 글쓴이 등...)
+		String condition = (String)listOpt.get("condition"); //검색내용
 		
 		
 		try {
 			conn = DBManager.getConnection();
 			StringBuffer sql = new StringBuffer();
 			
-			 if(opt.equals("0")) // �젣紐⑹쑝濡� 寃��깋
+			 if(opt.equals("0")) // 제목으로 검색
 	            {
 	                sql.append("select * from itbook.book where bookTitle like ? ");
 	                pstmt = conn.prepareStatement(sql.toString());
 	                pstmt.setString(1, condition+"%");
 	                sql.delete(0, sql.toString().length());
-	            }else if(opt.equals("1")){ //�궎�썙�뱶濡� 寃��깋
+	            }else if(opt.equals("1")){ //키워드로 검색
 	                sql.append("select * from itbook.book where bookKeyword1 Like ? or bookKeyword2 Like ? or bookKeyword3 Like ? ");
 	                System.out.println("=============" + opt);
 	                pstmt = conn.prepareStatement(sql.toString());
@@ -190,7 +190,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 			
 			while(rs.next())
 			{
-				//梨� 由ъ뒪�듃
+				//책 리스트
 				BookVO bVo = new BookVO();
 				
 				bVo.setBookNum(rs.getString("bookNum"));
@@ -212,7 +212,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 			return bookList;
 	    }
 	
-	// 梨� 由ъ뒪�듃 蹂댁뿬二쇨린
+	// 책 리스트 보여주기
 //	public List<BookVO> selectBookList() {
 //		String sql = "select bookNum,bookTitle,bookKeyword1,bookKeyword2,bookKeyword3,writer,publisher from itbook.book order by bookNum";
 //		List<BookVO> list = new ArrayList<BookVO>();
@@ -240,14 +240,14 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //		} finally {
-//			DBManager.close(conn, stmt, rs); // �삁�쟾�뿉�뒗 �떎 �띁吏�留� �씠�젣 �뵒鍮꾨ℓ�꼫吏�瑜� �넻�빐�꽌 �븳以꾨줈 ��.
+//			DBManager.close(conn, stmt, rs); // 예전에는 다 썼지만 이제 디비매너지를 통해서 한줄로 씀.
 //		}
 //		return list;
 //	}
 
 	
 	
-	// 梨� �벑濡�
+	// 책 등록
 	public void insertBookRegister(BookVO bVo) {
 
 		String sql = "insert into itbook.book(bookTitle,bookKeyword1,bookKeyword2,bookKeyword3,writer,publisher,memNum) values (?,?,?,?,?,?,?);";
@@ -278,7 +278,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 		}
 	}
 
-	// 紐⑤뱺 �궗�슜�옄媛� 梨낅━�뒪�듃�솕硫댁뿉�꽌 梨낅쾲�샇瑜� �겢由��븯硫� �닔�젙 �럹�씠吏�濡� �씠�룞.
+	// 모든 사용자가 책리스트화면에서 책번호를 클릭하면 수정 페이지로 이동.
 	public BookVO selectOneBookNum(String bookNum) {
 
 		String sql = "select bookNum,bookTitle,bookKeyword1,bookKeyword2,bookKeyword3,writer,publisher from itbook.book where bookNum = ?";
@@ -317,7 +317,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 		return bVo;
 	}
 
-	// 梨� �닔�젙.
+	// 책 수정.
 	public void updateBook(BookVO bVo) {
 		String sql = "update itbook.book set bookTitle=?,bookKeyword1=?,bookKeyword2=?,bookKeyword3=?,writer=?,publisher=?,memNum=? where bookNum=?";
 
@@ -371,7 +371,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 
 
 
-	//梨� 由ъ뒪�듃 珥� 寃뚯떆湲� �닔 蹂닿린
+	//책 리스트 총 게시글 수 보기
 	public Paging selectBookRowCount(Paging paging) {
 		int cnt = 0;
 		String sql = "SELECT COUNT(*) CNT"
@@ -407,7 +407,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 	
 	
 	
-	//梨� 由ъ뒪�듃 �럹�씠吏� 泥섎━
+	//책 리스트 페이징 처리
 	public ArrayList<BookVO> selectBookPage(Paging paging) {
         
         String sql = "select bookNum,bookTitle,bookKeyword1,bookKeyword2,bookKeyword3,writer,publisher from itbook.book order by bookNum desc limit ?, 10";
@@ -424,7 +424,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
             //
             pstmt.setInt(1, ((paging.getPageNum() - 1) * paging.getPerPage()));
             
-            //+1濡� �릺�뼱�엳�쑝硫� �벑濡앺븷�븣 諛붾줈 �븞蹂댁엫.
+            //+1로 되어있으면 등록할때 바로 안보임.
 //            pstmt.setInt(1, ((paging.getPageNum() - 1) * paging.getPerPage()) + 1);
 //            pstmt.setInt(1, ((paging.getLastPage())));
             
@@ -451,38 +451,4 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
  		}
          return list;
       }	
-	
-
-//adminBookList
-public ArrayList<BookVO> bookList() {
-	String sql = "SELECT * FROM ITBOOK.BOOK";
-	
-	ArrayList<BookVO> list = new ArrayList<BookVO>();
-	Connection conn = null;
-	PreparedStatement pstmt = null;
-	ResultSet rs = null;
-	
-	try {
-		conn = DBManager.getConnection();
-		pstmt = conn.prepareStatement(sql);
-		rs = pstmt.executeQuery();
-	while(rs.next()) {
-		BookVO bVO = new BookVO();
-		
-		bVO.setBookNum(rs.getString("bookNum"));
-		bVO.setBookTitle(rs.getString("bookTitle"));
-		bVO.setWriter(rs.getString("writer"));
-		bVO.setPublisher(rs.getString("publisher"));
-		bVO.setPublishDate(rs.getDate("publisherDate"));
-		bVO.setMemNum(rs.getString("memNum"));
-		list.add(bVO);
 	}
-		
-	} catch (Exception e) {
-		e.printStackTrace();
-	} finally {
-		DBManager.close(conn, pstmt);
-	}
-	return list;
-}
-}

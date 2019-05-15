@@ -1,4 +1,5 @@
-package meeting;
+package com.itbook.controller.action.meeting;
+
 
 import java.io.IOException;
 import java.util.List;

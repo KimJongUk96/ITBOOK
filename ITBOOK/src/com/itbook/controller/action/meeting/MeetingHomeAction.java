@@ -1,4 +1,7 @@
-package meeting;
+package com.itbook.controller.action.meeting;
+
+
+import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
