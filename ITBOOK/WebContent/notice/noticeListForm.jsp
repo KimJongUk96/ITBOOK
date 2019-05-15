@@ -1,41 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>희망의 책 공지사항</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="author" content="Webestica.com">
-	<meta name="description" content="Creative Multipurpose Bootstrap Template">
+<title>희망의 책 공지사항</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Webestica.com">
+<meta name="description"
+	content="Creative Multipurpose Bootstrap Template">
 
-	<!-- Favicon -->
-	<link rel="shortcut icon" href="../assets/images/favicon.ico">
+<!-- Favicon -->
+<link rel="shortcut icon" href="../assets/images/favicon.ico">
 
-	<!-- Google Font -->
-	<link
+<!-- Google Font -->
+<link
 	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700"
 	rel="stylesheet">
 
-	<!-- Plugins CSS -->
-	<link rel="stylesheet" type="text/css"
+<!-- Plugins CSS -->
+<link rel="stylesheet" type="text/css"
 	href="../assets/vendor/font-awesome/css/font-awesome.min.css" />
-	<link rel="stylesheet" type="text/css"
+<link rel="stylesheet" type="text/css"
 	href="../assets/vendor/themify-icons/css/themify-icons.css" />
-	<link rel="stylesheet" type="text/css"
+<link rel="stylesheet" type="text/css"
 	href="../assets/vendor/animate/animate.min.css" />
 
-	<!-- Theme CSS -->
-	<link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-	</head>
-		<body>
-			<header>
-				<%@ include file="../include/header.jsp"%>
-			</header>
+<!-- Theme CSS -->
+<link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+</head>
+<body>
+	<header>
+		<%@ include file="../include/header.jsp"%>
+	</header>
 	<!-- =======================
 	Banner innerpage -->
 	<div class="innerpage-banner center bg-overlay-dark-7 py-7"
@@ -62,87 +63,86 @@
 	<section>
 		<div class="container">
 			<div class="row">
+
 				<div class="col-sm-12 mb-5">
 					<h5 class="text-center mb-4">Table default with row hover</h5>
+					
+					<!-- 검색 폼 스타트 -->
+					<div id="searchForm">
+						<form name="frm" action="/notice?command=noticeListFormAction"
+							method="post" onsubmit="return validateGalBoard()">
+							<select name="opt">
+								<option value="0">제목</option>
+							</select> <input type="text" size="20" name="condition" />&nbsp; <input
+								type="submit" value="검색" />
+						</form>
+					</div>
+					<!-- 검색 폼 마지막 -->
+					
 					<div class="table-responsive-sm">
 						<table class="table table-hover">
 							<thead>
 								<tr>
 									<th scope="col">번호</th>
 									<th scope="col">제목</th>
-									<!-- <th scope="col">작성자</th> -->
+									<th scope="col">작성자</th>
 									<th scope="col">작성일</th>
 									<th scope="col">조회수</th>
 								</tr>
 							</thead>
-							
+
 							<tbody>
-							<c:forEach var="notice" items="${noticeList}">
-								<tr>
-									<th scope="row">${notice.noticeNum}</th>
-									<td><a href="/notice?command=noticeViewAction&noticeNum=${notice.noticeNum}">${notice.noticeTitle }</a></td>
-									<%-- <td>${notice.noticeName }</td> --%>
-									<td><fmt:formatDate value="${notice.noticeDate }"/></td>
-									<td>${notice.noticeCount }</td>
-								</tr>
+								<c:forEach var="notice" items="${noticeList}">
+									<tr>
+										<th scope="row">${notice.noticeNum}</th>
+										<td><a
+											href="/notice?command=noticeViewAction&noticeNum=${notice.noticeNum}">${notice.noticeTitle }</a></td>
+										<td>관리자</td>
+										<td><fmt:formatDate value="${notice.noticeDate }" /></td>
+										<td>${notice.noticeCount }</td>
+									</tr>
 								</c:forEach>
 							</tbody>
-							
+
 						</table>
 						<div align="right">
 							<a class="btn btn-primary" href="/notice?command=noticeInsertFormAction">글쓰기</a>
 						</div>
 					</div>
 				</div>
-	
- 		
- 		<!-- 검색 폼 스타트 -->
-				<div id="searchForm">
-       				<form name="frm" action="/notice?command=noticeListFormAction" method="post" onsubmit="return validateGalBoard()">
-           			 	<select name="opt">
-                		<option value="0">제목</option>
-            			</select>
-			            <input type="text" size="20" name="condition"/>&nbsp;
-			            <input type="submit" value="검색"/>
-        </form>    
-    </div>
-
 			</div>
 		</div>
-			</section>
-	
-				<!-- 페이징 처리 -->  
-<section class="pt-0">
+	</section>
+
+
+	<!-- 페이징 처리 스타트-->
+	<section class="pt-0">
 		<div class="container">
 			<div class="row justify-content-center">
-				<div class="col-md-8">
+				<div id="pageForm" class="col-md-8">
 					<nav>
 						<ul class="pagination justify-content-center">
-						<c:if test="${paging.pageNum > 1}">
-							<li class="page-item"><a class ="page-link" href="/notice?command=noticeListFormAction&pageNum=${paging.pageNum - 1}">Prev</a></li>
-						
-							
-						</c:if>	
-							<c:forEach begin="${paging.firstPage}"
-                                       end="${paging.lastPage}" var="idx">
-                                       
-                                       <c:choose>
-                                          <c:when test="${idx == paging.pageNum}">
-                                             <li class="page-item active"> <span class="page-link bg-grad">${idx}</span></li>
-                                          </c:when>
-                       
-                                          <c:otherwise>
-                                             <li class="page-item"><a class ="page-link"
-                                                href="/notice?command=noticeListFormAction&pageNum=${idx}">${idx}</a></li>
-                                          </c:otherwise>
-                                          
-                                       </c:choose>
-                                    </c:forEach>
-						
-							<c:if test="${paging.numOfPage != paging.pageNum}">
-                                    <li class="page-item"><a class = "page-link" href="/notice?command=noticeListFormAction&pageNum=${paging.pageNum + 1}">Next</a></li>   
-                                    </c:if>
-							
+
+							<c:if test="${startPage != 1}">
+								<li class="page-item"><a class="page-link"
+									href="/notice?command=noticeListFormAction&page=${startPage-1}">Prev</a></li>
+							</c:if>
+
+							<c:forEach var="pageNum" begin="${startPage}" end="${endPage}">
+								<c:if test="${pageNum == spage}">
+									<li class="page-item active"><span
+										class="page-link bg-grad">${pageNum}&nbsp;</span></li>
+								</c:if>
+								<c:if test="${pageNum != spage}">
+									<a class="page-link"
+										href='/notice?command=noticeListFormAction&page=${pageNum}'>${pageNum}&nbsp;</a>
+								</c:if>
+							</c:forEach>
+
+							<c:if test="${endPage != maxPage }">
+								<li class="page-item"><a class="page-link"
+									href="/notice?command=noticeListFormAction&page=${endPage+1 }">Next</a></li>
+							</c:if>
 
 						</ul>
 					</nav>
@@ -150,10 +150,10 @@
 			</div>
 		</div>
 	</section>
-				<!-- 페이징 처리 마지막 -->
-	
-	
-	
-		<%@ include file="../include/footer.jsp"%>
+	<!-- 페이징 처리 마지막 -->
+
+
+
+	<%@ include file="../include/footer.jsp"%>
 </body>
 </html>
