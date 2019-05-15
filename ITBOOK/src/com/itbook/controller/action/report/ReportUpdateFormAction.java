@@ -18,7 +18,7 @@ public class ReportUpdateFormAction implements Action {
 
 		String url = "/report/reporUpdateForm.jsp";
 
-		int reportNum = Integer.parseInt(request.getParameter("reportNum"));
+		String reportNum = request.getParameter("reportNum");
 		
 		ReportDAO rDao = ReportDAO.getInstance();
 

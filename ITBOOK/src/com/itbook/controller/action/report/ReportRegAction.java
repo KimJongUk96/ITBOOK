@@ -21,10 +21,10 @@ public class ReportRegAction implements Action {
 		rVo.setReportTitle(request.getParameter("reportTitle"));
 		rVo.setReportContent(request.getParameter("reportContent"));
 		
-		int bookNum = Integer.parseInt(request.getParameter("bookNum"));
+		String bookNum = request.getParameter("bookNum");
 		rVo.setBookNum(bookNum);
 		
-		int memNum = Integer.parseInt(request.getParameter("memNum"));
+		String memNum = request.getParameter("memNum");
 		rVo.setMemNum(memNum);
 		
 
