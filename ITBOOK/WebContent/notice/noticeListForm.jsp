@@ -95,8 +95,7 @@
 								<c:forEach var="notice" items="${noticeList}">
 									<tr>
 										<th scope="row">${notice.noticeNum}</th>
-										<td><a
-											href="/notice?command=noticeViewAction&noticeNum=${notice.noticeNum}">${notice.noticeTitle }</a></td>
+										<td><a href="/notice?command=noticeViewAction&noticeNum=${notice.noticeNum}">${notice.noticeTitle }</a></td>
 										<td>관리자</td>
 										<td><fmt:formatDate value="${notice.noticeDate }" /></td>
 										<td>${notice.noticeCount }</td>

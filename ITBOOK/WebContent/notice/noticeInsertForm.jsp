@@ -88,7 +88,7 @@
                 <td colspan="2">
                     <input type="submit" value="등록" class="pull-right" onclick="return noticeCheck()" >
                     <input type="reset" value="취소" onclick="location.href='/notice?command=noticeListFormAction'" class="pull-left"/>
-                    <input type="button" value="목록 " class="pull-right" onclick="location.href='/notice?command=noticeListAction'"/>
+                    <input type="button" value="목록 " class="pull-right" onclick="location.href='/notice?command=noticeListFormAction'"/>
                     
                 </td>
             </tr>
