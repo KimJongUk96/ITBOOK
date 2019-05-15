@@ -5,7 +5,32 @@
 <%@ page session="false"%>
 
 <%@include file="../include/adminheader.jsp"%>
+<style>
+.container {
+  width: 70%;
+  height: 70%;
+  margin: 10px auto;
+}
+.outer {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.inner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.centered {
+  position: relative;
+  display: inline-block;
+ 
+  width: 50%;
+}
 
+
+
+ </style>
 <!-- Main content -->
 
 
@@ -17,7 +42,7 @@
 
 				
 			
-			<div class="box" >
+			<div class="box">
 			
 				<div class="box-header with-border">
 					<h3 class="box-title">회원정보 관리</h3>
@@ -56,9 +81,46 @@
 </table> 
 </div>
 		    <button type = "submit" class="btn btn-danger" style = "float : right">삭제</button> 
-			<button type="button" class="btn btn-primary" style = "float : right">신규등록</button>	
 </div>
 			</form>
+			<section class="pt-0">
+		<div class="container">
+		<div class="outer">
+    <div class="inner">
+    <div class="centered">
+						<ul class="pagination justify-content-center">
+						<c:if test="${paging.pageNum > 1}">
+							<li class="page-item"><a class ="page-link" href="admin?command=memberListForm&pageNum=${paging.pageNum - 1}">Prev</a></li>
+						
+							
+						</c:if>	
+							<c:forEach begin="${paging.firstPage}"
+                                       end="${paging.lastPage}" var="idx">
+                                       
+                                       <c:choose>
+                                          <c:when test="${idx == paging.pageNum}">
+                                             <li class="page-item active"> <span class="page-link bg-grad">${idx}</span></li>
+                                          </c:when>
+                       
+                                          <c:otherwise>
+                                             <li class="page-item"><a class ="page-link"
+                                                href="admin?command=memberListForm&pageNum=${idx}">${idx}</a></li>
+                                          </c:otherwise>
+                                          
+                                       </c:choose>
+                                    </c:forEach>
+						
+							<c:if test="${paging.numOfPage != paging.pageNum}">
+                                    <li class="page-item"><a class = "page-link" href="admin?command=memberListForm&pageNum=${paging.pageNum + 1}">Next</a></li>   
+                                    </c:if>
+							
+
+						</ul>
+			</div>
+			</div>
+			</div>
+		</div>
+	</section>
 			</div>
 
 		
@@ -71,6 +133,7 @@
 	
 	<!-- /.row -->
 </section>
+
 <!-- /.content -->
 <!-- </div> -->
 <!-- /.content-wrapper -->

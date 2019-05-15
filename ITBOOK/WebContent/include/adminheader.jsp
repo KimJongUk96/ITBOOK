@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>SD교육그룹 포털 관리자모드</title>
+    <title>희망의책 대전본부 관리자모드</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.4 -->
     <link href="../resources/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -56,7 +57,7 @@
         <!-- Logo -->
         <a href="/admin/main" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>SD</b></span>
+          <span class="logo-mini"><b>Book</b></span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg">희망의책 <b>관리자모드</b></span>
         </a>
@@ -80,16 +81,15 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="../resources/admin/dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-                  <span class="hidden-xs">${login.adminName}님 반갑습니다.</span>
+                  <span>${LoginUser.memName}님 반갑습니다.</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
                     <img src="../resources/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
-                      ${login.adminName}
-                      <small>${login.adminEmail}</small>
+                      ${LoginUser.memName}
+                      <small>${LoginUser.email}</small>
                     </p>
                   </li>
                   <!-- Menu Body -->
@@ -104,18 +104,6 @@
                       <a href="#">Friends</a>
                     </div>
                   </li>
-                  <!-- Menu Footer-->
-                  <li class="user-footer">
-                    <div class="pull-left">
-                      <a href="#" class="btn btn-default btn-flat">Profile</a>
-                    </div>
-                    <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-              <!-- Control Sidebar Toggle Button -->
               <li>
                 <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
               </li>
@@ -133,7 +121,7 @@
               <img src="../resources/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-              <p>${login.adminName}</p>
+              <p>${LoginUser.memName}</p>
               <a class="btn-logout" href="#"><i class="fa fa-power-off"></i> 로그아웃</a>
             </div>
           </div>
