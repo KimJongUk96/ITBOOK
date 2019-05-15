@@ -163,7 +163,7 @@
                 <li><a href="admin?command=noticeListForm"><i class="fa fa-magic"></i> 공지사항 목록</a></li>
                 <li><a href="/admin/imgGallery/list"><i class="fa fa-magic"></i> 모임 목록</a></li>
                 <li><a href="/admin/eventBoard/list"><i class="fa fa-magic"></i> 행사 목록</a></li>
-                <li><a href="/admin/videoBoard/list"><i class="fa fa-magic"></i> 이달의책 목록</a></li>
+                <li><a href="admin?command=todayBookListForm"><i class="fa fa-magic"></i> 이달의책 목록</a></li>
                 <li><a href="/admin/videoBoard/list"><i class="fa fa-magic"></i> 독후감 목록</a></li>
               </ul>
             </li>

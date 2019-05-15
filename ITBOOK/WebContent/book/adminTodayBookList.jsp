@@ -91,7 +91,7 @@
                     
                   </table>
                   <div align="right">
-                     <a class="btn btn-primary" href="book?command=adminTodayBookRegFormAction">이달의 책 등록</a>
+                     <a class="btn btn-primary" href="admin?command=adminTodayBookRegFormAction">이달의 책 등록</a>
                   </div>
                </div>
             </div>
