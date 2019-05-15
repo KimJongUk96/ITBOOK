@@ -17,18 +17,15 @@ public class AdminTodayBookUpdateAction implements Action {
 		// TODO Auto-generated method stub
 		BookVO bVo = new BookVO();
 		
-		bVo.setBookNum(Integer.parseInt(request.getParameter("bookNum")));
+		bVo.setBookNum(request.getParameter("bookNum"));
 		bVo.setBookTitle(request.getParameter("bookTitle"));
 		bVo.setWriter(request.getParameter("writer"));
 		bVo.setPublisher(request.getParameter("publisher"));
-		bVo.setPublisher(request.getParameter("bookKeyword1"));
-		bVo.setPublisher(request.getParameter("bookKeyword2"));
-		bVo.setPublisher(request.getParameter("bookKeyword3"));
+		bVo.setBookKeyword1(request.getParameter("bookKeyword1"));
+		bVo.setBookKeyword2(request.getParameter("bookKeyword2"));
+		bVo.setBookKeyword3(request.getParameter("bookKeyword3"));
 		
-		
-		int memNum = Integer.parseInt(request.getParameter("memNum"));
-		bVo.setMemNum(memNum);
-		
+		bVo.setMemNum(request.getParameter("memNum"));
 		
 		BookDAO bDao = BookDAO.getInstance();
 		bDao.updateBook(bVo);
