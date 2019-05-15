@@ -10,7 +10,7 @@ import com.itbook.vo.Meeting.MeetingVO;
 import util.DBManager;
 
 /**
- * @author 정원
+ * @author �젙�썝
  */
 public class MeetingDAO {
 
@@ -21,9 +21,9 @@ public class MeetingDAO {
 			instance = new MeetingDAO();
 		}
 		return instance;
-	}
+	} 
 	
-	// 독서모임 조회
+	// �룆�꽌紐⑥엫 議고쉶
 	/*private int metNum;
 	private String metName;
 	private String metIntro;
@@ -61,13 +61,13 @@ public class MeetingDAO {
 				mVo.setMetDate(rs.getDate("metDate"));
 				mVo.setHeadCount(rs.getInt("headCount"));
 				
-				//MeetingVO를 담는 list에 mVo를 추가
+				//MeetingVO瑜� �떞�뒗 list�뿉 mVo瑜� 異붽�
 				list.add(mVo);
 			}
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			//리턴값이 없는 printStackTrace() 메소드를 호출하면 메소드가 내부적으로 가장 자세한 예외 정보를 화면에 출력한다.
+			//由ы꽩媛믪씠 �뾾�뒗 printStackTrace() 硫붿냼�뱶瑜� �샇異쒗븯硫� 硫붿냼�뱶媛� �궡遺��쟻�쑝濡� 媛��옣 �옄�꽭�븳 �삁�쇅 �젙蹂대�� �솕硫댁뿉 異쒕젰�븳�떎.
 			e.printStackTrace();
 		} finally {
 			DBManager.close(conn, pstmt, rs);
@@ -76,7 +76,7 @@ public class MeetingDAO {
 	}
 	
 	
-	//독서모임 생성
+	//�룆�꽌紐⑥엫 �깮�꽦
 	public List<MeetingVO> insertMeeting(MeetingVO mVo) {
 		
 		String sql = "INSERT INTO Meeting ("
@@ -104,7 +104,7 @@ public class MeetingDAO {
 			pstmt.setDate(4, mVo.getMetDate());
 			pstmt.setInt(5, mVo.getHeadCount());
 			
-			//update쿼리 실행
+			//update荑쇰━ �떎�뻾
 			pstmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -118,8 +118,8 @@ public class MeetingDAO {
 	
 	
 	/*
-	 * 독서모임 게시판 자동생성
-	 * 모임생성할 때 자동으로 게시판도 만들어짐
+	 * �룆�꽌紐⑥엫 寃뚯떆�뙋 �옄�룞�깮�꽦
+	 * 紐⑥엫�깮�꽦�븷 �븣 �옄�룞�쑝濡� 寃뚯떆�뙋�룄 留뚮뱾�뼱吏�
 	 */
 	
 }
