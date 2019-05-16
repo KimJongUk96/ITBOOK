@@ -7,7 +7,30 @@
 <%@include file="../include/adminheader.jsp"%>
 
 <!-- Main content -->
+<style>
+.container {
+  width: 70%;
+  height: 70%;
+  margin: 10px auto;
+}
+.outer {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.inner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.centered {
+  position: relative;
+  display: inline-block;
+ 
+  width: 50%;
+}
 
+ </style>
 
 <section class="content">
 	<div class="row">
@@ -42,8 +65,8 @@
 	</thead>
 
 <c:forEach var="bookList" items="${bookList}">
-                        <tr>
-                           <th scope = "row"><a href="admin?command=bookUpdateFormAction&bookNum=${bookList.bookNum}">${bookList.bookNum}</a></th>
+                        <tr style ="text-align:center;">
+                           <td><input type ="checkbox" value="${bookList.bookNum}" name="bookNum" ></td>
                            <td>${bookList.bookTitle}</td>
                            <td>${bookList.bookKeyword1}, ${bookList.bookKeyword2}, ${bookList.bookKeyword3}</td>
                            <td>${bookList.writer}</td>
@@ -54,9 +77,47 @@
 </table> 
 </div>
 		    <button type = "submit" class="btn btn-danger" style = "float : right">삭제</button> 
-			<a class="btn btn-primary" href="admin?command=bookRegFormAction">책 등록</a>	
 </div>
 </form>
+			<section class="pt-0">
+		<div class="container">
+		<div class="outer">
+    <div class="inner">
+    <div class="centered">
+						<ul class="pagination justify-content-center">
+						<c:if test="${paging.pageNum > 1}">
+							<li class="page-item"><a class ="page-link" href="admin?command=bookListForm&pageNum=${paging.pageNum - 1}">Prev</a></li>
+						
+							
+						</c:if>	
+							<c:forEach begin="${paging.firstPage}"
+                                       end="${paging.lastPage}" var="idx">
+                                       
+                                       <c:choose>
+                                          <c:when test="${idx == paging.pageNum}">
+                                             <li class="page-item active"> <span class="page-link bg-grad">${idx}</span></li>
+                                          </c:when>
+                       
+                                          <c:otherwise>
+                                             <li class="page-item"><a class ="page-link"
+                                                href="admin?command=bookListForm&pageNum=${idx}">${idx}</a></li>
+                                          </c:otherwise>
+                                          
+                                       </c:choose>
+                                    </c:forEach>
+						
+							<c:if test="${paging.numOfPage != paging.pageNum}">
+                                    <li class="page-item"><a class = "page-link" href="admin?command=bookListForm&pageNum=${paging.pageNum + 1}">Next</a></li>   
+                                    </c:if>
+							
+
+						</ul>
+			</div>
+			</div>
+			</div>
+		</div>
+	</section>
+
 			</div>
 
 		
@@ -75,13 +136,13 @@
 
 <script>
 // 올체크
- $("input[name=essAllCheck]").click(function(){
+ $("input[name=AllCheck]").click(function(){
 	var chk = $(this).is(":checked");
 	
 	if(chk){
-		$("input[name='essSubId']").prop("checked", true);
+		$("input[name='bookNum']").prop("checked", true);
 	} else{
-		$("input[name='essSubId']").prop("checked", false);
+		$("input[name='bookNum']").prop("checked", false);
 	}
 }); 
     

@@ -6,6 +6,8 @@ import com.itbook.controller.action.admin.AdminMemberDeleteAction;
 import com.itbook.controller.action.admin.AdminMemberEmailListFormAction;
 import com.itbook.controller.action.admin.AdminMemberListFormAction;
 import com.itbook.controller.action.admin.AdminNoticeListFormAction;
+import com.itbook.controller.action.admin.AdminReportListForm;
+import com.itbook.controller.action.admin.AdminTodayBookListFormAction;
 import com.itbook.controller.action.book.AdminTodayBookListAction;
 import com.itbook.controller.action.book.AdminTodayBookRegisterFormAction;
 
@@ -41,12 +43,14 @@ public class AdminActionFactory {
 			action = new AdminTodayBookRegisterFormAction();
 			//이달의 책 등록폼으로 이동
 		}else if(command.equals("todayBookListForm")) {
-			action = new AdminTodayBookListAction();
+			action = new AdminTodayBookListFormAction();
 		}
 		else if(command.equals("noticeListForm")) {
 			action = new AdminNoticeListFormAction();
 		}else if(command.equals("senderEmailListFormAction")) {
 			action = new AdminMemberEmailListFormAction();
+		}else if(command.equals("reportListForm")) {
+			action = new AdminReportListForm();
 		}
 			return action;
 	}

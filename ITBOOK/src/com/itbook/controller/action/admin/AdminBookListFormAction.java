@@ -33,7 +33,6 @@ public class AdminBookListFormAction implements Action{
 	      
 	      request.setAttribute("bookList", bookList);
 	      request.setAttribute("paging", paging);
-	      System.out.println(bookList);
 	      
 	      RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 	      dispatcher.forward(request, response);

@@ -1,9 +1,7 @@
 package com.itbook.vo;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
-import javax.print.DocFlavor.STRING;
 
 /**속성
  * 회원테이블

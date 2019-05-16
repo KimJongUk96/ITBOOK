@@ -10,30 +10,30 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
 import com.itbook.dao.MemberDAO;
+import com.itbook.dao.ReportDAO;
 import com.itbook.vo.MemberVO;
 import com.itbook.vo.Paging;
+import com.itbook.vo.Report.ReportBoardVO;
 
-public class AdminMemberEmailListFormAction implements Action{
+public class AdminReportListForm implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String url = "admin/memberMailSender.jsp";
+		String url = "/admin/reportList.jsp";
 		
-		MemberDAO mDao = MemberDAO.getInstance();
+		ReportDAO rDao = ReportDAO.getInstance();
 		Paging paging = new Paging(10,1);
 	    int pageNum = request.getParameter("pageNum") == null ? 1 : Integer.parseInt(request.getParameter("pageNum"));
 	    
 	    paging.setPageNum(pageNum);
-	    mDao.memberRowCount(paging);
-	    ArrayList<MemberVO> list = mDao.memberListP(paging);
+	    rDao.selectReportRowCount(paging);
+	    ArrayList<ReportBoardVO> list = rDao.selectBookPage(paging);
 	      
 		request.setAttribute("paging", paging);
-		request.setAttribute("memberList", list);
+		request.setAttribute("reportList", list);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
-		
 	}
 
 }

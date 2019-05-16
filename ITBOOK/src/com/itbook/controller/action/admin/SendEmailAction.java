@@ -46,9 +46,16 @@ public class SendEmailAction implements SendEmail{
 			
 		String recipient = Arrays.toString(email).replace(",","").replace("[","").replace("]",""); //수신자 배열로받아와서 []제거
 				
-		String subject = "희망의책 입니다."; // 제목
-		String body = "기부회원을 유지하시려면 결제를 해주세요!"; // 내용
+		/*
+		 * String subject = request.getParameter("subject"); String body =
+		 * request.getParameter("body");
+		 */
 		
+		
+		  String subject = "희망의책 입니다."; //제목 
+		  String body = "기부회원을 유지하시려면 결제를 해주세요!";
+		  // 내용
+		 		
 		Properties props = System.getProperties(); 
 		
 		props.put("mail.smtp.host", host); 
