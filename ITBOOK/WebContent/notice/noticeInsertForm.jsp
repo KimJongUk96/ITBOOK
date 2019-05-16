@@ -62,7 +62,7 @@
 	공지사항 글쓰기 폼 시작 -->
 	<section>
 		<div class="container">
-		 <form name="frm" action="/notice?command=noticeInsertAction" method="post" onsubmit="return validateGalBoard()">
+		 <form name="frm" action="/notice?command=noticeInsertAction" method="post" onsubmit="return validateGalBoard()" enctype="multipart/form-data">
 		<input type="hidden" name="memNum" value="${list.memNum}">
 		<table class="table table-bordered">
    	 	<tbody>
@@ -72,17 +72,17 @@
                 <td><input type="text" placeholder="제목을 입력하세요. " name="noticeTitle" class="form-control"/></td>
             </tr>
             
-           <!--  <tr>
+             <tr>
                 <th>작성자: </th>
-                <td><input type="text" placeholder="파일을 선택하세요. " name="noticeName" class="form-control"/></td>
-            </tr> -->
+                <td><input type="text" placeholder="파일을 선택하세요. " value = "${LoginUser.memName}" class="form-control"/></td>
+            </tr>
             <tr>
                 <th>내용: </th>
                 <td><textarea placeholder="내용을 입력하세요. " name="noticeContent" class="form-control"></textarea></td>
             </tr>
             <tr>
                 <th>첨부파일: </th>
-                <td><input type="password" placeholder="비밀번호를 입력하세요" class="form-control"/></td>
+                <td><input type="file" placeholder="비밀번호를 입력하세요" name="noticefile" class="form-control"/></td>
             </tr>
             <tr>
                 <td colspan="2">

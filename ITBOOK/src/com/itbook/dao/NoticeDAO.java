@@ -64,10 +64,11 @@ public class NoticeDAO {
 
 
 	//공지사항 게시물 등록
-	public void insertNotice(NoticeVO nVo) {
-		String sql = "insert into itbook.notice("
-				+ "noticeTitle, noticeContent, noticeCount, noticeDate) "
-				+ "values(?, ?, ?, sysdate())";
+	public boolean insertNotice(NoticeVO nVo) {
+		
+		
+		boolean result = false;
+		
 				
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -75,22 +76,63 @@ public class NoticeDAO {
 		try {
 			
 			conn = DBManager.getConnection();
-			pstmt = conn.prepareStatement(sql);
+			
+			StringBuffer sql = new StringBuffer();
+			
+			sql.append("insert into notice (noticeTitle, noticeContent, noticeFile, noticeDate)"
+					+ "values (?, ?, '?', sysdate()");
+			
+
+			pstmt = conn.prepareStatement(sql.toString());
 			
 			pstmt.setString(1, nVo.getNoticeTitle());
 			pstmt.setString(2, nVo.getNoticeContent());
-			pstmt.setInt(3, nVo.getNoticeCount());
+			pstmt.setString(3, nVo.getNoticeFile());
 			
+			int flag = pstmt.executeUpdate();
+            if(flag > 0){
+               result = true;
+               conn.commit(); 
+            }
+
+        } catch (Exception e) {
+            
+        	throw new RuntimeException(e.getMessage());
+        }
 			
-			pstmt.executeUpdate();
-			
-		}  catch (Exception e) {
-			e.printStackTrace();
-		} finally {
 			DBManager.close(conn, pstmt);
-		}
-		
-	}
+			return result;
+	
+	} // end noticeInsert();
+	
+//	//공지사항 게시물 등록
+//		public void insertNotice(NoticeVO nVo) {
+//			String sql = "insert into itbook.notice("
+//					+ "noticeTitle, noticeContent, noticeCount, noticeDate) "
+//					+ "values(?, ?, ?, sysdate())";
+//					
+//			Connection conn = null;
+//			PreparedStatement pstmt = null;
+//			
+//			try {
+//				
+//				conn = DBManager.getConnection();
+//				pstmt = conn.prepareStatement(sql);
+//				
+//				pstmt.setString(1, nVo.getNoticeTitle());
+//				pstmt.setString(2, nVo.getNoticeContent());
+//				pstmt.setInt(3, nVo.getNoticeCount());
+//				
+//				
+//				pstmt.executeUpdate();
+//				
+//			}  catch (Exception e) {
+//				e.printStackTrace();
+//			} finally {
+//				DBManager.close(conn, pstmt);
+//			}
+//			
+//		}
 	
 	//게시글 리스트(페이징 처리)
 		public ArrayList<NoticeVO> getNoticeList(HashMap<String, Object> listOpt) {

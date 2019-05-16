@@ -23,6 +23,8 @@ public class NoticeVO {
 	private Date noticeDate;
 	private int noticeCount;
 	private String memNum;
+	private String noticeFile;
+	
 	public String getNoticeNum() {
 		return noticeNum;
 	}
@@ -59,11 +61,22 @@ public class NoticeVO {
 	public void setMemNum(String memNum) {
 		this.memNum = memNum;
 	}
+	public String getNoticeFile() {
+		return noticeFile;
+	}
+	public void setNoticeFile(String noticeFile) {
+		this.noticeFile = noticeFile;
+	}
 	
 	@Override
 	public String toString() {
-		return "Notice [noticeNum=" + noticeNum + ", noticeTitle=" + noticeTitle + ", noticeContent=" + noticeContent
-				+ ", noticeDate=" + noticeDate + ", noticeCount=" + noticeCount + ", memNum=" + memNum + "]";
+		return "NoticeVO [noticeNum=" + noticeNum + ", noticeTitle=" + noticeTitle + ", noticeContent=" + noticeContent
+				+ ", noticeDate=" + noticeDate + ", noticeCount=" + noticeCount + ", memNum=" + memNum + ", noticeFile="
+				+ noticeFile + "]";
 	}
+	
+	
+	
+	
 	
 }
