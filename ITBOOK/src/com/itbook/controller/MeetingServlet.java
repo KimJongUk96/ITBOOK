@@ -32,12 +32,14 @@ public class MeetingServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		String command = request.getParameter("command");
-		System.out.println("MeetingServlet에서 요청 받음을 확인 : " + command );
+		System.out.println("MeetingServlet에서 요청받음을 확인 : " + command );
 		
-		//ActionFactory에 있는 인스턴스 메소드를 실행
 		ActionFactory af = ActionFactory.getInstance();
+		
+		//ActionFactory의 getAction() 메소드를 호출한다.
 		Action action = af.getAction(command);
 		
+		//예외가 발생하지 않도록 하기 위해 null이 아닐 경우에만 execute()메소드를 호출한다.
 		if(action != null) {
 			action.execute(request, response);
 		}
@@ -49,7 +51,7 @@ public class MeetingServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		request.setCharacterEncoding("UTF-8"); //인코딩 설정, 한글깨짐 방지
+		request.setCharacterEncoding("UTF-8"); //post방식으로 호출받으면 한글깨짐 방지
 		doGet(request, response);
 	}
 
