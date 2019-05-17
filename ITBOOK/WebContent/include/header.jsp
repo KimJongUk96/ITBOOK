@@ -231,7 +231,7 @@
 								<li class="dropdown-submenu">
 									<a class="dropdown-item dropdown-toggle" href="#">Blog Grid</a>
 									<ul class="dropdown-menu">
-										<li> <a class="dropdown-item" href="/book/bookListForm.jsp">Three column</a> </li>
+										<li> <a class="dropdown-item" href="/book?command=bookList">Three column</a> </li>
 										<li> <a class="dropdown-item" href="blog-grid-column-4.html">Four column</a> </li>
 										<li> <a class="dropdown-item" href="blog-grid-left-sidebar.html">Left Sidebar</a> </li>
 										<li> <a class="dropdown-item" href="blog-grid-right-sidebar.html">Right Sidebar</a> </li>

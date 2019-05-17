@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,12 +61,14 @@
    <!-- =======================
    Banner innerpage -->
    <section>
+
       <div class="container">
          <div class="row">
             <div class="col-sm-12 mb-5">
                <h5 class="text-center mb-4">마음의 양식</h5> 
                <div class="table-responsive-sm">
                   <table class="table table-hover">
+                  
                      <thead>
                         <tr>
                            <th scope="col">번호</th>
@@ -85,14 +89,18 @@
                            <td>${bookList.bookKeyword1}, ${bookList.bookKeyword2}, ${bookList.bookKeyword3}</td>
                            <td>${bookList.writer}</td>
                            <td>${bookList.publisher}</td>
-                           <td>${bookList.memNum}</td>
+                           <td>${bookList.memName}</td>
                         </tr>
      				</c:forEach>
+					
                      </tbody>
                     
                   </table>
-                  <div align="right">
-                     <a class="btn btn-primary" href="book?command=bookRegFormAction">책 등록</a>
+             	 <div align="right">
+              	<c:if test = "${LoginUser.authority eq '1' or LoginUser.authority eq '2' or LoginUser.authority eq '3'}">
+                  <a class="btn btn-primary" href="book?command=bookRegFormAction">책 등록</a>
+                  </c:if>
+
                   </div>
                </div>
             </div>

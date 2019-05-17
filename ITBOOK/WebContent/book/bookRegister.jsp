@@ -61,15 +61,14 @@
    </div>
    <!-- =======================
    Banner innerpage -->
-
    <section>
       <div class="container">
          <div class="row">
             <div class="col-md-4">
 	<form name ="frm" method ="post" action="book">
 	<input type = "hidden" name = "command" value="bookRegister">
-    <!-- 일단 memNum value 값을 1로 설정해놈 -->
-	<input type ="hidden" name = "memNum" value = 20152533>
+	
+    <input type ="hidden" name = "memNum" value = "${LoginUser.memNum}">
                <div class="form-group">
                   <label>제목</label> <input class="form-control" type="text" name = "bookTitle"
                      placeholder="* 제목을 입력하세요.">
@@ -81,11 +80,19 @@
                </div>
                
                <div class="form-group">
+                  <label>키워드</label> <input class="form-control" type="text" name = "bookKeyword1"
+                     placeholder="* 키워드를 입력하세요.">
+                     <input class="form-control" type="text" name = "bookKeyword2"
+                     placeholder="* 키워드를 입력하세요.">
+                     <input class="form-control" type="text" name = "bookKeyword3"
+                     placeholder="* 키워드를 입력하세요.">
+               </div>
+               
+               <div class="form-group">
                   <label>출판사</label> <input class="form-control" type="text" name = "publisher"
                      placeholder="* 출판사를 입력하세요.">
                </div>
                
-                
                <button type ="submit" class ="btn btn-success" ><i class="fa fa-check-circle-o"></i>등록하기</button>
                <button type = "button" class="btn btn-warning" onclick="location.href='book?command=bookList'">
                <i class="fa  fa-close"></i>취소하기</button>

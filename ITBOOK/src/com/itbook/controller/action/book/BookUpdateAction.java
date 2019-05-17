@@ -24,6 +24,7 @@ public class BookUpdateAction implements Action {
 		bVo.setBookKeyword1(request.getParameter("bookKeyword1"));
 		bVo.setBookKeyword2(request.getParameter("bookKeyword2"));
 		bVo.setBookKeyword3(request.getParameter("bookKeyword3"));
+		
 		bVo.setMemNum(request.getParameter("memNum"));
 		
 		BookDAO bDao = BookDAO.getInstance();
