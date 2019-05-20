@@ -60,7 +60,7 @@ public class ReportDAO {
 	}
 
 	// 독후감 등록하기
-	public void insertReport(ReportBoardVO rpVo) {
+	public void insertReport(ReportBoardVO rVo) {
 		String sql = "insert into itbook.report_board (reportTitle,reportContent,bookNum,memNum) value (?,?,?,?)";
 
 		Connection conn = null;
@@ -70,11 +70,11 @@ public class ReportDAO {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setString(1, rpVo.getReportTitle());
-			pstmt.setString(2, rpVo.getReportContent());
-			pstmt.setString(3, rpVo.getBookNum());
-			pstmt.setString(4, rpVo.getMemNum());
-
+			pstmt.setString(1, rVo.getReportTitle());
+			pstmt.setString(2, rVo.getReportContent());
+			pstmt.setString(3, rVo.getBookNum());
+			pstmt.setString(4, rVo.getMemNum());
+			
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -143,10 +143,10 @@ public class ReportDAO {
 	// 독후감 게시글 수정하기
 	public void updateReport(ReportBoardVO rVo) {
 		String sql = "UPDATE itbook.report_board SET ReportTitle=?, ReportContent=?, BookNum=? WHERE MemNum=?";
+//		String sql = "UPDATE itbook.report_board SET ReportTitle=?, ReportContent=? WHERE bookNum=?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
-		/* ReportBoardVO rVo = new ReportBoardVO(); */
 
 		try {
 			conn = DBManager.getConnection();
@@ -156,7 +156,7 @@ public class ReportDAO {
 			pstmt.setString(2, rVo.getReportContent());
 			pstmt.setString(3, rVo.getBookNum());
 			pstmt.setString(4, rVo.getMemNum());
-
+			
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -168,7 +168,7 @@ public class ReportDAO {
 	}
 
 	// 독후감 게시글 삭제하기
-	public void deleteReport(int ReportNum) {
+	public void deleteReport(String reportNum) {
 
 		String sql = "DELETE FROM itbook.report_board WHERE ReportNum=?";
 
@@ -177,7 +177,7 @@ public class ReportDAO {
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, ReportNum);
+			pstmt.setString(1, reportNum);
 
 			pstmt.executeUpdate();
 

@@ -61,15 +61,15 @@
 			<div class="row">
 				<div class="col-md-6">
 					<form name="frm" method="post" action="report?command=Report_Reg">
-						<input type="hidden" name="bookNum" value=1> <input
-							type="hidden" name="memNum" value=2>
+						<input type="hidden" name="bookNum" value="${reportList.bookNum}"> 
+						<input type="hidden" name="memNum" value="${LoginUser.memNum}">
 
-						<!-- <div class="form-group">
+						<div class="form-group">
 						<label>도서 검색</label>
 							<input class="form-control"
 								type="text" name="search" placeholder="Search"> 
-						</div> -->
-						<div id="searchForm">
+						</div> 
+						<!-- <div id="searchForm">
 							
 								<select name="opt">
 									<option value="0">도서 제목</option>
@@ -78,7 +78,7 @@
 								
 								<input type="text" size="20" name="condition">
 							
-						</div>
+						</div> -->
 
 						<div class="form-group">
 							<label>제목</label> <input class="form-control" name="reportTitle"

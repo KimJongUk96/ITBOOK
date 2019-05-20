@@ -60,7 +60,8 @@
 	<section class="blog-page">
 		<div class="container">
 			<div class="row">
-				<form name="frm" method="post" action="report?command=Report_Update_Form">
+				<form name="frm" method="post"
+					action="report?command=Report_Update_Form">
 					<input type="hidden" name="reportNum"
 						value="${reportList.reportNum}">
 
@@ -68,10 +69,21 @@
 					<div class="col-md-8 mx-auto">
 						<h2 class="mb-4">${reportList.reportTitle}</h2>
 						<div class="post-item-desc">
-							<span class="post-meta">Mar 26, </span> <span class="post-meta">Admin,
+							<span class="post-meta">Mar 26, </span> <span class="post-meta">${LoginUser.memId},
 
 							</span> <span class="post-meta"><i class="ti-comment-alt"></i>11
 								Comments</span>
+						</div>
+							<div class="col-md-4 sidebar">
+							<div class="sticky-element">
+								<h2 class="mt-3 mt-md-0 mb-3"></h2>
+								<ul class="list-unstyled p-0">
+									<li class="mb-3"><strong>저자:</strong>누구누구</li>
+									<li class="mb-3"><strong>출판사:</strong>어디어디</li>
+									<li class="mb-3"><strong>발간일자:</strong>언제언제</li>
+									<li class="mb-3"><strong>엮은이:</strong>누구누구</li>
+								</ul>
+							</div>
 						</div>
 						<br> <br>
 						<h5>${reportList.reportContent}</h5>
@@ -79,20 +91,13 @@
 						<button type="submit" class="btn btn-success">
 							<i class="fa fa-check-circle-o"></i>수정하기
 						</button>
-						<a class="btn btn-danger" href="report?command=Report_Delete&reportNum=${reportList.reportNum}"><i
+						<a class="btn btn-danger"
+							href="report?command=Report_Delete&reportNum=${reportList.reportNum}"><i
 							class="fa fa-chevron-right"></i>삭제하기</a>
+
+					
 					</div>
-					<!-- <div class="col-md-4 sidebar">
-						<div class="sticky-element">
-							<h2 class="mt-3 mt-md-0 mb-3"></h2>
-							<ul class="list-unstyled p-0">
-								<li class="mb-3"><strong>저자:</strong>누구누구</li>
-								<li class="mb-3"><strong>출판사:</strong>어디어디</li>
-								<li class="mb-3"><strong>발간일자:</strong>언제언제</li>
-								<li class="mb-3"><strong>엮은이:</strong>누구누구</li>
-							</ul>				
-						</div>
-					</div> -->
+
 					<div class="row mt-5">
 						<div class="col-12"></div>
 					</div>
@@ -105,12 +110,12 @@
 									<div class="comment-body">
 										<div class="comment-meta">
 											<div class="comment-meta-author">
-												<a href="#">${.memID}</a>
+												<a href="#"></a>
 											</div>
 											<div class="comment-meta-date">June 11, 2019 at 6:01 am</div>
 										</div>
 										<div class="comment-content">
-											<p>${.reportComtContent}</p>
+											<p></p>
 										</div>
 										<div class="comment-reply">
 											<a class="btn btn-xs btn-light" href="#">답글</a>
@@ -122,13 +127,13 @@
 											<div class="comment-body">
 												<div class="comment-meta">
 													<div class="comment-meta-author">
-														<a href="#">${.memID}</a>
+														<a href="#"></a>
 													</div>
 													<div class="comment-meta-date">June 11, 2019 at 6:20
 														am</div>
 												</div>
 												<div class="comment-content">
-													<p>${.reportComtContent}</p>
+													<p></p>
 												</div>
 												<div class="comment-reply">
 													<a class="btn btn-xs btn-light" href="#">답글</a>
@@ -146,7 +151,7 @@
 									<p>댓글은 회원만 가능합니다.</p>
 								</div>
 								<div class="col-md-6">
-									<h5>${.memID}</h5>
+									<h5></h5>
 								</div>
 								<div class="col-md-12">
 									<span class="form-group"><textarea cols="40" rows="6"

@@ -20,13 +20,8 @@ public class ReportUpdateAction implements Action {
 
 		rVo.setReportTitle(request.getParameter("reportTitle"));
 		rVo.setReportContent(request.getParameter("reportContent"));
-		
-		String bookNum = request.getParameter("bookNum");
-		rVo.setMemNum(bookNum);
-		
-		String memNum = request.getParameter("memNum");
-		rVo.setMemNum(memNum);
-		
+		rVo.setBookNum(request.getParameter("bookNum"));
+		rVo.setMemNum(request.getParameter("memNum"));
 
 		ReportDAO rDao = ReportDAO.getInstance();
 		rDao.updateReport(rVo);

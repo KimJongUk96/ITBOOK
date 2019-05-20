@@ -102,6 +102,8 @@
 							<i class="ti-book"></i>
 						</div>
 					<c:forEach var="reportList" items="${reportList}">
+					<input type="hidden" name="bookNum" value="${reportList.bookNum}">
+					<input type="hidden" name="memNum" value="${LoginUser.memNum}">
 						<h5 class="mb-2 mt-5"></h5>
 						
 						<div class="col-lg-4 mt-4">

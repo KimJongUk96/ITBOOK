@@ -23,10 +23,10 @@ public class ReportListFormAction implements Action{
 		
 		ReportDAO rDao = ReportDAO.getInstance();
 		
-		List<ReportBoardVO> list = rDao.selectAllReports();
+		List<ReportBoardVO> reportList = rDao.selectAllReports();
 		
 		
-		 request.setAttribute("reportList", list);
+		 request.setAttribute("reportList", reportList);
 		 
 		  RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		  dispatcher.forward(request, response);

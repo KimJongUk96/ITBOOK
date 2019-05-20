@@ -15,7 +15,7 @@ public class ReportDeleteFormAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		int ReportNum = Integer.parseInt(request.getParameter("reportNum"));
+		String ReportNum = request.getParameter("reportNum");
 
 		ReportDAO rDao = ReportDAO.getInstance();
 		rDao.deleteReport(ReportNum);
