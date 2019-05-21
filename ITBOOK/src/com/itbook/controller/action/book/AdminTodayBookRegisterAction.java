@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
 import com.itbook.dao.BookDAO;
+import com.itbook.vo.MemberVO;
 import com.itbook.vo.Book.BookBoardVO;
 
 public class AdminTodayBookRegisterAction implements Action {
@@ -25,8 +26,12 @@ public class AdminTodayBookRegisterAction implements Action {
 		bVo.setWriter(request.getParameter("writer"));
 		bVo.setPublisher(request.getParameter("publisher"));
 		bVo.setBookNum(request.getParameter("bookNum"));
-		bVo.setMemNum(request.getParameter("memNum"));
 		
+		//섹션값 가져오기.
+		MemberVO memVo = (MemberVO)request.getSession().getAttribute("LoginUser");
+	      bVo.setMemNum(memVo.getMemNum());
+		
+	      
 		BookDAO bDao = BookDAO.getInstance();
 		
 		bDao.insertAdminTodayBookRegister(bVo);

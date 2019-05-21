@@ -77,7 +77,6 @@
                   <table class="table table-hover">
                      <thead>
                         <tr>
-                           <th scope="col">번호</th>
                            <th scope="col">제목</th>
                          <th scope="col">키워드</th>
                          <th scope="col">저자</th>
@@ -99,8 +98,6 @@
                         
                         <tr>
                         
-                           <td>${bookList.bookNum}</td>
-                           
                             <th scope = "row" onclick="sendToParent('${bookList.bookNum}', '${bookList.bookTitle}','${bookList.writer}','${bookList.publisher}')"><a href ="">${bookList.bookTitle}</a></th>
 
 

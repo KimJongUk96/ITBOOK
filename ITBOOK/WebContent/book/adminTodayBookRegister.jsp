@@ -70,8 +70,10 @@
             
 	<form name ="frm" method ="post" action="book?command=adminTodayBookRegForm" enctype="multipart/form-data">
 	
-			  <input type="hidden" name="bookNum">
-			 <input type="hidden" name="memNum">
+			   <input type="hidden" name="bookNum">
+		<!-- <input type="hidden" name="memNum"> -->
+			 <input type ="hidden" name = "memNum" value = "${LoginUser.memNum}">
+			 
                <div class="form-group">
                   <label>이달의 책 제목</label> <input class="form-control" type="text" name = "bookBrdTitle"
                      placeholder="*이달의 책 제목을 입력하세요.">
@@ -119,10 +121,10 @@
                
                <!-- 업로드 시작-->
                
-               <div class="custom-file">
+               <!-- <div class="custom-file">
                   <label>Upload Book</label><input type="file" class="custom-file-input" name ="imgPath" id="imgPath">
 								<label class="custom-file-label" for="inputGroupFile01">Upload Book</label>
-               </div>
+               </div> -->
                <!--업로드 끝  -->
                
                
