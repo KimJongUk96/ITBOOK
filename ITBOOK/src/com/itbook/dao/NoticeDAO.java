@@ -3,6 +3,7 @@ package com.itbook.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -310,8 +311,11 @@ public class NoticeDAO {
 	}
 	
 	//공지사항 게시물 수정
-	public void updateNotice(NoticeVO nVo) {
-		String sql = "update notice set noticeTitle=?, noticeContent=? where noticeNum=?";
+	public boolean updateNotice(NoticeVO nVo) {
+		
+		boolean result = false;
+		
+//		String sql = "update notice set noticeTitle=?, noticeContent=? where noticeNum=?";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -319,19 +323,39 @@ public class NoticeDAO {
 		try {
 			
 			conn = DBManager.getConnection();
-			pstmt = conn.prepareStatement(sql);
+			conn.setAutoCommit( false );
 			
+			StringBuffer sql = new StringBuffer();
+			sql.append("update notice set");
+			sql.append(" noticeTitle=?");
+			sql.append(" ,noticeContent=?");
+			sql.append(" ,noticeFile=?");
+			sql.append("where noticeNum=?");
+			
+			pstmt = conn.prepareStatement(sql.toString());
 			pstmt.setString(1, nVo.getNoticeTitle());
 			pstmt.setString(2, nVo.getNoticeContent());
-			pstmt.setString(3, nVo.getNoticeNum());
+			pstmt.setString(3, nVo.getNoticeFile());
+			pstmt.setString(4, nVo.getNoticeNum());
 			
-			pstmt.executeUpdate();
+			
+			int flag = pstmt.executeUpdate();
+            if(flag > 0){
+                result = true;
+                conn.commit(); // 완료시 커밋
+            }
 			
 		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			DBManager.close(conn, pstmt);
-		}
+			try {
+                conn.rollback(); // 오류시 롤백
+            } catch (SQLException sqle) {
+                sqle.printStackTrace();
+            }
+            throw new RuntimeException(e.getMessage());
+        }
+		
+		DBManager.close(conn, pstmt);
+		return result;
 	}
 	
 	//공지사항 삭제 

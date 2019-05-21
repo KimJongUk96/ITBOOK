@@ -43,9 +43,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 mb-5">
-					<h5 class="text-center mb-4">공지사항 상세보기</h5>
-					<form name="frm" method="post" action="/notice?command=noticeUpdateFormAction">
+					<h5 class="text-center mb-4">공지사항 수정</h5>
+					<form name="frm" method="post" action="/notice?command=noticeUpdateAction<%-- &page=${pageNum} For input string: "" 오류원인--%>" enctype="multipart/form-data">
 					<input type="hidden" name="noticeNum" value="${notice.noticeNum }">
+					<input type="hidden" name="existing_file" value="${notice.noticeFile}"/>
+
 					<div class="table-responsive-sm">
 						<table class="table table-hover">
 							
@@ -58,21 +60,21 @@
 								</tr>
 								<tr>
 									<th scope="col">제목</th>
-									<td>${notice.noticeTitle}</td>
+									<td><input name="noticeTitle" type="text" size="70" maxlength="100" value="${notice.noticeTitle}"/></td>
 									<th>조회수</th>
 									<td>${notice.noticeCount}</td>
 									
 								</tr>
 								<tr>
+									<th scope="col">기존파일</th>
+									<td> &nbsp;&nbsp; ${notice.noticeFile}</td>
 									<th scope="col">첨부파일</th>
-									<td><a href='/notice?command=fileDownloadAction&file_name=${notice.noticeFile}'>${notice.noticeFile}</a></td>
-									<th></th>
-									<td></td>
+									<td><input type="file" name="noticeFile"/></td>
 								</tr>
 								 <tr>
 								
 									<th scope="col">내용</th>
-									<td><textarea name="noticeContent" class="form-control" rows="10" style="width:100%;" disabled="disabled">${notice.noticeContent}</textarea></td> 
+									<td><textarea name="noticeContent" class="form-control" rows="10" style="width:100%;">${notice.noticeContent}</textarea></td> 
 									<th></th>
 									<td></td>
 								</tr> 
@@ -80,9 +82,9 @@
 						</table>
 							
 						<div align="right">
-							<input type="submit" value="수정" class="btn btn-primary" >
-							<input type="button" value="삭제" class="btn btn-primary" onclick="location.href='/notice?command=noticeDeleteAction&noticeNum=${notice.noticeNum}'">
-							<input type="button" value="목록" class="btn btn-primary" onclick="location.href='/notice?command=noticeListFormAction'">
+							<input type="reset"  class="btn btn-primary" value="작성취소" >
+							<input type="submit"  class="btn btn-primary" value="수정" >
+							<input type="button" value="목록" class="btn btn-primary" onclick="location.href='/notice?command=noticeListFormAction&page=${pageNum}'">
 						</div>
 					</div>
 					</form>

@@ -8,6 +8,7 @@ import com.itbook.controller.action.notice.NoticeInsertAction;
 import com.itbook.controller.action.notice.NoticeInsertFormAction;
 import com.itbook.controller.action.notice.NoticeListFormAction;
 import com.itbook.controller.action.notice.NoticeUpdateAction;
+import com.itbook.controller.action.notice.NoticeUpdateFormAction;
 import com.itbook.controller.action.notice.NoticeViewAction;
 
 public class NoticeActionFactory {
@@ -48,6 +49,10 @@ public class NoticeActionFactory {
 		} else if (command.equals("noticeUpdateAction")) {
 
 			action = new NoticeUpdateAction();
+
+		} else if (command.equals("noticeUpdateFormAction")) {
+
+			action = new NoticeUpdateFormAction();
 
 		} else if (command.equals("noticeDeleteAction")) {
 
