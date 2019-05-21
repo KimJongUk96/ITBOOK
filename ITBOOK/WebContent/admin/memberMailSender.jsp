@@ -46,6 +46,8 @@
 					<h3 class="box-title">회원정보 관리</h3>
 				</div>
 				<form name = "frm" method = "post" action = "email?command=senderEmail&email=${MemberVO.email}">
+				<input type="hidden" value="subject" name="subject">
+				<input type="hidden" value="body" name="body">
  				<div class="box-body">
 
 <div> 
@@ -78,7 +80,7 @@
 </c:forEach>
 </table> 
 </div>
-		    <button type = "submit" class="btn btn-danger" style = "float : right" >메일전송</button> 
+		    <button type = "submit" class="btn btn-danger" style = "float : right">메일전송</button> 
 </div>
 			 </form>
 			<section class="pt-0">
@@ -146,7 +148,7 @@
 		$("input[name='eamil']").prop("checked", false);
 	}
 }); 
-    
+
     </script>
 
 <%@include file="../include/adminfooter.jsp"%>

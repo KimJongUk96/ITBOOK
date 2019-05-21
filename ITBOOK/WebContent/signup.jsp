@@ -68,31 +68,31 @@
 							<div class="w-100">
 								<h2>계정을 등록해주세요!</h2>
 								<h5 class="font-weight-light">Join us today! Create your account easy with less information.</h5>
-								<form name = "frm" method = "post" action = "member?command=insertMember">
+								<form name = "frm" method = "post" onsubmit = "return validate();" action = "member?command=insertMember">
 								<div class="form mt-4">
 									<div>
 										<p class="text-left mb-2">아이디</p>
-										<span class="form-group"><input type="text" name ="memId" readonly = "readonly" class="form-control" onclick = "popupOpen()"></span>
+										<span class="form-group"><input type="text" name ="memId" id ="memId" readonly = "readonly" class="form-control" onclick = "popupOpen()" maxlength="12"></span>
 									</div>
 									<div>
 										<div class="align-items-center"> 
 											<p class="text-left mb-2">비밀번호</p>
 										</div>
-										<span class="form-group"><input type="password" name ="memPw" class="form-control" placeholder="*********"></span>
+										<span class="form-group"><input type="password" name ="memPw"  id ="memPw" class="form-control" placeholder="*********" maxlength="12"></span>
 									</div>
 									<div>
 										<div class="align-items-center">
 											<p class="text-left mb-2">비밀번호 재확인</p>
 										</div>
-										<span class="form-group"><input type="password" name ="memPw" class="form-control" placeholder="*********"></span>
+										<span class="form-group"><input type="password" name ="checkPw" id ="checkPw" class="form-control" placeholder="*********" maxlength="12"></span>
 									</div>
 									<div>
 										<p class="text-left mb-2">이름</p> 
-										<span class="form-group"><input type="text" name ="memName" class="form-control" placeholder="김OO"></span>
+										<span class="form-group"><input type="text" name ="memName" id ="memName" class="form-control" placeholder="김OO" maxlength="6"></span>
 									</div>
 									<div>
 										<p class="text-left mb-2">생년월일</p> 
-										<span class="form-group"><input type="text" name ="jumin" class="form-control" ></span>
+										<span class="form-group"><input type="text" name ="jumin" id ="jumin" class="form-control" maxlength="6"></span>
 									</div>
 									<p class="text-left mb-2">주소</p>
 									<input type="text" id="sample4_postcode" name = "adr1" placeholder="우편번호">
@@ -136,7 +136,7 @@
 	
  
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script>
+<script type="text/javascript">
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
     function sample4_execDaumPostcode() {
         new daum.Postcode({
@@ -182,6 +182,42 @@
             }
         }).open();
     }
+    
+     function validate() {
+    	
+		var memId = document.frm.memId;
+		var memPw = document.frm.memPw;
+		var memName = document.frm.memName;
+		var jumin = document.frm.jumin;
+		//아이디 입력 유무
+		if(memId.value == '' || !(memId.value.length >= 4 && memId.value.length <= 12)){
+			window.alert("아이디를 최소 4 ~ 12 글자 사이로 입력해주세요.");
+			document.frm.memId.focus();
+			document.getElementById('memId').select();
+			return false;
+		}
+			//비밀번호 입력 유무
+		if(memPw.value == ''){
+			window.alert("비밀번호를 입력해주세요.");
+			document.frm.memPw.focus();
+			document.getElementById('memPw').select();
+			return false;
+		}
+		if(memName.value ==''){
+			window.alert("이름을 입력해주세요.");
+			document.frm.memName.focus();
+			document.getElementById('memName').select();
+			return false;
+		}
+		if(jumin.value ==''){
+			window.alert("생년월일을 입력해주세요.");
+			document.frm.jumin.focus();
+			document.frm.getElementById('jumin').select();
+			return false;
+		}
+		
+		
+    	} 
 </script>
 </body>
 </html>

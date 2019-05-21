@@ -13,6 +13,13 @@ function popupOpen() {
 */
 }
 
+function goSubmit() {
+	var frm=document.frm;
+    document.frm.target = "mailSender"; // 타켓을 부모창으로 설정
+    document.frm.submit();
+    self.close();  
+}
+
 /*function sendToParent(){
 	window.opener.document.frm.subject.value = document.frm.subject.value;
 	window.opener.document.frm.body.value = document.frm.body.value;

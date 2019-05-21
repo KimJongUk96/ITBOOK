@@ -383,6 +383,83 @@ public class NoticeDAO {
 
 	}
 	
+	//관리자화면 리스트 화면
+			public Paging selectNoticeRowCount(Paging paging) {
+				int cnt = 0;
+				String sql = "SELECT COUNT(*) CNT"
+			            + "     FROM itbook.notice";
+			      
+			          Connection conn = null;
+			         PreparedStatement stmt = null;
+			         ResultSet rs = null;
+			         
+			         try
+			         {
+			            conn = DBManager.getConnection();
+			            stmt = conn.prepareStatement(sql);
+			            
+			            rs = stmt.executeQuery();
+			            
+			            while (rs.next())
+			            {
+			               cnt = rs.getInt("CNT");
+			               paging.setNumOfRow(cnt);;
+			            }
+			            
+			         }
+			         catch (Exception e)
+			         {
+			            e.printStackTrace();
+			         }finally {
+			 			DBManager.close(conn, stmt);
+			 		}
+			         return paging;
+			   }
+			
+			//관리자 공지사항 페이징 처리
+			public ArrayList<NoticeVO> selectNoticePage(Paging paging) {
+		        
+		        String sql = "select * from notice order by noticeNum desc limit ?, 10";
+
+		         ArrayList<NoticeVO> list = new ArrayList<NoticeVO>();
+		         
+		         Connection conn = null;
+		         PreparedStatement pstmt = null;
+		         ResultSet rs = null;
+
+		         try {
+		            conn = DBManager.getConnection();
+		            pstmt = conn.prepareStatement(sql);
+		            
+		            //
+		            pstmt.setInt(1, ((paging.getPageNum() - 1) * paging.getPerPage()));
+		            
+		            //+1로 되어있으면 등록할때 바로 안보임.
+//		            pstmt.setInt(1, ((paging.getPageNum() - 1) * paging.getPerPage()) + 1);
+//		            pstmt.setInt(1, ((paging.getLastPage())));
+		            
+		            rs = pstmt.executeQuery();
+		            
+		            
+		            while (rs.next()) {
+		            	NoticeVO nVo = new NoticeVO();
+		               
+		                nVo.setNoticeNum(rs.getString("noticeNum"));
+		                nVo.setNoticeTitle(rs.getString("noticeTitle"));
+		                nVo.setNoticeDate(rs.getDate("noticeDate"));
+						nVo.setNoticeContent(rs.getString("noticeContent"));
+						nVo.setNoticeCount(rs.getInt("noticeCount"));
+						
+						list.add(nVo);
+		            }
+		         } catch (Exception e) {
+		            e.printStackTrace();
+		         }  finally {
+		 			DBManager.close(conn, pstmt, rs);
+		 		}
+		         return list;
+		      }
+	
 	
 	
 }

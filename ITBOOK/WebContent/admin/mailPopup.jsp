@@ -18,7 +18,7 @@
       line-height: 1.6;
     }
   </style>
-<script type="text/javascript" src="js/member.js"></script>
+<script type="text/javascript" src="js/mailPopup.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"
 	charset="UTF-8">
 
@@ -45,8 +45,8 @@
 				<div class="row h-100">
 				<div class="col-12 col-md-10 col-lg-5 text-left mx-auto d-flex align-items-center">
 				<div class="w-100">
-		<form name="frm" method="post" action="/admin?command=senderEmail&email=${MemberVO.email}">
-		<input type = "hidden" name = "email" value = "${email} ">
+		<form name="frm" method="post" action="/admin?command=senderEmail&email=${MemberVO.email}"	>
+		<input type = "hidden" name = "email" value = "${email}">
 		<div class="form mt-4">
 					<div>
 					<p class="text-left mb-2">제목</p>
@@ -56,7 +56,7 @@
 							<div class ="wrap">
 					<span>내용  <textarea name = "body" ></textarea></span>
 					</div>
-					<input type=submit class="btn" value="발송">
+					<button type="button" class="btn btn-black" onclick = "goSubmit()">발송</button>
 		</div>
 		</form>
 		
