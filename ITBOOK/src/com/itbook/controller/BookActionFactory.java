@@ -31,13 +31,13 @@ public class BookActionFactory {
 		
 		if(command.equals("main")) {
 			action = new MainAction();
-			//관리가자 이달의 책리스트에서 등록버튼을 눌렀을 때 등록폼으로 이동.
-		}else if(command.equals("adminTodayBookRegFormAction")) {
-			action = new AdminTodayBookRegisterFormAction();
-			
 			//관리자가 이달의 책  리스트 화면으로 이동.
 		}else if(command.equals("adminTodayBookList")) {
 			action = new AdminTodayBookListAction();
+			
+			//관리가자 이달의 책리스트에서 등록버튼을 눌렀을 때 등록폼으로 이동.(리스트-->등록폼)
+		}else if(command.equals("adminTodayBookRegFormAction")) {
+			action = new AdminTodayBookRegisterFormAction();
 			
 			//관리자가 이달의 책 등록하기.
 		}else if(command.equals("adminTodayBookRegForm")) {

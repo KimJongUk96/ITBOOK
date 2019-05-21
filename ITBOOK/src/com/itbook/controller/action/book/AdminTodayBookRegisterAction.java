@@ -21,6 +21,9 @@ public class AdminTodayBookRegisterAction implements Action {
 		
 		bVo.setBookBrdTitle(request.getParameter("bookTitle"));
 		bVo.setBookBrdContent(request.getParameter("bookContent"));
+		//bVo.setImgPath(request.getParameter("imgPath"));
+		bVo.setWriter(request.getParameter("writer"));
+		bVo.setPublisher(request.getParameter("publisher"));
 		bVo.setBookNum(request.getParameter("bookNum"));
 		bVo.setMemNum(request.getParameter("memNum"));
 		

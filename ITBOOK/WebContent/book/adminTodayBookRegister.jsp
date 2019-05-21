@@ -67,19 +67,20 @@
       <div class="container">
          <div class="row">
             <div class="col-md-6">
-	<form name ="frm" method ="post" action="book?command=adminTodayBookRegister">
+            
+	<form name ="frm" method ="post" action="book?command=adminTodayBookRegForm" enctype="multipart/form-data">
 	
 			  <input type="hidden" name="bookNum">
 			 <input type="hidden" name="memNum">
                <div class="form-group">
                   <label>이달의 책 제목</label> <input class="form-control" type="text" name = "bookBrdTitle"
-                     placeholder="* 책 제목을 입력하세요.">
+                     placeholder="*이달의 책 제목을 입력하세요.">
                      
                </div>
                
                
                <div class="form-group">
-                     <label>책 제목</label>
+                     <label>책 제목 찾기</label>
                      <div class="row">
                            
                         
@@ -87,13 +88,18 @@
                         
                         
                          <!-- id="keyword" -->
-                           <button type="button" class="form-control" name="bookTitle"
+                           <button type="button" class="form-control"
                               onclick="openPopUp()">제목이나 키워드
                         </button>
                      </div>
                      
 					</div>
                </div>
+               
+            <div class="form-group">
+                  <label>책제목</label> <input class="form-control" type="text" name = "bookTitle"
+                     placeholder="책제목">
+               </div> 
                
 			<div class="form-group">
                   <label>저자</label> <input class="form-control" type="text" name = "writer"
@@ -103,25 +109,30 @@
                   <label>출판사</label> <input class="form-control" type="text" name = "publisher"
                      placeholder="출판사">
                </div>
-               
-               
-               <div class="custom-file">
-                  <label>Upload Book</label><input type="file" class="custom-file-input" id="inputGroupFile01" name = "imgPath">
-								<label class="custom-file-label" for="inputGroupFile01">Upload Book</label>
-               </div>
-               
-               
                <div class="form-group">
                   <label>내용</label>
                   <textarea class="form-control" rows="10" name = "bookBrdContent"
                      placeholder="내용을 입력하세요."></textarea>
                </div>
+               
+               
+               
+               <!-- 업로드 시작-->
+               
+               <div class="custom-file">
+                  <label>Upload Book</label><input type="file" class="custom-file-input" name ="imgPath" id="imgPath">
+								<label class="custom-file-label" for="inputGroupFile01">Upload Book</label>
+               </div>
+               <!--업로드 끝  -->
+               
+               
          
                <button type ="submit" class ="btn btn-success" ><i class="fa fa-check-circle-o"></i>등록</button>
-               
-               <button type = "button" class="btn btn-warning" onclick="location.href='admin?command=adminTodayBookList'">
+               <button type = "button" class="btn btn-warning" onclick="location.href='book?command=adminTodayBookList'">
                <i class="fa  fa-close"></i>취소</button>
-         </form>      
+               
+                </form>
+              
             </div>
             
          </div>
