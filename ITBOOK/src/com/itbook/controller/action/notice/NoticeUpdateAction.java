@@ -37,10 +37,11 @@ public class NoticeUpdateAction implements Action{
             
             // 파라미터 값을 자바빈에 세팅한다.
             NoticeVO nVo = new NoticeVO();
-            nVo.setNoticeNum("noticeNum");
-            nVo.setNoticeTitle("noticeTitle");
-            nVo.setNoticeContent("noticeContent");
+            nVo.setNoticeNum(request.getParameter("noticeNum"));
+            nVo.setNoticeTitle(request.getParameter("noticeTitle"));
+            nVo.setNoticeContent(request.getParameter("noticeContent"));
             
+            System.out.println("noticeTitle : " + noticeTitle);
             
             // 글 수정 시 업로드된 파일 가져오기
             Enumeration<String> fileNames = multi.getFileNames();

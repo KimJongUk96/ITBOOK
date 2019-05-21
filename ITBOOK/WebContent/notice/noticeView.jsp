@@ -77,7 +77,7 @@
 									<td></td>
 								</tr> 
 								
-						</table>
+						</table> 
 							
 						<div align="right">
 							<input type="submit" value="수정" class="btn btn-primary" >
