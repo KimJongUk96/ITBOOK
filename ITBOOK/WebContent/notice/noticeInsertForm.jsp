@@ -74,7 +74,7 @@
             
              <tr>
                 <th>작성자: </th>
-                <td><input type="text" placeholder="파일을 선택하세요. " value = "${LoginUser.memName}" class="form-control"/></td>
+                <td><input type="text" placeholder="관리자" value = "${LoginUser.memName}" class="form-control"/></td>
             </tr>
             <tr>
                 <th>내용: </th>
@@ -82,7 +82,7 @@
             </tr>
             <tr>
                 <th>첨부파일: </th>
-                <td><input type="file" placeholder="비밀번호를 입력하세요" name="noticefile" class="form-control"/></td>
+                <td><input type="file" name="noticeFile"/></td>
             </tr>
             <tr>
                 <td colspan="2">

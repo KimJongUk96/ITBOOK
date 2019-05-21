@@ -63,7 +63,7 @@
 								</tr>
 								<tr>
 									<th scope="col">첨부파일</th>
-									<td>첨부파일</td>
+									<td><a href='/notice?command=fileDownloadAction&file_name=${notice.noticeFile}'>${notice.noticeFile}</a></td>
 								</tr>
 								<tr>
 									<th scope="col">내용</th>

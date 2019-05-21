@@ -76,11 +76,12 @@ public class NoticeDAO {
 		try {
 			
 			conn = DBManager.getConnection();
+			conn.setAutoCommit( false );
 			
 			StringBuffer sql = new StringBuffer();
 			
-			sql.append("insert into notice (noticeTitle, noticeContent, noticeFile, noticeDate)"
-					+ "values (?, ?, '?', sysdate()");
+			sql.append("insert into notice(noticeTitle, noticeContent, noticeFile, noticeCount, noticeDate)");
+			sql.append("values( ?, ?, ?, ?, sysdate())");
 			
 
 			pstmt = conn.prepareStatement(sql.toString());
@@ -88,8 +89,10 @@ public class NoticeDAO {
 			pstmt.setString(1, nVo.getNoticeTitle());
 			pstmt.setString(2, nVo.getNoticeContent());
 			pstmt.setString(3, nVo.getNoticeFile());
+			pstmt.setInt(4, nVo.getNoticeCount());
 			
 			int flag = pstmt.executeUpdate();
+			
             if(flag > 0){
                result = true;
                conn.commit(); 
@@ -157,8 +160,11 @@ public class NoticeDAO {
 				{
 					sql.append("select * from notice order by noticeNum desc limit ?, 10");
 					
+					
+					
 					pstmt = conn.prepareStatement(sql.toString());
 					pstmt.setInt(1, start);
+					
 					
 					// StringBuffer를 비운다.
 					sql.delete(0, sql.toString().length());
@@ -189,6 +195,7 @@ public class NoticeDAO {
 					nVo.setNoticeContent(rs.getString("noticeContent"));
 					nVo.setNoticeDate(rs.getDate("noticeDate"));
 					nVo.setNoticeCount(rs.getInt("noticeCount"));
+					nVo.setNoticeFile(rs.getString("noticeFile"));
 					
 					list.add(nVo);
 				}
@@ -290,6 +297,7 @@ public class NoticeDAO {
 				nVo.setNoticeDate(rs.getDate("noticeDate"));
 				nVo.setNoticeContent(rs.getString("noticeContent"));
 				nVo.setNoticeCount(rs.getInt("noticeCount"));
+				nVo.setNoticeFile(rs.getString("noticeFile"));
 				
 			}
 			

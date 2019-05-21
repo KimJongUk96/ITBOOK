@@ -30,7 +30,7 @@ public class NoticeInsertAction implements Action {
             
             // 파일업로드 
             MultipartRequest multi = new MultipartRequest
-                    (request, uploadPath, fileSize, "euc-kr", new DefaultFileRenamePolicy());
+                    (request, uploadPath, fileSize, "UTF-8", new DefaultFileRenamePolicy());
  
             // 파일이름 가져오기
             String fileName = "";
@@ -40,13 +40,15 @@ public class NoticeInsertAction implements Action {
                 String name = names.nextElement();
                 fileName = multi.getFilesystemName(name);
             }
+            
+            System.out.println("fileName : " + fileName);
 
             NoticeDAO nDao = NoticeDAO.getInstance();
             NoticeVO nVo = new NoticeVO();
             
             nVo.setNoticeTitle(multi.getParameter("noticeTitle"));
             nVo.setNoticeContent(multi.getParameter("noticeContent"));
-            nVo.setNoticeFile(multi.getParameter("noticeFile"));
+            nVo.setNoticeFile(multi.getFilesystemName("noticeFile"));
             
             boolean result = nDao.insertNotice(nVo);
             
@@ -60,7 +62,7 @@ public class NoticeInsertAction implements Action {
             	e.printStackTrace();
                 System.out.println("글 작성 오류 : " + e.getMessage());
             }
-
+        	
         
         }  
         

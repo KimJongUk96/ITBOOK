@@ -2,6 +2,7 @@ package com.itbook.controller;
 
 import com.itbook.controller.action.Action;
 import com.itbook.controller.action.MainAction;
+import com.itbook.controller.action.notice.FileDownloadAction;
 import com.itbook.controller.action.notice.NoticeDeleteAction;
 import com.itbook.controller.action.notice.NoticeInsertAction;
 import com.itbook.controller.action.notice.NoticeInsertFormAction;
@@ -51,6 +52,10 @@ public class NoticeActionFactory {
 		} else if (command.equals("noticeDeleteAction")) {
 
 			action = new NoticeDeleteAction();
+
+		} else if (command.equals("fileDownloadAction")) {
+
+			action = new FileDownloadAction();
 
 		}
 		

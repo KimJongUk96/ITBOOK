@@ -69,8 +69,7 @@
 					
 					<!-- 검색 폼 스타트 -->
 					<div id="searchForm">
-						<form name="frm" action="/notice?command=noticeListFormAction"
-							method="post" onsubmit="return validateGalBoard()">
+						<form name="frm" action="/notice?command=noticeListFormAction" method="post" onsubmit="return validateGalBoard()">
 							<select name="opt">
 								<option value="0">제목</option>
 							</select> <input type="text" size="20" name="condition" />&nbsp; <input
@@ -92,12 +91,13 @@
 							</thead>
 
 							<tbody>
-								<c:forEach var="notice" items="${noticeList}">
+								<c:forEach var="notice" items="${noticeList}"  >
 									<tr>
 										<th scope="row">${notice.noticeNum}</th>
+										
 										<td><a href="/notice?command=noticeViewAction&noticeNum=${notice.noticeNum}">${notice.noticeTitle }</a></td>
 										<td>관리자</td>
-										<td><fmt:formatDate value="${notice.noticeDate }" /></td>
+										<td><fmt:formatDate value="${notice.noticeDate }"/></td>
 										<td>${notice.noticeCount }</td>
 									</tr>
 								</c:forEach>
