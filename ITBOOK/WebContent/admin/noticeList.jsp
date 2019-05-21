@@ -68,11 +68,50 @@
 	
 	<!-- /.row -->
 </section>
+<section class="pt-0">
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-8">
+			<nav>
+				<ul class="pagination justify-content-center">
+				<c:if test="${paging.pageNum > 1}">
+					<li class="page-item"><a class ="page-link" href="/notice?command=noticeListForm&pageNum=${paging.pageNum - 1}">Prev</a></li>
+				
+					
+				</c:if>	
+					<c:forEach begin="${paging.firstPage}"
+                               end="${paging.lastPage}" var="idx">
+                               
+                               <c:choose>
+                                  <c:when test="${idx == paging.pageNum}">
+                                     <li class="page-item active"> <span class="page-link bg-grad">${idx}</span></li>
+                                  </c:when>
+               
+                                  <c:otherwise>
+                                     <li class="page-item"><a class ="page-link"
+                                        href="/notice?command=noticeListForm&pageNum=${idx}">${idx}</a></li>
+                                  </c:otherwise>
+                                  
+                               </c:choose>
+                            </c:forEach>
+				
+					<c:if test="${paging.numOfPage != paging.pageNum}">
+                            <li class="page-item"><a class = "page-link" href="/notice?command=noticeListForm&pageNum=${paging.pageNum + 1}">Next</a></li>   
+                            </c:if>
+					
+
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+</section>
 <!-- /.content -->
 <!-- </div> -->
 <!-- /.content-wrapper -->
 
 <script>
+
 // 올체크
  $("input[name=AllCheck]").click(function(){
 	var chk = $(this).is(":checked");

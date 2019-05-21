@@ -84,19 +84,6 @@
 						</ul>
 					</div>
 					
-<%-- 			<c:if test = "${message ne null}">
-			<div class="alert alert-info alert-dismissible" role="alert">
-			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			  ${message}
-			</div>
-			</c:if>	
-			<c:if test = "${param.session eq 'no'}">
-			<div class="alert alert-warning alert-dismissible" role="alert">
-			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			  세션이 만료되었습니다. 다시 로그인해주세요.
-			</div>
-			</c:if>	 --%>
-
 					<!-- navbar top Right-->
 					<div class="d-flex align-items-center" id = "navbar">
 					<c:if test = "${LoginUser.authority eq 1 or LoginUser.authority eq 2 or LoginUser.authority eq 3}">
@@ -117,6 +104,7 @@
 						  <a class="dropdown-toggle" href="#" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-user mr-2"></i>Account </a>
 						  <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownAccount">
 						    <a class="dropdown-item" href="member/myPage.jsp">내 정보</a>
+						    <a class="dropdown-item" onclick="logout();">로그아웃</a>
 						  </div>
 						</c:if>
 						</div> 
