@@ -97,6 +97,11 @@
 				</div>
 			</div>
 			</c:forEach>
+			<c:if test = "${LoginUser.authority eq '3'}">
+			<div align="right">
+                     <a class="btn btn-primary" href="admin?command=adminTodayBookRegFormAction">이달의 책 등록</a>
+                  </div>
+                  </c:if>
 		</div>
 	</section>
 

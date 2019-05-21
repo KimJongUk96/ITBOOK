@@ -77,7 +77,7 @@
       <div class="container">
          <div class="row">
             <div class="col-md-6">
-	<form name ="frm" method ="post" action="admin?command=adminTodayBookRegister">
+	<form name ="frm" method ="post" action="book?command=adminTodayBookRegister">
                <div class="form-group">
                   <label>책제목</label> <input class="form-control" type="text" name = ""
                      placeholder="* 책 제목을 입력하세요.">
@@ -106,7 +106,7 @@
          
                <button type ="submit" class ="btn btn-success" ><i class="fa fa-check-circle-o"></i>수정</button>
                
-               <button type = "button" class="btn btn-warning" onclick="location.href='admin?command=adminTodayBookList'">
+               <button type = "button" class="btn btn-warning" onclick="location.href='book?command=adminTodayBookList'">
                <i class="fa  fa-close"></i>취소</button>
             </div>
             

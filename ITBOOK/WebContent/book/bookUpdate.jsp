@@ -103,15 +103,16 @@
 						<i class="fa fa-close"></i>삭제</button> --%>
 						
 						
-loginUser = "${LoginUser.memNum}" , list = "${bookList.memNum}", "${bookList.bookNum}" 
+
 
 
 
               	<c:if test = "${LoginUser.memNum eq bookList.memNum}">
+                  <button type="submit" class="btn btn-success"><i class="fa fa-check-circle-o"></i>수정</button>
+                  
                   <button type="button" class="btn btn-warning" onclick="location.href='book?command=bookDelete&bookNum=${bookList.bookNum}'" >
                   <i class="fa fa-close"></i>삭제</button>
                   
-                  <button type="submit" class="btn btn-success"><i class="fa fa-check-circle-o"></i>수정</button>
                   </c:if>
 
 						<button type = "button" class="btn btn-secondary" onclick="location.href='book?command=bookList'"><i class="fa fa-arrow-circle-right"></i>목록</button>

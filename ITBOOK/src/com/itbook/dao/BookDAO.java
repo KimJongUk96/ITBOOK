@@ -28,12 +28,18 @@ public class BookDAO {
 	}
 	
 	
-	
+	//파일 업로드
 	
 	// 이달의 책 리스트. (일반회원)
 		public List<BookBoardVO> selectTodayBookList() {
+			//String sql = "select b.bookNum,bb.bookBrdNum,b.bookTitle,bb.bookBrdTitle,bb.bookBrdContent,b.writer,b.publisher,bb.imgPath,bb.bookBrdDate "
+				//		+ "from itbook.book_board bb,itbook.book b where bb.bookNum = b.bookNum order by bb.bookBrdNum desc";
+			
 			String sql = "select b.bookNum,bb.bookBrdNum,b.bookTitle,bb.bookBrdTitle,bb.bookBrdContent,b.writer,b.publisher,bb.imgPath,bb.bookBrdDate "
-						+ "from itbook.book_board bb,itbook.book b where bb.bookNum = b.bookNum order by bb.bookBrdNum desc";
+					+ "from itbook.book_board bb,itbook.book b where bb.bookNum = b.bookNum order by bb.bookBrdNum desc";
+		
+			
+			
 			List<BookBoardVO> list = new ArrayList<BookBoardVO>();
 			Connection conn = null;
 			Statement stmt = null;
@@ -56,6 +62,7 @@ public class BookDAO {
 				/* bVo.setMemNum(rs.getInt("memNum")); */
 					bVo.setImgPath(rs.getString("imgPath"));
 					bVo.setBookBrdDate(rs.getDate("bookBrdDate"));
+					
 					list.add(bVo);
 				}
 			} catch (Exception e) {
@@ -102,8 +109,8 @@ public class BookDAO {
 	//이달의 책 등록(관리자)
 	public void insertAdminTodayBookRegister(BookBoardVO bVo) {
 		//sql은 실행o
-		String sql = "insert into itbook.book_board(bookBrdTitle,bookBrdContent,imgPath,memNum,bookNum) values (?,?,?,?,?);";
-		
+		//String sql = "insert into itbook.book_board(bookBrdTitle,bookBrdContent,writer,publisher,imgPath,memNum,bookNum) values (?,?,?,?,?,?,?);";
+		String sql = "insert into itbook.book_board(bookBrdTitle,bookBrdContent,memNum,bookNum) values (?,?,?,?);";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
@@ -113,9 +120,11 @@ public class BookDAO {
 
 			pstmt.setString(1, bVo.getBookBrdTitle());
 			pstmt.setString(2, bVo.getBookBrdContent());
-			pstmt.setString(3, bVo.getImgPath());
-			pstmt.setString(4, bVo.getMemNum());
-			pstmt.setString(5, bVo.getBookNum());
+			//pstmt.setString(3, bVo.getWriter());
+			//pstmt.setString(4, bVo.getPublisher());
+			//pstmt.setString(5, bVo.getImgPath());
+			pstmt.setString(3, bVo.getMemNum());
+			pstmt.setString(4, bVo.getBookNum());
 			
 			pstmt.executeUpdate();
 
@@ -200,7 +209,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 				bVo.setBookKeyword3(rs.getString("bookKeyword3"));
 				bVo.setWriter(rs.getString("writer"));
 				bVo.setPublisher(rs.getString("publisher"));
-				
+				bVo.setMemNum(rs.getString("memNum"));
 				bookList.add(bVo);
 			}
 				
@@ -320,6 +329,8 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 	public void updateBook(BookVO bVo) {
 		String sql = "update itbook.book set bookTitle=?,bookKeyword1=?,bookKeyword2=?,bookKeyword3=?,writer=?,publisher=? where bookNum=?";
 
+		
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {

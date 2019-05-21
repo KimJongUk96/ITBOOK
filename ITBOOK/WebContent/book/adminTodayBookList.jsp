@@ -72,6 +72,7 @@
                            <th scope="col">이달의 책 제목</th>
                          <th scope="col">저자</th>
                           <th scope="col">출판사</th>
+                          <th scope="col">작성자</th>
                         </tr>
                      </thead>
                      
@@ -84,14 +85,14 @@
                            <td>${todayBookList.bookBrdTitle}</td>
                            <td>${todayBookList.writer}</td>
                            <td>${todayBookList.publisher}</td>
-                          
+                          <%-- <td>${todayBookList.memName}</td> --%>
                         </tr>
                         </c:forEach>
                      </tbody>
                     
                   </table>
                   <div align="right">
-                     <a class="btn btn-primary" href="admin?command=adminTodayBookRegFormAction">이달의 책 등록</a>
+                     <a class="btn btn-primary" href="book?command=adminTodayBookRegFormAction">이달의 책 등록</a>
                   </div>
                </div>
             </div>

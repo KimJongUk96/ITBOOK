@@ -82,10 +82,12 @@
                      </thead>
                      
                      <tbody>
-                     <c:forEach var="bookList" items="${bookList}">
+                     <!-- varStatus를 통해서 책번호를 만든다. -->
+                     <c:forEach var="bookList" items="${bookList}" varStatus="status">
                         <tr>
-                           <th scope = "row"><a href="book?command=bookUpdateFormAction&bookNum=${bookList.bookNum}">${bookList.bookNum}</a></th>
-                           <td>${bookList.bookTitle}</td>
+                           <!-- 전체 페이지 데이터 값 : numOfRow , 현재 페이지 수 : pageNum -->
+                           <td>${(paging.numOfRow - status.index) -  (paging.pageNum-1) * 10 }</td>
+                           <th scope = "row"><a href="book?command=bookUpdateFormAction&bookNum=${bookList.bookNum}">${bookList.bookTitle}</a></th>
                            <td>${bookList.bookKeyword1}, ${bookList.bookKeyword2}, ${bookList.bookKeyword3}</td>
                            <td>${bookList.writer}</td>
                            <td>${bookList.publisher}</td>
