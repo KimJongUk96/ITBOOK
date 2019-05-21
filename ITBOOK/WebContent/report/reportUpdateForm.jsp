@@ -60,24 +60,32 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
-				<form name="frm" method="post" action="report?command=Report_Detail">
-				<!-- <input type="hidden" name = "bookNum" value=> -->
-				<input type="hidden" name="bookNum" value="${reportList.bookNum}">
-				 <input type="hidden" name = "memNum" value="${reportList.memNum}">
-				 				
-					<div class="form-group">
-						<label>${reportList.reportTitle}</label> <input class="form-control" name="reportTitle"
-							placeholder="제목을 입력하세요.">
-					</div>
-					
-					<div class="form-group">
-						<label>${reportList.reportContent}</label>
-						<textarea class="form-control" rows="10" name="reportContent"
-							placeholder="내용을 입력하세요."></textarea>
-					</div>
-					<button type ="submit" class ="btn btn-success" ><i class="fa fa-check-circle-o"></i>수정하기</button>
-					<a class="btn btn-warning" href="report?command=Report_List"><i class="fa fa-close"></i>취소하기</a>
-				</form>
+					<form name="frm" method="post"
+						action="report?command=Report_Detail">
+						"${LoginUser.memNum}" , "${reportList.bookNum}"
+						<input type="hidden" name="bookNum" value="${reportList.bookNum}">
+						<input type="hidden" name="memNum" value="${LoginUser.memNum}">
+
+						<div class="form-group">
+							<label>도서 검색</label> <input class="form-control" type="text"
+								name="search" value="${reportList.reportTitle}"
+								placeholder="Search">
+						</div>
+						<div class="form-group">
+							<label>제목</label> <input class="form-control" name="reportTitle"
+								value="${reportList.reportTitle}" placeholder="제목을 입력하세요.">
+						</div>
+						<div class="form-group">
+							<label>내용</label>
+							<textarea class="form-control" rows="10" name="reportContent"
+								placeholder="내용을 입력하세요.">${reportList.reportContent}</textarea>
+						</div>
+						<button type="submit" class="btn btn-success">
+							<i class="fa fa-check-circle-o"></i>수정하기
+						</button>
+						<a class="btn btn-warning" href="report?command=Report_List"><i
+							class="fa fa-close"></i>취소하기</a>
+					</form>
 				</div>
 			</div>
 		</div>

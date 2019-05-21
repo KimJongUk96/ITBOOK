@@ -24,6 +24,8 @@ public class BookUpdateFormAction implements Action {
 		String url = "/book/bookUpdate.jsp";
 		
 		String bookNum = request.getParameter("bookNum");
+
+		
 		
 		BookDAO bDao = BookDAO.getInstance();
 		

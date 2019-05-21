@@ -21,7 +21,7 @@ public class MeetingActionFactory {
 		Action action = null;
 		System.out.println("ActionFactory : " + command);
 		
-		//ëª¨ìž„ ë¦¬ìŠ¤íŠ¸
+		//µ¶¼­ ¸ðÀÓ¸®½ºÆ®
 		if(command.equals("meetingList")) {
 			action = new MeetingListAction();
 		}

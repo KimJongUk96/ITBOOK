@@ -69,8 +69,8 @@
             <div class="col-md-6">
 	<form name ="frm" method ="post" action="book?command=adminTodayBookRegister">
 	
-			  <input type="hidden" name="bookNum" value="${bookList.bookNum}">
-			 <input type="hidden" name="memNum" value="${bookList.memNum}">
+			  <input type="hidden" name="bookNum">
+			 <input type="hidden" name="memNum">
                <div class="form-group">
                   <label>이달의 책 제목</label> <input class="form-control" type="text" name = "bookBrdTitle"
                      placeholder="* 책 제목을 입력하세요.">
@@ -84,8 +84,11 @@
                            
                         
                         <div class="col-md-4 col-xs-4">
-                           <button type="button" class="form-control" 
-                              id="keyword" onclick="openPopUp()">제목이나 키워드
+                        
+                        
+                         <!-- id="keyword" -->
+                           <button type="button" class="form-control" name="bookTitle"
+                              onclick="openPopUp()">제목이나 키워드
                         </button>
                      </div>
                      
@@ -130,7 +133,7 @@
       // window.name = "부모창 이름"; 
       window.name = "parentForm";
       // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "550";
+      var width = "650";
       var height = "300";
       var top = (window.screen.height - height) / 2;
       var left = (window.screen.width - width) / 2;

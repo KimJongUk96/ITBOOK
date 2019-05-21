@@ -110,7 +110,6 @@
 						  <a class="dropdown-toggle" href="#" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-user mr-2"></i>로그인 </a>
 						  <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownAccount">
 						    <a class="dropdown-item" href="member/myPage.jsp">내 정보</a>
-						   <a class="dropdown-item" onclick="logout();">로그아웃</a>
 						  </div>
 						</c:if>
 						
@@ -118,7 +117,6 @@
 						  <a class="dropdown-toggle" href="#" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-user mr-2"></i>Account </a>
 						  <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownAccount">
 						    <a class="dropdown-item" href="member/myPage.jsp">내 정보</a>
-						   <a class="dropdown-item" onclick="logout();">로그아웃</a>
 						  </div>
 						</c:if>
 						</div> 
@@ -133,7 +131,10 @@
 						<!-- top link -->
 						<ul class="nav">
               <li class="nav-item">
-              <c:if test = "${LoginUser.authority eq 3}">
+             	 <c:if test = "${LoginUser.authority eq '1' or LoginUser.authority eq '2'}">
+              	<a class="nav-link" onclick="logout();">로그아웃</a>
+              	</c:if>
+              	<c:if test = "${LoginUser.authority eq 3}">
                   <a class="nav-link" href="admin?command=memberListForm">관리자 화면</a>
                   </c:if>
               </li>
@@ -230,7 +231,7 @@
 								<li class="dropdown-submenu">
 									<a class="dropdown-item dropdown-toggle" href="#">Blog Grid</a>
 									<ul class="dropdown-menu">
-										<li> <a class="dropdown-item" href="/book/bookListForm.jsp">Three column</a> </li>
+										<li> <a class="dropdown-item" href="/book?command=bookList">Three column</a> </li>
 										<li> <a class="dropdown-item" href="blog-grid-column-4.html">Four column</a> </li>
 										<li> <a class="dropdown-item" href="blog-grid-left-sidebar.html">Left Sidebar</a> </li>
 										<li> <a class="dropdown-item" href="blog-grid-right-sidebar.html">Right Sidebar</a> </li>

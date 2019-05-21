@@ -4,12 +4,11 @@
    
 <!DOCTYPE html>
 
-<!-- 독서모임 리스트 -->
+<!-- 독서모임 신청폼 -->
 <!-- portfolio-grid-column-4.html Form -->
-<!-- 참고 index-6.html Form -->
 <html>
 <head>
-	<title>독서모임리스트</title>
+	<title>독서모임 신청</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -256,8 +255,8 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">독서모임</h1>
-					<h6 class="subtitle">함께 만드는 아름다운 소통과 교류의 장</h6>
+					<h1 class="innerpage-title">독서모임 신청</h1>
+					<h6 class="subtitle">나만의 독서모임 신청하기</h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="/index.jsp"><i class="ti-home"></i> Home</a></li>
@@ -276,40 +275,33 @@
 	<section class="portfolio pb-0">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 p-0">
-					<div class="nav justify-content-center">
-						<ul class="nav-tabs nav-tabs-style-2 text-center px-2 p-md-0 m-0 mb-4">
-							<li class="nav-filter active" data-filter="*">모든 모임</li>
-							<li class="nav-filter" data-filter=".marketing">Marketing</li>
-							<li class="nav-filter" data-filter=".digital">Digital</li>
-							<li class="nav-filter" data-filter=".photo">Photography</li>
-						</ul>
-					</div>
+				<div class="col-md-12">
+					<form name="meeting" method="post" action="MeetingServlet">
+						<table>
+						
+						<!-- private String metName;
+							 private String metIntro;
+							 private String represent; -->
+							 
+							<tr>
+								<th>독서모임명</th>
+								<td><input type="text" name="meetingName" placeholder="독서모임명을 입력하세요." class="form-control"></td>
+							</tr>
+							
+							<tr>
+								<th>독서모임 소개</th>
+								<td><textarea name="meetingIntro" placeholder="소개글을 입력하세요." class="form-control"></textarea></td>
+							</tr>
+							
+							<tr>
+								<th>대표자명</th>
+								<td><input type="text" name="represent" placeholder="대표자명을 입력하세요." class="form-control"></td>
+							</tr>
+						</table>
+					</form>
 					
-					<!-- 독서모임 등록하면 자동생성 -->
-					<c:forEach var = "meeting" items="${meetingList}" varStatus="status">
-					 
-					<!-- portfolio-card -->
-					<div class="portfolio-wrap grid items-4 items-padding">
-						<!-- portfolio-card -->
-						<div class="portfolio-card isotope-item digital">
-							<div class="portfolio-card-body">
-								<div class="portfolio-card-header">
-									<a href="#"><img src="../assets/images/portfolio/01.jpg" alt=""></a>
-								</div>
-								<div class="portfolio-card-footer">
-									<a class="full-screen" href="../assets/images/portfolio/01.jpg" data-fancybox="portfolio" data-caption="${meeting.metName}"><i class="ti-fullscreen"></i></a>
-									<div class="post-author">${meeting.represent}모임대표자,
-									${meeting.metDate}개설일자,
-									${meeting.headCount}모임인원수</div>
-									<div><h6 class="info-title"><a href="/meeting?command=meetingHomeAction" title="독서모임">${meeting.metName}모임명</a></h6></div>
-									<p>${meeting.metIntro}모임인트로</p>
-								</div>
-							</div>
-						</div>
-					</div>
 					
-					</c:forEach>
+					
 				</div>
 			</div>
 		</div>
@@ -323,10 +315,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-9 text-center text-md-left align-self-center">
-					<h4 class="m-0"><b>소통의 장, 독서모임 신청하기</b></h4>
+					<h4 class="m-0"><b>※독서모임은 관리자의 승인 후 활동 가능합니다.</b></h4>
 				</div>
 				<div class="col-md-3 text-center text-md-right mt-3 mt-md-0 align-self-center ">
-					<a class="btn btn-outline-light mb-0" href="/meeting?command=meetingApplyAction" title="독서모임">독서모임 신청</a>
+					<a class="btn btn-outline-light mb-0" href="#">신청하기</a>
 				</div>
 			</div>
 		</div>

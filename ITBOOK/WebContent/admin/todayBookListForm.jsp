@@ -5,8 +5,6 @@
 <%@ page session="false"%>
 
 <%@include file="../include/adminheader.jsp"%>
-
-<!-- Main content -->
 <style>
 .container {
   width: 70%;
@@ -30,8 +28,12 @@
   width: 50%;
 }
 
+
+
  </style>
-<script type="text/javascript" src="js/mailPopup.js"></script>
+<!-- Main content -->
+
+
 <section class="content">
 	<div class="row">
 		<!-- left column -->
@@ -40,24 +42,24 @@
 
 				
 			
-			<div class="box" >
+			<div class="box">
 			
 				<div class="box-header with-border">
 					<h3 class="box-title">회원정보 관리</h3>
 				</div>
-				<form name = "frm" method = "post" action = "email?command=senderEmail&email=${MemberVO.email}">
- 				<div class="box-body">
+				<form name = "frm" method = "post" action = "admin?command=memberDelete">
+				<div class="box-body">
 
-<div> 
+<div>
 
  <table class="table table-bordered" id="user-table">
 	<thead>
-	<tr><th colspan="5" style = "text-align: center;">메일 전송</th></tr>
+	<tr><th colspan="5" style = "text-align: center;">이 달의책 목록</th></tr>
 	<tr>
 	    <th style="width: 10px; text-align:center;"><input type = "checkbox" name = "AllCheck" ></th>
 		<th style="width: 100px; text-align: center;">아이디</th>
 		<th style="width: 100px;text-align: center;">이름</th>
-		<th style="width: 100px;text-align: center;">이메일</th>
+		<th style="width: 100px;text-align: center;">가입일</th>
 		<th style="width: 50px;text-align: center;">회원등급</th>
 	</tr>
 	</thead>
@@ -65,10 +67,10 @@
 <c:forEach items="${memberList}" var="MemberVO">
 	<tbody >
 	<tr style ="text-align:center;">
-		<td><input type ="checkbox" value="${MemberVO.email}" name="email" ></td>
+		<td><input type ="checkbox" value="${MemberVO.memNum}" name="memNum" ></td>
 		<td>${MemberVO.memId}</td>
 		<td>${MemberVO.memName}</td>
-		<td>${MemberVO.email}</td>
+		<td>${MemberVO.signDate}</td>
  		<c:if test = "${MemberVO.authority eq '1'}"><td>일반회원</td></c:if>	
 		<c:if test = "${MemberVO.authority eq '2'}"><td>기부회원</td></c:if>
 		<c:if test = "${MemberVO.authority eq '3'}"><td>관리자</td></c:if> 
@@ -78,9 +80,9 @@
 </c:forEach>
 </table> 
 </div>
-		    <button type = "submit" class="btn btn-danger" style = "float : right" >메일전송</button> 
+		    <button type = "submit" class="btn btn-danger" style = "float : right">삭제</button> 
 </div>
-			 </form>
+			</form>
 			<section class="pt-0">
 		<div class="container">
 		<div class="outer">
@@ -88,7 +90,7 @@
     <div class="centered">
 						<ul class="pagination justify-content-center">
 						<c:if test="${paging.pageNum > 1}">
-							<li class="page-item"><a class ="page-link" href="admin?command=senderEmailListFormAction&pageNum=${paging.pageNum - 1}">Prev</a></li>
+							<li class="page-item"><a class ="page-link" href="admin?command=memberListForm&pageNum=${paging.pageNum - 1}">Prev</a></li>
 						
 							
 						</c:if>	
@@ -102,14 +104,14 @@
                        
                                           <c:otherwise>
                                              <li class="page-item"><a class ="page-link"
-                                                href="admin?command=senderEmailListFormAction&pageNum=${idx}">${idx}</a></li>
+                                                href="admin?command=memberListForm&pageNum=${idx}">${idx}</a></li>
                                           </c:otherwise>
                                           
                                        </c:choose>
                                     </c:forEach>
 						
 							<c:if test="${paging.numOfPage != paging.pageNum}">
-                                    <li class="page-item"><a class = "page-link" href="admin?command=senderEmailListFormAction&pageNum=${paging.pageNum + 1}">Next</a></li>   
+                                    <li class="page-item"><a class = "page-link" href="admin?command=memberListForm&pageNum=${paging.pageNum + 1}">Next</a></li>   
                                     </c:if>
 							
 
@@ -131,6 +133,7 @@
 	
 	<!-- /.row -->
 </section>
+
 <!-- /.content -->
 <!-- </div> -->
 <!-- /.content-wrapper -->
@@ -141,9 +144,9 @@
 	var chk = $(this).is(":checked");
 	
 	if(chk){
-		$("input[name='eamil']").prop("checked", true);
+		$("input[name='memNum']").prop("checked", true);
 	} else{
-		$("input[name='eamil']").prop("checked", false);
+		$("input[name='memNum']").prop("checked", false);
 	}
 }); 
     

@@ -73,7 +73,6 @@
             
             <input type="text" size="20" name="condition"/>
             <input type="submit" value="검색"/>
-        </form>
         
                   <table class="table table-hover">
                      <thead>
@@ -83,28 +82,53 @@
                          <th scope="col">키워드</th>
                          <th scope="col">저자</th>
                           <th scope="col">출판사</th>
+                          <th scope="col">작성자</th>
                           
                         </tr>
                      </thead>
                      
                      <tbody>
                      <c:forEach var="bookList" items="${bookList}">
+                        
+                        <!--id를 통해서 부모창으로 넘겨줌. -->
+                        <input type="hidden" name="bookNum" id="bookNum" value="${bookList.bookNum}">
+                        <input type="hidden" name="bookTitle" id="bookTitle" value="${bookList.bookTitle}">
+                        <input type="hidden" name="writer" id="writer" value="${bookList.writer}">
+                        <input type="hidden" name="publisher" id="publisher" value="${bookList.publisher}">
                         <tr>
                            <td>${bookList.bookNum}</td>
-                           <th scope = "row"><a href="book?command=bookUpdateFormAction&bookNum=${bookList.bookTitle}">${bookList.bookTitle}</a></th>
+                           
+                            <th scope = "row" onclick="sendToParent()">${bookList.bookTitle}</th>
+                           <%-- <td><a href="" onclick="javascript:opener.location.href='/book?command=adminTodayBookRegFormAction';self.close();">${bookList.bookTitle}</a></td> --%>
                            <td>${bookList.bookKeyword1}, ${bookList.bookKeyword2}, ${bookList.bookKeyword3}</td>
                            <td>${bookList.writer}</td>
                            <td>${bookList.publisher}</td>
+                           <td>${bookList.memNum}</td>
                         </tr>
-     				</c:forEach>
+                 </c:forEach>
                      </tbody>
                   </table>
+           </form>
                </div>
             </div>
          </div>
       </div>
    </section>
+   <div align="right">
+                     원하는 책이 없으면 --> <a class="btn btn-primary" onclick="javascript:opener.location.href='/book?command=bookRegFormAction';self.close();">책 등록</a>
+                  </div>
    
+<script type="text/javascript">
+function sendToParent(){
+   window.opener.document.frm.bookNum.value = document.frm.bookNum.value;
+   window.opener.document.frm.bookTitle.value = document.frm.bookTitle.value;
+   window.opener.document.frm.writer.value = document.frm.writer.value;
+   window.opener.document.frm.publisher.value = document.frm.publisher.value;
+   self.close();
+   
+}
+
+</script>   
    <%@ include file="../include/footer.jsp"%>
 </body>
 </html>

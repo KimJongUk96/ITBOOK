@@ -265,10 +265,8 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 			pstmt.setString(4, bVo.getBookKeyword3());
 			pstmt.setString(5, bVo.getWriter());
 			pstmt.setString(6, bVo.getPublisher());
-			
-
 			pstmt.setString(7, bVo.getMemNum());
-
+			
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -281,7 +279,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 	// 모든 사용자가 책리스트화면에서 책번호를 클릭하면 수정 페이지로 이동.
 	public BookVO selectOneBookNum(String bookNum) {
 
-		String sql = "select bookNum,bookTitle,bookKeyword1,bookKeyword2,bookKeyword3,writer,publisher from itbook.book where bookNum = ?";
+		String sql = "select bookNum,bookTitle,bookKeyword1,bookKeyword2,bookKeyword3,writer,publisher,memNum from itbook.book where bookNum = ?";
 
 		BookVO bVo = null;
 		Connection conn = null;
@@ -307,6 +305,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 				bVo.setBookKeyword3(rs.getString("bookKeyword3"));
 				bVo.setWriter(rs.getString("writer"));
 				bVo.setPublisher(rs.getString("publisher"));
+				bVo.setMemNum(rs.getString("memNum"));
 			}
 
 		} catch (Exception e) {
@@ -319,7 +318,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 
 	// 책 수정.
 	public void updateBook(BookVO bVo) {
-		String sql = "update itbook.book set bookTitle=?,bookKeyword1=?,bookKeyword2=?,bookKeyword3=?,writer=?,publisher=?,memNum=? where bookNum=?";
+		String sql = "update itbook.book set bookTitle=?,bookKeyword1=?,bookKeyword2=?,bookKeyword3=?,writer=?,publisher=? where bookNum=?";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -334,9 +333,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 			pstmt.setString(4, bVo.getBookKeyword3());
 			pstmt.setString(5, bVo.getWriter());
 			pstmt.setString(6, bVo.getPublisher());
-			
-			pstmt.setString(7, bVo.getMemNum());
-			pstmt.setString(8, bVo.getBookNum());
+			pstmt.setString(7, bVo.getBookNum());
 			
 			pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -410,7 +407,9 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 	//책 리스트 페이징 처리
 	public ArrayList<BookVO> selectBookPage(Paging paging) {
         
-        String sql = "select bookNum,bookTitle,bookKeyword1,bookKeyword2,bookKeyword3,writer,publisher from itbook.book order by bookNum desc limit ?, 10";
+        String sql = "select b.bookNum,b.bookTitle,b.bookKeyword1,b.bookKeyword2,b.bookKeyword3,b.writer,b.publisher,m.memName,m.memNum " + 
+        		"from itbook.book b,itbook.member m " + 
+        		"where b.memNum = m.memNum order by bookNum desc limit ?, 10";
 
          ArrayList<BookVO> list = new ArrayList<BookVO>();
          Connection conn = null;
@@ -441,6 +440,9 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 				bVo.setBookKeyword3(rs.getString("bookKeyword3"));
 				bVo.setWriter(rs.getString("writer"));
 				bVo.setPublisher(rs.getString("publisher"));
+				bVo.setMemName(rs.getString("memName"));
+				
+				bVo.setMemNum(rs.getString("memNum"));
 				
 				list.add(bVo);
             }
