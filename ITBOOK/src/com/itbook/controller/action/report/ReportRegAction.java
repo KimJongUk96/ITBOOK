@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
 import com.itbook.dao.ReportDAO;
+import com.itbook.vo.BookVO;
+import com.itbook.vo.MemberVO;
 import com.itbook.vo.Report.ReportBoardVO;
 
 public class ReportRegAction implements Action {
@@ -15,14 +17,20 @@ public class ReportRegAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
 		ReportBoardVO rVo = new ReportBoardVO();
+
+
+		
 
 		rVo.setReportTitle(request.getParameter("reportTitle"));
 		rVo.setReportContent(request.getParameter("reportContent"));
 		rVo.setBookNum(request.getParameter("bookNum"));
-		rVo.setMemNum(request.getParameter("memNum"));
-		
+		rVo.setWriter(request.getParameter("writer"));
+		rVo.setPublisher(request.getParameter("publisher"));
+
+		// 사용자 memNum
+		MemberVO memVo = (MemberVO) request.getSession().getAttribute("LoginUser");
+		rVo.setMemNum(memVo.getMemNum());
 
 		ReportDAO rDao = ReportDAO.getInstance();
 		rDao.insertReport(rVo);
@@ -30,7 +38,7 @@ public class ReportRegAction implements Action {
 		/* request.setAttribute("msg", "글이 등록되었습니다."); */
 
 		new ReportListFormAction().execute(request, response);
-		
+
 	}
 
 }

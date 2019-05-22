@@ -59,36 +59,42 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-4">
 					<form name="frm" method="post" action="report?command=Report_Reg">
-						<input type="hidden" name="bookNum" value="${reportList.bookNum}"> 
-						<input type="hidden" name="memNum" value="${LoginUser.memNum}">
-
+						 <input type="hidden" name="bookNum">
+						<!-- <input type="hidden" name="memNum" > -->
+						<input type ="hidden" name = "memNum" value = "${LoginUser.memNum}">
 						<div class="form-group">
-						<label>도서 검색</label>
-							<input class="form-control"
-								type="text" name="search" placeholder="Search"> 
-						</div> 
-						<!-- <div id="searchForm">
-							
-								<select name="opt">
-									<option value="0">도서 제목</option>
-									<option value="1">출판사</option>
-								</select> 
-								
-								<input type="text" size="20" name="condition">
-							
-						</div> -->
+							<div class="col-md-4 col-xs-4">	
+								<button type="button" class="form-control"
+									onclick="openPopUp()">책 검색</button>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label>책 제목</label> <input class="form-control" name="bookTitle"
+								placeholder="책 제목을 입력하세요.">
+						</div>
+						<div class="form-group">
+							<label>저자</label> <input class="form-control" type="text"
+								name="writer" placeholder="저자를 입력하세요.">
+						</div>
+						<div class="form-group">
+							<label>출판사</label> <input class="form-control" type="text"
+								name="publisher" placeholder="출판사를 입력하세요.">
+						</div>
 
 						<div class="form-group">
 							<label>제목</label> <input class="form-control" name="reportTitle"
 								placeholder="제목을 입력하세요.">
 						</div>
+
 						<div class="form-group">
 							<label>내용</label>
 							<textarea class="form-control" rows="10" name="reportContent"
 								placeholder="내용을 입력하세요."></textarea>
 						</div>
+
 						<button type="submit" class="btn btn-success">
 							<i class="fa fa-check-circle-o"></i>등록하기
 						</button>
@@ -99,6 +105,29 @@
 			</div>
 		</div>
 	</section>
+	<script>
+		function openPopUp() {
+			// window.name = "부모창 이름"; 
+			window.name = "parentForm";
+			// window.open("open할 window", "자식창 이름", "팝업창 옵션");
+			var width = "650";
+			var height = "300";
+			var top = (window.screen.height - height) / 2;
+			var left = (window.screen.width - width) / 2;
+			var url = "../book/bookSearch.jsp";
+			var title = "책";
+			var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
+					+ width
+					+ ",height="
+					+ height
+					+ ",top="
+					+ top
+					+ ",left="
+					+ left;
+
+			window.open(url, title, status);
+		}
+	</script>
 	<%@ include file="../include/footer.jsp"%>
 </body>
 </html>

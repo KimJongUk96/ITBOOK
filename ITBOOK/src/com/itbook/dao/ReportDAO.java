@@ -24,9 +24,8 @@ public class ReportDAO {
 	// 독후감 조회
 	public List<ReportBoardVO> selectAllReports() {
 
-		String sql = "SELECT reportNum" + "" + "        , reportTitle" + "        , reportContent"
-				+ "         , reportDate" + "         , reportCount" + "         , bookNum"
-				+ "         , memNum FROM itbook.report_board order by reportNum desc";
+		String sql ="select r.reportNum,r.reportTitle,r.reportContent,r.reportCount,r.bookNum,r.memNum,m.memName from itbook.report_board r , itbook.member m where r.memNum = m.memNum order by ReportNum desc";
+
 
 		List<ReportBoardVO> list = new ArrayList<ReportBoardVO>();
 		Connection conn = null;
@@ -44,10 +43,10 @@ public class ReportDAO {
 				rVo.setReportNum(rs.getString("reportNum"));
 				rVo.setReportTitle(rs.getString("reportTitle"));
 				rVo.setReportContent(rs.getString("reportContent"));
-				rVo.setReportDate(rs.getDate("reportDate"));
 				rVo.setReportCount(rs.getInt("reportCount"));
 				rVo.setBookNum(rs.getString("bookNum"));
 				rVo.setMemNum(rs.getString("memNum"));
+				rVo.setMemName(rs.getString("memName"));
 
 				list.add(rVo);
 			}
@@ -61,7 +60,7 @@ public class ReportDAO {
 
 	// 독후감 등록하기
 	public void insertReport(ReportBoardVO rVo) {
-		String sql = "insert into itbook.report_board (reportTitle,reportContent,bookNum,memNum) value (?,?,?,?)";
+		String sql = "insert into itbook.report_board (reportTitle,reportContent,memNum,bookNum,writer,publisher) value (?,?,?,?,?,?)";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -72,8 +71,10 @@ public class ReportDAO {
 
 			pstmt.setString(1, rVo.getReportTitle());
 			pstmt.setString(2, rVo.getReportContent());
-			pstmt.setString(3, rVo.getBookNum());
-			pstmt.setString(4, rVo.getMemNum());
+			pstmt.setString(3, rVo.getMemNum());
+			pstmt.setString(4, rVo.getBookNum());
+			pstmt.setString(5, rVo.getWriter());
+			pstmt.setString(6, rVo.getPublisher());
 			
 			pstmt.executeUpdate();
 
@@ -87,11 +88,12 @@ public class ReportDAO {
 
 	// 독후감 상세보기
 	public ReportBoardVO selectOneReportByNum(String reportNum) {
-		String sql = "select * from report_board where reportNum=?";
+		String sql = "select * from itbook.report_board where reportNum = ?";
 
 		ReportBoardVO rVo = new ReportBoardVO();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		
 		ResultSet rs = null;
 
 		try {
@@ -101,7 +103,6 @@ public class ReportDAO {
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-//				rVo = new ReportBoardVO();
 
 				rVo.setReportNum(rs.getString("reportNum"));
 				rVo.setReportTitle(rs.getString("reportTitle"));
@@ -110,6 +111,8 @@ public class ReportDAO {
 				rVo.setReportCount(rs.getInt("reportCount"));
 				rVo.setBookNum(rs.getString("bookNum"));
 				rVo.setMemNum(rs.getString("memNum"));
+				rVo.setWriter(rs.getString("writer"));
+				rVo.setPublisher(rs.getString("publisher"));
 
 			}
 

@@ -21,7 +21,7 @@ public class ReporDetailFormAction implements Action {
 
 		String reportNum = request.getParameter("reportNum");
 		ReportDAO rDao = ReportDAO.getInstance();
-
+		System.out.println("reportN : " + reportNum);
 //		rDao.updateReportCount(ReportNum);
 
 		ReportBoardVO rVo = rDao.selectOneReportByNum(reportNum);

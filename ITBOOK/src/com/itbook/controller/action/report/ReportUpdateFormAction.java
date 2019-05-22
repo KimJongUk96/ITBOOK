@@ -21,15 +21,20 @@ public class ReportUpdateFormAction implements Action {
 		String reportNum = request.getParameter("reportNum");
 		
 		ReportDAO rDao = ReportDAO.getInstance();
-
-		/* rDao.updateReportCount(ReportNum); */
 		
-		ReportBoardVO rVo = new ReportBoardVO();
-		
-		rVo.setReportNum(reportNum);
-		rDao.updateReport(rVo);
+		//reportNum 정보 조회
+		ReportBoardVO rVo = rDao.selectOneReportByNum(reportNum);
 
 		request.setAttribute("reportList", rVo);
+		
+		
+		/* rDao.updateReportCount(ReportNum); */
+		
+		/*
+		 * ReportBoardVO rVo = new ReportBoardVO();
+		 * 
+		 * rVo.setReportNum(reportNum); rDao.updateReport(rVo);
+		 */
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
