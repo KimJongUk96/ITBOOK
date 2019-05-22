@@ -49,7 +49,7 @@
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="index.html"><i
 									class="ti-home"></i> Home</a></li>
-							<li class="breadcrumb-item">Table</li>
+							
 						</ol>
 					</nav>
 				</div>
@@ -63,7 +63,7 @@
 					<form name="frm" method="post" action="report?command=Report_Reg">
 						 <input type="hidden" name="bookNum">
 						<!-- <input type="hidden" name="memNum" > -->
-						<input type ="hidden" name = "memNum" value = "${LoginUser.memNum}">
+						<%-- <input type ="hidden" name = "memNum" value = "${LoginUser.memNum}"> --%>
 						<div class="form-group">
 							<div class="col-md-4 col-xs-4">	
 								<button type="button" class="form-control"

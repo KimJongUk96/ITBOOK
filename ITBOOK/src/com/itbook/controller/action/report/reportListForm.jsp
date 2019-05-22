@@ -116,10 +116,7 @@
 									<a href="report?command=Report_Detail&reportNum=${reportList.reportNum}">
 										${reportList.reportTitle}</a>
 								</h3>
-
-								<p class="feature-box-desc">${reportList.memName}</p>
-								
-								
+								<p class="feature-box-desc">${reportList.memName}</p>								
 							</div>
 						</div>
 					</c:forEach>

@@ -49,7 +49,7 @@
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="index.html"><i
 									class="ti-home"></i> Home</a></li>
-							<li class="breadcrumb-item">Table</li>
+							
 						</ol>
 					</nav>
 				</div>
@@ -61,16 +61,14 @@
 			<div class="row">
 				<div class="col-md-2">
 
-					"${LoginUser.memNum}" , "${reportList.bookNum}" <input
-						type="hidden" name="bookNum" value="${reportList.bookNum}">
+					<input type="hidden" name="bookNum" value="${reportList.bookNum}">
 					<input type="hidden" name="memNum" value="${LoginUser.memNum}">
-
 					<button type="button" class="form-control" name="bookTitle"
 						onclick="openPopUp()">책 검색</button>
 				</div>
 			</div>
 
-			<form name="frm" method="post" action="report?command=Report_Detail">
+			<form name="frm" method="post" action="report?command=Report_Update&reportNum=${reportList.reportNum}">
 				<div class="col-md-4">
 					<div class="form-group">
 						<label>책 제목</label> <input class="form-control" name="bookTitle"
@@ -78,11 +76,11 @@
 					</div>
 					<div class="form-group">
 						<label>저자</label> <input class="form-control" type="text"
-							value="${bookList.writer}" name="writer" placeholder="저자를 입력하세요.">
+							value="${reportList.writer}" name="writer" placeholder="저자를 입력하세요.">
 					</div>
 					<div class="form-group">
 						<label>출판사</label> <input class="form-control" type="text"
-							value="${bookList.pulisher}" name="publisher"
+							value="${reportList.publisher}" name="publisher"
 							placeholder="출판사를 입력하세요.">
 					</div>
 					<div class="form-group">
@@ -97,14 +95,12 @@
 					<button type="submit" class="btn btn-success">
 						<i class="fa fa-check-circle-o"></i>수정하기
 					</button>
-					<a class="btn btn-warning" href="report?command=Report_List"><i
+					<a class="btn btn-warning" href="report?command=Report_Detail&reportNum=${reportList.reportNum}"><i
 						class="fa fa-close"></i>취소하기</a>
 				</div>
 			</form>
-
 		</div>
-		</div>
-		</div>
+		
 	</section>
 	<script>
 		function openPopUp() {

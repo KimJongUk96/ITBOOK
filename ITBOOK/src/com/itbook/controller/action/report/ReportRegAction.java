@@ -24,7 +24,7 @@ public class ReportRegAction implements Action {
 
 		rVo.setReportTitle(request.getParameter("reportTitle"));
 		rVo.setReportContent(request.getParameter("reportContent"));
-		rVo.setBookNum(request.getParameter("bookNum"));
+		rVo.setBookNum(request.getParameter("bookNum")); 
 		rVo.setWriter(request.getParameter("writer"));
 		rVo.setPublisher(request.getParameter("publisher"));
 

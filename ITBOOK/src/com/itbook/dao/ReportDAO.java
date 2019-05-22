@@ -88,7 +88,8 @@ public class ReportDAO {
 
 	// 독후감 상세보기
 	public ReportBoardVO selectOneReportByNum(String reportNum) {
-		String sql = "select * from itbook.report_board where reportNum = ?";
+		//String sql = "select r.reportNum,r.reportTitle,r.reportContent,r.reportDate,r.reportCount,r.bookNum,m.memName,r.writer,r.publisher from itbook.report_board r, itbook.member m where r.memNum = m.memNum";
+		String sql = "select * from itbook.report_board where reportNum=?";
 
 		ReportBoardVO rVo = new ReportBoardVO();
 		Connection conn = null;
@@ -145,7 +146,7 @@ public class ReportDAO {
 
 	// 독후감 게시글 수정하기
 	public void updateReport(ReportBoardVO rVo) {
-		String sql = "UPDATE itbook.report_board SET ReportTitle=?, ReportContent=?, BookNum=? WHERE MemNum=?";
+		String sql = "UPDATE itbook.report_board SET ReportTitle=?, ReportContent=? WHERE ReportNum=?";
 //		String sql = "UPDATE itbook.report_board SET ReportTitle=?, ReportContent=? WHERE bookNum=?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -157,8 +158,7 @@ public class ReportDAO {
 
 			pstmt.setString(1, rVo.getReportTitle());
 			pstmt.setString(2, rVo.getReportContent());
-			pstmt.setString(3, rVo.getBookNum());
-			pstmt.setString(4, rVo.getMemNum());
+			pstmt.setString(3, rVo.getReportNum());
 			
 			pstmt.executeUpdate();
 
@@ -219,9 +219,9 @@ public class ReportDAO {
 	}
 
 	// 독후감 리스트 페이징 처리
-	public ArrayList<ReportBoardVO> selectBookPage(Paging paging) {
+	public ArrayList<ReportBoardVO> selectReportPage(Paging paging) {
 
-		String sql = "select reportNum,reportTitle,reportContent,reportCount from itbook.report_board order by ReportNum desc limit ?, 10";
+		String sql = "select r.reportNum, r.reportTitle, m.memName from itbook.report_board r, itbook.member m where r.memNum=m.memNum order by ReportNum desc limit ?, 9";
 
 		ArrayList<ReportBoardVO> list = new ArrayList<ReportBoardVO>();
 		Connection conn = null;
@@ -240,8 +240,9 @@ public class ReportDAO {
 
 				rVo.setReportNum(rs.getString("reportNum"));
 				rVo.setReportTitle(rs.getString("reportTitle"));
-				rVo.setReportContent(rs.getString("reportContent"));
-				rVo.setReportCount(rs.getInt("reportCount"));
+				rVo.setMemName(rs.getString("memName"));
+				
+				
 
 				list.add(rVo);
 			}
