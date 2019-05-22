@@ -14,6 +14,7 @@ import com.itbook.vo.Meeting.MeetingVO;
 
 public class MeetingApplyAction implements Action{
 	
+	
 		// MeetingApplyAction?command=meetingApply 요청을 받으면 독서모임 리스트 화면을 표시한다.
 		@Override
 		public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

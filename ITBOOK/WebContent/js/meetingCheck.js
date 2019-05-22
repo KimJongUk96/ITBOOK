@@ -1,6 +1,7 @@
 /**
  * @author 정원
  * 독서모임 신청확인란 유효성검사
+ * 빈칸이 발생했을 때 return 값과 체크박스 선택검사
  */
 
 function meetingCheck(){

@@ -31,6 +31,7 @@
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
 	
 	<!-- Form CSS -->
+	<!-- 스타일 시트 추가 -->
 	<style type="text/css">
 	form {
 	margin: 0 auto;

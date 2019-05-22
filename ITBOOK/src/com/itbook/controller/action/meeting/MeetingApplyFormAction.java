@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
 
-
 public class MeetingApplyFormAction implements Action {
 
 	//독서모임 신청을 위한 폼으로 이동하는 액션 클래스
