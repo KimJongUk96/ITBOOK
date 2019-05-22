@@ -27,7 +27,7 @@ public class AdminReportListForm implements Action{
 	    
 	    paging.setPageNum(pageNum);
 	    rDao.selectReportRowCount(paging);
-	    ArrayList<ReportBoardVO> list = rDao.selectBookPage(paging);
+	    ArrayList<ReportBoardVO> list = rDao.selectReportPage(paging);
 	      
 		request.setAttribute("paging", paging);
 		request.setAttribute("reportList", list);

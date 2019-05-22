@@ -102,8 +102,8 @@
 							<i class="ti-book"></i>
 						</div>
 					<c:forEach var="reportList" items="${reportList}">
-					<input type="hidden" name="bookNum" value="${reportList.bookNum}">
-					<input type="hidden" name="memNum" value="${LoginUser.memNum}">
+					<%-- <input type="hidden" name="bookNum" value="${reportList.bookNum}">
+					<input type="hidden" name="memNum" value="${LoginUser.memNum}"> --%>
 						<h5 class="mb-2 mt-5"></h5>
 						
 						<div class="col-lg-4 mt-4">
@@ -116,8 +116,7 @@
 									<a href="report?command=Report_Detail&reportNum=${reportList.reportNum}">
 										${reportList.reportTitle}</a>
 								</h3>
-
-								<p class="feature-box-desc">${reportList.reportContent}</p>
+								<p class="feature-box-desc">${reportList.memName}</p>								
 							</div>
 						</div>
 					</c:forEach>
@@ -129,7 +128,7 @@
 	</section>
 	
 <!-- 페이징 처리 -->  
- <section class="pt-0">
+ <%-- <section class="pt-0">
       <div class="container">
          <div class="row justify-content-center">
             <div class="col-md-8">
@@ -166,7 +165,7 @@
             </div>
          </div>
       </div>
-   </section> 
+   </section>  --%>
 
 	<%@ include file="../include/footer.jsp"%>
 </body>

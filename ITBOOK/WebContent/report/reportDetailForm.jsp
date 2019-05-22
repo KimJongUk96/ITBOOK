@@ -49,7 +49,7 @@
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="index.html"><i
 									class="ti-home"></i> Home</a></li>
-							<li class="breadcrumb-item">Table</li>
+							
 						</ol>
 					</nav>
 				</div>
@@ -69,19 +69,17 @@
 					<div class="col-md-8 mx-auto">
 						<h2 class="mb-4">${reportList.reportTitle}</h2>
 						<div class="post-item-desc">
-							<span class="post-meta">Mar 26, </span> <span class="post-meta">${LoginUser.memId},
-
-							</span> <span class="post-meta"><i class="ti-comment-alt"></i>11
-								Comments</span>
+							<span class="post-meta">${reportList.reportDate}</span> 
+							<%-- <span class="post-meta">${reportList.memName} </span> --%>
+						    <span class="post-meta"><i class="ti-comment-alt"></i></span>
 						</div>
-							<div class="col-md-4 sidebar">
+						<div class="col-md-4 sidebar">
 							<div class="sticky-element">
 								<h2 class="mt-3 mt-md-0 mb-3"></h2>
 								<ul class="list-unstyled p-0">
-									<li class="mb-3"><strong>저자:</strong>누구누구</li>
-									<li class="mb-3"><strong>출판사:</strong>어디어디</li>
-									<li class="mb-3"><strong>발간일자:</strong>언제언제</li>
-									<li class="mb-3"><strong>엮은이:</strong>누구누구</li>
+									<li class="mb-3"><strong>저자:</strong>${reportList.writer}</li>
+									<li class="mb-3"><strong>출판사:</strong>${reportList.publisher}</li>
+
 								</ul>
 							</div>
 						</div>
@@ -95,7 +93,7 @@
 							href="report?command=Report_Delete&reportNum=${reportList.reportNum}"><i
 							class="fa fa-chevron-right"></i>삭제하기</a>
 
-					
+
 					</div>
 
 					<div class="row mt-5">
@@ -110,7 +108,7 @@
 									<div class="comment-body">
 										<div class="comment-meta">
 											<div class="comment-meta-author">
-												<a href="#"></a>
+												<a href="#">글쓴이</a>
 											</div>
 											<div class="comment-meta-date">June 11, 2019 at 6:01 am</div>
 										</div>
@@ -127,7 +125,7 @@
 											<div class="comment-body">
 												<div class="comment-meta">
 													<div class="comment-meta-author">
-														<a href="#"></a>
+														<a href="#">답글쓴이</a>
 													</div>
 													<div class="comment-meta-date">June 11, 2019 at 6:20
 														am</div>
@@ -159,6 +157,26 @@
 								</div>
 								<div class="col-md-12 text-center">
 									<button class="btn-block btn btn-dark">댓글 등록</button>
+								</div>
+
+								<br>
+								<br>
+								<br>
+								<br>
+								<br>
+								<br>
+
+								<div class="col-md-12 text-center">
+									<button type="button"
+										class="btn btn-grad border-radius-left-0 mb-0">이전 글</button>
+
+									<a href="report?command=Report_List">
+										<button type="button"
+											class="btn btn-grad border-radius-left-0 mb-0">글 목록</button>
+									</a>
+
+									<button type="button"
+										class="btn btn-grad border-radius-left-0 mb-0">다음 글</button>
 								</div>
 							</div>
 						</div>

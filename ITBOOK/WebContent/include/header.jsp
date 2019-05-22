@@ -266,7 +266,7 @@
 							<a class="nav-link dropdown-toggle" href="#" id="portfolioMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소통의 장</a>
 							<ul class="dropdown-menu" aria-labelledby="portfolioMenu">
 								<li> <a class="dropdown-item" href="/notice?command=noticeListFormAction">공지사항</a> </li>
-								<li> <a class="dropdown-item" href="portfolio-grid-column-3.html">Portfolio Column 3</a> </li>
+								<li> <a class="dropdown-item" href="/report?command=Report_List">독후감</a> </li>
 								<li> <a class="dropdown-item" href="portfolio-grid-column-4.html">Portfolio Column 4</a> </li>
 								<li> <a class="dropdown-item" href="portfolio-grid-column-5.html">Portfolio Column 5</a> </li>
 								<li> <a class="dropdown-item" href="portfolio-grid-column-6.html">Portfolio Column 6</a> </li>

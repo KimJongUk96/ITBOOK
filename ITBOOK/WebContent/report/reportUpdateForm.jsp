@@ -49,7 +49,7 @@
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="index.html"><i
 									class="ti-home"></i> Home</a></li>
-							<li class="breadcrumb-item">Table</li>
+							
 						</ol>
 					</nav>
 				</div>
@@ -59,37 +59,72 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6">
-					<form name="frm" method="post"
-						action="report?command=Report_Detail">
-						"${LoginUser.memNum}" , "${reportList.bookNum}"
-						<input type="hidden" name="bookNum" value="${reportList.bookNum}">
-						<input type="hidden" name="memNum" value="${LoginUser.memNum}">
+				<div class="col-md-2">
 
-						<div class="form-group">
-							<label>도서 검색</label> <input class="form-control" type="text"
-								name="search" value="${reportList.reportTitle}"
-								placeholder="Search">
-						</div>
-						<div class="form-group">
-							<label>제목</label> <input class="form-control" name="reportTitle"
-								value="${reportList.reportTitle}" placeholder="제목을 입력하세요.">
-						</div>
-						<div class="form-group">
-							<label>내용</label>
-							<textarea class="form-control" rows="10" name="reportContent"
-								placeholder="내용을 입력하세요.">${reportList.reportContent}</textarea>
-						</div>
-						<button type="submit" class="btn btn-success">
-							<i class="fa fa-check-circle-o"></i>수정하기
-						</button>
-						<a class="btn btn-warning" href="report?command=Report_List"><i
-							class="fa fa-close"></i>취소하기</a>
-					</form>
+					<input type="hidden" name="bookNum" value="${reportList.bookNum}">
+					<input type="hidden" name="memNum" value="${LoginUser.memNum}">
+					<button type="button" class="form-control" name="bookTitle"
+						onclick="openPopUp()">책 검색</button>
 				</div>
 			</div>
+
+			<form name="frm" method="post" action="report?command=Report_Update&reportNum=${reportList.reportNum}">
+				<div class="col-md-4">
+					<div class="form-group">
+						<label>책 제목</label> <input class="form-control" name="bookTitle"
+							value="${bookList.bookTitle}" placeholder="책 제목을 입력하세요.">
+					</div>
+					<div class="form-group">
+						<label>저자</label> <input class="form-control" type="text"
+							value="${reportList.writer}" name="writer" placeholder="저자를 입력하세요.">
+					</div>
+					<div class="form-group">
+						<label>출판사</label> <input class="form-control" type="text"
+							value="${reportList.publisher}" name="publisher"
+							placeholder="출판사를 입력하세요.">
+					</div>
+					<div class="form-group">
+						<label>제목</label> <input class="form-control" name="reportTitle"
+							value="${reportList.reportTitle}" placeholder="제목을 입력하세요.">
+					</div>
+					<div class="form-group">
+						<label>내용</label>
+						<textarea class="form-control" rows="10" name="reportContent"
+							placeholder="내용을 입력하세요.">${reportList.reportContent}</textarea>
+					</div>
+					<button type="submit" class="btn btn-success">
+						<i class="fa fa-check-circle-o"></i>수정하기
+					</button>
+					<a class="btn btn-warning" href="report?command=Report_Detail&reportNum=${reportList.reportNum}"><i
+						class="fa fa-close"></i>취소하기</a>
+				</div>
+			</form>
 		</div>
+		
 	</section>
+	<script>
+		function openPopUp() {
+			// window.name = "부모창 이름"; 
+			window.name = "parentForm";
+			// window.open("open할 window", "자식창 이름", "팝업창 옵션");
+			var width = "650";
+			var height = "300";
+			var top = (window.screen.height - height) / 2;
+			var left = (window.screen.width - width) / 2;
+			var url = "../book/bookSearch.jsp";
+			var title = "책";
+			var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
+					+ width
+					+ ",height="
+					+ height
+					+ ",top="
+					+ top
+					+ ",left="
+					+ left;
+
+			window.open(url, title, status);
+		}
+	</script>
 	<%@ include file="../include/footer.jsp"%>
 </body>
 </html>
