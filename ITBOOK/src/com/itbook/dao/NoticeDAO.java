@@ -109,34 +109,6 @@ public class NoticeDAO {
 	
 	} // end noticeInsert();
 	
-//	//공지사항 게시물 등록
-//		public void insertNotice(NoticeVO nVo) {
-//			String sql = "insert into itbook.notice("
-//					+ "noticeTitle, noticeContent, noticeCount, noticeDate) "
-//					+ "values(?, ?, ?, sysdate())";
-//					
-//			Connection conn = null;
-//			PreparedStatement pstmt = null;
-//			
-//			try {
-//				
-//				conn = DBManager.getConnection();
-//				pstmt = conn.prepareStatement(sql);
-//				
-//				pstmt.setString(1, nVo.getNoticeTitle());
-//				pstmt.setString(2, nVo.getNoticeContent());
-//				pstmt.setInt(3, nVo.getNoticeCount());
-//				
-//				
-//				pstmt.executeUpdate();
-//				
-//			}  catch (Exception e) {
-//				e.printStackTrace();
-//			} finally {
-//				DBManager.close(conn, pstmt);
-//			}
-//			
-//		}
 	
 	//게시글 리스트(페이징 처리)
 		public ArrayList<NoticeVO> getNoticeList(HashMap<String, Object> listOpt) {
@@ -315,15 +287,13 @@ public class NoticeDAO {
 		
 		boolean result = false;
 		
-//		String sql = "update notice set noticeTitle=?, noticeContent=? where noticeNum=?";
-		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
 		try {
 			
 			conn = DBManager.getConnection();
-			conn.setAutoCommit( false );
+			conn.setAutoCommit( false ); // 자동 커밋을 false로 한다.
 			
 			StringBuffer sql = new StringBuffer();
 			sql.append("update notice set");
@@ -356,7 +326,7 @@ public class NoticeDAO {
 		
 		DBManager.close(conn, pstmt);
 		return result;
-	}
+	} // end updateNotice
 	
 	//공지사항 삭제 
 	

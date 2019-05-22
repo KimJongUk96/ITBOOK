@@ -37,9 +37,9 @@ public class NoticeUpdateAction implements Action{
             
             // 파라미터 값을 자바빈에 세팅한다.
             NoticeVO nVo = new NoticeVO();
-            nVo.setNoticeNum(request.getParameter("noticeNum"));
-            nVo.setNoticeTitle(request.getParameter("noticeTitle"));
-            nVo.setNoticeContent(request.getParameter("noticeContent"));
+            nVo.setNoticeNum(noticeNum);
+            nVo.setNoticeTitle(noticeTitle);
+            nVo.setNoticeContent(noticeContent);
             
             System.out.println("noticeTitle : " + noticeTitle);
             
@@ -71,6 +71,7 @@ public class NoticeUpdateAction implements Action{
             e.printStackTrace();
             System.out.println("글 수정 오류 : " + e.getMessage());
         }
+        
         
         new NoticeListFormAction().execute(request, response);
 		
