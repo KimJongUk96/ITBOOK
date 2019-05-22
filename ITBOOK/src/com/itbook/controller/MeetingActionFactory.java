@@ -1,7 +1,8 @@
 package com.itbook.controller;
 
 import com.itbook.controller.action.Action;
-
+import com.itbook.controller.action.meeting.MeetingApplyAction;
+import com.itbook.controller.action.meeting.MeetingApplyFormAction;
 import com.itbook.controller.action.meeting.MeetingListAction;
 
 public class MeetingActionFactory {
@@ -23,7 +24,16 @@ public class MeetingActionFactory {
 		
 		//독서 모임리스트
 		if(command.equals("meetingList")) {
+			
 			action = new MeetingListAction();
+			
+		} else if(command.equals("meetingApplyFormAction")) {
+			
+			action = new MeetingApplyFormAction();
+			
+		} else if(command.equals("meetingApply")) {
+			
+			action = new MeetingApplyAction();
 		}
 		
 		return action;
