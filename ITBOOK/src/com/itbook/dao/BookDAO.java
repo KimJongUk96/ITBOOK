@@ -97,6 +97,8 @@ public class BookDAO {
 				bVo.setBookBrdTitle(rs.getString("bookBrdTitle"));
 				bVo.setWriter(rs.getString("writer"));
 				bVo.setPublisher(rs.getString("publisher"));
+				bVo.setMemNum(rs.getString("memNum"));
+				
 				list.add(bVo);
 			}
 		} catch (Exception e) {
@@ -109,34 +111,32 @@ public class BookDAO {
 	//이달의 책 등록(관리자)
 	public void insertAdminTodayBookRegister(BookBoardVO bVo) {
 		//sql은 실행o
-		//String sql = "insert into itbook.book_board(bookBrdTitle,bookBrdContent,writer,publisher,imgPath,memNum,bookNum) values (?,?,?,?,?,?,?);";
-		String sql = "insert into itbook.book_board(bookBrdTitle,bookBrdContent,memNum,bookNum) values (?,?,?,?);";
+		String sql = "insert into itbook.book_board(bookBrdTitle,bookBrdContent,writer,publisher,memNum,bookNum) values (?,?,?,?,?,?);";
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setString(1, bVo.getBookBrdTitle());
 			pstmt.setString(2, bVo.getBookBrdContent());
-			//pstmt.setString(3, bVo.getWriter());
-			//pstmt.setString(4, bVo.getPublisher());
+			pstmt.setString(3, bVo.getWriter());
+			pstmt.setString(4, bVo.getPublisher());
 			//pstmt.setString(5, bVo.getImgPath());
-			pstmt.setString(3, bVo.getMemNum());
-			pstmt.setString(4, bVo.getBookNum());
+			pstmt.setString(5, bVo.getMemNum());
+			pstmt.setString(6, bVo.getBookNum());
 			
 			pstmt.executeUpdate();
-
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		} finally {
 			DBManager.close(conn, pstmt);
 		}
 	}
 		
 	public void updateAdminTodayBook(BookBoardVO bVo) {
-		String sql = "update itbook.book_board set bookTitle=?,writer=?,publisher=?,memNum=? where bookNum=?";
+		String sql = "update itbook.book_board set bookBrdTitle=?,writer=?,publisher=? where bookBrdNum=?";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -145,12 +145,12 @@ public class BookDAO {
 
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setString(1, bVo.getBookTitle());
+			pstmt.setString(1, bVo.getBookBrdTitle());
 			pstmt.setString(2, bVo.getWriter());
 			pstmt.setString(3, bVo.getPublisher());
 			
-			pstmt.setString(4, bVo.getMemNum());
-			pstmt.setString(5, bVo.getBookNum());
+			//pstmt.setString(4, bVo.getMemNum());
+			//pstmt.setString(5, bVo.getBookNum());
 			
 			pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -160,7 +160,44 @@ public class BookDAO {
 		}
 
 	}
-	
+
+	public BookBoardVO selectOneBookBrdNum(String bookBrdNum) {
+
+		String sql = "select bookBrdNum,bookBrdTitle,bookBrdContent,writer,publisher from itbook.book_board where bookBrdNum = ?";
+
+		BookBoardVO bVo = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, bookBrdNum);
+
+			
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				bVo = new BookBoardVO();
+
+				bVo.setBookBrdNum(rs.getString("bookBrdNum"));
+				bVo.setBookBrdTitle(rs.getString("bookBrdTitle"));
+				bVo.setBookBrdContent(rs.getString("bookBrdContent"));
+				bVo.setWriter(rs.getString("writer"));
+				bVo.setPublisher(rs.getString("publisher"));
+				
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return bVo;
+	}
+
 	
 	//이달의 책에서 검색할 때 필요한 부분
 public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
@@ -463,5 +500,8 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
  			DBManager.close(conn, pstmt, rs);
  		}
          return list;
-      }	
+      }
+
+
+	
 	}

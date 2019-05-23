@@ -80,12 +80,15 @@
                      <c:forEach var="todayBookList" items="${todayBookList}">
                        <%-- <input type="hidden" name="${todayBookList.bookNum}"> --%>
                         <tr>
-                           <th scope = "row"><a href="book?command=adminBookUpdateFormAction&bookNum=${todayBookList.bookBrdNum}">${todayBookList.bookBrdNum}</a></th>
-                           <td>${todayBookList.bookTitle}</td>
+                           <th scope = "row">${todayBookList.bookBrdNum}</th>
+                           <td><a href="book?command=adminTodayBookUpdateFormAction&bookBrdNum=${todayBookList.bookBrdNum}">${todayBookList.bookTitle}</a></td>
                            <td>${todayBookList.bookBrdTitle}</td>
                            <td>${todayBookList.writer}</td>
                            <td>${todayBookList.publisher}</td>
-                          <%-- <td>${todayBookList.memName}</td> --%>
+                           
+                           <!-- 관리자만 로그인이 가능하니까 LoginUser로 값을 줌. -->
+                           <!-- todayBookList.memName은 3조인해야함. -->
+                           <td>${LoginUser.memName}</td>
                         </tr>
                         </c:forEach>
                      </tbody>

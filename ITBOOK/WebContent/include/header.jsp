@@ -267,8 +267,17 @@
 							<ul class="dropdown-menu" aria-labelledby="portfolioMenu">
 								<li> <a class="dropdown-item" href="/notice?command=noticeListFormAction">공지사항</a> </li>
 								<li> <a class="dropdown-item" href="/report?command=Report_List">독후감</a> </li>
-								<li> <a class="dropdown-item" href="portfolio-grid-column-4.html">Portfolio Column 4</a> </li>
-								<li> <a class="dropdown-item" href="portfolio-grid-column-5.html">Portfolio Column 5</a> </li>
+								
+								<!-- 관리자로 로그인을 했을 시 이달의 책 등록-->
+								<c:if test = "${LoginUser.authority eq 3}">
+                  <li><a class="dropdown-item" href="/book?command=adminTodayBookList">이달의 책</a></li>
+                  </c:if>		
+                  
+                  				<!-- 사용자로 로그인을 했을 시 이달의 책 등록-->
+                  				<c:if test = "${LoginUser.authority ne 3}">
+                  <li><a class="dropdown-item" href="/book?command=todayBookList">이달의 책</a></li>
+                  </c:if>
+								<li> <a class="dropdown-item" href="/book?command=bookList">책등록</a> </li>
 								<li> <a class="dropdown-item" href="portfolio-grid-column-6.html">Portfolio Column 6</a> </li>
 								<li> <a class="dropdown-item" href="portfolio-single.html">Portfolio Single</a> </li>
 								<li> <a class="dropdown-item" href="portfolio-single-02.html">Portfolio Single 2</a> </li>

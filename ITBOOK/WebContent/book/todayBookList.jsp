@@ -84,11 +84,13 @@
 							
 							<div class="post-item-desc">
 							${todayBookList.imgPath}
+								
+								
+								<h4>이달의 책 제목 : ${todayBookList.bookBrdTitle}</h4>
+								
 								<span class="post-meta">${todayBookList.bookTitle}</span>
 								<span class="post-meta">저자 : ${todayBookList.writer}</span>
 								<span class="post-meta">출판사 : ${todayBookList.publisher}</span>
-								
-								<h4>이달의 책 제목 : ${todayBookList.bookBrdTitle}</h4>
 								
 								<p>내용 : ${todayBookList.bookBrdContent}</p>
 							</div>

@@ -77,44 +77,86 @@
       <div class="container">
          <div class="row">
             <div class="col-md-6">
-	<form name ="frm" method ="post" action="book?command=adminTodayBookRegister">
+	<form name ="frm" method ="post" action="book?command=adminTodayBookUpdate">
                <div class="form-group">
-                  <label>책제목</label> <input class="form-control" type="text" name = ""
-                     placeholder="* 책 제목을 입력하세요.">
+                  <label>이달의 책제목</label> <input class="form-control" type="text" value = "${todayBookList.bookBrdTitle}"
+                     placeholder="* 이달의 책 제목을 입력하세요.">
                </div>
+               
                <div class="form-group">
-                  <label>저자</label> <input class="form-control" type="text" name = ""
+                     <label>책 제목 찾기</label>
+                     <div class="row">
+                           
+                        
+                        <div class="col-md-4 col-xs-4">
+                        
+                        
+                         <!-- id="keyword" -->
+                           <button type="button" class="form-control"
+                              onclick="openPopUp()">제목이나 키워드
+                        </button>
+                     </div>
+                     
+					</div>
+               </div>
+               
+            <div class="form-group">
+                  <label>책제목</label> <input class="form-control" type="text" value = "${todayBookList.bookBrdTitle}"
+                     placeholder="책제목">
+               </div>
+               
+               <div class="form-group">
+                  <label>저자</label> <input class="form-control" type="text" value = "${todayBookList.writer}"
                      placeholder="* 저자를 입력하세요.">
                </div>
                <div class="form-group">
-                  <label>출판사</label> <input class="form-control" type="text" name = ""
+                  <label>출판사</label> <input class="form-control" type="text" value = "${todayBookList.publisher}"
                      placeholder="* 출판사를 입력하세요.">
                </div>
                
-               <div class="custom-file">
+<!--                <div class="custom-file">
                   <label>Upload Book</label><input type="file" class="custom-file-input" id="inputGroupFile01" name = "">
 								<label class="custom-file-label" for="inputGroupFile01">Upload Book</label>
                </div>
-               
+ -->               
                
                <div class="form-group">
                   <label>내용</label>
-                  <textarea class="form-control" rows="10" name = ""
+                  <textarea class="form-control" rows="10"  name=bookBrdContent
                      placeholder="내용을 입력하세요."></textarea>
                </div>
-         </form>      
          
-               <button type ="submit" class ="btn btn-success" ><i class="fa fa-check-circle-o"></i>수정</button>
-               
-               <button type = "button" class="btn btn-warning" onclick="location.href='book?command=adminTodayBookList'">
-               <i class="fa  fa-close"></i>취소</button>
+                 <button type="submit" class="btn btn-success"><i class="fa fa-check-circle-o"></i>수정</button>
+                  
+                  <button type="button" class="btn btn-warning" onclick="location.href='book?command=bookBrdDelete&bookBrdNum=${todayBookList.bookBrdNum}'" >
+                  <i class="fa fa-close"></i>삭제</button>
+                  
+
+						<button type = "button" class="btn btn-secondary" onclick="location.href='book?command=adminTodayBookList'"><i class="fa fa-arrow-circle-right"></i>목록</button>
+         </form>      
             </div>
             
          </div>
          
       </div>
    </section>
+<script>
+   function openPopUp() {
+      // window.name = "부모창 이름"; 
+      window.name = "parentForm";
+      // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+      var width = "650";
+      var height = "300";
+      var top = (window.screen.height - height) / 2;
+      var left = (window.screen.width - width) / 2;
+      var url = "../book/bookSearch.jsp";
+      var title = "책";
+      var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
+            + width + ",height=" + height + ",top=" + top + ",left=" + left;
 
+      window.open(url, title, status);
+   }
+</script>
 
    <%@ include file="../include/footer.jsp"%>
 </body>
