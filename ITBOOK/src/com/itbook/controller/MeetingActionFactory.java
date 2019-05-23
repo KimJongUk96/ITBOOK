@@ -4,6 +4,9 @@ import com.itbook.controller.action.Action;
 import com.itbook.controller.action.meeting.MeetingApplyAction;
 import com.itbook.controller.action.meeting.MeetingApplyFormAction;
 import com.itbook.controller.action.meeting.MeetingListAction;
+import com.itbook.controller.action.meeting.MetBoardListFormAction;
+import com.itbook.controller.action.meeting.MetBoardWriteAction;
+import com.itbook.controller.action.meeting.MetBoardWriteFormAction;
 
 public class MeetingActionFactory {
 
@@ -22,7 +25,7 @@ public class MeetingActionFactory {
 		Action action = null;
 		System.out.println("ActionFactory : " + command);
 		
-		//µ¶¼­ ¸ðÀÓ¸®½ºÆ®
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½Æ®
 		if(command.equals("meetingList")) {
 			
 			action = new MeetingListAction();
@@ -34,6 +37,18 @@ public class MeetingActionFactory {
 		} else if(command.equals("meetingApply")) {
 			
 			action = new MeetingApplyAction();
+			
+		} else if(command.equals("metBoardListFormAction")) {
+			
+			action = new MetBoardListFormAction();
+			
+		} else if(command.equals("metBoardWriteFormAction")) {
+			
+			action = new MetBoardWriteFormAction();
+			
+		} else if(command.equals("metBoardWriteAction")) {
+			
+			action = new MetBoardWriteAction();
 		}
 		
 		return action;

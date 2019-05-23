@@ -41,7 +41,6 @@ public class NoticeUpdateAction implements Action{
             nVo.setNoticeTitle(noticeTitle);
             nVo.setNoticeContent(noticeContent);
             
-            System.out.println("noticeTitle : " + noticeTitle);
             
             // 글 수정 시 업로드된 파일 가져오기
             Enumeration<String> fileNames = multi.getFileNames();
@@ -73,25 +72,7 @@ public class NoticeUpdateAction implements Action{
         }
         
         
-        new NoticeListFormAction().execute(request, response);
-		
-		
-//		NoticeVO nVo = new NoticeVO();
-//		
-//		
-//		
-//		nVo.setNoticeNum(request.getParameter("noticeNum"));
-//		
-//		
-//		nVo.setNoticeTitle(request.getParameter("noticeTitle"));
-//		nVo.setNoticeContent(request.getParameter("noticeContent"));
-//		
-//		
-//		NoticeDAO nDao = NoticeDAO.getInstance();
-//		nDao.updateNotice(nVo);
-//		
-//		new NoticeListFormAction().execute(request, response);
-		
+
 	}
 
 }
