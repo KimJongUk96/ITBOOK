@@ -15,17 +15,18 @@ import com.itbook.vo.Meeting.MeetingVO;
 
 public class MeetingListAction implements Action {
 	
-	// MeetingListServlet?command=meetingList ë¼ëŠ” ìš”ì²­ì„ ë°›ìœ¼ë©´ ëª¨ì„ ë¦¬ìŠ¤íŠ¸í™”ë©´ì„ í‘œì‹œí•˜ê¸° ìœ„í•œ ì•¡ì…˜ í´ë˜ìŠ¤(ëª¨ë¸)ì„ ë§Œë“ ë‹¤.
+	// MeetingListServlet?command=meetingList ¿äÃ»À» ¹ŞÀ¸¸é µ¶¼­¸ğÀÓ ¸®½ºÆ® È­¸éÀ» Ç¥½ÃÇÑ´Ù.
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String url = "/meeting/meetingList.jsp";
-		
+
 		MeetingDAO mDao = MeetingDAO.getInstance();
 		
 		List<MeetingVO> meetingList = mDao.selectAllMeetings();
 		
 		request.setAttribute("meetingList", meetingList);
+		
 		System.out.println(meetingList);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);

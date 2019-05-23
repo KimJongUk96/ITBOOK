@@ -69,8 +69,8 @@
 						  <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownLanguage">
 						  	<span class="dropdown-item-text">Select language</span>
 						  	<div class="dropdown-divider"></div>
-						    <a class="dropdown-item" href="#"><img class="dropdown-item-icon" src="../assets/images/flags/sp.svg" alt=""> Español</a>
-						    <a class="dropdown-item" href="#"><img class="dropdown-item-icon" src="../assets/images/flags/fr.svg" alt=""> Français</a>
+						    <a class="dropdown-item" href="#"><img class="dropdown-item-icon" src="../assets/images/flags/sp.svg" alt=""> Espanol</a>
+						    <a class="dropdown-item" href="#"><img class="dropdown-item-icon" src="../assets/images/flags/fr.svg" alt=""> Francais</a>
 						    <a class="dropdown-item" href="#"><img class="dropdown-item-icon" src="../assets/images/flags/gr.svg" alt=""> Deutsch</a>
 						  </div>
 						</div> -->
@@ -319,7 +319,7 @@
 					<h4 class="mb-4">Client testimonial</h4>
 					<blockquote class="blockquote" cite="#">
 						<h5 class="mb-2 text-light-gray">Design everything on the assumption that people are not heartless or stupid but marvelously capable, given the chance. Mr be cottage so related minuter is. Delicate say and blessing ladyship exertion few Margaret. Delight herself welcome against smiling its for. Suspected discovery by he affection household of principle perfectly he.</h5>
-						<cite>– Allen Smith</cite>
+						<cite>? Allen Smith</cite>
 					</blockquote>
 				</div>
 				<!-- portfolio information -->
@@ -455,7 +455,7 @@
 			<div class="container">
 				<div class="d-md-flex justify-content-between align-items-center py-3 text-center text-md-left">
 					<!-- copyright text -->
-					<div class="copyright-text">©2019 All Rights Reserved by <a href="#!"> Wizixo.</a></div>
+					<div class="copyright-text">ⓒ2019 All Rights Reserved by <a href="#!"> Wizixo.</a></div>
 					<!-- copyright links-->
 					<div class="copyright-links primary-hover mt-3 mt-md-0">
 						<ul class="list-inline">

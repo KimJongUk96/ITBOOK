@@ -9,14 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
 
-public class MeetingHomeAction implements Action {
+public class MeetingApplyFormAction implements Action {
 
+	//독서모임 신청을 위한 폼으로 이동하는 액션 클래스
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String url = "/meeting/meetingForm.jsp";
+		String url = "/meeting/meetingApplyForm.jsp";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}
+
 }
