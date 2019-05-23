@@ -189,6 +189,7 @@ public class MetBoardDAO {
 				
 				pstmt.setString(1, "metBrdNum");
 				pstmt.executeUpdate();
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
