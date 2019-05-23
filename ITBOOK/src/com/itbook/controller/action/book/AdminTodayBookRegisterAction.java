@@ -21,7 +21,7 @@ public class AdminTodayBookRegisterAction implements Action {
 		
 		
 		bVo.setBookBrdTitle(request.getParameter("bookTitle"));
-		bVo.setBookBrdContent(request.getParameter("bookContent"));
+		bVo.setBookBrdContent(request.getParameter("bookBrdContent"));
 		//bVo.setImgPath(request.getParameter("imgPath"));
 		bVo.setWriter(request.getParameter("writer"));
 		bVo.setPublisher(request.getParameter("publisher"));
@@ -31,7 +31,7 @@ public class AdminTodayBookRegisterAction implements Action {
 		MemberVO memVo = (MemberVO)request.getSession().getAttribute("LoginUser");
 	      bVo.setMemNum(memVo.getMemNum());
 		
-	      
+	    
 		BookDAO bDao = BookDAO.getInstance();
 		
 		bDao.insertAdminTodayBookRegister(bVo);
