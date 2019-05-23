@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
    
 <!DOCTYPE html>
 
@@ -95,8 +96,9 @@
 								<div class="portfolio-card-footer">
 									<a class="full-screen" href="../assets/images/portfolio/01.jpg" data-fancybox="portfolio" data-caption="${meetingList.metName}"><i class="ti-fullscreen"></i></a>
 									<div class="post-author">${meetingList.represent},
-									<%-- ${meetingList.metDate}개설일자, --%>
-									${meetingList.headCount}</div>
+									<fmt:formatDate value="${meetingList.metDate}"/>, 
+									회원수 : ${meetingList.headCount}
+									</div>
 									<div><h6 class="info-title"><a href="/meeting?command=meetingHomeAction" title="독서모임">${meetingList.metName}</a></h6></div>
 									<p>${meetingList.metIntro}</p>
 								</div>

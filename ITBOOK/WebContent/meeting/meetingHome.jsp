@@ -253,7 +253,7 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">${meeting.metName}독서모임명</h1>
+					<h1 class="innerpage-title">${meeting.metName}독서모임명 ,,vm</h1>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="/index.jsp"><i class="ti-home"></i> Home</a></li>

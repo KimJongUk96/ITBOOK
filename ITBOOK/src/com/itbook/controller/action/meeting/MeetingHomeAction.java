@@ -14,7 +14,7 @@ public class MeetingHomeAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String url = "/meeting/meetingForm.jsp";
+		String url = "/meeting/meetingHome.jsp";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

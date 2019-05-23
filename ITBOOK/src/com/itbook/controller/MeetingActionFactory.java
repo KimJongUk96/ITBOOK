@@ -26,20 +26,25 @@ public class MeetingActionFactory {
 		Action action = null;
 		System.out.println("ActionFactory : " + command);
 		
-		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½Æ®
+		//µ¶¼­¸ðÀÓ ¸®½ºÆ®
 		if(command.equals("meetingList")) {
 			
 			action = new MeetingListAction();
-			
+		
+		//µ¶¼­¸ðÀÓ ½ÅÃ»Æû
 		} else if(command.equals("meetingApplyFormAction")) {
 			
 			action = new MeetingApplyFormAction();
 			
+		//µ¶¼­¸ðÀÓ ½ÅÃ»
 		} else if(command.equals("meetingApply")) {
 			
 			action = new MeetingApplyAction();
 			
-		} else if(command.equals("metBoardListFormAction")) {
+		} else if(command.equals("meetingHome")) {
+			
+		}
+		else if(command.equals("metBoardListFormAction")) {
 			
 			action = new MetBoardListFormAction();
 			

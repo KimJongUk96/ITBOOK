@@ -205,7 +205,7 @@
 					<br>
 					<section>
 					<div class="text-center text-md-center mt-md-0 align-self-center ">
-						<button class="btn btn-outline-light mb-0" onclick="location.href='meeting?command=meetingList'">취소</button>
+						<button class="btn btn-outline-light mb-0" onclick="location.href='/meeting?command=meetingList'">취소</button>
 						<button class="btn btn-outline-light mb-0" type="reset">다시작성</button>
 						<button class="btn btn-outline-light mb-0" type="submit" onclick="return meetingCheck()">신청</button>
 					</div>
