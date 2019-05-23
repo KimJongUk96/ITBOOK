@@ -5,6 +5,7 @@ import com.itbook.controller.action.meeting.MeetingApplyAction;
 import com.itbook.controller.action.meeting.MeetingApplyFormAction;
 import com.itbook.controller.action.meeting.MeetingListAction;
 import com.itbook.controller.action.meeting.MetBoardListFormAction;
+import com.itbook.controller.action.meeting.MetBoardViewAction;
 import com.itbook.controller.action.meeting.MetBoardWriteAction;
 import com.itbook.controller.action.meeting.MetBoardWriteFormAction;
 
@@ -49,6 +50,10 @@ public class MeetingActionFactory {
 		} else if(command.equals("metBoardWriteAction")) {
 			
 			action = new MetBoardWriteAction();
+			
+		} else if(command.equals("metBoardViewAction")) {
+			
+			action = new MetBoardViewAction();
 		}
 		
 		return action;
