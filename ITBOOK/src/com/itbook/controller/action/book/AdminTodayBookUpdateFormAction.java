@@ -1,13 +1,6 @@
-/**
- * 이달의 책 리스트  
- * @author 동준
- *
- */
-
 package com.itbook.controller.action.book;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,27 +11,27 @@ import com.itbook.controller.action.Action;
 import com.itbook.dao.BookDAO;
 import com.itbook.vo.Book.BookBoardVO;
 
-public class AdminTodayBookListAction implements Action{
+public class AdminTodayBookUpdateFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String url = "/book/adminTodayBookUpdate.jsp";
 		
-		String url = "/book/adminTodayBookList.jsp";
+		String bookBrdNum = request.getParameter("bookBrdNum");
+		
 		
 		BookDAO bDao = BookDAO.getInstance();
+				
+		BookBoardVO bVo = bDao.selectOneBookBrdNum(bookBrdNum);
+				
+		request.setAttribute("todayBookList", bVo);
 		
-		List<BookBoardVO> todayBookList = bDao.selectAdminTodayBookList();
 		
-		request.setAttribute("todayBookList", todayBookList);
-		
-		System.out.println(todayBookList);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		
 		dispatcher.forward(request, response);
 		
 		
-		
 	}
-	
+
 }

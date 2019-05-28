@@ -15,9 +15,10 @@ public class MetCommentVO {
 	
 	private String metComtNum;
 	private String metComtContent;
-	private Date metCometDate;
-	private String metPostNum;
+	private Date metComtDate;
+	private String metBrdNum;
 	private String memNum;
+	private String metComtParent;
 	public String getMetComtNum() {
 		return metComtNum;
 	}
@@ -30,17 +31,17 @@ public class MetCommentVO {
 	public void setMetComtContent(String metComtContent) {
 		this.metComtContent = metComtContent;
 	}
-	public Date getMetCometDate() {
-		return metCometDate;
+	public Date getMetComtDate() {
+		return metComtDate;
 	}
-	public void setMetCometDate(Date metCometDate) {
-		this.metCometDate = metCometDate;
+	public void setMetComtDate(Date metComtDate) {
+		this.metComtDate = metComtDate;
 	}
-	public String getMetPostNum() {
-		return metPostNum;
+	public String getMetBrdNum() {
+		return metBrdNum;
 	}
-	public void setMetPostNum(String metPostNum) {
-		this.metPostNum = metPostNum;
+	public void setMetBrdNum(String metBrdNum) {
+		this.metBrdNum = metBrdNum;
 	}
 	public String getMemNum() {
 		return memNum;
@@ -48,12 +49,20 @@ public class MetCommentVO {
 	public void setMemNum(String memNum) {
 		this.memNum = memNum;
 	}
-	
+	public String getMetComtParent() {
+		return metComtParent;
+	}
+	public void setMetComtParent(String metComtParent) {
+		this.metComtParent = metComtParent;
+	}
 	@Override
 	public String toString() {
-		return "MetCommentVO [metComtNum=" + metComtNum + ", metComtContent=" + metComtContent + ", metCometDate="
-				+ metCometDate + ", metPostNum=" + metPostNum + ", memNum=" + memNum + "]";
+		return "MetCommentVO [metComtNum=" + metComtNum + ", metComtContent=" + metComtContent + ", metComtDate="
+				+ metComtDate + ", metBrdNum=" + metBrdNum + ", memNum=" + memNum + ", metComtParent=" + metComtParent
+				+ "]";
 	}
+	
+	
 	
 	
 }

@@ -4,6 +4,8 @@ import com.itbook.controller.action.MainAction;
 import com.itbook.controller.action.book.AdminTodayBookListAction;
 import com.itbook.controller.action.book.AdminTodayBookRegisterAction;
 import com.itbook.controller.action.book.AdminTodayBookRegisterFormAction;
+import com.itbook.controller.action.book.AdminTodayBookUpdateAction;
+import com.itbook.controller.action.book.AdminTodayBookUpdateFormAction;
 import com.itbook.controller.action.book.AdminTodaybookSearchAction;
 import com.itbook.controller.action.book.BookDeleteAction;
 import com.itbook.controller.action.book.BookListAction;
@@ -40,8 +42,16 @@ public class BookActionFactory {
 			action = new AdminTodayBookRegisterFormAction();
 			
 			//관리자가 이달의 책 등록하기.
-		}else if(command.equals("adminTodayBookRegForm")) {
+		}else if(command.equals("adminTodayBookRegister")) {
 			action = new AdminTodayBookRegisterAction();
+			
+			//관리자가 이달의 책 수정폼으로 이동하기.(제목을 클릭했을 때)
+		}else if(command.equals("adminTodayBookUpdateFormAction")) {
+			action = new AdminTodayBookUpdateFormAction();
+			
+			//관리자가 이달의 책 수정하기.
+		}else if(command.equals("adminTodayBookUpdate")) {
+			action = new AdminTodayBookUpdateAction();	
 			
 			//이달의 책 리스트
 		}else if(command.equals("todayBookList")) {

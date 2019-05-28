@@ -50,7 +50,7 @@
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="index.html"><i
 									class="ti-home"></i> Home</a></li>
-							<li class="breadcrumb-item">Table</li>
+						
 						</ol>
 					</nav>
 				</div>
@@ -62,50 +62,39 @@
 
 		<form name="frm" method="post" action="report?command=reportRegForm">
 			<div class="col-md-12">
-				<span style="float: right">
 				
 
-						<input
-							class="form-control border-radius-right-0 border-right-0 bg-transparent text-white"
-							type="text" name="search" placeholder="책 이름을 검색하세요">
-						<button type="button"
-							class="btn btn-grad border-radius-left-0 mb-0">검색</button>
-							
-				
-					
-				</span>
-			</div>
-			
 			<div class="container">
 				<div class="row">
-				<div class="col-sm-12 text-center mt-5 mb-4">
-				
-							<div class="col-md-6 mb-4">
-							
-								<h5 class="mb-4"></h5>
-								<blockquote class="blockquote" cite="#">
-									<h5 class="mb-2 text-light-gray">
-										책은 마음의 양식입니다. <br> <strong>자신의 생각을 자유롭게 표현해보세요!</strong>
-									</h5>
+					<div class="col-sm-12 text-md-center mt-5 mb-4">
 
-								</blockquote>
+						<div class="col-md-6 mb-4">
 
-							</div>
-							<a href="report?command=Report_Reg_Form">
-						<button type="button" class="btn btn-outline-primary">
-							<i class="fa fa-check-circle-o"></i>등록하기
-						</button>
-					</a>
+							<h5 class="mb-4"></h5>
+							<blockquote class="blockquote" cite="#">
+								<h5 class="mb-2 text-light-gray">
+									책은 마음의 양식입니다. <br> <strong>자신의 생각을 자유롭게 표현해보세요!</strong>
+								</h5>
+
+							</blockquote>
+
 						</div>
-					
+						<a href="report?command=Report_Reg_Form">
+							<button type="button" class="btn btn-outline-primary">
+								<i class="fa fa-check-circle-o"></i>등록하기
+							</button>
+						</a>
+						<button type="button" class="btn btn-outline-primary" onclick="openPopUp()">책
+						검색</button>
+					</div>
+
 					<div class="divider">
-							<i class="ti-book"></i>
-						</div>
+						<i class="ti-book"></i>
+					</div>
 					<c:forEach var="reportList" items="${reportList}">
-					<input type="hidden" name="bookNum" value="${reportList.bookNum}">
-					<input type="hidden" name="memNum" value="${LoginUser.memNum}">
+					
 						<h5 class="mb-2 mt-5"></h5>
-						
+
 						<div class="col-lg-4 mt-4">
 							<div class="feature-box f-style-3 h-100 icon-grad">
 								<div class="feature-box-icon">
@@ -113,23 +102,46 @@
 								</div>
 
 								<h3 class="feature-box-title">
-									<a href="report?command=Report_Detail&reportNum=${reportList.reportNum}">
+									<a
+										href="report?command=Report_Detail&reportNum=${reportList.reportNum}">
 										${reportList.reportTitle}</a>
 								</h3>
-
-								<p class="feature-box-desc">${reportList.reportContent}</p>
+								<p class="feature-box-desc">${reportList.memName}</p>
 							</div>
 						</div>
 					</c:forEach>
-					
+
 				</div>
 			</div>
 		</form>
 
 	</section>
-	
-<!-- 페이징 처리 -->  
- <section class="pt-0">
+	<script>
+		function openPopUp() {
+			// window.name = "부모창 이름"; 
+			window.name = "parentForm";
+			// window.open("open할 window", "자식창 이름", "팝업창 옵션");
+			var width = "650";
+			var height = "300";
+			var top = (window.screen.height - height) / 2;
+			var left = (window.screen.width - width) / 2;
+			var url = "../book/bookSearch.jsp";
+			var title = "책";
+			var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
+					+ width
+					+ ",height="
+					+ height
+					+ ",top="
+					+ top
+					+ ",left="
+					+ left;
+
+			window.open(url, title, status);
+		}
+	</script>
+
+	<!-- 페이징 처리 -->
+	<section class="pt-0">
       <div class="container">
          <div class="row justify-content-center">
             <div class="col-md-8">
@@ -166,7 +178,7 @@
             </div>
          </div>
       </div>
-   </section> 
+   </section>  
 
 	<%@ include file="../include/footer.jsp"%>
 </body>

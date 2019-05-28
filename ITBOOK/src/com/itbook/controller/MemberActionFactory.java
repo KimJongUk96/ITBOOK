@@ -32,16 +32,27 @@ public class MemberActionFactory {
 			action = new MainAction();
 			
 		}else if(command.equals("insertMember")) {
+			
 			action = new InsertMemberAction();
+			
 		}else if(command.equals("memberIdCheck")) {
+			
 			action = new MemberIdCheckAction();
+				
 		}else if(command.equals("login")) {
+			
 			action = new LoginAction();
+			
 		}else if(command.equals("logout")) {
+			
 			action = new LogoutAction();
+			
 		}else if(command.equals("memberModifyForm")) {
+			
 			action = new MemberModifyFormAction();
+			
 		}else if(command.equals("memberModify")) {
+			
 			action = new MemberModifyAction();
 		}else if(command.equals("memberPwModify")) {
 			action = new MemberPwModifyAction();

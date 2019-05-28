@@ -10,7 +10,7 @@ import com.itbook.vo.Meeting.MeetingVO;
 import util.DBManager;
 
 /**
- * @author �젙�썝
+ * @author 정원
  */
 public class MeetingDAO {
 
@@ -23,7 +23,7 @@ public class MeetingDAO {
 		return instance;
 	} 
 	
-	// �룆�꽌紐⑥엫議고쉶 
+	// 독서모임 VO 속성
 	/*private int metNum;
 	private String metName;
 	private String metIntro;
@@ -35,8 +35,10 @@ public class MeetingDAO {
 		
 		String sql = "SELECT metNum"
 				+ "         ,metName"
+				/* + "         ,metGreeting" */
 				+ "         ,metIntro"
 				+ "         ,represent"
+				/* + "         ,keword" */
 				+ "         ,metDate"
 				+ "         ,headCount"
 				+ "	  FROM itbook.meeting";
@@ -47,7 +49,7 @@ public class MeetingDAO {
 		ResultSet rs = null;
 		
 		try {
-			//conn = getConnection();
+			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery(sql);
 			
@@ -56,18 +58,19 @@ public class MeetingDAO {
 				
 				mVo.setMetNum(rs.getString("metNum"));
 				mVo.setMetName(rs.getString("metName"));
+				/* mVo.setMetGreeting(rs.getString("metGreeting")); */
 				mVo.setMetIntro(rs.getString("metIntro"));
 				mVo.setRepresent(rs.getString("represent"));
+				/* mVo.setKeyword(rs.getString("keyword")); */
 				mVo.setMetDate(rs.getDate("metDate"));
 				mVo.setHeadCount(rs.getInt("headCount"));
 				
-				//MeetingVO瑜� �떞�뒗 list�뿉 mVo瑜� 異붽�
+				//MeetingVO에 저장된 데이터 리스트에 추가
 				list.add(mVo);
 			}
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			//由ы꽩媛믪씠 �뾾�뒗 printStackTrace() 硫붿냼�뱶瑜� �샇異쒗븯硫� 硫붿냼�뱶媛� �궡遺��쟻�쑝濡� 媛��옣 �옄�꽭�븳 �삁�쇅 �젙蹂대�� �솕硫댁뿉 異쒕젰�븳�떎.
 			e.printStackTrace();
 		} finally {
 			DBManager.close(conn, pstmt, rs);
@@ -76,15 +79,15 @@ public class MeetingDAO {
 	}
 	
 	
-	//�룆�꽌紐⑥엫 �깮�꽦
+	//독서모임 신청하기 : 독서모임명, 독서모임소개, 대표자명 입력!
 	public List<MeetingVO> insertMeeting(MeetingVO mVo) {
 		
-		String sql = "INSERT INTO Meeting ("
+		String sql = "INSERT INTO itbook.meeting ("
 				+ "    metName"
+				+ "   ,metGreeting"
 				+ "   ,metIntro"
 				+ "   ,represent"
-				+ "   ,metDate"
-				+ "   ,headCount)"
+				+ "	  ,keyword)"
 				+ "values (?"
 				+ "       , ?"
 				+ "       , ?"
@@ -95,16 +98,16 @@ public class MeetingDAO {
 		PreparedStatement pstmt = null;
 		
 		try {
-			//conn = getConnection();
+			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, mVo.getMetName());
-			pstmt.setString(2, mVo.getMetIntro());
-			pstmt.setString(3, mVo.getRepresent());
-			pstmt.setDate(4, mVo.getMetDate());
-			pstmt.setInt(5, mVo.getHeadCount());
+			pstmt.setString(2, mVo.getMetGreeting());
+			pstmt.setString(3, mVo.getMetIntro());
+			pstmt.setString(4, mVo.getRepresent());
+			pstmt.setString(5, mVo.getKeyword());
 			
-			//update荑쇰━ �떎�뻾
+			//sql문 update 실행
 			pstmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -116,10 +119,54 @@ public class MeetingDAO {
 		return null;
 	}
 	
+	//독서모임 홈으로 연결
+	//독서모임 메인 홈 상세내용 보기 : 글번호로 찾아온다. 실패하면 return null
+	public MeetingVO selectOneMeetingByNum(String metNum){
+		
+		String sql = "SELECT metNum"
+				+ ", metName"
+				+ ", metGreeting"
+				+ ", metIntro"
+				+ ", represent"
+				+ ", keyword"
+				+ ", metDate"
+				+ ", headCount"
+				+ "FROM itbook.meeting"
+				+ "WHERE metNum = ?";
+		
+		MeetingVO mVo = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, metNum);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+			
+			mVo = new MeetingVO();
+			
+			mVo.setMetNum(rs.getString("metNum"));
+			mVo.setMetName(rs.getString("metName"));
+			mVo.setMetGreeting(rs.getString("metGreeting"));
+			mVo.setMetIntro(rs.getString("metIntro"));
+			mVo.setRepresent(rs.getString("represent"));
+			mVo.setKeyword(rs.getString("keyword"));
+			mVo.setMetDate(rs.getDate("metDate"));
+			mVo.setHeadCount(rs.getInt("headCount"));
 	
-	/*
-	 * �룆�꽌紐⑥엫 寃뚯떆�뙋 �옄�룞�깮�꽦
-	 * 紐⑥엫�깮�꽦�븷 �븣 �옄�룞�쑝濡� 寃뚯떆�뙋�룄 留뚮뱾�뼱吏�
-	 */
-	
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return mVo;
+	}
 }

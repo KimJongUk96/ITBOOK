@@ -25,6 +25,7 @@ public class BookRegisterAction implements Action {
 		bVo.setBookKeyword2(request.getParameter("bookKeyword2"));
 		bVo.setBookKeyword3(request.getParameter("bookKeyword3"));
 
+		
 		bVo.setMemNum(request.getParameter("memNum"));
 
 		BookDAO bDao = BookDAO.getInstance();

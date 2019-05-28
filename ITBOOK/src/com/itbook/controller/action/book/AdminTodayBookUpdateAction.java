@@ -8,29 +8,26 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
 import com.itbook.dao.BookDAO;
-import com.itbook.vo.BookVO;
+import com.itbook.vo.Book.BookBoardVO;
 
 public class AdminTodayBookUpdateAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		BookVO bVo = new BookVO();
+		BookBoardVO bVo = new BookBoardVO();
 		
-		bVo.setBookNum(request.getParameter("bookNum"));
-		bVo.setBookTitle(request.getParameter("bookTitle"));
+		bVo.setBookBrdNum(request.getParameter("bookBrdNum"));
+		bVo.setBookBrdTitle(request.getParameter("bookBrdTitle"));
+		bVo.setBookBrdContent(request.getParameter("bookBrdContent"));
 		bVo.setWriter(request.getParameter("writer"));
 		bVo.setPublisher(request.getParameter("publisher"));
-		bVo.setBookKeyword1(request.getParameter("bookKeyword1"));
-		bVo.setBookKeyword2(request.getParameter("bookKeyword2"));
-		bVo.setBookKeyword3(request.getParameter("bookKeyword3"));
 		
-		bVo.setMemNum(request.getParameter("memNum"));
 		
 		BookDAO bDao = BookDAO.getInstance();
-		bDao.updateBook(bVo);
+		bDao.updateAdminTodayBook(bVo);
 		
-		new BookListAction().execute(request, response);
+		
 	}
 
 }

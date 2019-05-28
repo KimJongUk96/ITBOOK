@@ -27,6 +27,8 @@
 
 	<!-- Theme CSS -->
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+	
+	<!-- CSS 추가 -->
 
 </head>
 

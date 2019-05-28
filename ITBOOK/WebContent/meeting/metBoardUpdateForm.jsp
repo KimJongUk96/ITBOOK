@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>희망의 책 공지사항</title>
+	<title>희망의 책 모임게시판</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,9 +43,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 mb-5">
-					<h5 class="text-center mb-4">공지사항 상세보기</h5>
-					<form name="frm" method="post" action="/notice?command=noticeUpdateFormAction">
-					<input type="hidden" name="noticeNum" value="${notice.noticeNum }">
+					<h5 class="text-center mb-4">모임게시판 수정</h5>
+					<form name="frm" method="post" action="/meeting?command=metBoardUpdateAction<%-- &page=${pageNum} For input string: "" 오류원인--%>" enctype="multipart/form-data">
+					<input type="hidden" name="metBrdNum" value="${metbrd.metBrdNum}">
+					<input type="hidden" name="existing_file" value="${metbrd.metBrdFile}"/>
+
 					<div class="table-responsive-sm">
 						<table class="table table-hover">
 							
@@ -53,36 +55,36 @@
 									<th scope="col">작성자</th>
 									<td>관리자</td>
 									<th>작성일</th>
-									<td>${notice.noticeDate }</td>
+									<td>${metbrd.metBrdDate }</td>
 									
 								</tr>
 								<tr>
 									<th scope="col">제목</th>
-									<td>${notice.noticeTitle}</td>
+									<td><input name="metBrdName" type="text" size="70" maxlength="100" value="${metbrd.metBrdName}"/></td>
 									<th>조회수</th>
-									<td>${notice.noticeCount}</td>
+									<td>${metbrd.metBrdCount}</td>
 									
 								</tr>
 								<tr>
+									<th scope="col">기존파일</th>
+									<td> &nbsp;&nbsp; ${metbrd.metBrdFile}</td>
 									<th scope="col">첨부파일</th>
-									<td><a href='/notice?command=fileDownloadAction&file_name=${notice.noticeFile}'>${notice.noticeFile}</a></td>
-									<th></th>
-									<td></td>
+									<td><input type="file" name="metBrdFile"/></td>
 								</tr>
 								 <tr>
 								
 									<th scope="col">내용</th>
-									<td><textarea name="noticeContent" class="form-control" rows="10" style="width:100%;" disabled="disabled">${notice.noticeContent}</textarea></td> 
+									<td><textarea name="metBrdContent" class="form-control" rows="10" style="width:100%;">${metbrd.metBrdContent}</textarea></td> 
 									<th></th>
 									<td></td>
 								</tr> 
 								
-						</table> 
+						</table>
 							
 						<div align="right">
-							<input type="submit" value="수정" class="btn btn-primary" >
-							<input type="button" value="삭제" class="btn btn-primary" onclick="location.href='/notice?command=noticeDeleteAction&noticeNum=${notice.noticeNum}'">
-							<input type="button" value="목록" class="btn btn-primary" onclick="location.href='/notice?command=noticeListFormAction'">
+							<input type="reset"  class="btn btn-primary" value="작성취소" >
+							<input type="submit"  class="btn btn-primary" value="수정" >
+							<input type="button" value="목록" class="btn btn-primary" onclick="location.href='/meeting?command=metBoardListFormAction&page=${pageNum}'">
 						</div>
 					</div>
 					</form>

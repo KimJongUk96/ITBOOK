@@ -104,7 +104,7 @@
 							</tbody>
 
 						</table>
-						<%-- <c:if test = ${LoginUser.authority eq '1' or LoginUser.authority eq '2' or LoginUser.authority eq '3'}> --%>
+						<%-- <c:if test = ${LoginUser.authority eq '1'  or LoginUser.authority eq '2' or LoginUser.authority eq '3'}> --%>
 						<div align="right">
 							<a class="btn btn-primary" href="/notice?command=noticeInsertFormAction">글쓰기</a>
 						</div>

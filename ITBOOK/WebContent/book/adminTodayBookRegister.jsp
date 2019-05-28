@@ -68,18 +68,17 @@
          <div class="row">
             <div class="col-md-6">
             
-	<form name ="frm" method ="post" action="book?command=adminTodayBookRegForm" enctype="multipart/form-data">
+	<form name ="frm" method ="post" action="book?command=adminTodayBookRegister" > <!-- enctype="multipart/form-data" -->
 	
-			   <input type="hidden" name="bookNum">
-		<!-- <input type="hidden" name="memNum"> -->
-			 <input type ="hidden" name = "memNum" value = "${LoginUser.memNum}">
+				<!-- bookNum을 히든으로 처리를 하지 않으면 검색에서 값을 가져오지 못함. -->
+			    <input type="hidden" name="bookNum">
+			 <%-- <input type ="hidden" name = "memNum" value = "${LoginUser.memNum}">  --%>
 			 
                <div class="form-group">
                   <label>이달의 책 제목</label> <input class="form-control" type="text" name = "bookBrdTitle"
                      placeholder="*이달의 책 제목을 입력하세요.">
                      
                </div>
-               
                
                <div class="form-group">
                      <label>책 제목 찾기</label>

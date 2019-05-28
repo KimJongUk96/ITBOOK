@@ -1,16 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
    
 <!DOCTYPE html>
 
-<!-- 독서모임 리스트 -->
+<!-- 독서모임 신청폼 -->
 <!-- portfolio-grid-column-4.html Form -->
-<!-- 참고 index-6.html Form -->
 <html>
 <head>
-	<title>독서모임리스트</title>
+	<title>독서모임 신청</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,14 +29,25 @@
 
 	<!-- Theme CSS -->
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-
+	
+	<!-- Form CSS -->
+	<!-- 스타일 시트 추가 -->
+	<style type="text/css">
+	form {
+	margin: 0 auto;
+	/* width:500px; */
+	}
+	</style>
+	
+	<!-- Form JavaScript -->
+	<script type="text/javascript" src="/js/meetingCheck.js"></script>
+	
 </head>
-
 <body>
 <!-- header 삽입 -->
-  <header>
-     <%@ include file="../include/header.jsp"%>
-  </header>
+  	<header>
+     	<%@ include file="../include/header.jsp"%>
+ 	</header>
 	<div class="preloader">
 		<img src="../assets/images/preloader.svg" alt="Pre-loader">
 	</div>
@@ -49,11 +58,11 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">독서모임</h1>
-					<h6 class="subtitle">함께 만드는 아름다운 소통과 교류의 장</h6>
+					<h1 class="innerpage-title">독서모임 신청</h1>
+					<h6 class="subtitle">나만의 독서모임 신청하기</h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="../index.jsp"><i class="ti-home"></i> Home</a></li>
+							<li class="breadcrumb-item active"><a href="/index.jsp"><i class="ti-home"></i> Home</a></li>
 							<li class="breadcrumb-item">독서모임</li>
 						</ol>
 					</nav>
@@ -64,75 +73,152 @@
 	<!-- =======================
 	Banner innerpage -->
 
+
 	<!-- =======================
-	Portfolio -->
-	<section class="portfolio pb-0">
+	Form -->
+	<section>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 p-0">
-					<div class="nav justify-content-center">
-						<ul class="nav-tabs nav-tabs-style-2 text-center px-2 p-md-0 m-0 mb-4">
-							<li class="nav-filter active" data-filter="*">모든 모임</li>
-							<li class="nav-filter" data-filter=".marketing">Marketing</li>
-							<li class="nav-filter" data-filter=".digital">Digital</li>
-							<li class="nav-filter" data-filter=".photo">Photography</li>
-						</ul>
+				<form name="frm" method="get" action="/meeting" class="col-md-7">
+
+					<!-- 독서모임명 -->
+					<div class="form-group">
+						<label>독서모임명</label>
+						<input type="text" name="metName" class="form-control" placeholder="독서모임명을 입력해주세요.">
 					</div>
-			
-					 
-					<!-- portfolio-card -->
-					<div class="portfolio-wrap grid items-4 items-padding">
+
+					<!-- 독서모임소개 -->
+					<div class="form-group">
+						<label>독서모임소개</label>
+						<textarea name="metIntro" class="form-control" rows="7" placeholder="독서모임을 소개합니다."></textarea>
+					</div>
 					
-					
-					<!-- 독서모임 신청하면 승인 후 자동생성 -->
-					<c:forEach var="meetingList" items="${meetingList}" varStatus="status">
-					
-						<!-- portfolio-card -->
-						<div class="portfolio-card isotope-item digital">
-							<div class="portfolio-card-body">
-								<div class="portfolio-card-header">
-									<a href="#"><img src="../assets/images/portfolio/01.jpg" alt=""></a>
-								</div>
-								<div class="portfolio-card-footer">
-									<a class="full-screen" href="../assets/images/portfolio/01.jpg" data-fancybox="portfolio" data-caption="${meetingList.metName}"><i class="ti-fullscreen"></i></a>
-									<div class="post-author">${meetingList.represent},
-									<fmt:formatDate value="${meetingList.metDate}"/>, 
-									회원수 : ${meetingList.headCount}
-									</div>
-									<div><h6 class="info-title"><a href="/meeting?command=meetingHome" title="독서모임">${meetingList.metName}</a></h6></div>
-									<p>${meetingList.metIntro}</p>
-								</div>
-							</div>
-						</div>
+					<!-- 대표자명 -->
+					<div class="form-group">
+						<label>대표자</label>
+						<input type="text" name="represent" class="form-control" placeholder="대표자를 입력해주세요." style="width:250px">
+					</div>
+
+					<!-- Select -->
+					<div class="form-group">
+						<label>주 활동지역</label>
+						<select name="location" class="custom-select select-big mb-3">
+							<option selected>전국</option>
+							<option value="location1">서울특별시</option>
+							<option value="location2">인천광역시</option>
+							<option value="location3">대전광역시</option>
+							<option value="location4">세종특별자치시</option>
+							<option value="location5">대구광역시</option>
+							<option value="location6">부산광역시</option>
+							<option value="location7">울산광역시</option>
+							<option value="location8">광주광역시</option>
+							<option value="location9">제주도특별자치시</option>
+							<option value="location10">울릉도</option>
+							<option value="location11">독도</option>
+						</select>
+					</div>
+				<!-- </div> -->
+
+				<!-- <div class="col-md-6"> -->
+					<!-- custom checkbox -->
+					<label class="mt-3">활동주제</label>
+					<div class="custom-control custom-checkbox mr-sm-2">
+						<input type="checkbox" name="checkSub" value="home" class="custom-control-input" id="home">
+						<label class="custom-control-label" for="home">가정/육아</label>
+					</div>
 						
-						</c:forEach>
+					<div class="custom-control custom-checkbox mr-sm-2">
+						<input type="checkbox" name="checkSub" value="health&beauti" class="custom-control-input" id="health&beauti">
+						<label class="custom-control-label" for="health&beauti">건강/뷰티</label>
 					</div>
-				</div>
+						
+					<div class="custom-control custom-checkbox mr-sm-2">	
+						<input type="checkbox" name="checkSub" value="economy&business" class="custom-control-input" id="economy&business">
+						<label class="custom-control-label" for="economy&business">경제/경영</label>
+					</div>	
+						
+					<div class="custom-control custom-checkbox mr-sm-2">	
+						<input type="checkbox" name="checkSub" value="education" class="custom-control-input" id="education">
+						<label class="custom-control-label" for="education">교육</label>
+					</div>	
+						
+					<div class="custom-control custom-checkbox mr-sm-2">	
+						<input type="checkbox" name="checkSub" value="literature" class="custom-control-input" id="literature">
+						<label class="custom-control-label" for="literature">문학</label>
+					</div>	
+						
+					<div class="custom-control custom-checkbox mr-sm-2">	
+						<input type="checkbox" name="checkSub" value="social&science" class="custom-control-input" id="social&science">
+						<label class="custom-control-label" for="social&science">사회과학</label>
+					</div>	
+						
+					<div class="custom-control custom-checkbox mr-sm-2">	
+						<input type="checkbox" name="checkSub" value="leisure" class="custom-control-input" id="leisure">
+						<label class="custom-control-label" for="leisure">여가생활</label>
+					</div>	
+						
+					<div class="custom-control custom-checkbox mr-sm-2">	
+						<input type="checkbox" name="checkSub" value="history" class="custom-control-input" id="history">
+						<label class="custom-control-label" for="history">역사</label>
+					</div>
+					
+					<div class="custom-control custom-checkbox mr-sm-2">
+						<input type="checkbox" name="checkSub" value="art&popculture" class="custom-control-input" id="art&popculture">
+						<label class="custom-control-label" for="art&popculture">예술/대중문화</label>
+					</div>	
+						
+					<div class="custom-control custom-checkbox mr-sm-2">	
+						<input type="checkbox" name="checkSub" value="foreign" class="custom-control-input" id="foreign">
+						<label class="custom-control-label" for="foreign">외국어/외국문학</label>
+					</div>	
+						
+					<div class="custom-control custom-checkbox mr-sm-2">	
+						<input type="checkbox" name="checkSub" value="child&teenager" class="custom-control-input" id="child&teenager">
+						<label class="custom-control-label" for="child&teenager">아동/청소년</label>
+					</div>	
+						
+					<div class="custom-control custom-checkbox mr-sm-2">	
+						<input type="checkbox" name="checkSub" value="humanity" class="custom-control-input" id="humanity">
+						<label class="custom-control-label" for="humanity">인문학</label>
+					</div>	
+						
+					<div class="custom-control custom-checkbox mr-sm-2">	
+						<input type="checkbox" name="checkSub" value="self-improve" class="custom-control-input" id="self-improve">
+						<label class="custom-control-label" for="self-improve">자기계발</label>
+					</div>
+						
+					<div class="custom-control custom-checkbox mr-sm-2">	
+						<input type="checkbox" name="checkSub" value="natural&science" class="custom-control-input" id="natural&science">
+						<label class="custom-control-label" for="natural&science">자연/과학</label>
+					</div>	
+						
+					<div class="custom-control custom-checkbox mr-sm-2">	
+						<input type="checkbox" name="checkSub" value="computer&internet" class="custom-control-input" id="computer&internet">
+						<label class="custom-control-label" for="computer&internet">컴퓨터/인터넷</label>
+					</div>
+					
+					<br><br>
+					<!-- post way -->
+					<div class="text-center text-md-left align-self-center">
+						<h5 class="m-0"><b>※독서모임은 관리자의 승인 후 활동 가능합니다.</b></h5>
+					</div>
+					<br>
+					<section>
+					<div class="text-center text-md-center mt-md-0 align-self-center ">
+						<button class="btn btn-outline-light mb-0" onclick="location.href='/meeting?command=meetingList'">취소</button>
+						<button class="btn btn-outline-light mb-0" type="reset">다시작성</button>
+						<button class="btn btn-outline-light mb-0" type="submit" onclick="return meetingCheck()">신청</button>
+					</div>
+					</section>
+				</form>
 			</div>
 		</div>
 	</section>
-	<!-- =======================
-	Portfolio -->
 
 	<!-- =======================
-	call to action-->
-	<section class="py-5">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-9 text-center text-md-left align-self-center">
-					<h4 class="m-0"><b>소통의 장, 독서모임 신청하기</b></h4>
-				</div>
-				<div class="col-md-3 text-center text-md-right mt-3 mt-md-0 align-self-center ">
-					<a class="btn btn-outline-light mb-0" href="/meeting?command=meetingApplyFormAction" title="독서모임">독서모임 신청</a>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- =======================
-	call to action-->
+	Form -->
 
-
-	<!-- =======================
+	<!-- =======================r
 	footer  -->
 	<footer class="footer bg-light pt-6">
 		<div class="footer-content pb-3">

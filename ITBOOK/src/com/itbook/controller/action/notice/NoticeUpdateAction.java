@@ -37,9 +37,9 @@ public class NoticeUpdateAction implements Action{
             
             // 파라미터 값을 자바빈에 세팅한다.
             NoticeVO nVo = new NoticeVO();
-            nVo.setNoticeNum("noticeNum");
-            nVo.setNoticeTitle("noticeTitle");
-            nVo.setNoticeContent("noticeContent");
+            nVo.setNoticeNum(noticeNum);
+            nVo.setNoticeTitle(noticeTitle);
+            nVo.setNoticeContent(noticeContent);
             
             
             // 글 수정 시 업로드된 파일 가져오기
@@ -71,25 +71,8 @@ public class NoticeUpdateAction implements Action{
             System.out.println("글 수정 오류 : " + e.getMessage());
         }
         
-        new NoticeListFormAction().execute(request, response);
-		
-		
-//		NoticeVO nVo = new NoticeVO();
-//		
-//		
-//		
-//		nVo.setNoticeNum(request.getParameter("noticeNum"));
-//		
-//		
-//		nVo.setNoticeTitle(request.getParameter("noticeTitle"));
-//		nVo.setNoticeContent(request.getParameter("noticeContent"));
-//		
-//		
-//		NoticeDAO nDao = NoticeDAO.getInstance();
-//		nDao.updateNotice(nVo);
-//		
-//		new NoticeListFormAction().execute(request, response);
-		
+        
+
 	}
 
 }

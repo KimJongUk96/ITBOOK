@@ -29,17 +29,16 @@ public class MeetingServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		String command = request.getParameter("command");
-		System.out.println("MeetingServletì—ì„œ ìš”ì²­ë°›ìŒì„ í™•ì¸ : " + command );
+		System.out.println("meeting¿¡¼­ ¿äÃ»¹ŞÀ½À» È®ÀÎ : " + command );
 		
-		ActionFactory af = ActionFactory.getInstance();
+		MeetingActionFactory af = MeetingActionFactory.getInstance();
 		
-		//ActionFactoryì˜ getAction() ë©”ì†Œë“œë¥¼ í˜¸ì¶œí•œë‹¤.
+		//ActionFactoryÀÇ getAction() ¸Ş¼Òµå¸¦ È£ÃâÇÑ´Ù.
 		Action action = af.getAction(command);
 		
-		//ì˜ˆì™¸ê°€ ë°œìƒí•˜ì§€ ì•Šë„ë¡ í•˜ê¸° ìœ„í•´ nullì´ ì•„ë‹ ê²½ìš°ì—ë§Œ execute()ë©”ì†Œë“œë¥¼ í˜¸ì¶œí•œë‹¤.
+		//¿¹¿Ü°¡ ¹ß»ıÇÏÁö ¾Êµµ·Ï ÇÏ±â À§ÇØ nullÀÌ ¾Æ´Ò °æ¿ì¿¡¸¸ execute()¸Ş¼Òµå¸¦ È£ÃâÇÑ´Ù.
 		if(action != null) {
 			action.execute(request, response);
 		}
@@ -51,7 +50,7 @@ public class MeetingServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		request.setCharacterEncoding("UTF-8"); //postë°©ì‹ìœ¼ë¡œ í˜¸ì¶œë°›ìœ¼ë©´ í•œê¸€ê¹¨ì§ ë°©ì§€
+		request.setCharacterEncoding("UTF-8"); //post¹æ½ÄÀ¸·Î È£Ãâ¹ŞÀ¸¸é ÇÑ±Û±úÁü ¹æÁö
 		doGet(request, response);
 	}
 

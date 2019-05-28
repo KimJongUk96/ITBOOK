@@ -1,16 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-   
-<!DOCTYPE html>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
+<!Doctype html>
 
-<!-- 독서모임 리스트 -->
-<!-- portfolio-grid-column-4.html Form -->
-<!-- 참고 index-6.html Form -->
-<html>
+<!-- 각 독서모임 별 메인홈 -->
+<!-- portfolio-single.html Form -->
+<html lang="en">
 <head>
-	<title>독서모임리스트</title>
+	<title>독서모임 게시판</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,17 +41,17 @@
 		<img src="../assets/images/preloader.svg" alt="Pre-loader">
 	</div>
 
+
 	<!-- =======================
 	Banner innerpage -->
 	<div class="innerpage-banner center bg-overlay-dark-7 py-7" style="background:url(../assets/images/bg/04.jpg) no-repeat; background-size:cover; background-position: center center;">
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">독서모임</h1>
-					<h6 class="subtitle">함께 만드는 아름다운 소통과 교류의 장</h6>
+					<h1 class="innerpage-title">${meeting.metName}</h1>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="../index.jsp"><i class="ti-home"></i> Home</a></li>
+							<li class="breadcrumb-item active"><a href="/index.jsp"><i class="ti-home"></i> Home</a></li>
 							<li class="breadcrumb-item">독서모임</li>
 						</ol>
 					</nav>
@@ -65,71 +63,118 @@
 	Banner innerpage -->
 
 	<!-- =======================
-	Portfolio -->
-	<section class="portfolio pb-0">
+	portfolio -->
+	<section>
 		<div class="container">
-			<div class="row">
-				<div class="col-md-12 p-0">
-					<div class="nav justify-content-center">
-						<ul class="nav-tabs nav-tabs-style-2 text-center px-2 p-md-0 m-0 mb-4">
-							<li class="nav-filter active" data-filter="*">모든 모임</li>
-							<li class="nav-filter" data-filter=".marketing">Marketing</li>
-							<li class="nav-filter" data-filter=".digital">Digital</li>
-							<li class="nav-filter" data-filter=".photo">Photography</li>
-						</ul>
-					</div>
-			
-					 
-					<!-- portfolio-card -->
-					<div class="portfolio-wrap grid items-4 items-padding">
-					
-					
-					<!-- 독서모임 신청하면 승인 후 자동생성 -->
-					<c:forEach var="meetingList" items="${meetingList}" varStatus="status">
-					
-						<!-- portfolio-card -->
-						<div class="portfolio-card isotope-item digital">
-							<div class="portfolio-card-body">
-								<div class="portfolio-card-header">
-									<a href="#"><img src="../assets/images/portfolio/01.jpg" alt=""></a>
-								</div>
-								<div class="portfolio-card-footer">
-									<a class="full-screen" href="../assets/images/portfolio/01.jpg" data-fancybox="portfolio" data-caption="${meetingList.metName}"><i class="ti-fullscreen"></i></a>
-									<div class="post-author">${meetingList.represent},
-									<fmt:formatDate value="${meetingList.metDate}"/>, 
-									회원수 : ${meetingList.headCount}
-									</div>
-									<div><h6 class="info-title"><a href="/meeting?command=meetingHome" title="독서모임">${meetingList.metName}</a></h6></div>
-									<p>${meetingList.metIntro}</p>
-								</div>
-							</div>
-						</div>
-						
-						</c:forEach>
-					</div>
+			<div class="row mb-4">
+				<!-- portfolio images -->
+				<div class="col-md-8">
+					<a class="mb-4 d-block" href="../assets/images/portfolio/big/01.jpg" data-fancybox="portfolio" data-caption="Perfect planning"><img src="../assets/images/portfolio/big/01.jpg" alt=""></a>
+					<a class="mb-4 d-block" href="../assets/images/portfolio/big/02.jpg" data-fancybox="portfolio" data-caption="Kitchen design"><img src="../assets/images/portfolio/big/02.jpg" alt=""></a>
 				</div>
-			</div>
-		</div>
-	</section>
-	<!-- =======================
-	Portfolio -->
+				<!-- portfolio details -->
+				<div class="col-md-4">
+					<div class="sticky-element">
+						<h2>${meeting.metName}</h2>
+						<p>${meeting.metIntro}</p>
+						<ul class="list-unstyled">
+							<li class="media mt-2">
+								<div class="d-flex w-40">
+									<h6>대표자:</h6> </div>
+								<div class="media-body"> <span>${meeting.represent}</span> </div>
+							</li>
+							<li class="media mt-2">
+								<div class="d-flex w-40">
+									<h6>개설일자:</h6> </div>
+								<div class="media-body">
+									<span><fmt:formatDate value="${meeting.metName}"/></span>
+								</div>
+							</li>
 
-	<!-- =======================
-	call to action-->
-	<section class="py-5">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-9 text-center text-md-left align-self-center">
-					<h4 class="m-0"><b>소통의 장, 독서모임 신청하기</b></h4>
+							<li class="media mt-2">
+								<div class="d-flex w-40">
+									<h6>모임인원수:</h6> </div>
+								<div class="media-body">
+									<span>${meeting.headCount}명</span>
+								</div>
+							</li>
+							
+						</ul>
+						<a class="btn btn-grad mt-4" href="/meeting?command=metBoardListFormAction"><%-- ${meeting.metName} --%>독서모임명 게시판<i class="fa fa-external-link ml-2 mr-0"></i></a>
+					</div>
 				</div>
-				<div class="col-md-3 text-center text-md-right mt-3 mt-md-0 align-self-center ">
-					<a class="btn btn-outline-light mb-0" href="/meeting?command=meetingApplyFormAction" title="독서모임">독서모임 신청</a>
+				<!-- portfolio details End -->
+			</div>
+			
+			<!-- 활동사진 밑 코멘트 -->
+			<div class="row mt-4">
+				<!-- portfolio Greeting -->
+				<div class="col-md-6">
+					<h4 class="mb-4">${meeting.metName}의 인사말</h4>
+					<blockquote class="blockquote" cite="#">
+						<h5 class="mb-2 text-light-gray">${meeting.metGreeting}</h5>
+						<cite>- ${meeting.represent}</cite>
+					</blockquote>
+				</div>
+				<!-- portfolio information -->
+				<!-- <div class="col-md-6">
+					<h4 class="mb-4">Additional information</h4>
+					<p>Residence certainly elsewhere something she preferred cordially law. Age his surprise formerly Mrs perceive few standstill moderate. Of in power match on truth worse voice would. Large an it sense shall an match learn. By expect it result silent in formal of. Ask eat questions abilities described elsewhere assurance.</p>
+					<p> Appetite in unlocked advanced breeding position concerns as. Cheerful get shutters yet for repeated screened. An no am cause hopes at three. Prevent behaved fertile he is mistake on. </p>
+				</div> -->
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<!-- tag and share -->
+					<div class="divider mb-4"></div>
+					
+					<!-- tag check-box 불러오기 -->
+					<div class="row">
+					<c:forEach var="meeting" items="${meeting}" varStatus="status">
+						<div class="tags col-12 col-sm-8 col-md-12 text-center text-sm-center">
+							<a class="mb-2 mb-sm-0" href="#">${meeting.keyword}</a>
+							<!-- <a class="mb-2 mb-sm-0" href="#">events</a>
+							<a class="mb-2 mb-sm-0" href="#">WordPress</a>
+							<a class="mb-2 mb-sm-0" href="#">gadgets</a>
+							<a class="mb-2 mb-sm-0" href="#">office</a> -->
+						</div>
+					</c:forEach>
+						<div class="col-12 col-sm-4 text-center text-sm-right">
+							<ul class="social-icons si-colored-bg light">
+								<li class="social-icons-item social-facebook mb-0"><a class="social-icons-link" href="#"><i class="fa fa-facebook"></i></a></li>
+								<li class="social-icons-item social-twitter mb-0"><a class="social-icons-link" href="#"><i class="fa fa-twitter"></i></a></li>
+								<li class="social-icons-item social-gplus mb-0"><a class="social-icons-link" href="#"><i class="fa fa-google-plus"></i></a></li>
+								<li class="social-icons-item social-linkedin mb-0"><a class="social-icons-link" href="#"><i class="fa fa-linkedin"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="divider mt-4"></div>
+
+					<!-- navigation -->
+					<div class="row post-navigation mt-5">
+						<!-- <div class="col-5">
+							<a href="#" class="post-prev">
+								<p class="m-2 m-lg-0">Previous Post</p>
+								<h6 class="text-truncate d-none d-lg-block">The Pink Chair</h6> </a>
+						</div> -->
+						<div class="col-12">
+							<a href="portfolio-grid-column-3.html" class="all-post" title="View all post"> <i class="fa fa-th"> 더보기</i> </a>
+						</div>
+						<!-- <div class="col-5">
+							<a href="#" class="post-next">
+								<p class="m-2 m-lg-0">Next Post</p>
+								<h6 class="text-truncate d-none d-lg-block">Black & white</h6> </a>
+						</div> -->
+					</div>
+
 				</div>
 			</div>
 		</div>
+		<!-- portfolio End -->
 	</section>
 	<!-- =======================
-	call to action-->
+	portfolio -->
 
 
 	<!-- =======================
@@ -235,11 +280,11 @@
 	<script src="../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 	<!--Vendors-->
+	<script src="../assets/vendor/sticky-kit/sticky-kit.min.js"></script>
 	<script src="../assets/vendor/fancybox/js/jquery.fancybox.min.js"></script>
-	<script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-	<script src="../assets/vendor/isotope/isotope.pkgd.min.js"></script>
 
 	<!--Template Functions-->
 	<script src="../assets/js/functions.js"></script>
+
 </body>
 </html>

@@ -1,8 +1,6 @@
 package com.itbook.controller.action.meeting;
 
-
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,25 +8,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
-import com.itbook.dao.MeetingDAO;
-import com.itbook.vo.Meeting.MeetingVO;
+import com.itbook.dao.MetBoardDAO;
+import com.itbook.vo.Meeting.MetBoardVO;
 
-public class MeetingListAction implements Action {
-	
-	// MeetingListServlet?command=meetingList ø‰√ª¿ª πﬁ¿∏∏È µ∂º≠∏¿” ∏ÆΩ∫∆Æ »≠∏È¿ª «•Ω√«—¥Ÿ.
+public class MetBoardUpdateFormAction implements Action {
+
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String url = "/meeting/meetingList.jsp";
 
-		MeetingDAO mDao = MeetingDAO.getInstance();
+		String url = "/meeting/metBoardUpdateForm.jsp";
+
+		// ÌéòÏù¥ÏßÄ Î≤àÌò∏ÏôÄ Í∏Ä Î≤àÌò∏Î•º Í∞ÄÏ†∏Ïò®Îã§.
+		String pageNum = request.getParameter("page");
+		String metBrdNum = request.getParameter("metBrdNum");
 		
-		List<MeetingVO> meetingList = mDao.selectAllMeetings();
 		
-		request.setAttribute("meetingList", meetingList);
-		
-		System.out.println(meetingList);
-		
+		MetBoardDAO mDao = MetBoardDAO.getInstance();
+		MetBoardVO metbrd = mDao.selectOneMetBoardByNum(metBrdNum);
+
+		request.setAttribute("metbrd", metbrd);
+		request.setAttribute("pageNum", pageNum);
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}
