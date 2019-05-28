@@ -92,8 +92,6 @@
 						<a class="btn btn-danger"
 							href="report?command=Report_Delete&reportNum=${reportList.reportNum}"><i
 							class="fa fa-chevron-right"></i>삭제하기</a>
-
-
 					</div>
 
 					<div class="row mt-5">

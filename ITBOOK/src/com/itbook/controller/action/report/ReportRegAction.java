@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
 import com.itbook.dao.ReportDAO;
-import com.itbook.vo.BookVO;
 import com.itbook.vo.MemberVO;
 import com.itbook.vo.Report.ReportBoardVO;
 
@@ -40,5 +39,4 @@ public class ReportRegAction implements Action {
 		new ReportListFormAction().execute(request, response);
 
 	}
-
 }
