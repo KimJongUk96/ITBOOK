@@ -100,7 +100,7 @@
 							</li>
 							
 						</ul>
-						<a class="btn btn-grad mt-4" href="#!">${meeting.metName}독서모임명 게시판<i class="fa fa-external-link ml-2 mr-0"></i></a>
+						<a class="btn btn-grad mt-4" href="/meeting?command=metBoardListFormAction"><%-- ${meeting.metName} --%>독서모임명 게시판<i class="fa fa-external-link ml-2 mr-0"></i></a>
 					</div>
 				</div>
 				<!-- portfolio details End -->

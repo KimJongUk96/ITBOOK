@@ -4,7 +4,10 @@ import com.itbook.controller.action.Action;
 import com.itbook.controller.action.meeting.MeetingApplyAction;
 import com.itbook.controller.action.meeting.MeetingApplyFormAction;
 import com.itbook.controller.action.meeting.MeetingListAction;
+import com.itbook.controller.action.meeting.MetBoardDeleteAction;
 import com.itbook.controller.action.meeting.MetBoardListFormAction;
+import com.itbook.controller.action.meeting.MetBoardUpdateAction;
+import com.itbook.controller.action.meeting.MetBoardUpdateFormAction;
 import com.itbook.controller.action.meeting.MetBoardViewAction;
 import com.itbook.controller.action.meeting.MetBoardWriteAction;
 import com.itbook.controller.action.meeting.MetBoardWriteFormAction;
@@ -26,17 +29,17 @@ public class MeetingActionFactory {
 		Action action = null;
 		System.out.println("ActionFactory : " + command);
 		
-		//µ¶¼­¸ðÀÓ ¸®½ºÆ®
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 		if(command.equals("meetingList")) {
 			
 			action = new MeetingListAction();
 		
-		//µ¶¼­¸ðÀÓ ½ÅÃ»Æû
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½
 		} else if(command.equals("meetingApplyFormAction")) {
 			
 			action = new MeetingApplyFormAction();
 			
-		//µ¶¼­¸ðÀÓ ½ÅÃ»
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 		} else if(command.equals("meetingApply")) {
 			
 			action = new MeetingApplyAction();
@@ -59,8 +62,23 @@ public class MeetingActionFactory {
 		} else if(command.equals("metBoardViewAction")) {
 			
 			action = new MetBoardViewAction();
+			
+		} else if(command.equals("metBoardUpdateFormAction")) {
+			
+			action = new MetBoardUpdateFormAction();
+			
+		} else if(command.equals("metBoardUpdateAction")) {
+			
+			action = new MetBoardUpdateAction();
+			
+		} else if(command.equals("metBoardDeleteAction")) {
+			
+			action = new MetBoardDeleteAction();
+			
 		}
 		
 		return action;
 	}
 }
+
+
