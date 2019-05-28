@@ -105,6 +105,7 @@
 											<img class="avatar"
 												src="assets/images/thumbnails/avatar-01.jpg" alt="">
 										</div>
+										<c:forEach var="comment" items="${requestScope.commentList}">
 										<div class="comment-body">
 											<div class="comment-meta">
 												<div class="comment-meta-author">
@@ -124,6 +125,7 @@
 												<a class="btn btn-xs btn-light" href="#">Reply</a>
 											</div>
 										</div>
+										</c:forEach>
 										<!-- sub comment-->
 										<div class="comment-child">
 											<div class="comment">
