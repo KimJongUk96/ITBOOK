@@ -3,6 +3,7 @@ package com.itbook.controller;
 import com.itbook.controller.action.Action;
 import com.itbook.controller.action.meeting.MeetingApplyAction;
 import com.itbook.controller.action.meeting.MeetingApplyFormAction;
+import com.itbook.controller.action.meeting.MeetingHomeAction;
 import com.itbook.controller.action.meeting.MeetingListAction;
 import com.itbook.controller.action.meeting.MetBoardDeleteAction;
 import com.itbook.controller.action.meeting.MetBoardListFormAction;
@@ -29,22 +30,21 @@ public class MeetingActionFactory {
 		Action action = null;
 		System.out.println("ActionFactory : " + command);
 		
-		//�������� ����Ʈ
 		if(command.equals("meetingList")) {
 			
 			action = new MeetingListAction();
 		
-		//�������� ��û��
 		} else if(command.equals("meetingApplyFormAction")) {
 			
 			action = new MeetingApplyFormAction();
 			
-		//�������� ��û
 		} else if(command.equals("meetingApply")) {
 			
 			action = new MeetingApplyAction();
 			
 		} else if(command.equals("meetingHome")) {
+			
+			action = new MeetingHomeAction();
 			
 		}
 		else if(command.equals("metBoardListFormAction")) {

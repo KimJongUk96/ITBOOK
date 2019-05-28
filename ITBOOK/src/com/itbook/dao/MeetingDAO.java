@@ -35,8 +35,10 @@ public class MeetingDAO {
 		
 		String sql = "SELECT metNum"
 				+ "         ,metName"
+				/* + "         ,metGreeting" */
 				+ "         ,metIntro"
 				+ "         ,represent"
+				/* + "         ,keword" */
 				+ "         ,metDate"
 				+ "         ,headCount"
 				+ "	  FROM itbook.meeting";
@@ -56,8 +58,10 @@ public class MeetingDAO {
 				
 				mVo.setMetNum(rs.getString("metNum"));
 				mVo.setMetName(rs.getString("metName"));
+				/* mVo.setMetGreeting(rs.getString("metGreeting")); */
 				mVo.setMetIntro(rs.getString("metIntro"));
 				mVo.setRepresent(rs.getString("represent"));
+				/* mVo.setKeyword(rs.getString("keyword")); */
 				mVo.setMetDate(rs.getDate("metDate"));
 				mVo.setHeadCount(rs.getInt("headCount"));
 				
@@ -78,11 +82,15 @@ public class MeetingDAO {
 	//독서모임 신청하기 : 독서모임명, 독서모임소개, 대표자명 입력!
 	public List<MeetingVO> insertMeeting(MeetingVO mVo) {
 		
-		String sql = "INSERT INTO Meeting ("
+		String sql = "INSERT INTO itbook.meeting ("
 				+ "    metName"
+				+ "   ,metGreeting"
 				+ "   ,metIntro"
-				+ "   ,represent)"
+				+ "   ,represent"
+				+ "	  ,keyword)"
 				+ "values (?"
+				+ "       , ?"
+				+ "       , ?"
 				+ "       , ?"
 				+ "       , ?)";
 		
@@ -94,8 +102,10 @@ public class MeetingDAO {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, mVo.getMetName());
-			pstmt.setString(2, mVo.getMetIntro());
-			pstmt.setString(3, mVo.getRepresent());
+			pstmt.setString(2, mVo.getMetGreeting());
+			pstmt.setString(3, mVo.getMetIntro());
+			pstmt.setString(4, mVo.getRepresent());
+			pstmt.setString(5, mVo.getKeyword());
 			
 			//sql문 update 실행
 			pstmt.executeUpdate();
@@ -109,4 +119,54 @@ public class MeetingDAO {
 		return null;
 	}
 	
+	//독서모임 홈으로 연결
+	//독서모임 메인 홈 상세내용 보기 : 글번호로 찾아온다. 실패하면 return null
+	public MeetingVO selectOneMeetingByNum(String metNum){
+		
+		String sql = "SELECT metNum"
+				+ ", metName"
+				+ ", metGreeting"
+				+ ", metIntro"
+				+ ", represent"
+				+ ", keyword"
+				+ ", metDate"
+				+ ", headCount"
+				+ "FROM itbook.meeting"
+				+ "WHERE metNum = ?";
+		
+		MeetingVO mVo = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, metNum);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+			
+			mVo = new MeetingVO();
+			
+			mVo.setMetNum(rs.getString("metNum"));
+			mVo.setMetName(rs.getString("metName"));
+			mVo.setMetGreeting(rs.getString("metGreeting"));
+			mVo.setMetIntro(rs.getString("metIntro"));
+			mVo.setRepresent(rs.getString("represent"));
+			mVo.setKeyword(rs.getString("keyword"));
+			mVo.setMetDate(rs.getDate("metDate"));
+			mVo.setHeadCount(rs.getInt("headCount"));
+	
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return mVo;
+	}
 }

@@ -3,6 +3,8 @@ package com.itbook.vo.Meeting;
  * @author 정원
  * 독서모임번호
  * 독서모임명
+ * 독서모임인사말
+ * 독서모임인트로
  * 대표자명
  * 키워드
  * 모임개설일
@@ -15,11 +17,13 @@ import java.sql.Date;
 public class MeetingVO {
 	private String metNum;
 	private String metName;
+	private String metGreeting;
 	private String metIntro;
 	private String represent;
 	private String keyword;
 	private Date metDate;
 	private int headCount;
+	
 	public String getMetNum() {
 		return metNum;
 	}
@@ -31,6 +35,12 @@ public class MeetingVO {
 	}
 	public void setMetName(String metName) {
 		this.metName = metName;
+	}
+	public String getMetGreeting() {
+		return metGreeting;
+	}
+	public void setMetGreeting(String metGreeting) {
+		this.metGreeting = metGreeting;
 	}
 	public String getMetIntro() {
 		return metIntro;
@@ -65,8 +75,11 @@ public class MeetingVO {
 	
 	@Override
 	public String toString() {
-		return "MeetingVO [metNum=" + metNum + ", metName=" + metName + ", metIntro=" + metIntro + ", represent="
-				+ represent + ", keyword=" + keyword + ", metDate=" + metDate + ", headCount=" + headCount + "]";
+		return "MeetingVO [metNum=" + metNum + ", metName=" + metName + ", metGreeting=" + metGreeting + ", metIntro="
+				+ metIntro + ", represent=" + represent + ", keyword=" + keyword + ", metDate=" + metDate
+				+ ", headCount=" + headCount + "]";
 	}
+	
+	
 	
 }

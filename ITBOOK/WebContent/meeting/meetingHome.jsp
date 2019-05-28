@@ -108,20 +108,20 @@
 			
 			<!-- 활동사진 밑 코멘트 -->
 			<div class="row mt-4">
-				<!-- portfolio testimonial -->
+				<!-- portfolio Greeting -->
 				<div class="col-md-6">
-					<h4 class="mb-4">Client testimonial</h4>
+					<h4 class="mb-4">${meeting.metName}의 인사말</h4>
 					<blockquote class="blockquote" cite="#">
-						<h5 class="mb-2 text-light-gray">Design everything on the assumption that people are not heartless or stupid but marvelously capable, given the chance. Mr be cottage so related minuter is. Delicate say and blessing ladyship exertion few Margaret. Delight herself welcome against smiling its for. Suspected discovery by he affection household of principle perfectly he.</h5>
-						<cite>? Allen Smith</cite>
+						<h5 class="mb-2 text-light-gray">${meeting.metGreeting}</h5>
+						<cite>- ${meeting.represent}</cite>
 					</blockquote>
 				</div>
 				<!-- portfolio information -->
-				<div class="col-md-6">
+				<!-- <div class="col-md-6">
 					<h4 class="mb-4">Additional information</h4>
 					<p>Residence certainly elsewhere something she preferred cordially law. Age his surprise formerly Mrs perceive few standstill moderate. Of in power match on truth worse voice would. Large an it sense shall an match learn. By expect it result silent in formal of. Ask eat questions abilities described elsewhere assurance.</p>
 					<p> Appetite in unlocked advanced breeding position concerns as. Cheerful get shutters yet for repeated screened. An no am cause hopes at three. Prevent behaved fertile he is mistake on. </p>
-				</div>
+				</div> -->
 			</div>
 
 			<div class="row">
@@ -131,21 +131,23 @@
 					
 					<!-- tag check-box 불러오기 -->
 					<div class="row">
+					<c:forEach var="meeting" items="${meeting}" varStatus="status">
 						<div class="tags col-12 col-sm-8 col-md-12 text-center text-sm-center">
-							<a class="mb-2 mb-sm-0" href="#">studio</a>
-							<a class="mb-2 mb-sm-0" href="#">events</a>
+							<a class="mb-2 mb-sm-0" href="#">${meeting.keyword}</a>
+							<!-- <a class="mb-2 mb-sm-0" href="#">events</a>
 							<a class="mb-2 mb-sm-0" href="#">WordPress</a>
 							<a class="mb-2 mb-sm-0" href="#">gadgets</a>
-							<a class="mb-2 mb-sm-0" href="#">office</a>
+							<a class="mb-2 mb-sm-0" href="#">office</a> -->
 						</div>
-						<!-- <div class="col-12 col-sm-4 text-center text-sm-right">
+					</c:forEach>
+						<div class="col-12 col-sm-4 text-center text-sm-right">
 							<ul class="social-icons si-colored-bg light">
 								<li class="social-icons-item social-facebook mb-0"><a class="social-icons-link" href="#"><i class="fa fa-facebook"></i></a></li>
 								<li class="social-icons-item social-twitter mb-0"><a class="social-icons-link" href="#"><i class="fa fa-twitter"></i></a></li>
 								<li class="social-icons-item social-gplus mb-0"><a class="social-icons-link" href="#"><i class="fa fa-google-plus"></i></a></li>
 								<li class="social-icons-item social-linkedin mb-0"><a class="social-icons-link" href="#"><i class="fa fa-linkedin"></i></a></li>
 							</ul>
-						</div> -->
+						</div>
 					</div>
 					<div class="divider mt-4"></div>
 

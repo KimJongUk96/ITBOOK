@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
 import com.itbook.dao.MeetingDAO;
+import com.itbook.vo.Meeting.MeetingVO;
 
 public class MeetingHomeAction implements Action {
+
+//MeetingList에서 독서모임명 클릭하면 해당 MeetingHome.jsp 띄워주기	(metNum으로 연결)
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,11 +24,13 @@ public class MeetingHomeAction implements Action {
 		
 		MeetingDAO mDao = MeetingDAO.getInstance();
 		
+		MeetingVO mVo = mDao.selectOneMeetingByNum(metNum);
+		
 		//mDao.updateReadCount(metNum);
 		
-		//MeetingVO mVo = mDao.selectOneBoardByNum(metNum);
+		//MeetingVO mVo = mDao.uploadCheckbox(metNum);
 		
-		//request.setAttribute("meeting", mVo);
+		request.setAttribute("meeting", mVo);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
