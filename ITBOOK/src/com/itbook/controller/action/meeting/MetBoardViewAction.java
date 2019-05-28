@@ -27,7 +27,7 @@ public class MetBoardViewAction implements Action{
 		MetBoardVO mVo = MetBoardDAO.getInstance().selectOneMetBoardByNum(metBrdNum);
 		
 		
-		request.setAttribute("metboard", mVo);
+		request.setAttribute("metbrd", mVo);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

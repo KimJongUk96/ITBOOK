@@ -1,6 +1,7 @@
 package com.itbook.controller;
 
 import com.itbook.controller.action.Action;
+import com.itbook.controller.action.meeting.CommentWriteAction;
 import com.itbook.controller.action.meeting.MeetingApplyAction;
 import com.itbook.controller.action.meeting.MeetingApplyFormAction;
 import com.itbook.controller.action.meeting.MeetingHomeAction;
@@ -74,11 +75,16 @@ public class MeetingActionFactory {
 		} else if(command.equals("metBoardDeleteAction")) {
 			
 			action = new MetBoardDeleteAction();
+			 
+		} else if(command.equals("commentWriteAction")) {
+			
+			action = new CommentWriteAction();
 			
 		}
 		
 		return action;
 	}
 }
+
 
 
