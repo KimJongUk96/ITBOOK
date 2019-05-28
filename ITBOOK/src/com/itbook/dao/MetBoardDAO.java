@@ -3,6 +3,7 @@ package com.itbook.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -198,7 +199,7 @@ public class MetBoardDAO {
 			
 		}
 		
-		//게시글 상세보기
+		//모임게시판 게시글 상세보기
 		public MetBoardVO selectOneMetBoardByNum(String metBrdNum) {
 			String sql = "select * from met_board where metBrdNum=? order by metBrdNum asc";
 			
@@ -233,6 +234,77 @@ public class MetBoardDAO {
 			}
 			
 			return mVo;
+		}
+		
+		//모임게시판 게시물 수정
+		public boolean updateMetBoard(MetBoardVO mVo) {
+			
+			boolean result = false;
+			
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				
+				conn = DBManager.getConnection();
+				conn.setAutoCommit( false ); // 자동 커밋을 false로 한다.
+				
+				StringBuffer sql = new StringBuffer();
+				sql.append("update met_board set");
+				sql.append(" metBrdName=?");
+				sql.append(" ,metBrdContent=?");
+				sql.append(" ,metBrdFile=?");
+				sql.append("where metBrdNum=?");
+				
+				pstmt = conn.prepareStatement(sql.toString());
+				pstmt.setString(1, mVo.getMetBrdName());
+				pstmt.setString(2, mVo.getMetBrdContent());
+				pstmt.setString(3, mVo.getMetBrdFile());
+				pstmt.setString(4, mVo.getMetBrdNum());
+				
+				
+				int flag = pstmt.executeUpdate();
+	            if(flag > 0){
+	                result = true;
+	                conn.commit(); // 완료시 커밋
+	            }
+				
+			} catch (Exception e) {
+				try {
+	                conn.rollback(); // 오류시 롤백
+	            } catch (SQLException sqle) {
+	                sqle.printStackTrace();
+	            }
+	            throw new RuntimeException(e.getMessage());
+	        }
+			
+			DBManager.close(conn, pstmt);
+			return result;
+		} // end updateNotice
+		
+		//모임게시판 게시물 삭제 
+		
+		public void deleteMetBoard(String metBrdNum) {
+			String sql = "delete from met_board where metBrdNum=?";
+			
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				conn = DBManager.getConnection();
+				
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, metBrdNum);
+				
+				pstmt.executeUpdate();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt);
+			}
+
 		}
 	
 }
