@@ -164,7 +164,7 @@
 									<h2 class="mb-2">Leave a Reply</h2>
 								</div>
 								<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" value="${LoginUser.memName}"></span></div>
-								<div class="col-md-12"><span class="form-group"><textarea cols="40" rows="6" class="form-control" placeholder="Message"></textarea></span></div>
+								<div class="col-md-12"><span class="form-group"><textarea name="metComtContent" cols="40" rows="6" class="form-control" placeholder="Message"></textarea></span></div>
 								<div class="col-md-12 text-center"><input type="submit" class="btn-block btn btn-dark" value="Post Comment"></div>
 							</div>
 							</form>
