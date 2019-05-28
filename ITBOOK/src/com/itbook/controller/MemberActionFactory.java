@@ -9,6 +9,8 @@ import com.itbook.controller.action.member.LogoutAction;
 import com.itbook.controller.action.member.MemberIdCheckAction;
 import com.itbook.controller.action.member.MemberModifyAction;
 import com.itbook.controller.action.member.MemberModifyFormAction;
+import com.itbook.controller.action.member.MemberPwModifyAction;
+import com.itbook.controller.action.member.MemberPwModifyFormAction;
 
 public class MemberActionFactory {
 	private static MemberActionFactory instance = new MemberActionFactory();
@@ -41,6 +43,10 @@ public class MemberActionFactory {
 			action = new MemberModifyFormAction();
 		}else if(command.equals("memberModify")) {
 			action = new MemberModifyAction();
+		}else if(command.equals("memberPwModify")) {
+			action = new MemberPwModifyAction();
+		}else if(command.equals("memberPwModifyForm")) {
+			action = new MemberPwModifyFormAction();
 		}
 		return action;
 	}

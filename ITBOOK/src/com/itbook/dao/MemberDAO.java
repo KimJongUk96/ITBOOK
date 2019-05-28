@@ -62,9 +62,8 @@ public class MemberDAO {
 	 */
 	public void memberUpdate(MemberVO memVO) {
 		String sql = "update itbook.member"
-						+" set memPw = ?"
-						+"	,  memPhone = ?"
-						+"	,  memEmail = ?"
+						+"	set Phone = ?"
+						+"	,  Email = ?"
 						+"	,  adr = ?";
 						
 		
@@ -75,11 +74,35 @@ public class MemberDAO {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, memVO.getMemPw());
-			pstmt.setString(2, memVO.getPhone());
-			pstmt.setString(3, memVO.getEmail());
-			pstmt.setString(4, memVO.getAdr());
+			pstmt.setString(1, memVO.getPhone());
+			pstmt.setString(2, memVO.getEmail());
+			pstmt.setString(3, memVO.getAdr());
 			
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+						
+	}
+	//비밀번호 변경
+	public void memberPwUpdate(MemberVO memVO) {
+		String sql = "update itbook.member"
+						+"	set memPw = ?";
+						
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memVO.getMemPw());
 			
 			pstmt.executeUpdate();
 			

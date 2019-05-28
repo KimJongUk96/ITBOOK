@@ -1,7 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!doctype html>
 <html>
 <head>
-	<title>Wizixo | Creative Multipurpose Bootstrap Template</title>
+	<title>희망의책 대전본부</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,7 +66,7 @@
 							<div class="col-md-8 justify-content-center align-self-center align-items-start mx-auto">
 								<div class="slider-content text-center ">
 									<h3 class="animated fadeInUp dealy-500 display-8 display-md-7 text-white alt-font font-italic">Build a very unique and professional website</h3>
-									<h2 class="animated fadeInUp dealy-1000 display-6 display-md-4 display-lg-3 font-weight-bold text-white">We’re good. Just ask our moms.</h2>
+									<h2 class="animated fadeInUp dealy-1000 display-6 display-md-4 display-lg-3 font-weight-bold text-white">Weâre good. Just ask our moms.</h2>
 									<div class="animated fadeInUp mt-3 dealy-1500"><a href="#" class="btn btn-grad">Contact us</a></div>
 								</div>
 							</div>
@@ -646,7 +648,7 @@
 			<div class="container">
 				<div class="d-md-flex justify-content-between align-items-center py-3 text-center text-md-left">
 					<!-- copyright text -->
-					<div class="copyright-text">©2019 All Rights Reserved by <a href="#!"> Wizixo.</a></div>
+					<div class="copyright-text">Â©2019 All Rights Reserved by <a href="#!"> Wizixo.</a></div>
 					<!-- copyright links-->
 					<div class="copyright-links primary-hover mt-3 mt-md-0">
 						<ul class="list-inline">

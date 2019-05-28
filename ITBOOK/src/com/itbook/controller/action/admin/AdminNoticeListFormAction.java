@@ -22,7 +22,7 @@ public class AdminNoticeListFormAction implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String url = "admin/noticeList.jsp";
-		// 책 페이징
+		// 관리자화면 리스트 페이징
 		
 		NoticeDAO nDao = NoticeDAO.getInstance();
 		Paging paging = new Paging(10,1);
