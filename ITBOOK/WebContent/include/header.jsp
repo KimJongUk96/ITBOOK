@@ -239,7 +239,7 @@
                   <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">독서모임</a>
                      <ul class="dropdown-menu" aria-labelledby="pagesMenu">
-                        <li> <a class="dropdown-item" href="/meeting?command=meetingList">독서모임입니다</a></li>
+                        <li> <a class="dropdown-item" href="/meeting?command=meetingList">독서모임</a></li>
                         <li> <a class="dropdown-item" href="about-advance.html">About Advance</a> </li>
                         <li> <a class="dropdown-item" href="service.html">Service</a> </li>
                         <li> <a class="dropdown-item" href="contact.html">Contact</a> </li>
