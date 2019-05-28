@@ -1,10 +1,12 @@
 package com.itbook.vo.Meeting;
 /**
  * @author 정원
- * 모임번호
- * 모임명
- * 소개글
- * 대표자
+ * 독서모임번호
+ * 독서모임명
+ * 독서모임인사말
+ * 독서모임인트로
+ * 대표자명
+ * 키워드
  * 모임개설일
  * 모임인원수
  *
@@ -15,8 +17,10 @@ import java.sql.Date;
 public class MeetingVO {
 	private String metNum;
 	private String metName;
+	private String metGreeting;
 	private String metIntro;
 	private String represent;
+	private String keyword;
 	private Date metDate;
 	private int headCount;
 	
@@ -32,6 +36,12 @@ public class MeetingVO {
 	public void setMetName(String metName) {
 		this.metName = metName;
 	}
+	public String getMetGreeting() {
+		return metGreeting;
+	}
+	public void setMetGreeting(String metGreeting) {
+		this.metGreeting = metGreeting;
+	}
 	public String getMetIntro() {
 		return metIntro;
 	}
@@ -43,6 +53,12 @@ public class MeetingVO {
 	}
 	public void setRepresent(String represent) {
 		this.represent = represent;
+	}
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 	public Date getMetDate() {
 		return metDate;
@@ -59,8 +75,11 @@ public class MeetingVO {
 	
 	@Override
 	public String toString() {
-		return "MeetingVO [metNum=" + metNum + ", metName=" + metName + ", metIntro=" + metIntro + ", represent="
-				+ represent + ", metDate=" + metDate + ", headCount=" + headCount + "]";
+		return "MeetingVO [metNum=" + metNum + ", metName=" + metName + ", metGreeting=" + metGreeting + ", metIntro="
+				+ metIntro + ", represent=" + represent + ", keyword=" + keyword + ", metDate=" + metDate
+				+ ", headCount=" + headCount + "]";
 	}
+	
+	
 	
 }

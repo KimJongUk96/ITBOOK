@@ -161,6 +161,7 @@ public class BookDAO {
 
 	}
 
+	//독서모임 메인 홈 상세내용 보기 : 글번호로 찾아온다. 실패하면 return null
 	public BookBoardVO selectOneBookBrdNum(String bookBrdNum) {
 
 		String sql = "select bookBrdNum,bookBrdTitle,bookBrdContent,writer,publisher from itbook.book_board where bookBrdNum = ?";

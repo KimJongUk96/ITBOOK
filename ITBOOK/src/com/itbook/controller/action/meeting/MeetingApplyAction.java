@@ -24,6 +24,7 @@ public class MeetingApplyAction implements Action{
 			mVo.setMetName(request.getParameter("metName"));
 			mVo.setMetIntro(request.getParameter("metIntro"));
 			mVo.setRepresent(request.getParameter("represent"));
+			mVo.setKeyword(request.getParameter("keyword"));
 			
 			MeetingDAO mDao = MeetingDAO.getInstance();
 			mDao.insertMeeting(mVo);

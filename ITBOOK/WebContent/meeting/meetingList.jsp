@@ -99,7 +99,7 @@
 									<fmt:formatDate value="${meetingList.metDate}"/>, 
 									회원수 : ${meetingList.headCount}
 									</div>
-									<div><h6 class="info-title"><a href="/meeting?command=meetingHomeAction" title="독서모임">${meetingList.metName}</a></h6></div>
+									<div><h6 class="info-title"><a href="/meeting?command=meetingHome" title="독서모임">${meetingList.metName}</a></h6></div>
 									<p>${meetingList.metIntro}</p>
 								</div>
 							</div>
