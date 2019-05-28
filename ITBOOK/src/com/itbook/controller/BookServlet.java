@@ -1,5 +1,8 @@
 package com.itbook.controller;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -40,52 +43,6 @@ public class BookServlet extends HttpServlet {
 		if(action != null){
 		action.execute(request, response);
 		}
-//		else if(command.equals("adminTodayBookRegForm")) {
-//			
-//			ServletContext context = getServletContext();
-//			System.out.println("context: " + context.getContextPath());
-//			
-//			//imgPath라는 폴더 만들기!
-//			String path = context.getRealPath("imgPath");
-//			
-//			String encType = "UTF-8";
-//			int sizeLimit = 20 * 1024 * 1024;
-//			
-//			MultipartRequest multi = new MultipartRequest(request, path, sizeLimit, encType, new DefaultFileRenamePolicy());
-//			
-//			String bookBrdNum = multi.getParameter("bookBrdNum");
-//			String bookBrdTitle = multi.getParameter("bookBrdTitle");
-//			String bookBrdContent = multi.getParameter("bookBrdContent");
-//			String writer = multi.getParameter("writer");
-//			String publisher = multi.getParameter("publisher");
-//			String imgPath = multi.getParameter("imgPath");
-//			String bookNum = multi.getParameter("bookNum");
-//			String memNum = multi.getParameter("memNum");
-//			
-//			BookBoardVO bVo = new BookBoardVO();
-//
-//			
-//			bVo.setBookBrdNum(bookBrdNum);
-//			bVo.setBookBrdTitle(bookBrdTitle);
-//			bVo.setBookBrdContent(bookBrdContent);
-//			bVo.setWriter(writer);
-//			bVo.setPublisher(publisher);
-//			bVo.setImgPath(imgPath);
-//			bVo.setBookNum(bookNum);
-//			bVo.setMemNum(memNum);
-//			
-//			System.out.println("path: " + path);
-//			System.out.println("bookImgPath: " + imgPath);
-//			System.out.println("bVo: " + bVo);
-//			
-//			
-//			request.setAttribute("bVo", bVo);
-//			
-//			
-//			new AdminTodayBookRegisterAction().execute(request, response);
-//				
-//		}
-		
     }
     
     
@@ -99,7 +56,33 @@ public class BookServlet extends HttpServlet {
 		doGet(request, response);
 		
 		
-		
+//		System.out.println("displayFile");
+//	      
+//	      String fileName = request.getParameter("fileName");
+//	      
+//	      System.out.println("fileName ====> " + fileName);
+//	      String uploadFilePath = request.getServletContext().getRealPath("/") + "mlbFile/";
+//	      
+//	      String dFileName = request.getParameter("fileName");
+//	      response.setHeader("Content-Type","image/png");
+//	      java.io.File file = new java.io.File(uploadFilePath+dFileName);
+//	      byte b[] = new byte[(int)file.length()];
+//	      
+//	      response.setHeader("Content-Disposition","attachement:filename="+new String(dFileName.getBytes("UTF-8"))+";");
+//	      
+//	      if(file.isFile()){
+//	         
+//	         System.out.println("isFile ");
+//	         
+//	          BufferedInputStream fin = new BufferedInputStream(new FileInputStream(file));
+//	          BufferedOutputStream outs = new BufferedOutputStream(response.getOutputStream());
+//	          int read = 0;
+//	          while ((read=fin.read(b))!=-1){
+//	              outs.write(b,0,read);
+//	          }
+//	          outs.close();
+//	          fin.close();
+//	      }
 	}
 
 
