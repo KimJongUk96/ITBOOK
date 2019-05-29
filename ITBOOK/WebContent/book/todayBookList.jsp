@@ -46,8 +46,8 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">Blog Grid</h1>
-					<h6 class="subtitle">We transform your perception into an excellent website</h6>
+					<h1 class="innerpage-title">이달의 책</h1>
+					<h6 class="subtitle">희망의 책에서 추천하는 이달의 책입니다.</h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="index.html"><i class="ti-home"></i> Home</a></li>
@@ -68,42 +68,42 @@
 	blog -->
 	<section class="blog-page pb-0">
 		<div class="container">
-			<c:forEach var="todayBookList" items="${todayBookList}">
 			<div class="row">
 				<div class="col-md-12 blog-grid blog-grid-3 portfolio-wrap" data-isotope='{ "itemSelector": ".post-item", "layoutMode": "fitRows" }'>
 					<!-- 이달의 책 게시판 글 / 첨부파일 -->
+			<c:forEach var="todayBookList" items="${todayBookList}">
 					<div class="post-item">
 						<div class="post-item-wrap">
 							<div class="post-image">
 							<%-- <input type="hidden" name="bookNum" value="${todayBookList.bookNum}">
 							<input type="hidden" name="bookBrdNum" value="${todayBookList.bookBrdNum}"> --%>
-								<img src="${todayBookList.imgPath}"alt="img">
 								
-								<span class="post-meta-category bg-grad"><a href="#">${todayBookList.bookBrdDate}</a></span>
+								<img src=""alt="${todayBookList.imgPath}">
+								<span class="post-meta-category bg-grad">${todayBookList.bookBrdNum}</span>
+								
 							</div>
 							
 							<div class="post-item-desc">
-							${todayBookList.imgPath}
+								 <span class="post-meta">${todayBookList.bookBrdDate}</span>
 								
-								
-								<h4>이달의 책 제목 : ${todayBookList.bookBrdTitle}</h4>
-								
-								<span class="post-meta">${todayBookList.bookTitle}</span>
 								<span class="post-meta">저자 : ${todayBookList.writer}</span>
 								<span class="post-meta">출판사 : ${todayBookList.publisher}</span>
+								<h4>이달의 책 제목 : ${todayBookList.bookBrdTitle}</h4>
 								
 								<p>내용 : ${todayBookList.bookBrdContent}</p>
+							
 							</div>
 						</div>
 					</div>
+			</c:forEach>
 				</div>
 			</div>
-			</c:forEach>
-			<c:if test = "${LoginUser.authority eq '3'}">
+			
+			 <c:if test = "${LoginUser.authority eq '3'}">
 			<div align="right">
-                     <a class="btn btn-primary" href="admin?command=adminTodayBookRegFormAction">이달의 책 등록</a>
+                     <a class="btn btn-primary" href="book?command=adminTodayBookRegFormAction">이달의 책 등록</a>
                   </div>
-                  </c:if>
+                  </c:if> 
 		</div>
 	</section>
 
@@ -117,14 +117,31 @@
 					<nav>
 						<ul class="pagination justify-content-center">
 						<c:if test="${paging.pageNum > 1}">
-							<li class="page-item disabled"><a href="book?com"></a><span class="page-link">Prev</span> </li>
+							<li class="page-item"><a class ="page-link" href="book?command=todayBookList&pageNum=${paging.pageNum - 1}">Prev</a></li>
 						
 							
 						</c:if>	
+							<c:forEach begin="${paging.firstPage}"
+                                       end="${paging.lastPage}" var="idx">
+                                       
+                                       <c:choose>
+                                          <c:when test="${idx == paging.pageNum}">
+                                             <li class="page-item active"> <span class="page-link bg-grad">${idx}</span></li>
+                                          </c:when>
+                       
+                                          <c:otherwise>
+                                             <li class="page-item"><a class ="page-link"
+                                                href="book?command=todayBookList&pageNum=${idx}">${idx}</a></li>
+                                          </c:otherwise>
+                                          
+                                       </c:choose>
+                                    </c:forEach>
 						
-						
-						
-							<li class="page-item"><a class="page-link" href="#">Next</a> </li>
+							<c:if test="${paging.numOfPage != paging.pageNum}">
+                                    <li class="page-item"><a class = "page-link" href="book?command=todayBookList&pageNum=${paging.pageNum + 1}">Next</a></li>   
+                                    </c:if>
+							
+
 						</ul>
 					</nav>
 				</div>

@@ -6,6 +6,29 @@
 
 <%@include file="../include/adminheader.jsp"%>
 
+<style>
+.container {
+  width: 70%;
+  height: 70%;
+  margin: 10px auto;
+}
+.outer {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.inner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.centered {
+  position: relative;
+  display: inline-block;
+ 
+  width: 50%;
+}
+ </style>
 <!-- Main content -->
 
 
@@ -22,7 +45,7 @@
 				<div class="box-header with-border">
 					<h3 class="box-title">공지사항 관리</h3>
 				</div>
-				<form name = "frm" method = "post" action = "admin?command=noticeListForm">
+				<form name = "frm" method = "post" action = "admin?command=noticeDelete">
 				<div class="box-body">
 
 <div>
@@ -32,6 +55,7 @@
 	<tr><th colspan="5" style = "text-align: center;">공지사항 목록</th></tr>
 	<tr>
 	    <th style="width: 10px; text-align:center;"><input type = "checkbox" name = "AllCheck" ></th>
+	    <th style="width: 100px; text-align: center;">글번호</th>
 		<th style="width: 100px; text-align: center;">제목</th>
 		<th style="width: 100px;text-align: center;">작성자</th>
 		<th style="width: 100px;text-align: center;">작성일자</th>
@@ -43,6 +67,7 @@
 	<tbody >
 	<tr style ="text-align:center;">
 		<td><input type ="checkbox" value="${NoticeVO.noticeNum}" name="noticeNum" ></td>
+		<td>${NoticeVO.noticeNum}</td>
 		<td>${NoticeVO.noticeTitle}</td>
 		<td><%-- ${NoticeVO.notice} --%>관리자</td>
 		<td>${NoticeVO.noticeDate}</td>
@@ -53,26 +78,17 @@
 </table> 
 </div>
 		    <button type = "submit" class="btn btn-danger" style = "float : right">삭제</button> 
-			<button type="button" class="btn btn-primary" style = "float : right">신규등록</button>	
 </div>
 			</form>
-			</div>
-
-		
-			</div>
-			
-			
-		</div> 
 		<!--/.col (left) -->
 
 	
 	<!-- /.row -->
-</section>
 <section class="pt-0">
-<div class="container">
-	<div class="row justify-content-center">
-		<div class="col-md-8">
-			<nav>
+		<div class="container">
+		<div class="outer">
+    <div class="inner">
+    <div class="centered">
 				<ul class="pagination justify-content-center">
 				<c:if test="${paging.pageNum > 1}">
 					<li class="page-item"><a class ="page-link" href="/notice?command=noticeListForm&pageNum=${paging.pageNum - 1}">Prev</a></li>
@@ -101,7 +117,7 @@
 					
 
 				</ul>
-			</nav>
+	</div>
 		</div>
 	</div>
 </div>
@@ -109,7 +125,10 @@
 <!-- /.content -->
 <!-- </div> -->
 <!-- /.content-wrapper -->
-
+				</div>
+			</div>
+		</div>
+</section>
 <script>
 
 // 올체크

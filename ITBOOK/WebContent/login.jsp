@@ -4,7 +4,7 @@
 <!doctype html>
 <html lang="">
 <head>
-	<title>Wizixo | Creative Multipurpose Bootstrap Template</title>
+	<title>희망의 책  대전본부</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,18 +65,18 @@
 							<div class="w-100">
 								<h2 class="">희망의 책 대전본부</h2>
 								<h5 class="font-weight-light">Nice to see you! Please log in with your account.</h5>
-								<form name = "frm" method = "post" action = "member?command=login">
+								<form name = "frm" method = "post" action = "member?command=login" onsubmit = "return validate();">
 								<div class="form mt-4 ">
 									<div>
 										<p class="text-left mb-2">아아디</p>
-										<span class="form-group"><input type ="id" name = "memId" class="form-control"></span>
+										<span class="form-group"><input type ="text" name = "memId" id = "memId" class="form-control"></span>
 									</div>
 									<div>
 										<div class="d-flex justify-content-between align-items-center">
 											<p class="text-left mb-2">비밀번호</p>
 											<a class="text-muted small mb-2" href="password-recovery.html">Lost password? Click Here.</a>
 										</div>
-										<span class="form-group"><input type="password" class="form-control" name = "memPw" ></span>
+										<span class="form-group"><input type="password" class="form-control" name = "memPw" id ="memPw" ></span>
 									</div>
 									<div class="row align-items-center no-gutters m-0">
 										<div class="col-6 col-md-8"><span class="text-muted">Don't have an account? <a href="signup.jsp">회원가입</a></span></div>
@@ -102,6 +102,28 @@
 
 	<!--Template Functions-->
 	<script src="assets/js/functions.js"></script>
+	<script type="text/javascript">
+	
+	     function validate() {
+    	
+		var memId = document.frm.memId;
+		var memPw = document.frm.memPw;
+		//아이디 입력 유무
+		if(memId.value == '' || !(memId.value.length >= 4 && memId.value.length <= 12)){
+			window.alert("아이디를 최소 4 ~ 12 글자 사이로 입력해주세요.");
+			document.frm.memId.focus();
+			document.getElementById('memId').select();
+			return false;
+		}
+			//비밀번호 입력 유무
+		if(memPw.value == ''){
+			window.alert("비밀번호를 입력해주세요.");
+			document.frm.memPw.focus();
+			document.getElementById('memPw').select();
+			return false;
+		}
+    } 
+</script>
 
 </body>
 </html>

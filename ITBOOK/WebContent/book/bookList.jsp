@@ -99,9 +99,10 @@
                     
                   </table>
              	 <div align="right">
+             	 
               	<c:if test = "${LoginUser.authority eq '1' or LoginUser.authority eq '2' or LoginUser.authority eq '3'}">
                   <a class="btn btn-primary" href="book?command=bookRegFormAction">책 등록</a>
-                  </c:if>
+                </c:if>
 
                   </div>
                </div>

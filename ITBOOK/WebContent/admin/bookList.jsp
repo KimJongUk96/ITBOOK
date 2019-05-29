@@ -57,7 +57,6 @@
 	    <th style="width: 10px; text-align:center;"><input type = "checkbox" name = "AllCheck" ></th>
 		<th style="width: 100px; text-align: center;">번호</th>
 		<th style="width: 100px; text-align: center;">제목</th>
-		<th style="width: 100px; text-align: center;">키워드</th>
 		<th style="width: 100px;text-align: center;">저자</th>
 		<th style="width: 100px;text-align: center;">출판사</th>
 		<th style="width: 50px;text-align: center;">책등록자</th>
@@ -67,8 +66,8 @@
 <c:forEach var="bookList" items="${bookList}">
                         <tr style ="text-align:center;">
                            <td><input type ="checkbox" value="${bookList.bookNum}" name="bookNum" ></td>
+                           <td>${bookList.bookNum}</td>
                            <td>${bookList.bookTitle}</td>
-                           <td>${bookList.bookKeyword1}, ${bookList.bookKeyword2}, ${bookList.bookKeyword3}</td>
                            <td>${bookList.writer}</td>
                            <td>${bookList.publisher}</td>
                            <td>${bookList.memNum}</td>

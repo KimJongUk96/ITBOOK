@@ -1,6 +1,7 @@
 package com.itbook.controller;
 
 import com.itbook.controller.action.Action;
+import com.itbook.controller.action.MainAction;
 
 public class ActionFactory {
 
@@ -20,7 +21,8 @@ public class ActionFactory {
 		System.out.println("ActionFactory : " + command);
 
 		//독후감
-		if (command.equals("Report_List")) {
+		if (command.equals("main")) {
+			action = new MainAction();
 
 		}
 		return action;

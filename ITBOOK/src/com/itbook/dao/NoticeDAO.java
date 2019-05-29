@@ -352,6 +352,29 @@ public class NoticeDAO {
 		}
 
 	}
+	//관리자 공지사항 글 삭제
+	public void noticeDelete(NoticeVO nVO) {
+		String sql = "delete from notice where noticeNum=?";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, nVO.getNoticeNum());
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+
+	}
 	
 	//관리자화면 리스트 화면
 			public Paging selectNoticeRowCount(Paging paging) {

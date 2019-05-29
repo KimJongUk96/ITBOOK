@@ -1,4 +1,5 @@
 package com.itbook.controller.action.member;
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -9,26 +10,20 @@ import com.itbook.controller.action.Action;
 import com.itbook.dao.MemberDAO;
 import com.itbook.vo.MemberVO;
 
-public class MemberModifyAction implements Action{
+public class MemberPwModifyAction implements Action{
+	
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
 		MemberVO mVo = new MemberVO();
-		String memId = request.getParameter("memId");
-		mVo.setMemId(request.getParameter("memId"));
-		mVo.setEmail(request.getParameter("email"));
-		mVo.setAdr(request.getParameter("adr"));
-		mVo.setPhone(request.getParameter("phone"));
 		
-		System.out.println("memId : " + memId);
+		mVo.setMemPw(request.getParameter("memPw"));
+		
 		MemberDAO mDao = MemberDAO.getInstance();
-		mDao.memberUpdate(mVo);
-		
+		mDao.memberPwUpdate(mVo);
 		
 		new LogoutAction().execute(request, response);
-		
-		
 	}
-
+	
 }

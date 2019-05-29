@@ -59,6 +59,7 @@
 	    <th style="width: 10px; text-align:center;"><input type = "checkbox" name = "AllCheck" ></th>
 		<th style="width: 100px; text-align: center;">아이디</th>
 		<th style="width: 100px;text-align: center;">이름</th>
+		<th style="width: 100px;text-align: center;">이메일</th>
 		<th style="width: 100px;text-align: center;">가입일</th>
 		<th style="width: 50px;text-align: center;">회원등급</th>
 	</tr>
@@ -70,6 +71,7 @@
 		<td><input type ="checkbox" value="${MemberVO.memNum}" name="memNum" ></td>
 		<td>${MemberVO.memId}</td>
 		<td>${MemberVO.memName}</td>
+		<td>${MemberVO.email}</td>	
 		<td>${MemberVO.signDate}</td>
  		<c:if test = "${MemberVO.authority eq '1'}"><td>일반회원</td></c:if>	
 		<c:if test = "${MemberVO.authority eq '2'}"><td>기부회원</td></c:if>

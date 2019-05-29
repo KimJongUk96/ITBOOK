@@ -1,6 +1,7 @@
 package com.itbook.controller;
 import com.itbook.controller.action.Action;
 import com.itbook.controller.action.MainAction;
+import com.itbook.controller.action.book.AdminTodayBookDeleteAction;
 import com.itbook.controller.action.book.AdminTodayBookListAction;
 import com.itbook.controller.action.book.AdminTodayBookRegisterAction;
 import com.itbook.controller.action.book.AdminTodayBookRegisterFormAction;
@@ -52,6 +53,10 @@ public class BookActionFactory {
 			//관리자가 이달의 책 수정하기.
 		}else if(command.equals("adminTodayBookUpdate")) {
 			action = new AdminTodayBookUpdateAction();	
+			
+			//관리자가 이달의 책 삭제하기.
+		}else if(command.equals("adminTodayBookDelete")) {
+			action = new AdminTodayBookDeleteAction();				
 			
 			//이달의 책 리스트
 		}else if(command.equals("todayBookList")) {

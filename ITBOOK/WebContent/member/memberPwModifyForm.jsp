@@ -59,7 +59,7 @@
 
 	<section class="service">
 
-		<form name = "frm" method = "post" action = "/member?command=memberModifyForm">
+		<form name = "frm" method = "post" action = "member?command=memberPwModify">
 		<input type ="hidden" name = "memId" value = "${LoginUser.memId}">
 		<c:if test ="${LoginUser.authority eq 1 or LoginUser.authority eq 2 or LoginUser.authority eq 3}">
 			<div class="col-md-12">
@@ -94,100 +94,17 @@
 								</div>
 
 								<h3 class="feature-box-title">
-										아이디 
+										비밀번호 
 								</h3>
 								
-
-								<p class="feature-box-desc">${LoginUser.memId}</p>
+								<input type ="text" name ="memPw" value = "${LoginUser.memPw}">
+								<input type ="text" name ="memPw">
+								<input type ="text" name ="memPwCheck">
 							</div>
 							
 						</div>
-						
-							<div class="col-lg-4 mt-4">
-							<div class="feature-box f-style-3 h-100 icon-grad">
-								<div class="feature-box-icon">
-									<i class="ti-book"></i>
-								</div>
-
-								<h3 class="feature-box-title">
-										이름
-								</h3>
-								
-
-								<p class="feature-box-desc">${LoginUser.memName}</p>
-							</div>
-							
-						</div>
-						
-						<div class="col-lg-4 mt-4">
-							<div class="feature-box f-style-3 h-100 icon-grad">
-								<div class="feature-box-icon">
-									<i class="ti-book"></i>
-								</div>
-
-								<h3 class="feature-box-title">
-										생년월일 
-								</h3>
-								
-
-								<p class="feature-box-desc">${LoginUser.jumin}</p>
-							</div>
-							
-						</div>
-						
-						<div class="col-lg-4 mt-4">
-							<div class="feature-box f-style-3 h-100 icon-grad">
-								<div class="feature-box-icon">
-									<i class="ti-book"></i>
-								</div>
-
-								<h3 class="feature-box-title">
-										주소 
-								</h3>
-								
-
-								<p class="feature-box-desc">${LoginUser.adr}</p>
-							</div>
-							
-						</div>
-						
-							<div class="col-lg-4 mt-4">
-							<div class="feature-box f-style-3 h-100 icon-grad">
-								<div class="feature-box-icon">
-									<i class="ti-book"></i>
-								</div>
-
-								<h3 class="feature-box-title">
-										연락처 
-								</h3>
-								
-
-								<p class="feature-box-desc">${LoginUser.phone}</p>
-							</div>
-							
-						</div>
-						
-						<div class="col-lg-4 mt-4">
-							<div class="feature-box f-style-3 h-100 icon-grad">
-								<div class="feature-box-icon">
-									<i class="ti-book"></i>
-								</div>
-
-								<h3 class="feature-box-title">
-										이메일 
-								</h3>
-								
-
-								<p class="feature-box-desc">${LoginUser.email}</p>
-							</div>
-							
-						</div>
-					
-				</div>
-			</div>
-			<button type = "submit" class = "btn btn-grad border-radius-left-0 mb-0">수정하기</button>
-			<a href = "member?command=memberPwModifyForm" ><button type = "button" class = "btn btn-grad border-radius-left-0 mb-0">비밀번호 변경</button></a>
 			</c:if>
+			<button type = "submit" class = "btn btn-grad border-radius-left-0 mb-0">비밀번호 변경</button>
 		</form>
 
 	</section>
