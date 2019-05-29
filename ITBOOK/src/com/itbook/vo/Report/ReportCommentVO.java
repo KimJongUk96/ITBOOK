@@ -18,6 +18,8 @@ public class ReportCommentVO {
 	private Date reportComtDate;
 	private String reportNum;
 	private String memNum;
+	private String memName;
+	
 	public String getReportComtNum() {
 		return reportComtNum;
 	}
@@ -49,10 +51,17 @@ public class ReportCommentVO {
 		this.memNum = memNum;
 	}
 	
+	public String getMemName() {
+		return memName;
+	}
+	public void setMemName(String memName) {
+		this.memName = memName;
+	}
 	@Override
 	public String toString() {
-		return "ReportComment [reportComtNum=" + reportComtNum + ", reportComtContent=" + reportComtContent
-				+ ", reportComtDate=" + reportComtDate + ", reportNum=" + reportNum + ", memNum=" + memNum + "]";
+		return "ReportCommentVO [reportComtNum=" + reportComtNum + ", reportComtContent=" + reportComtContent
+				+ ", reportComtDate=" + reportComtDate + ", reportNum=" + reportNum + ", memNum=" + memNum
+				+ ", memName=" + memName + "]";
 	}
 	
 	
