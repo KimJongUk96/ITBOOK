@@ -121,6 +121,7 @@ public class MetBoardDAO {
 				mVo.setMetBrdContent(rs.getString("metBrdContent"));
 				mVo.setMetBrdDate(rs.getDate("metBrdDate"));
 				mVo.setMetBrdFile(rs.getString("metBrdFile"));
+				mVo.setMetBrdCount(rs.getInt("metBrdCount"));
 				
 				list.add(mVo);
 			}
@@ -188,7 +189,7 @@ public class MetBoardDAO {
 				conn = DBManager.getConnection();
 				pstmt = conn.prepareStatement(sql);
 				
-				pstmt.setString(1, "metBrdNum");
+				pstmt.setString(1, metBrdNum);
 				pstmt.executeUpdate();
 				
 			} catch (Exception e) {
