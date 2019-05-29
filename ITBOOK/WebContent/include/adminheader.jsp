@@ -55,7 +55,7 @@
 	      
       <header class="main-header">
         <!-- Logo -->
-        <a href="/admin/main" class="logo">
+        <a href="admin?command=main" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>Book</b></span>
           <!-- logo for regular state and mobile devices -->
@@ -122,7 +122,7 @@
             </div>
             <div class="pull-left info">
               <p>${LoginUser.memName}</p>
-              <a class="btn-logout" href="#"><i class="fa fa-power-off"></i> 로그아웃</a>
+              <a class="btn-logout" href="member?command=logout"><i class="fa fa-power-off"></i> 로그아웃</a>
             </div>
           </div>
           <!-- search form -->
@@ -151,7 +151,7 @@
                 <li><a href="admin?command=noticeListForm"><i class="fa fa-magic"></i> 공지사항 목록</a></li>
                 <li><a href="/admin/imgGallery/list"><i class="fa fa-magic"></i> 모임 목록</a></li>
                 <li><a href="/admin/eventBoard/list"><i class="fa fa-magic"></i> 행사 목록</a></li>
-                <li><a href="admin?command=todayBookListForm"><i class="fa fa-magic"></i> 이달의책 목록</a></li>
+                <li><a href="admin?command=todayBookList"><i class="fa fa-magic"></i> 이달의책 목록</a></li>
                 <li><a href="admin?command=reportListForm"><i class="fa fa-magic"></i> 독후감 목록</a></li>
               </ul>
             </li>

@@ -185,13 +185,14 @@
 					
 				</div>
 			</div>
-			<button type = "submit" class = "btn btn-grad border-radius-left-0 mb-0">수정하기</button>
+			<button type = "submit" class = "btn btn-grad border-radius-left-0 mb-0" onclick = "alert('다시 로그인 해주세요.')">수정하기</button>
 			
 			</c:if>
 		</form>
 
 	</section>
-	
+
+
 	<%@ include file="../include/footer.jsp"%>
 </body>
 </html>

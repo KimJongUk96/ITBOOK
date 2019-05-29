@@ -414,6 +414,28 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 		}
 
 	}
+	
+	//관리자 책 리스트 삭제
+	public void bookDelete(BookVO bVO) {
+		String sql = "delete from itbook.book where bookNum=?";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = DBManager.getConnection();
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, bVO.getBookNum());
+			
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+
+	}
 
 
 

@@ -92,24 +92,24 @@
 									</div>
 									<div>
 										<p class="text-left mb-2">생년월일</p> 
-										<span class="form-group"><input type="text" name ="jumin" id ="jumin" class="form-control" maxlength="6"></span>
+										<span class="form-group"><input type="text" name ="jumin" id ="jumin" class="form-control" maxlength="8" placeholder="ex)19960116"></span>
 									</div>
 									<p class="text-left mb-2">주소</p>
 									<input type="text" id="sample4_postcode" name = "adr1" placeholder="우편번호">
 									<input type="button" onclick="sample4_execDaumPostcode()" class ="btn btn-dark" value="우편번호 찾기"><br>
-									<input type="text" id="sample4_roadAddress" name = "adr" placeholder="도로명주소">
+									<input type="text" id="sample4_roadAddress" name = "adr" id = "adr" placeholder="도로명주소">
 									<span id="guide" style="color:#999"></span>
 													<div>
 										<p class="text-left mb-2">핸드폰번호</p>
-										<span class="form-group"><input type="text" name ="phone" class="form-control" placeholder="010-xxxx-xxxx"></span>
+										<span class="form-group"><input type="text" name ="phone" id = "phone" class="form-control" placeholder="숫자만 입력해주세요."></span>
 									</div>
 									<div>
 										<p class="text-left mb-2">이메일 주소</p>
-										<span class="form-group"><input type="email" name ="email" class="form-control"></span>
+										<span class="form-group"><input type="email" name ="email" id = "email" class="form-control"></span>
 									</div>
 									<div>
-										<input type = "radio" name = "authority" value = "1">일반회원
-										<input type = "radio" name = "authority" value = "2">기부회원
+										<input type = "radio" name = "authority" id = "authority" value = "1">일반회원
+										<input type = "radio" name = "authority" id = "authority" value = "2">기부회원
 									</div>
 										<div class="col-6 text-right"><button type = "submit" class="btn btn-dark ">회원가입</button></div>
 									</div>
@@ -189,6 +189,11 @@
 		var memPw = document.frm.memPw;
 		var memName = document.frm.memName;
 		var jumin = document.frm.jumin;
+		var adr = document.frm.adr;
+		var phone = document.frm.phone;
+		var email = document.frm.email;
+		var authority = document.frm.authority;
+		
 		//아이디 입력 유무
 		if(memId.value == '' || !(memId.value.length >= 4 && memId.value.length <= 12)){
 			window.alert("아이디를 최소 4 ~ 12 글자 사이로 입력해주세요.");
@@ -215,7 +220,30 @@
 			document.frm.getElementById('jumin').select();
 			return false;
 		}
-		
+		if(adr.value ==''){
+			window.alert("주소를 입력해주세요.");
+			document.frm.adr.focus();
+			document.frm.getElementById('adr').select();
+			return false;
+		}
+		if(phone.value ==''){
+			window.alert("핸드폰 번호를 입력해주세요.");
+			document.frm.phone.focus();
+			document.frm.getElementById('phone').select();
+			return false;
+		}
+		if(email.value ==''){
+			window.alert("이메일을 입력해주세요.");
+			document.frm.email.focus();
+			document.frm.getElementById('email').select();
+			return false;
+		}
+		if(authority.value ==''){
+			window.alert("일반회원인지 기부회원인지 선택해주세요.");
+			document.frm.authority.focus();
+			document.frm.getElementById('authority').select();
+			return false;
+		}
 		
     	} 
 </script>

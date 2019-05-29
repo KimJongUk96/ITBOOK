@@ -15,15 +15,18 @@ public class MemberModifyAction implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		MemberVO mVo = new MemberVO();
+		String memId = request.getParameter("memId");
+		mVo.setMemId(request.getParameter("memId"));
 		mVo.setEmail(request.getParameter("email"));
 		mVo.setAdr(request.getParameter("adr"));
 		mVo.setPhone(request.getParameter("phone"));
 		
+		System.out.println("memId : " + memId);
 		MemberDAO mDao = MemberDAO.getInstance();
 		mDao.memberUpdate(mVo);
 		
 		
-		new LoginAction().execute(request, response);
+		new LogoutAction().execute(request, response);
 		
 		
 	}

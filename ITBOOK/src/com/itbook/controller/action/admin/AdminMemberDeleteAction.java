@@ -32,9 +32,9 @@ public class AdminMemberDeleteAction implements Action{
 			MemberDAO mDao = MemberDAO.getInstance();
 			mDao.memberDelete(mVO);
 			
-			new AdminMemberListFormAction().execute(request, response);
 		}
 		}
+		new AdminMemberListFormAction().execute(request, response);
 	}
 
 }

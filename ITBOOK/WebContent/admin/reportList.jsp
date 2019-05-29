@@ -28,9 +28,6 @@
  
   width: 50%;
 }
-
-
-
  </style>
 <!-- Main content -->
 
@@ -46,9 +43,9 @@
 			<div class="box">
 			
 				<div class="box-header with-border">
-					<h3 class="box-title">회원정보 관리</h3>
+					<h3 class="box-title">독후감 관리</h3>
 				</div>
-				<form name = "frm" method = "post" action = "admin?command=memberDelete">
+				<form name = "frm" method = "post" action = "admin?command=reportDelete">
 				<div class="box-body">
 
 <div>
@@ -58,6 +55,7 @@
 	<tr><th colspan="5" style = "text-align: center;">독후감 목록</th></tr>
 	<tr>
 	    <th style="width: 10px; text-align:center;"><input type = "checkbox" name = "AllCheck" ></th>
+	    <th style="width: 100px; text-align: center;">글 번호</th>
 		<th style="width: 100px; text-align: center;">제목</th>
 		<th style="width: 100px;text-align: center;">작성자</th>
 		<th style="width: 100px;text-align: center;">작성일자</th>
@@ -69,6 +67,7 @@
 	<tbody >
 	<tr style ="text-align:center;">
 		<td><input type ="checkbox" value="${ReportVO.reportNum}" name="reportNum" ></td>
+		<td>${ReportVO.reportNum}</td>
 		<td>${ReportVO.reportTitle}</td>
 		<td>${ReportVO.reportContent}</td>
 		<td>${ReportVO.reportCount}</td>

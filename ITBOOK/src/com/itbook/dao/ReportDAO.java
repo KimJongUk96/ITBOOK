@@ -188,6 +188,27 @@ public class ReportDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public void ReportDelete(ReportBoardVO rVO) {
+		String sql = "DELETE FROM ITBOOK.REPORT_BOARD WHERE REPORTNUM = ?";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, rVO.getReportNum());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+	
+	}
 
 	// 독후감 리스트 총 게시글 수 보기
 	public Paging selectReportRowCount(Paging paging) {

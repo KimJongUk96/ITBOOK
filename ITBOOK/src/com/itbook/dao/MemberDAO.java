@@ -61,10 +61,8 @@ public class MemberDAO {
 	 * @param memVO
 	 */
 	public void memberUpdate(MemberVO memVO) {
-		String sql = "update itbook.member"
-						+"	set Phone = ?"
-						+"	,  Email = ?"
-						+"	,  adr = ?";
+		String sql = "update itbook.member set phone = ?, email = ?, adr = ? where memId = ?";
+						
 						
 		
 		Connection conn = null;
@@ -77,6 +75,7 @@ public class MemberDAO {
 			pstmt.setString(1, memVO.getPhone());
 			pstmt.setString(2, memVO.getEmail());
 			pstmt.setString(3, memVO.getAdr());
+			pstmt.setString(4, memVO.getMemId());
 			
 			
 			pstmt.executeUpdate();
@@ -92,7 +91,8 @@ public class MemberDAO {
 	//비밀번호 변경
 	public void memberPwUpdate(MemberVO memVO) {
 		String sql = "update itbook.member"
-						+"	set memPw = ?";
+						+"	set memPw = ?"
+						+" where memId = ? ";
 						
 		
 		Connection conn = null;
@@ -103,6 +103,7 @@ public class MemberDAO {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, memVO.getMemPw());
+			pstmt.setString(2, memVO.getMemId());
 			
 			pstmt.executeUpdate();
 			

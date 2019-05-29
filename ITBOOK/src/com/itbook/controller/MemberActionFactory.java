@@ -52,7 +52,6 @@ public class MemberActionFactory {
 			action = new MemberModifyFormAction();
 			
 		}else if(command.equals("memberModify")) {
-			
 			action = new MemberModifyAction();
 		}else if(command.equals("memberPwModify")) {
 			action = new MemberPwModifyAction();
