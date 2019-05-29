@@ -18,19 +18,16 @@ public class ReportRegAction implements Action {
 
 		ReportBoardVO rVo = new ReportBoardVO();
 
-
-		
-
 		rVo.setReportTitle(request.getParameter("reportTitle"));
 		rVo.setReportContent(request.getParameter("reportContent"));
 		rVo.setBookNum(request.getParameter("bookNum")); 
 		rVo.setWriter(request.getParameter("writer"));
 		rVo.setPublisher(request.getParameter("publisher"));
 
+		System.out.println("rvo : " + rVo);
 		// 사용자 memNum
 		MemberVO memVo = (MemberVO) request.getSession().getAttribute("LoginUser");
 		rVo.setMemNum(memVo.getMemNum());
-
 		ReportDAO rDao = ReportDAO.getInstance();
 		rDao.insertReport(rVo);
 

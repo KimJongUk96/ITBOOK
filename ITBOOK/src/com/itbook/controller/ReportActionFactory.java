@@ -1,7 +1,8 @@
 package com.itbook.controller;
 
 import com.itbook.controller.action.Action;
-import com.itbook.controller.action.report.ReporDetailFormAction;
+import com.itbook.controller.action.report.ReportDetailFormAction;
+import com.itbook.controller.action.report.ReportCommentAction;
 import com.itbook.controller.action.report.ReportDeleteFormAction;
 import com.itbook.controller.action.report.ReportListFormAction;
 import com.itbook.controller.action.report.ReportRegAction;
@@ -32,7 +33,7 @@ public class ReportActionFactory {
 
 			// 독후감 상세보기
 		} else if (command.equals("Report_Detail")) {
-			action = new ReporDetailFormAction();
+			action = new ReportDetailFormAction();
 
 			// 독후감 등록폼으로 이동
 		} else if (command.equals("Report_Reg_Form")) {
@@ -53,6 +54,10 @@ public class ReportActionFactory {
 			// 독후감 삭제
 		} else if (command.equals("Report_Delete")) {
 			action = new ReportDeleteFormAction();
+			
+			// 댓글 등록
+		} else if (command.equals("Report_Comment")) {
+			action = new ReportCommentAction();
 		
 		}
 		

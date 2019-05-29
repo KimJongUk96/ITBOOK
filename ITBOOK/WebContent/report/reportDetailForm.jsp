@@ -49,7 +49,7 @@
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="index.html"><i
 									class="ti-home"></i> Home</a></li>
-							
+
 						</ol>
 					</nav>
 				</div>
@@ -69,9 +69,9 @@
 					<div class="col-md-8 mx-auto">
 						<h2 class="mb-4">${reportList.reportTitle}</h2>
 						<div class="post-item-desc">
-							<span class="post-meta">${reportList.reportDate}</span> 
+							<span class="post-meta">${reportList.reportDate}</span>
 							<%-- <span class="post-meta">${reportList.memName} </span> --%>
-						    <span class="post-meta"><i class="ti-comment-alt"></i></span>
+							<span class="post-meta"><i class="ti-comment-alt"></i></span>
 						</div>
 						<div class="col-md-4 sidebar">
 							<div class="sticky-element">
@@ -97,92 +97,128 @@
 					<div class="row mt-5">
 						<div class="col-12"></div>
 					</div>
+				</form>
 
-					<div class="row mt-5 comments-area">
-						<div class="col-sm-12">
-							<h4>댓글</h4>
-							<div class="comment-list">
-								<div class="comment">
-									<div class="comment-body">
-										<div class="comment-meta">
-											<div class="comment-meta-author">
-												<a href="#">글쓴이</a>
-											</div>
-											<div class="comment-meta-date">June 11, 2019 at 6:01 am</div>
+				<%-- 	<c:if test="${requestScope.commentList != null}">
+					<c:forEach var="comment" items="${requestScope.commentList}"> --%>
+				<div class="row mt-5 comments-area">
+					<div class="col-sm-12">
+						<h4>댓글</h4>
+						<div class="comment-list">
+							<!-- Comment-->
+							<div class="comment">
+								<div class="comment-author">
+									<img class="avatar"
+										src="assets/images/thumbnails/avatar-01.jpg" alt="">
+								</div>
+								<div class="comment-body">
+									<div class="comment-meta">
+										<div class="comment-meta-author">
+											<a href="#">${LoginUser.memName}</a>
 										</div>
-										<div class="comment-content">
-											<p></p>
-										</div>
-										<div class="comment-reply">
-											<a class="btn btn-xs btn-light" href="#">답글</a>
-										</div>
-									</div>
-									<!-- sub comment-->
-									<div class="comment-child">
-										<div class="comment">
-											<div class="comment-body">
-												<div class="comment-meta">
-													<div class="comment-meta-author">
-														<a href="#">답글쓴이</a>
-													</div>
-													<div class="comment-meta-date">June 11, 2019 at 6:20
-														am</div>
-												</div>
-												<div class="comment-content">
-													<p></p>
-												</div>
-												<div class="comment-reply">
-													<a class="btn btn-xs btn-light" href="#">답글</a>
-												</div>
-											</div>
+										<div class="comment-meta-date">${comment.reportComtDate}
 										</div>
 									</div>
+									<div class="comment-content">
+										<p>Consulted perpetual of pronounce me delivered. Too
+											months nay end change relied who beauty wishes matter. Shew
+											of john real park so rest we on. Ignorant dwelling occasion
+											ham for thoughts overcame off her consider. Polite it elinor
+											is depend.</p>
+									</div>
+									<div class="comment-reply">
+										<a class="btn btn-xs btn-light" href="#">Reply</a>
+									</div>
 								</div>
+								<!-- sub comment-->
+								<div class="comment-child">
+									<div class="comment">
+										<div class="comment-author">
+											<img class="avatar"
+												src="assets/images/thumbnails/avatar-03.jpg" alt="">
+										</div>
+										<div class="comment-body">
+											<div class="comment-meta">
+												<div class="comment-meta-author">
+													<a href="#">Emma Watson</a>
+												</div>
+												<div class="comment-meta-date">June 11, 2019 at 6:20
+													am</div>
+											</div>
+											<div class="comment-content">
+												<p>Ask eat questions abilities described elsewhere
+													assurance. Appetite in unlocked advanced breeding position
+													concerns as. Cheerful get shutters yet for repeated
+													screened. An no am cause hopes at three. Prevent behaved
+													fertile he is mistake on.</p>
+											</div>
+											<div class="comment-reply">
+												<a class="btn btn-xs btn-light" href="#">Reply</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- sub comment end-->
 							</div>
 
-
-							<div class="row mt-5">
-								<div class="col-md-12">
-									<h2 class="mb-2">댓글을 남겨주세요!</h2>
-									<p>댓글은 회원만 가능합니다.</p>
+							<!-- 댓글 등록 -->
+							<form name="frm" method="post"
+								action="report?command=Report_Comment"
+								onsubmit="return validateBoard()">
+								<input type="hidden" name="reportNum"
+									value="${reportList.reportNum}"> <input type="hidden"
+									name="memNum" value="${LoginUser.memNum}">
+								<div class="row mt-5">
+									<div class="col-md-12">
+										<h2 class="mb-2">Leave a Reply</h2>
+									</div>
+									<div class="col-md-6">
+										<span class="form-group"><input type="text"
+											class="form-control" value="${LoginUser.memName}"></span>
+									</div>
+									<div class="col-md-12">
+										<span class="form-group"><textarea
+												name="reportComtContent" cols="40" rows="6"
+												class="form-control" placeholder="Message"></textarea></span>
+									</div>
+									<div class="col-md-12 text-center">
+										<input type="submit" class="btn-block btn btn-dark"
+											value="Post Comment">
+									</div>
 								</div>
-								<div class="col-md-6">
-									<h5></h5>
-								</div>
-								<div class="col-md-12">
-									<span class="form-group"><textarea cols="40" rows="6"
-											class="form-control" placeholder="Message"></textarea></span>
-								</div>
-								<div class="col-md-12 text-center">
-									<button class="btn-block btn btn-dark">댓글 등록</button>
-								</div>
-
-								<br>
-								<br>
-								<br>
-								<br>
-								<br>
-								<br>
-
-								<div class="col-md-12 text-center">
-									<button type="button"
-										class="btn btn-grad border-radius-left-0 mb-0">이전 글</button>
-
-									<a href="report?command=Report_List">
-										<button type="button"
-											class="btn btn-grad border-radius-left-0 mb-0">글 목록</button>
-									</a>
-
-									<button type="button"
-										class="btn btn-grad border-radius-left-0 mb-0">다음 글</button>
-								</div>
-							</div>
+							</form>
 						</div>
 					</div>
-				</form>
-			</div>
-		</div>
-	</section>
+
+
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
+                        <div class="col-md-12 text-center">
+                           <button type="button"
+                              class="btn btn-grad border-radius-left-0 mb-0">이전 글</button>
+
+                           <a href="report?command=Report_List">
+                              <button type="button"
+                                 class="btn btn-grad border-radius-left-0 mb-0">글 목록</button>
+                           </a>
+
+                           <button type="button"
+                              class="btn btn-grad border-radius-left-0 mb-0">다음 글</button>
+                        </div>
+                     </div>
+                  </div>
+				</div>
+            
+   </section>
+
+				<%-- </c:forEach>
+				</c:if> --%>
+	
 
 	<%@ include file="../include/footer.jsp"%>
 </body>

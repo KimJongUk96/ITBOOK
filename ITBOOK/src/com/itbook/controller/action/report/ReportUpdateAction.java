@@ -26,7 +26,7 @@ public class ReportUpdateAction implements Action {
 		rDao.updateReport(rVo);
 
 
-		new ReporDetailFormAction().execute(request, response);
+		new ReportDetailFormAction().execute(request, response);
 	}
 
 }
