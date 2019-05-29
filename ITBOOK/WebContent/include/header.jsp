@@ -173,7 +173,7 @@
                <ul class="navbar-nav ml-auto">
                   <!-- Menu item 1 Demos-->
                   <li class="nav-item dropdown active">
-                     <a class="nav-link dropdown-toggle" href="#" id="demosMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">희망의 책</a>
+                     <a class="nav-link dropdown-toggle" href="#" id="demosMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">희망의 책 알아보기</a>
                      <div class="dropdown-menu pb-3 pb-lg-0" aria-labelledby="demosMenu" >
                         <div class="d-block d-sm-flex">
                            <ul class="list-unstyled w-100 w-sm-50 pr-0 pr-lg-5">
@@ -208,44 +208,44 @@
                      <a class="nav-link dropdown-toggle" href="#" id="blogMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">독서 생태계</a>
                      <ul class="dropdown-menu" aria-labelledby="blogMenu">
                         <li class="dropdown-submenu">
-                           <a class="dropdown-item dropdown-toggle" href="#">Blog default</a>
-                           <ul class="dropdown-menu">
+                           <a class="dropdown-item" href="#">운영게시판</a>
+                         <!--   <ul class="dropdown-menu">
                               <li> <a class="dropdown-item" href="blog-classic.html">Full Width</a> </li>
                               <li> <a class="dropdown-item" href="blog-classic-left-sidebar.html">Left Sidebar</a> </li>
                               <li> <a class="dropdown-item" href="blog-classic-right-sidebar.html">Right Sidebar</a> </li>
-                           </ul>
+                           </ul> -->
                         </li>
                         <li class="dropdown-submenu">
-                           <a class="dropdown-item dropdown-toggle" href="#">Blog Grid</a>
-                           <ul class="dropdown-menu">
+                           <a class="dropdown-item" href="#">독후감</a>
+                          <!--  <ul class="dropdown-menu">
                               <li> <a class="dropdown-item" href="/book?command=bookList">Three column</a> </li>
                               <li> <a class="dropdown-item" href="blog-grid-column-4.html">Four column</a> </li>
                               <li> <a class="dropdown-item" href="blog-grid-left-sidebar.html">Left Sidebar</a> </li>
                               <li> <a class="dropdown-item" href="blog-grid-right-sidebar.html">Right Sidebar</a> </li>
-                           </ul>
+                           </ul> -->
                         </li>
-                        <li><a class="dropdown-item" href="blog-minimal.html">Blog minimal</a></li>
+                        <!-- <li><a class="dropdown-item" href="blog-minimal.html">우리지역 책방</a></li> -->
                         <li class="dropdown-submenu">
-                           <a class="dropdown-item dropdown-toggle" href="#">Blog Single</a>
+                           <a class="dropdown-item dropdown-toggle" href="#">우리지역 책방</a>
                            <ul class="dropdown-menu">
-                              <li> <a class="dropdown-item" href="blog-single-classic.html">Single classic</a> </li>
-                              <li> <a class="dropdown-item" href="blog-single-minimal.html">Single Minimal</a> </li>
+                              <li> <a class="dropdown-item" href="blog-single-classic.html">대전 도서관</a> </li>
+                              <li> <a class="dropdown-item" href="blog-single-minimal.html">대전 책방</a> </li>
                            </ul>
-                        </li>
+                        </li> 
                      </ul>
                   </li>
                   <!-- Menu item 3 Pages-->
                   <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">독서모임</a>
-                     <ul class="dropdown-menu" aria-labelledby="pagesMenu">
-                        <li> <a class="dropdown-item" href="/meeting?command=meetingList">독서모임</a></li>
-                        <li> <a class="dropdown-item" href="about-advance.html">About Advance</a> </li>
+                     <a class="nav-link" href="/meeting?command=meetingList" id="pagesMenu" aria-haspopup="true" aria-expanded="false">독서모임</a>
+                     <!-- <ul class="dropdown-menu" aria-labelledby="pagesMenu"> -->
+                       <!--  <li> <a class="dropdown-item" href="/meeting?command=meetingList">독서모임</a></li> -->
+                       <!--  <li> <a class="dropdown-item" href="about-advance.html">About Advance</a> </li>
                         <li> <a class="dropdown-item" href="service.html">Service</a> </li>
                         <li> <a class="dropdown-item" href="contact.html">Contact</a> </li>
                         <li> <a class="dropdown-item" href="team.html">Team</a> </li>
                         <li> <a class="dropdown-item" href="careers.html">Careers</a> </li>
-                        <li> <a class="dropdown-item" href="careers-single.html">Careers single</a> </li>
-                        <li class="dropdown-submenu">
+                        <li> <a class="dropdown-item" href="careers-single.html">Careers single</a> </li> -->
+                        <!-- <li class="dropdown-submenu">
                            <a class="dropdown-item dropdown-toggle" href="#">Login & Signup</a>
                            <ul class="dropdown-menu">
                               <li> <a class="dropdown-item" href="sign-in.html">Sign in</a> </li>
@@ -257,15 +257,25 @@
                         <li> <a class="dropdown-item" href="timeline.html">Timeline</a> </li>
                         <li> <a class="dropdown-item" href="faq.html">FAQs</a> </li>
                         <li> <a class="dropdown-item" href="maintenance-mode.html">Maintenance mode</a> </li>
-                        <li> <a class="dropdown-item" href="error-404.html">Error 404</a> </li>
-                     </ul>
+                        <li> <a class="dropdown-item" href="error-404.html">Error 404</a> </li> -->
+                    <!--  </ul> -->
                   </li>
                   <!-- Menu item 4 Portfolio-->
+                  
                   <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="portfolioMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소통의 장</a>
-                     <ul class="dropdown-menu" aria-labelledby="portfolioMenu">
-                        <li> <a class="dropdown-item" href="/notice?command=noticeListFormAction">공지사항</a> </li>
-                        <li> <a class="dropdown-item" href="/report?command=Report_List">독후감</a> </li>
+                  <!-- 관리자로 로그인을 했을 시 이달의 책 등록-->
+                        <c:if test = "${LoginUser.authority eq 3}">
+                     <a class="nav-link" href="/book?command=adminTodayBookList" id="portfolioMenu"  aria-haspopup="true" aria-expanded="false">이달의 책</a>
+                     </c:if>
+                     
+                      <!-- 사용자로 로그인을 했을 시 이달의 책 등록-->
+                              <c:if test = "${LoginUser.authority ne 3}">
+                  <li><a class="nav-link" href="/book?command=todayBookList"  id="portfolioMenu"  aria-haspopup="true" aria-expanded="false">이달의 책</a></li>
+                  </c:if>
+                     
+                     <%-- <ul class="dropdown-menu" aria-labelledby="portfolioMenu">
+                        <li> <a class="dropdown-item" href="/notice?command=noticeListFormAction">운영 게시판</a> </li>
+                       <!--  <li> <a class="dropdown-item" href="/report?command=Report_List">독후감</a> </li> -->
                         
                         <!-- 관리자로 로그인을 했을 시 이달의 책 등록-->
                         <c:if test = "${LoginUser.authority eq 3}">
@@ -281,58 +291,42 @@
                         <li> <a class="dropdown-item" href="portfolio-single.html">Portfolio Single</a> </li>
                         <li> <a class="dropdown-item" href="portfolio-single-02.html">Portfolio Single 2</a> </li>
                         <li> <a class="dropdown-item" href="portfolio-case-studies.html">Portfolio case studies <span class="badge badge-success ml-2">Hot</span></a> </li>
+                     </ul> --%>
+                  </li>
+                   <!-- Menu item 5 Blog-->
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="blogMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">후원하기</a>
+                     <ul class="dropdown-menu" aria-labelledby="blogMenu">
+                        <li class="dropdown-submenu">
+                           <a class="dropdown-item" href="#">사업소개</a>
+                         <!--   <ul class="dropdown-menu">
+                              <li> <a class="dropdown-item" href="blog-classic.html">Full Width</a> </li>
+                              <li> <a class="dropdown-item" href="blog-classic-left-sidebar.html">Left Sidebar</a> </li>
+                              <li> <a class="dropdown-item" href="blog-classic-right-sidebar.html">Right Sidebar</a> </li>
+                           </ul> -->
+                        </li>
+                        <li class="dropdown-submenu">
+                           <a class="dropdown-item" href="#">개인후원</a>
+                          <!--  <ul class="dropdown-menu">
+                              <li> <a class="dropdown-item" href="/book?command=bookList">Three column</a> </li>
+                              <li> <a class="dropdown-item" href="blog-grid-column-4.html">Four column</a> </li>
+                              <li> <a class="dropdown-item" href="blog-grid-left-sidebar.html">Left Sidebar</a> </li>
+                              <li> <a class="dropdown-item" href="blog-grid-right-sidebar.html">Right Sidebar</a> </li>
+                           </ul> -->
+                        </li>
+                       <li class="dropdown-submenu">
+                           <a class="dropdown-item" href="#">법인후원</a>
+                         
+                        </li>
+                        <li class="dropdown-submenu">
+                           <a class="dropdown-item" href="#">연말정산 영수증 신청</a>
+                         
+                        </li>
                      </ul>
                   </li>
-                  <!-- Menu item 5 Elements-->
-                  <li class="nav-item dropdown megamenu">
-                     <a class="nav-link dropdown-toggle" href="#" id="elementsMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">후원하기</a>
-                     <div class="dropdown-menu" aria-labelledby="elementsMenu" style="background-image:url(assets/images/menu-bg.jpg); background-position: right bottom; background-repeat: no-repeat;">
-                        <div class="container">
-                           <div class="row">
-                              <div class="col-sm-6 col-lg-3">
-                                 <ul class="list-unstyled">
-                                    <li> <a class="dropdown-item" href="elements-accordion.html">Accordion</a> </li>
-                                    <li> <a class="dropdown-item" href="elements-action-box.html">Action box</a> </li>
-                                    <li> <a class="dropdown-item" href="elements-alerts.html">Alerts</a> </li>
-                                    <li> <a class="dropdown-item" href="elements-animated-headlines.html">Animated Headlines</a> </li>
-                                    <li> <a class="dropdown-item" href="elements-blockquote.html">Blockquote</a> </li>
-                                    <li> <a class="dropdown-item" href="elements-buttons.html">Buttons</a> </li>
-                                 </ul>
-                              </div>
-                              <div class="col-sm-6 col-lg-3">
-                                 <ul class="list-unstyled">
-                                    <li> <a class="dropdown-item" href="elements-clients.html">Clients</a> </li>
-                                    <li> <a class="dropdown-item" href="elements-counter.html">Counter</a> </li>
-                                    <li> <a class="dropdown-item" href="elements-divider.html">Divider</a> </li>
-                                    <li> <a class="dropdown-item" href="elements-feature-box.html">Feature box</a> </li>
-                                    <li> <a class="dropdown-item" href="elements-forms.html">Forms</a> </li>
-                                    <li> <a class="dropdown-item" href="elements-grid.html">Grid</a> </li>
-                                 </ul>
-                              </div>
-                              <div class="col-sm-6 col-lg-3">
-                                 <ul class="list-unstyled">
-                                    <li> <a class="dropdown-item" href="elements-list-styles.html">list styles</a> </li>
-                                    <li> <a class="dropdown-item" href="elements-map.html">Map</a> </li>
-                                    <li> <a class="dropdown-item" href="elements-modal.html">Modal</a> </li>
-                                    <li> <a class="dropdown-item" href="elements-skill.html">skill</a> </li>
-                                    <li> <a class="dropdown-item" href="elements-social-icon.html">social icon</a> </li>
-                                    <li> <a class="dropdown-item" href="elements-tab.html">Tab</a> </li>
-                                 </ul>
-                              </div>
-                              <div class="col-sm-6 col-lg-3">
-                                 <ul class="list-unstyled">
-                                    <li> <a class="dropdown-item" href="elements-table.html">Table</a> </li>
-                                    <li> <a class="dropdown-item" href="elements-team.html">Team</a> </li>
-                                    <li> <a class="dropdown-item" href="elements-typography.html">Typography</a> </li>
-                                    <li> <a class="dropdown-item" href="elements-video.html">Video</a> </li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </li>
+                  
                   <!-- Menu item 6 Docs-->
-                  <li class="nav-item dropdown">
+                  <!-- <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" id="docMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Docs</a>
                      <ul class="dropdown-menu" aria-labelledby="docMenu">
                         <li> <a class="dropdown-item" href="https://wizixo.webestica.com/documentation/">Introduction</a> </li>
@@ -343,7 +337,7 @@
                         <li class="dropdown-divider"></li>
                         <li> <a class="dropdown-item" href="http://support.webestica.com/" target="_blank">Support</a> </li>
                      </ul>
-                  </li>
+                  </li> -->
                </ul>
             </div>
             <!-- Main Menu End -->
@@ -354,9 +348,9 @@
                   <a class="nav-link" data-toggle="collapse" href="#search-open"><i class="ti-search"> </i></a>
                </div>
                <!-- extra item Btn-->
-               <div class="nav-item border-0 d-none d-lg-inline-block align-self-center">
+               <!-- <div class="nav-item border-0 d-none d-lg-inline-block align-self-center">
                   <a href="#" class=" btn btn-sm btn-grad text-white mb-0">Buy Now!</a>
-               </div>
+               </div> -->
             </div>
             <!-- Header Extras End-->
          </div>
