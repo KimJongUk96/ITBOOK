@@ -70,6 +70,7 @@
                            <th scope="col">번호</th>
                            <th scope="col">책제목</th>
                            <th scope="col">이달의 책 제목</th>
+                           <th scope="col">첨부파일</th>
                          <th scope="col">저자</th>
                           <th scope="col">출판사</th>
                           <th scope="col">작성자</th>
@@ -77,12 +78,15 @@
                      </thead>
                      
                      <tbody>
-                     <c:forEach var="todayBookList" items="${todayBookList}">
+                     <c:forEach var="todayBookList" items="${todayBookList}" varStatus="status">
                        <%-- <input type="hidden" name="${todayBookList.bookNum}"> --%>
                         <tr>
-                           <th scope = "row">${todayBookList.bookBrdNum}</th>
+                        
+                        	<th scope = "row">${(paging.numOfRow - status.index) -  (paging.pageNum-1) * 10 }</th>
+                           
                            <td><a href="book?command=adminTodayBookUpdateFormAction&bookBrdNum=${todayBookList.bookBrdNum}">${todayBookList.bookTitle}</a></td>
                            <td>${todayBookList.bookBrdTitle}</td>
+                           <td>${todayBookList.imgPath}</td>
                            <td>${todayBookList.writer}</td>
                            <td>${todayBookList.publisher}</td>
                            
@@ -102,27 +106,47 @@
          </div>
       </div>
    </section>
-<!-- =======================
-	pagination -->
-	<section class="pt-0">
+   
+   
+<!-- 페이징 처리 -->  
+<section class="pt-0">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-8">
 					<nav>
 						<ul class="pagination justify-content-center">
-							<li class="page-item disabled"> <span class="page-link">Prev</span> </li>
-							<li class="page-item active"> <span class="page-link bg-grad"> 1 </span> </li>
-							<li class="page-item"><a class="page-link" href="#">2</a></li>
-							<li class="page-item"><a class="page-link" href="#">3</a></li>
-							<li class="page-item"><a class="page-link" href="#">Next</a> </li>
+						<c:if test="${paging.pageNum > 1}">
+							<li class="page-item"><a class ="page-link" href="book?command=adminTodayBookList&pageNum=${paging.pageNum - 1}">Prev</a></li>
+						
+							
+						</c:if>	
+							<c:forEach begin="${paging.firstPage}"
+                                       end="${paging.lastPage}" var="idx">
+                                       
+                                       <c:choose>
+                                          <c:when test="${idx == paging.pageNum}">
+                                             <li class="page-item active"> <span class="page-link bg-grad">${idx}</span></li>
+                                          </c:when>
+                       
+                                          <c:otherwise>
+                                             <li class="page-item"><a class ="page-link"
+                                                href="book?command=adminTodayBookList&pageNum=${idx}">${idx}</a></li>
+                                          </c:otherwise>
+                                          
+                                       </c:choose>
+                                    </c:forEach>
+						
+							<c:if test="${paging.numOfPage != paging.pageNum}">
+                                    <li class="page-item"><a class = "page-link" href="book?command=adminTodayBookList&pageNum=${paging.pageNum + 1}">Next</a></li>   
+                                    </c:if>
+							
+
 						</ul>
 					</nav>
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- =======================
-	pagination -->
    <%@ include file="../include/footer.jsp"%>
 </body>
 </html>

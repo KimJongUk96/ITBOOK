@@ -74,69 +74,245 @@ public class BookDAO {
 		}
 		
 		
+		//이달의 책 게시글수
+		public Paging selectTodayBookRowCount(Paging paging) {
+			int cnt = 0;
+			String sql = "SELECT COUNT(*) CNT"
+		            + "     FROM itbook.book_board";
+		      
+		          Connection conn = null;
+		         PreparedStatement stmt = null;
+		         ResultSet rs = null;
+		         
+		         try
+		         {
+		            conn = DBManager.getConnection();
+		            stmt = conn.prepareStatement(sql);
+		            
+		            rs = stmt.executeQuery();
+		            
+		            while (rs.next())
+		            {
+		               cnt = rs.getInt("CNT");
+		               paging.setNumOfRow(cnt);;
+		            }
+		            
+		         }
+		         catch (Exception e)
+		         {
+		            e.printStackTrace();
+		         }finally {
+		 			DBManager.close(conn, stmt);
+		 		}
+		         return paging;
+		   }
+		
+		
+		//이달의 책 페이징(회원)
+		public ArrayList<BookBoardVO> selecTodayBookPage(Paging paging) {
+	        
+	        String sql = "select b.bookNum,bb.bookBrdNum,b.bookTitle,bb.bookBrdTitle,bb.bookBrdContent,b.writer,b.publisher,bb.imgPath,bb.bookBrdDate "
+	        		+"from itbook.book_board bb,itbook.book b where bb.bookNum = b.bookNum order by bb.bookBrdNum desc limit ?,9";
+
+	         ArrayList<BookBoardVO> list = new ArrayList<BookBoardVO>();
+	         Connection conn = null;
+	         PreparedStatement pstmt = null;
+	         ResultSet rs = null;
+
+	         try {
+	            conn = DBManager.getConnection();
+	            pstmt = conn.prepareStatement(sql);
+	            
+	            //
+	            pstmt.setInt(1, ((paging.getPageNum() - 1) * paging.getPerPage()));
+	            
+	            rs = pstmt.executeQuery();
+	            
+	            
+	            while (rs.next()) {
+	              BookBoardVO bVo = new BookBoardVO();
+	               
+	              	bVo.setBookNum(rs.getString("bookNum"));
+					bVo.setBookBrdNum(rs.getString("bookBrdNum"));
+					bVo.setBookTitle(rs.getString("bookTitle"));
+					bVo.setBookBrdTitle(rs.getString("bookBrdTitle"));
+					bVo.setBookBrdContent(rs.getString("bookBrdContent"));
+					bVo.setWriter(rs.getString("writer"));
+					bVo.setPublisher(rs.getString("publisher"));
+				/* bVo.setMemNum(rs.getInt("memNum")); */
+					bVo.setImgPath(rs.getString("imgPath"));
+					bVo.setBookBrdDate(rs.getDate("bookBrdDate"));
+					
+					list.add(bVo);
+	            }
+	         } catch (Exception e) {
+	            e.printStackTrace();
+	         }  finally {
+	 			DBManager.close(conn, pstmt, rs);
+	 		}
+	         return list;
+	      }
+		
+		
+			//이달의 책 리스트페이징(관리자)
+			public ArrayList<BookBoardVO> selectAdminTodayBookListPaging(Paging paging) {
+	        String sql = "select b.bookNum,b.bookTitle,bb.bookBrdNum,bb.bookBrdTitle,bb.imgPath,b.writer,b.publisher,bb.memNum "
+				 	+"from itbook.book_board bb,itbook.book b where bb.bookNum = b.bookNum order by bb.bookBrdNum desc limit ?,10";
+	        
+	         ArrayList<BookBoardVO> list = new ArrayList<BookBoardVO>();
+	         Connection conn = null;
+	         PreparedStatement pstmt = null;
+	         ResultSet rs = null;
+
+	         try {
+	            conn = DBManager.getConnection();
+	            pstmt = conn.prepareStatement(sql);
+	            
+	            //
+	            pstmt.setInt(1, ((paging.getPageNum() - 1) * paging.getPerPage()));
+	            
+	            rs = pstmt.executeQuery();
+	            
+	            
+	            while (rs.next()) {
+	              BookBoardVO bVo = new BookBoardVO();
+	               
+	             	bVo.setBookNum(rs.getString("bookNum"));
+					bVo.setBookBrdNum(rs.getString("bookBrdNum"));
+					bVo.setBookTitle(rs.getString("bookTitle"));
+					bVo.setBookBrdTitle(rs.getString("bookBrdTitle"));
+					bVo.setImgPath(rs.getString("imgPath"));
+					bVo.setWriter(rs.getString("writer"));
+					bVo.setPublisher(rs.getString("publisher"));
+					bVo.setMemNum(rs.getString("memNum"));
+					
+					list.add(bVo);
+	            }
+	         } catch (Exception e) {
+	            e.printStackTrace();
+	         }  finally {
+	 			DBManager.close(conn, pstmt, rs);
+	 		}
+	         return list;
+	      }
 		
 	// 이달의 책 리스트 관리자
-	public List<BookBoardVO> selectAdminTodayBookList() {
-		String sql = "select b.bookNum,b.bookTitle,bb.bookBrdNum,bb.bookBrdTitle,b.writer,b.publisher,bb.memNum "
-				 	+"from itbook.book_board bb,itbook.book b where bb.bookNum = b.bookNum order by bb.bookBrdNum desc";
-		List<BookBoardVO> list = new ArrayList<BookBoardVO>();
-		Connection conn = null;
-		Statement stmt = null;
-		ResultSet rs = null;
-		try {
-			conn = DBManager.getConnection();
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-
-			while (rs.next()) {
-				BookBoardVO bVo = new BookBoardVO();
-				
-				bVo.setBookNum(rs.getString("bookNum"));
-				bVo.setBookBrdNum(rs.getString("bookBrdNum"));
-				bVo.setBookTitle(rs.getString("bookTitle"));
-				bVo.setBookBrdTitle(rs.getString("bookBrdTitle"));
-				bVo.setWriter(rs.getString("writer"));
-				bVo.setPublisher(rs.getString("publisher"));
-				bVo.setMemNum(rs.getString("memNum"));
-				
-				list.add(bVo);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			DBManager.close(conn, stmt, rs); // 예전에는 다 썼지만 이제 디비매너지를 통해서 한줄로 씀.
-		}
-		return list;
-	}
+//	public List<BookBoardVO> selectAdminTodayBookList() {
+//		String sql = "select b.bookNum,b.bookTitle,bb.bookBrdNum,bb.bookBrdTitle,bb.imgPath,b.writer,b.publisher,bb.memNum "
+//				 	+"from itbook.book_board bb,itbook.book b where bb.bookNum = b.bookNum order by bb.bookBrdNum desc";
+//		List<BookBoardVO> list = new ArrayList<BookBoardVO>();
+//		Connection conn = null;
+//		Statement stmt = null;
+//		ResultSet rs = null;
+//		try {
+//			conn = DBManager.getConnection();
+//			stmt = conn.createStatement();
+//			rs = stmt.executeQuery(sql);
+//
+//			while (rs.next()) {
+//				BookBoardVO bVo = new BookBoardVO();
+//				
+//				bVo.setBookNum(rs.getString("bookNum"));
+//				bVo.setBookBrdNum(rs.getString("bookBrdNum"));
+//				bVo.setBookTitle(rs.getString("bookTitle"));
+//				bVo.setBookBrdTitle(rs.getString("bookBrdTitle"));
+//				bVo.setImgPath(rs.getString("imgPath"));
+//				bVo.setWriter(rs.getString("writer"));
+//				bVo.setPublisher(rs.getString("publisher"));
+//				bVo.setMemNum(rs.getString("memNum"));
+//				
+//				list.add(bVo);
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			DBManager.close(conn, stmt, rs); // 예전에는 다 썼지만 이제 디비매너지를 통해서 한줄로 씀.
+//		}
+//		return list;
+//	}
+	
+	
+	
 	//이달의 책 등록(관리자)
-	public void insertAdminTodayBookRegister(BookBoardVO bVo) {
-		//sql은 실행o
-		String sql = "insert into itbook.book_board(bookBrdTitle,bookBrdContent,writer,publisher,memNum,bookNum) values (?,?,?,?,?,?);";
+//	public void insertAdminTodayBookRegister(BookBoardVO bVo) {
+//		//sql은 실행o
+//		String sql = "insert into itbook.book_board(bookBrdTitle,bookBrdContent,bookTitle,writer,publisher,imgPath,memNum,bookNum) values (?,?,?,?,?,?,?,?);";
+//		
+//		Connection conn = null;
+//		PreparedStatement pstmt = null;
+//		try {
+//			conn = DBManager.getConnection();
+//			pstmt = conn.prepareStatement(sql);
+//
+//			pstmt.setString(1, bVo.getBookBrdTitle());
+//			pstmt.setString(2, bVo.getBookBrdContent());
+//			pstmt.setString(3, bVo.getBookTitle());
+//			pstmt.setString(4, bVo.getWriter());
+//			pstmt.setString(5, bVo.getPublisher());
+//			pstmt.setString(6, bVo.getImgPath());
+//			pstmt.setString(7, bVo.getMemNum());
+//			pstmt.setString(8, bVo.getBookNum());
+//			
+//			pstmt.executeUpdate();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			DBManager.close(conn, pstmt);
+//		}
+//	}
+	
+	//첨부파일
+	public boolean insertAdminTodayBookRegister(BookBoardVO bVo) {
 		
+		
+		boolean result = false;
+		
+				
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		
 		try {
+			
 			conn = DBManager.getConnection();
-			pstmt = conn.prepareStatement(sql);
+			conn.setAutoCommit( false );
+			
+			StringBuffer sql = new StringBuffer();
+			
+			sql.append("insert into itbook.book_board(bookBrdTitle,bookBrdContent,bookTitle,writer,publisher,imgPath,memNum,bookNum)");
+			sql.append("values (?,?,?,?,?,?,?,?)");
+			
 
+			pstmt = conn.prepareStatement(sql.toString());
+			
 			pstmt.setString(1, bVo.getBookBrdTitle());
 			pstmt.setString(2, bVo.getBookBrdContent());
-			pstmt.setString(3, bVo.getWriter());
-			pstmt.setString(4, bVo.getPublisher());
-			//pstmt.setString(5, bVo.getImgPath());
-			pstmt.setString(5, bVo.getMemNum());
-			pstmt.setString(6, bVo.getBookNum());
+			pstmt.setString(3, bVo.getBookTitle());
+			pstmt.setString(4, bVo.getWriter());
+			pstmt.setString(5, bVo.getPublisher());
+			pstmt.setString(6, bVo.getImgPath());
+			pstmt.setString(7, bVo.getMemNum());
+			pstmt.setString(8, bVo.getBookNum());
 			
-			pstmt.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
+			int flag = pstmt.executeUpdate();
+			
+            if(flag > 0){
+               result = true;
+               conn.commit(); 
+            }
+
+        } catch (Exception e) {
+            
+        	throw new RuntimeException(e.getMessage());
+        }
+			
 			DBManager.close(conn, pstmt);
-		}
+			return result;
+	
 	}
 		
+	
 	public void updateAdminTodayBook(BookBoardVO bVo) {
-		String sql = "update itbook.book_board set bookBrdTitle=?,writer=?,publisher=? where bookBrdNum=?";
+		String sql = "update itbook.book_board set bookBrdTitle=?,bookTitle=?,writer=?,publisher=?,bookBrdContent=? where bookBrdNum=?";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -146,11 +322,11 @@ public class BookDAO {
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setString(1, bVo.getBookBrdTitle());
-			pstmt.setString(2, bVo.getWriter());
-			pstmt.setString(3, bVo.getPublisher());
-			
-			//pstmt.setString(4, bVo.getMemNum());
-			//pstmt.setString(5, bVo.getBookNum());
+			pstmt.setString(2, bVo.getBookTitle());
+			pstmt.setString(3, bVo.getWriter());
+			pstmt.setString(4, bVo.getPublisher());
+			pstmt.setString(5, bVo.getBookBrdContent());
+			pstmt.setString(6, bVo.getBookBrdNum());
 			
 			pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -161,10 +337,10 @@ public class BookDAO {
 
 	}
 
-	//독서모임 메인 홈 상세내용 보기 : 글번호로 찾아온다. 실패하면 return null
+	//이달의 책 상세보기
 	public BookBoardVO selectOneBookBrdNum(String bookBrdNum) {
 
-		String sql = "select bookBrdNum,bookBrdTitle,bookBrdContent,writer,publisher from itbook.book_board where bookBrdNum = ?";
+		String sql = "select bookBrdNum,bookBrdTitle,bookBrdContent,writer,publisher,bookTitle from itbook.book_board where bookBrdNum = ?";
 
 		BookBoardVO bVo = null;
 		Connection conn = null;
@@ -188,7 +364,7 @@ public class BookDAO {
 				bVo.setBookBrdContent(rs.getString("bookBrdContent"));
 				bVo.setWriter(rs.getString("writer"));
 				bVo.setPublisher(rs.getString("publisher"));
-				
+				bVo.setBookTitle(rs.getString("bookTitle"));
 			}
 
 		} catch (Exception e) {
@@ -258,7 +434,25 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 			DBManager.close(conn, pstmt, rs);
 			return bookList;
 	    }
-	
+		//이달의 책 삭제
+		public void deleteTodayBook(String bookBrdNum) {
+			String sql = "delete from itbook.book_board where bookBrdNum=?";
+			
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			try{
+				conn = DBManager.getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, bookBrdNum);
+				pstmt.executeUpdate();
+			
+			}catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				DBManager.close(conn, pstmt);
+			}
+		}
+
 	// 책 리스트 보여주기
 //	public List<BookVO> selectBookList() {
 //		String sql = "select bookNum,bookTitle,bookKeyword1,bookKeyword2,bookKeyword3,writer,publisher from itbook.book order by bookNum";

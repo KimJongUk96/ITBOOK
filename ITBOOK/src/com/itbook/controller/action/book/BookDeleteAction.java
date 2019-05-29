@@ -19,7 +19,6 @@ public class BookDeleteAction implements Action {
 		BookDAO bDao = BookDAO.getInstance();
 		
 		bDao.deleteBook(bookNum);
-		System.out.println("=====1====="+bookNum);
 		new BookListAction().execute(request, response);
 	
 		

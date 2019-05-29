@@ -1,10 +1,11 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+   
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Wizixo | Creative Multipurpose Bootstrap Template</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,23 +34,10 @@
 
 </head>
 <body>
-   <!--    <div class="preloader">
-      <img src="../assets/images/preloader.svg" alt="Pre-loader">
-   </div>  -->
+
    <header>
       <%@ include file="../include/header.jsp"%>
    </header>
-
-   <!-- <div class="left bg-dark-grad pattern-overlay-1">
-      <div class="container">
-         <div class="row all-text-white">
-            <div class="col-md-12 align-self-center">
-             <h1 class="font-weight-bold display-4 display-md-1 mb-2 mb-md-n4 mt-9">희망의 책 독후감</h1> 
-               
-            </div>
-         </div>
-      </div>
-   </div>  -->
 
    <div class="innerpage-banner center bg-overlay-dark-7 py-7"
       style="background: url(../assets/images/bg/04.jpg) no-repeat; background-size: cover; background-position: center center;">
@@ -79,7 +67,8 @@
             <div class="col-md-6">
 	<form name ="frm" method ="post" action="book?command=adminTodayBookUpdate">
                <div class="form-group">
-                  <label>이달의 책제목</label> <input class="form-control" type="text" value = "${todayBookList.bookBrdTitle}"
+               <input type="hidden" name="bookBrdNum" value="${todayBookList.bookBrdNum}">
+                  <label>이달의 책제목</label> <input class="form-control" type="text" value = "${todayBookList.bookBrdTitle}" name ="bookBrdTitle"
                      placeholder="* 이달의 책 제목을 입력하세요.">
                </div>
                
@@ -100,17 +89,19 @@
 					</div>
                </div>
                
+               
+               
             <div class="form-group">
-                  <label>책제목</label> <input class="form-control" type="text" value = "${todayBookList.bookBrdTitle}"
-                     placeholder="책제목">
+                  <label>책제목</label> <input class="form-control" type="text" value="${todayBookList.bookTitle}" name ="bookTitle"
+                     placeholder="* 책제목을 입력하세요.">
                </div>
                
                <div class="form-group">
-                  <label>저자</label> <input class="form-control" type="text" value = "${todayBookList.writer}"
+                  <label>저자</label> <input class="form-control" type="text" value = "${todayBookList.writer}" name ="writer"
                      placeholder="* 저자를 입력하세요.">
                </div>
                <div class="form-group">
-                  <label>출판사</label> <input class="form-control" type="text" value = "${todayBookList.publisher}"
+                  <label>출판사</label> <input class="form-control" type="text" value = "${todayBookList.publisher}" name ="publisher"
                      placeholder="* 출판사를 입력하세요.">
                </div>
                
@@ -122,17 +113,18 @@
                
                <div class="form-group">
                   <label>내용</label>
-                  <textarea class="form-control" rows="10"  name=bookBrdContent
-                     placeholder="내용을 입력하세요."></textarea>
+                  <textarea class="form-control" rows="10"  name ="bookBrdContent"
+                     placeholder="내용을 입력하세요.">${todayBookList.bookBrdContent}</textarea>
                </div>
-         
+         		
+         		
+         		 
                  <button type="submit" class="btn btn-success"><i class="fa fa-check-circle-o"></i>수정</button>
                   
-                  <button type="button" class="btn btn-warning" onclick="location.href='book?command=bookBrdDelete&bookBrdNum=${todayBookList.bookBrdNum}'" >
+                  
+                  <button type="button" class="btn btn-warning" onclick="location.href='book?command=adminTodayBookDelete&bookBrdNum=${todayBookList.bookBrdNum}'" >
                   <i class="fa fa-close"></i>삭제</button>
                   
-
-						<button type = "button" class="btn btn-secondary" onclick="location.href='book?command=adminTodayBookList'"><i class="fa fa-arrow-circle-right"></i>목록</button>
          </form>      
             </div>
             

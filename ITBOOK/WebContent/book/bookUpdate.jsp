@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,8 +69,7 @@
 						action="book?command=bookUpdate">
 
 						<input type="hidden" name="bookNum" value="${bookList.bookNum}">
-
-						<input type ="hidden" name = "memNum" value = "${LoginUser.memNum}">
+<%-- 						<input type ="hidden" name = "memNum" value = "${LoginUser.memNum}"> --%>
 						
 						<div class="form-group">
 							<label>제목</label> <input class="form-control" type="text"
@@ -104,15 +104,11 @@
 						
 						
 
-
-
-
-              	<c:if test = "${LoginUser.memNum eq bookList.memNum}">
+              	  <c:if test = "${LoginUser.authority eq '3' or bookList.memNum eq LoginUser.memNum}">
                   <button type="submit" class="btn btn-success"><i class="fa fa-check-circle-o"></i>수정</button>
                   
                   <button type="button" class="btn btn-warning" onclick="location.href='book?command=bookDelete&bookNum=${bookList.bookNum}'" >
                   <i class="fa fa-close"></i>삭제</button>
-                  
                   </c:if>
 
 						<button type = "button" class="btn btn-secondary" onclick="location.href='book?command=bookList'"><i class="fa fa-arrow-circle-right"></i>목록</button>

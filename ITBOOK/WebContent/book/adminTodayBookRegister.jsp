@@ -68,7 +68,7 @@
          <div class="row">
             <div class="col-md-6">
             
-	<form name ="frm" method ="post" action="book?command=adminTodayBookRegister" > <!-- enctype="multipart/form-data" -->
+	<form name ="frm" method ="post" action="book?command=adminTodayBookRegister" enctype="multipart/form-data">
 	
 				<!-- bookNum을 히든으로 처리를 하지 않으면 검색에서 값을 가져오지 못함. -->
 			    <input type="hidden" name="bookNum">
@@ -96,7 +96,7 @@
                      
 					</div>
                </div>
-               
+
             <div class="form-group">
                   <label>책제목</label> <input class="form-control" type="text" name = "bookTitle"
                      placeholder="책제목">
@@ -120,10 +120,11 @@
                
                <!-- 업로드 시작-->
                
-               <!-- <div class="custom-file">
-                  <label>Upload Book</label><input type="file" class="custom-file-input" name ="imgPath" id="imgPath">
-								<label class="custom-file-label" for="inputGroupFile01">Upload Book</label>
-               </div> -->
+                 <div class="custom-file">
+                  <label>Upload Book</label><input type="file" class="custom-file-input" name ="imgPath">
+								<label class="custom-file-label">Upload Book</label>
+								
+               </div> 
                <!--업로드 끝  -->
                
                
