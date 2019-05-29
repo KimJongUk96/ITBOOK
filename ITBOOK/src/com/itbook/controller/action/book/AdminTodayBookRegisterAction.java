@@ -8,11 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
-import com.itbook.controller.action.notice.NoticeListFormAction;
 import com.itbook.dao.BookDAO;
 import com.itbook.vo.MemberVO;
 import com.itbook.vo.Book.BookBoardVO;
-import com.itbook.vo.Notice.NoticeVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
