@@ -31,7 +31,7 @@ public class SendEmailAction implements SendEmail{
 		
 		String[] email = request.getParameterValues("email"); 
 		
-		if(email != null) {
+		if(email != null) { 
 			
 		for (int idx = 0; email.length > idx; idx++) {
 			request.setAttribute("email", email[idx]);
