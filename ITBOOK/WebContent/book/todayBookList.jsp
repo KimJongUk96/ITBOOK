@@ -71,7 +71,33 @@
 			<div class="row">
 				<div class="col-md-12 blog-grid blog-grid-3 portfolio-wrap" data-isotope='{ "itemSelector": ".post-item", "layoutMode": "fitRows" }'>
 					<!-- 이달의 책 게시판 글 / 첨부파일 -->
-			<c:forEach var="todayBookList" items="${todayBookList}">
+
+<!-- 예시 -->				
+				  <section class="blog-page pb-0">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12 blog-grid blog-grid-3 portfolio-wrap" data-isotope='{ "itemSelector": ".post-item", "layoutMode": "fitRows" }'>
+               <!-- Post item  with image-->
+               <div class="post-item">
+                  <div class="post-item-wrap">
+                     <div class="post-image">
+                        <a href="#"> <img src="assets/images/blog/grid/01.jpg" alt=""> </a>
+                        <span class="post-meta-category bg-grad"><a href="#">Blog Image</a></span>
+                     </div>
+                     <div class="post-item-desc">
+                        <span class="post-meta">Jan 21,</span>
+                        <span class="post-meta"><a href="#">Admin,</a></span>
+                        <span class="post-meta"><a href=""><i class="ti-comment-alt"></i>06 Comments</a></span>
+                        <h4><a href="#">The Stories Behind those Iconic Blogs</a></h4>
+                        <p>Six started far placing saw respect females old. <strong>Civilly why how end viewing</strong> attempt related enquire visitor. Man particular insensible celebrated conviction stimulated principles day.</p>
+                        <a href="#" class="item-link">Continue reading<i class="ti-minus"></i></a>
+                     </div>
+                  </div>
+               </div>
+  
+<!-- 끝 -->					
+					
+			<c:forEach var="todayBookList" items="${todayBookList}" varStatus="status">
 					<div class="post-item">
 						<div class="post-item-wrap">
 							<div class="post-image">
@@ -79,18 +105,18 @@
 							<input type="hidden" name="bookBrdNum" value="${todayBookList.bookBrdNum}"> --%>
 								
 								<img src=""alt="${todayBookList.imgPath}">
-								<span class="post-meta-category bg-grad">${todayBookList.bookBrdNum}</span>
+								<span class="post-meta-category bg-grad">${(paging.numOfRow - status.index) - (paging.pageNum -1) * 10}</span>
 								
 							</div>
 							
 							<div class="post-item-desc">
-								 <span class="post-meta">${todayBookList.bookBrdDate}</span>
+								<span class="post-meta">${todayBookList.bookBrdDate}</span>
 								
 								<span class="post-meta">저자 : ${todayBookList.writer}</span>
 								<span class="post-meta">출판사 : ${todayBookList.publisher}</span>
-								<h4>이달의 책 제목 : ${todayBookList.bookBrdTitle}</h4>
+								<h4>${todayBookList.bookBrdTitle}</h4>
 								
-								<p>내용 : ${todayBookList.bookBrdContent}</p>
+								<p>${todayBookList.bookBrdContent}</p>
 							
 							</div>
 						</div>
@@ -108,9 +134,8 @@
 	</section>
 
 
-	<!-- =======================
-	pagination -->
-	<section class="pt-0">
+<!-- 페이징 처리 -->  
+<section class="pt-0">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-8">
@@ -148,24 +173,7 @@
 			</div>
 		</div>
 	</section>
-	<!-- =======================
-	pagination -->
-	<div> <a href="#" class="back-top btn btn-grad"><i class="ti-angle-up"></i></a> </div>
-
-	<!--Global JS-->
-	<script src="../assets/vendor/jquery/jquery.min.js"></script>
-	<script src="../assets/vendor/popper.js/umd/popper.min.js"></script>
-	<script src="../assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-	<!--Vendors-->
-	<script src="../assets/vendor/owlcarousel/js/owl.carousel.min.js"></script>
-	<script src="../assets/vendor/fitvids/jquery.fitvids.js"></script>
-	<script src="../assets/vendor/isotope/isotope.pkgd.min.js"></script>
-	<script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-
-	<!--Template Functions-->
-	<script src="../assets/js/functions.js"></script>
+	
 	<%@ include file="../include/footer.jsp" %>
 </body>
 </html>
