@@ -105,6 +105,7 @@
 											<img class="avatar"
 												src="assets/images/thumbnails/avatar-01.jpg" alt="">
 										</div>
+										<c:forEach var="comment" items="${requestScope.commentList}">
 										<div class="comment-body">
 											<div class="comment-meta">
 												<div class="comment-meta-author">
@@ -124,6 +125,7 @@
 												<a class="btn btn-xs btn-light" href="#">Reply</a>
 											</div>
 										</div>
+										</c:forEach>
 										<!-- sub comment-->
 										<div class="comment-child">
 											<div class="comment">
@@ -164,7 +166,7 @@
 									<h2 class="mb-2">Leave a Reply</h2>
 								</div>
 								<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" value="${LoginUser.memName}"></span></div>
-								<div class="col-md-12"><span class="form-group"><textarea cols="40" rows="6" class="form-control" placeholder="Message"></textarea></span></div>
+								<div class="col-md-12"><span class="form-group"><textarea name="metComtContent" cols="40" rows="6" class="form-control" placeholder="Message"></textarea></span></div>
 								<div class="col-md-12 text-center"><input type="submit" class="btn-block btn btn-dark" value="Post Comment"></div>
 							</div>
 							</form>

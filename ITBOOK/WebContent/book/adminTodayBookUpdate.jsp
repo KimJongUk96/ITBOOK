@@ -65,8 +65,9 @@
       <div class="container">
          <div class="row">
             <div class="col-md-6">
-	<form name ="frm" method ="post" action="book?command=adminTodayBookUpdate">
+	<form name ="frm" method ="post" action="book?command=adminTodayBookUpdate" enctype="multipart/form-data">
                <div class="form-group">
+               <input type="hidden" name="bookNum" value="${todayBookList.bookNum}">
                <input type="hidden" name="bookBrdNum" value="${todayBookList.bookBrdNum}">
                   <label>이달의 책제목</label> <input class="form-control" type="text" value = "${todayBookList.bookBrdTitle}" name ="bookBrdTitle"
                      placeholder="* 이달의 책 제목을 입력하세요.">
@@ -105,11 +106,6 @@
                      placeholder="* 출판사를 입력하세요.">
                </div>
                
-<!--                <div class="custom-file">
-                  <label>Upload Book</label><input type="file" class="custom-file-input" id="inputGroupFile01" name = "">
-								<label class="custom-file-label" for="inputGroupFile01">Upload Book</label>
-               </div>
- -->               
                
                <div class="form-group">
                   <label>내용</label>
@@ -118,6 +114,12 @@
                </div>
          		
          		
+                <div class="custom-file">
+                  <label>Upload Book</label><input type="file" class="custom-file-input" value = "${todayBookList.imgPath}" name = "imgPath">
+								<label class="custom-file-label" for="inputGroupFile01">Upload Book</label>
+               </div>
+               
+         		
          		 
                  <button type="submit" class="btn btn-success"><i class="fa fa-check-circle-o"></i>수정</button>
                   
@@ -125,7 +127,9 @@
                   <button type="button" class="btn btn-warning" onclick="location.href='book?command=adminTodayBookDelete&bookBrdNum=${todayBookList.bookBrdNum}'" >
                   <i class="fa fa-close"></i>삭제</button>
                   
-         </form>      
+                  	<button type = "button" class="btn btn-secondary" onclick="location.href='book?command=adminTodayBookList'"><i class="fa fa-arrow-circle-right"></i>목록</button>
+					</form>
+                  
             </div>
             
          </div>

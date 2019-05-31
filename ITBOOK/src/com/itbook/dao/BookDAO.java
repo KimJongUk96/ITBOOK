@@ -3,6 +3,7 @@ package com.itbook.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -260,8 +261,12 @@ public class BookDAO {
 //			DBManager.close(conn, pstmt);
 //		}
 //	}
-	
-	//첨부파일
+
+			
+//updateAdminTodayBookRegister			
+			
+			
+	//첨부파일 등록
 	public boolean insertAdminTodayBookRegister(BookBoardVO bVo) {
 		
 		
@@ -310,32 +315,90 @@ public class BookDAO {
 	
 	}
 		
-	
-	public void updateAdminTodayBook(BookBoardVO bVo) {
-		String sql = "update itbook.book_board set bookBrdTitle=?,bookTitle=?,writer=?,publisher=?,bookBrdContent=? where bookBrdNum=?";
-
+//이달의 책 수정	
+public boolean updateAdminTodayBook(BookBoardVO bVo) {
+		
+		boolean result = false;
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		
 		try {
+			
 			conn = DBManager.getConnection();
-
-			pstmt = conn.prepareStatement(sql);
-
+			conn.setAutoCommit( false ); // 자동 커밋을 false로 한다.
+			
+			StringBuffer sql = new StringBuffer();
+			sql.append("update itbook.book_board set");
+			sql.append(" bookBrdTitle=?");
+			sql.append(" ,bookTitle=?");
+			sql.append(" ,writer=?");
+			sql.append(" ,publisher=?");
+			sql.append(" ,bookBrdContent=?");
+			sql.append(" ,imgPath=?");
+			sql.append("where bookBrdNum=?");
+			
 			pstmt.setString(1, bVo.getBookBrdTitle());
 			pstmt.setString(2, bVo.getBookTitle());
 			pstmt.setString(3, bVo.getWriter());
 			pstmt.setString(4, bVo.getPublisher());
 			pstmt.setString(5, bVo.getBookBrdContent());
-			pstmt.setString(6, bVo.getBookBrdNum());
+			pstmt.setString(6, bVo.getImgPath());
+			pstmt.setString(7, bVo.getBookBrdNum());
 			
-			pstmt.executeUpdate();
+			
+			int flag = pstmt.executeUpdate();
+            if(flag > 0){
+                result = true;
+                conn.commit(); // 완료시 커밋
+            }
+			
 		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			DBManager.close(conn, pstmt);
-		}
-
+			try {
+                conn.rollback(); // 오류시 롤백
+            } catch (SQLException sqle) {
+                sqle.printStackTrace();
+            }
+            throw new RuntimeException(e.getMessage());
+        }
+		
+		DBManager.close(conn, pstmt);
+		return result;
 	}
+	
+	
+	
+	
+	
+	
+	
+//	public void updateAdminTodayBook(BookBoardVO bVo) {
+//		String sql = "update itbook.book_board set bookBrdTitle=?,bookTitle=?,writer=?,publisher=?,bookBrdContent=?,imgPath=? where bookBrdNum=?";
+//
+//		Connection conn = null;
+//		PreparedStatement pstmt = null;
+//		try {
+//			conn = DBManager.getConnection();
+//
+//			pstmt = conn.prepareStatement(sql);
+//
+//			pstmt.setString(1, bVo.getBookBrdTitle());
+//			pstmt.setString(2, bVo.getBookTitle());
+//			pstmt.setString(3, bVo.getWriter());
+//			pstmt.setString(4, bVo.getPublisher());
+//			pstmt.setString(5, bVo.getBookBrdContent());
+//			pstmt.setString(6, bVo.getBookBrdNum());
+//			pstmt.setString(7, bVo.getImgPath());
+//			
+//			
+//			pstmt.executeUpdate();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			DBManager.close(conn, pstmt);
+//		}
+//
+//	}
 
 	//이달의 책 상세보기
 	public BookBoardVO selectOneBookBrdNum(String bookBrdNum) {
@@ -608,29 +671,28 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 		}
 
 	}
-	
+
 	//관리자 책 리스트 삭제
-	public void bookDelete(BookVO bVO) {
-		String sql = "delete from itbook.book where bookNum=?";
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		try {
-			conn = DBManager.getConnection();
-
-			pstmt = conn.prepareStatement(sql);
-
-			pstmt.setString(1, bVO.getBookNum());
+		public void bookDelete(BookVO bVO) {
+			String sql = "delete from itbook.book where bookNum=?";
 			
-			pstmt.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			DBManager.close(conn, pstmt);
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			try {
+				conn = DBManager.getConnection();
+
+				pstmt = conn.prepareStatement(sql);
+
+				pstmt.setString(1, bVO.getBookNum());
+				
+				pstmt.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt);
+			}
+
 		}
-
-	}
-
 
 
 	//책 리스트 총 게시글 수 보기
@@ -685,10 +747,9 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
             conn = DBManager.getConnection();
             pstmt = conn.prepareStatement(sql);
             
-            //
-            pstmt.setInt(1, ((paging.getPageNum() - 1) * paging.getPerPage()));
             
-            //+1로 되어있으면 등록할때 바로 안보임.
+            pstmt.setInt(1, ((paging.getPageNum() - 1) * paging.getPerPage()));
+//			  +1로 되어있으면 등록할때 바로 안보임.
 //            pstmt.setInt(1, ((paging.getPageNum() - 1) * paging.getPerPage()) + 1);
 //            pstmt.setInt(1, ((paging.getLastPage())));
             
