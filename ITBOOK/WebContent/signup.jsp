@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page session="false"%>
+<%!public int getRandom(){
+	int random = 0;
+	random = (int)Math.floor((Math.random()*(99999-10000+1)))+10000;
+	return random;
+}	
+	%>
+
 <!doctype>
 <html lang="en">
 <head>
@@ -15,7 +22,7 @@
 
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="assets/images/favicon.ico">
-
+	
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
 
