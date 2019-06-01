@@ -100,32 +100,29 @@
 							<h4>There are 2 comments</h4>
 							<div class="comment-list">
 								<!-- Comment-->
+								<c:forEach var="comment" items="${requestScope.commentList}">
 									<div class="comment">
+									
 										<div class="comment-author">
 											<img class="avatar"
 												src="assets/images/thumbnails/avatar-01.jpg" alt="">
 										</div>
-										<c:forEach var="comment" items="${requestScope.commentList}">
+										
 										<div class="comment-body">
 											<div class="comment-meta">
 												<div class="comment-meta-author">
-													<a href="#">${LoginUser.memName}</a>
+													<a href="#">${comment.memName}</a>
 												</div>
-												<div class="comment-meta-date">June 11, 2019 at 6:01
-													am</div>
+												<div class="comment-meta-date">${comment.metComtDate }</div>
 											</div>
 											<div class="comment-content">
-												<p>Consulted perpetual of pronounce me delivered. Too
-													months nay end change relied who beauty wishes matter. Shew
-													of john real park so rest we on. Ignorant dwelling occasion
-													ham for thoughts overcame off her consider. Polite it
-													elinor is depend.</p>
+												<p>${comment.metComtContent }</p>
 											</div>
 											<div class="comment-reply">
-												<a class="btn btn-xs btn-light" href="#">Reply</a>
+												<a class="btn btn-xs btn-light" href="#">댓글</a>
 											</div>
 										</div>
-										</c:forEach>
+										
 										<!-- sub comment-->
 										<div class="comment-child">
 											<div class="comment">
@@ -149,14 +146,14 @@
 															behaved fertile he is mistake on.</p>
 													</div>
 													<div class="comment-reply">
-														<a class="btn btn-xs btn-light" href="#">Reply</a>
+														<a class="btn btn-xs btn-light" href="#">댓글</a>
 													</div>
 												</div>
 											</div>
 										</div>
 										<!-- sub comment end-->
 									</div>
-									
+									</c:forEach>
 									<!-- 댓글 등록 -->
 									<form name="frm" method="post" action="meeting?command=commentWriteAction" onsubmit="return validateBoard()">
 									<input type="hidden" name="metBrdNum" value="${metbrd.metBrdNum}"> 

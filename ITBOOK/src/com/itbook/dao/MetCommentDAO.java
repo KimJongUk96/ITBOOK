@@ -65,71 +65,69 @@ public class MetCommentDAO {
         return result;    
     } // end boardInsert();    
     
-// // 댓글 목록 가져오기
-//    public ArrayList<MetCommentVO> getCommentList(String metBrdNum)
-//    {
-//        ArrayList<MetCommentVO> list = new ArrayList<MetCommentVO>();
-//        Connection conn = null;
-//		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-//        
-//        try {
-//            conn = DBManager.getConnection();
-//            
-//            /* 댓글의 페이지 처리를 하고싶다면 이 쿼리를 사용하면 된다.
-//             * SELECT * FROM
-//             *            (SELECT  ROWNUM AS rnum,
-//             *                   data.*
-//             *             FROM
-//             *                   (SELECT LEVEL,
-//             *                           COMMENT_NUM,
-//             *                             COMMENT_BOARD,
-//             *                           COMMENT_ID,
-//             *                           COMMENT_DATE,
-//             *                           COMMENT_PARENT,
-//             *                           COMMENT_CONTENT
-//             *                    FROM BOARD_COMMENT
-//             *                    WHERE COMMENT_BOARD = ?
-//             *                   START WITH COMMENT_PARENT = 0
-//             *                   CONNECT BY PRIOR COMMENT_NUM = COMMENT_PARENT) 
-//             *              data)
-//             *    WHERE rnum>=? and rnum<=? ;
-//             */
-//            
-//            StringBuffer sql = new StringBuffer();
-//            sql.append("    SELECT LEVEL, COMMENT_NUM, COMMENT_BOARD,");
-//            sql.append("            COMMENT_ID, COMMENT_DATE,");
-//            sql.append("            COMMENT_PARENT, COMMENT_CONTENT");
-//            sql.append("    FROM BOARD_COMMENT");
-//            sql.append("    WHERE COMMENT_BOARD = ?");
-//            sql.append("    START WITH COMMENT_PARENT = 0");
-//            sql.append("    CONNECT BY PRIOR COMMENT_NUM = COMMENT_PARENT");         
-//            
-//            pstmt = conn.prepareStatement(sql.toString());
-//            pstmt.setInt(1, metBrdNum);
-//            
-//            rs = pstmt.executeQuery();
-//            while(rs.next())
-//            {
-//                CommentBean comment = new CommentBean();
-//                comment.setComment_level(rs.getInt("LEVEL"));
-//                comment.setComment_num(rs.getInt("COMMENT_NUM"));
-//                comment.setComment_board(rs.getInt("COMMENT_BOARD"));
-//                comment.setComment_id(rs.getString("COMMENT_ID"));
-//                comment.setComment_date(rs.getDate("COMMENT_DATE"));
-//                comment.setComment_parent(rs.getInt("COMMENT_PARENT"));
-//                comment.setComment_content(rs.getString("COMMENT_CONTENT"));
-//                list.add(comment);
-//            }
-//                
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            throw new RuntimeException(e.getMessage());
-//        }
-//        
-//        close();
-//        return list;
-//    } // end getCommentList
+ // 댓글 목록 가져오기
+    public ArrayList<MetCommentVO> getCommentList(String metBrdNum)
+    {
+        ArrayList<MetCommentVO> list = new ArrayList<MetCommentVO>();
+        Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+        
+        try {
+            conn = DBManager.getConnection();
+            
+            /* 댓글의 페이지 처리를 하고싶다면 이 쿼리를 사용하면 된다.
+             * SELECT * FROM
+             *            (SELECT  ROWNUM AS rnum,
+             *                   data.*
+             *             FROM
+             *                   (SELECT LEVEL,
+             *                           COMMENT_NUM,
+             *                             COMMENT_BOARD,
+             *                           COMMENT_ID,
+             *                           COMMENT_DATE,
+             *                           COMMENT_PARENT,
+             *                           COMMENT_CONTENT
+             *                    FROM BOARD_COMMENT
+             *                    WHERE COMMENT_BOARD = ?
+             *                   START WITH COMMENT_PARENT = 0
+             *                   CONNECT BY PRIOR COMMENT_NUM = COMMENT_PARENT) 
+             *              data)
+             *    WHERE rnum>=? and rnum<=? ;
+             */
+            
+            StringBuffer sql = new StringBuffer();
+            sql.append("    select m.metComtNum, m.metComtContent, m.metComtDate,");
+            sql.append("           m.metBrdNum, m.memNum, b.memName ");
+            sql.append("    from met_comment m, member b");
+            sql.append("    where m.memNum = b.memNum and m.metBrdNum = ?");
+            
+            pstmt = conn.prepareStatement(sql.toString());
+            pstmt.setString(1, metBrdNum);
+            
+            rs = pstmt.executeQuery();
+            while(rs.next())
+            {
+            	MetCommentVO comment = new MetCommentVO();
+                comment.setMetComtNum(rs.getString("metComtNum"));
+                comment.setMetComtContent(rs.getString("metComtContent"));
+                comment.setMetBrdNum(rs.getString("metBrdNum"));
+                comment.setMetComtDate(rs.getDate("metComtDate"));
+                comment.setMemNum(rs.getString("memNum"));
+                comment.setMemName(rs.getString("memName"));
+                
+                
+                list.add(comment);
+            }
+                
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e.getMessage());
+        }
+        
+        DBManager.close(conn, pstmt, rs);
+        return list;
+    } // end getCommentList
 
 
 
