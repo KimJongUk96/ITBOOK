@@ -24,7 +24,7 @@ public class NoticeVO {
 	private int noticeCount;
 	private String memNum;
 	private String noticeFile;
-	
+	private String noticeCategory;
 	public String getNoticeNum() {
 		return noticeNum;
 	}
@@ -67,13 +67,20 @@ public class NoticeVO {
 	public void setNoticeFile(String noticeFile) {
 		this.noticeFile = noticeFile;
 	}
-	
+	public String getNoticeCategory() {
+		return noticeCategory;
+	}
+	public void setNoticeCategory(String noticeCategory) {
+		this.noticeCategory = noticeCategory;
+	}
 	@Override
 	public String toString() {
 		return "NoticeVO [noticeNum=" + noticeNum + ", noticeTitle=" + noticeTitle + ", noticeContent=" + noticeContent
 				+ ", noticeDate=" + noticeDate + ", noticeCount=" + noticeCount + ", memNum=" + memNum + ", noticeFile="
-				+ noticeFile + "]";
+				+ noticeFile + ", noticeCategory=" + noticeCategory + "]";
 	}
+	
+	
 	
 	
 	

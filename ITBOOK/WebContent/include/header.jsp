@@ -208,7 +208,7 @@
                      <a class="nav-link dropdown-toggle" href="#" id="blogMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">독서 생태계</a>
                      <ul class="dropdown-menu" aria-labelledby="blogMenu">
                         <li class="dropdown-submenu">
-                           <a class="dropdown-item" href="#">운영게시판</a>
+                           <a class="dropdown-item" href="/notice?command=noticeListFormAction">운영게시판</a>
                          <!--   <ul class="dropdown-menu">
                               <li> <a class="dropdown-item" href="blog-classic.html">Full Width</a> </li>
                               <li> <a class="dropdown-item" href="blog-classic-left-sidebar.html">Left Sidebar</a> </li>

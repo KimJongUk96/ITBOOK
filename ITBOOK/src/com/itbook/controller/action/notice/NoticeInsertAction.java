@@ -48,6 +48,7 @@ public class NoticeInsertAction implements Action {
             
             nVo.setNoticeTitle(multi.getParameter("noticeTitle"));
             nVo.setNoticeContent(multi.getParameter("noticeContent"));
+            nVo.setNoticeCategory(multi.getParameter("noticeCategory"));
             nVo.setNoticeFile(multi.getFilesystemName("noticeFile"));
             
             boolean result = nDao.insertNotice(nVo);
