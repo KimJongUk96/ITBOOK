@@ -5,9 +5,23 @@ public class BookstoreVO {
 	private String bookstoreTitle;
 	private String bookstoreContent;
 	private String bookstoreUrl;
+	//memNum추가
+	private String memNum;
 	
 	
 	
+	public String getMemNum() {
+		return memNum;
+	}
+
+
+
+	public void setMemNum(String memNum) {
+		this.memNum = memNum;
+	}
+
+
+
 	public String getBookstoreNum() {
 		return bookstoreNum;
 	}
@@ -59,8 +73,13 @@ public class BookstoreVO {
 	@Override
 	public String toString() {
 		return "BookstoreVO [bookstoreNum=" + bookstoreNum + ", bookstoreTitle=" + bookstoreTitle
-				+ ", bookstoreContent=" + bookstoreContent + ", bookstoreUrl=" + bookstoreUrl + "]";
+				+ ", bookstoreContent=" + bookstoreContent + ", bookstoreUrl=" + bookstoreUrl + ", memNum=" + memNum
+				+ "]";
 	}
+
+
+
+	
 	
 	
 }

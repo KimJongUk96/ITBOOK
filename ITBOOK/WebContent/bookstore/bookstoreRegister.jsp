@@ -65,35 +65,26 @@
       <div class="container">
          <div class="row">
             <div class="col-md-4">
-	<form name ="frm" method ="post" action="book">
-	<input type = "hidden" name = "command" value="bookRegister">
-    <input type ="hidden" name = "memNum" value = "${LoginUser.memNum}">
+	<form name ="frm" method ="post" action="bookstore">
+	<input type = "hidden" name = "command" value="bookstoreRegister">
+    <%-- <input type ="hidden" name = "memNum" value = "${LoginUser.memNum}"> --%>
                <div class="form-group">
-                  <label>제목</label> <input class="form-control" type="text" name = "bookTitle"
-                     placeholder="* 제목을 입력하세요.">
+                  <label>제목</label> <input class="form-control" type="text" name = "bookstoreTitle"
+                     placeholder="* 책방을 입력하세요.">
                </div>
                
                <div class="form-group">
-                  <label>저자</label> <input class="form-control" type="text" name = "writer"
-                     placeholder="* 저자를 입력하세요.">
+                  <label>URL</label> <input class="form-control" type="text" name = "bookstoreUrl"
+                     placeholder="URL을 입력하세요.">
                </div>
                
                <div class="form-group">
-                  <label>키워드</label> <input class="form-control" type="text" name = "bookKeyword1"
-                     placeholder="* 키워드를 입력하세요.">
-                     <input class="form-control" type="text" name = "bookKeyword2"
-                     placeholder="* 키워드를 입력하세요.">
-                     <input class="form-control" type="text" name = "bookKeyword3"
-                     placeholder="* 키워드를 입력하세요.">
-               </div>
-               
-               <div class="form-group">
-                  <label>출판사</label> <input class="form-control" type="text" name = "publisher"
-                     placeholder="* 출판사를 입력하세요.">
+                  <label>책방주소</label> <input class="form-control" type="text" name = "bookstoreContent"
+                     placeholder="주소을 입력하세요.">
                </div>
                
                <button type ="submit" class ="btn btn-success" ><i class="fa fa-check-circle-o"></i>등록하기</button>
-               <button type = "button" class="btn btn-warning" onclick="location.href='book?command=bookList'">
+               <button type = "button" class="btn btn-warning" onclick="location.href='bookstore?command=bookstoreList'">
                <i class="fa  fa-close"></i>취소하기</button>
          </form>
             </div>

@@ -60,10 +60,8 @@
 
 	<section class="service">
 
-		<form name="frm" method="post" action="bookstore?command=bookstoreRegisterForm">
 			<!-- <div class="col-md-12"> -->
 				
-
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-md-center mt-5 mb-4">
@@ -74,7 +72,7 @@
 							
 
 						</div>
-						<a href="report?command=Report_Reg_Form">
+						<a href="">
 						</a>
 						
 					</div>
@@ -100,20 +98,16 @@
 										${reportList.reportTitle}</a> --%>
 								</h3>
 								<p class="feature-box-desc">${bookstoreList.bookstoreUrl}</p>
+								<p class="feature-box-desc">${bookstoreList.bookstoreContent}</p>
 							</div>
-							${bookstoreList.bookstoreContent}
 						</div>
 					</c:forEach>
-					
-					<button type="button" class="btn btn-outline-primary">
-								<i class="fa fa-check-circle-o"></i>등록하기</button>
 				</div>
 			</div>
-		</form>
 
 	</section>
 	<!-- 페이징 처리 -->
-	<section class="pt-0">
+	<%-- <section class="pt-0">
       <div class="container">
          <div class="row justify-content-center">
             <div class="col-md-8">
@@ -150,7 +144,7 @@
             </div>
          </div>
       </div>
-   </section>  
+   </section>   --%>
 
 	<%@ include file="../include/footer.jsp"%>
 </body>
