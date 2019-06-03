@@ -81,8 +81,8 @@ public class NoticeDAO {
 			
 			StringBuffer sql = new StringBuffer();
 			
-			sql.append("insert into notice(noticeTitle, noticeContent, noticeFile, noticeCount, noticeDate)");
-			sql.append("values( ?, ?, ?, ?, sysdate())");
+			sql.append("insert into notice(noticeTitle, noticeContent, noticeFile, noticeCount, noticeDate, noticeCategory)");
+			sql.append("values( ?, ?, ?, ?, sysdate(), ?)");
 			
 
 			pstmt = conn.prepareStatement(sql.toString());
@@ -91,6 +91,7 @@ public class NoticeDAO {
 			pstmt.setString(2, nVo.getNoticeContent());
 			pstmt.setString(3, nVo.getNoticeFile());
 			pstmt.setInt(4, nVo.getNoticeCount());
+			pstmt.setString(5, nVo.getNoticeCategory());
 			
 			int flag = pstmt.executeUpdate();
 			
@@ -169,6 +170,7 @@ public class NoticeDAO {
 					nVo.setNoticeDate(rs.getDate("noticeDate"));
 					nVo.setNoticeCount(rs.getInt("noticeCount"));
 					nVo.setNoticeFile(rs.getString("noticeFile"));
+					nVo.setNoticeCategory(rs.getString("noticeCategory"));
 					
 					list.add(nVo);
 				}
@@ -271,6 +273,7 @@ public class NoticeDAO {
 				nVo.setNoticeContent(rs.getString("noticeContent"));
 				nVo.setNoticeCount(rs.getInt("noticeCount"));
 				nVo.setNoticeFile(rs.getString("noticeFile"));
+				nVo.setNoticeCategory(rs.getString("noticeCategory"));
 				
 			}
 			

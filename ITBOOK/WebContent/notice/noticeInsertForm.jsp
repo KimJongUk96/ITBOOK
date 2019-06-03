@@ -64,8 +64,52 @@
 		<div class="container">
 		 <form name="frm" action="/notice?command=noticeInsertAction" method="post" onsubmit="return validateGalBoard()" enctype="multipart/form-data">
 		<input type="hidden" name="memNum" value="${list.memNum}">
-		<table class="table table-bordered">
+		<!-- Comment-respond -->
+							<div class="row mt-5">
+								<div class="col-md-12">
+									<h2 class="mb-2">글쓰기</h2>
+								</div>
+								<div class="col-md-2">
+								<select class="custom-select select-big mb-3" name="noticeCategory">
+									<option value="공지">공지</option>
+									<option value="일반">일반</option>
+									<option value="행사 및 세미나">행사 및 세미나</option>
+									<option value="자료">자료</option>
+								</select>
+								</div>
+								<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="제목"></span></div>
+								<!-- <div class="col-md-6"><span class="form-group"><input type="email" class="form-control" placeholder="E-mail"></span></div> -->
+								<div class="col-md-12" style="min-height:480px;"><span class="form-group"><textarea cols="40" rows="20" class="form-control" placeholder="Message"></textarea></span></div>
+								
+								<!-- 첨부파일 시작 -->
+								<div class="col-md-12">
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text">Upload</span>
+										</div>
+										<div class="custom-file">
+											<input type="file" class="custom-file-input" id="inputGroupFile01">
+											<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-md-2 text-center"><button class="btn-block btn btn-dark">Post Comment</button></div>
+								
+							</div>
+		<%-- <table class="table table-bordered">
    	 	<tbody>
+   	 		<tr>
+   	 			<th>
+	   	 			<select name="noticeCategory">
+						<option value="공지">공지</option>
+						<option value="일반">일반</option>
+						<option value="행사 및 세미나">행사 및 세미나</option>
+						<option value="자료">자료</option>
+					</select>
+				</th>
+								
+			</tr>
    	    
             <tr>
                 <th>제목: </th>
@@ -88,13 +132,13 @@
                 <td colspan="2">
                     <input type="submit" value="등록" class="pull-right" onclick="return noticeCheck()" >
                     <input type="reset" value="취소" onclick="location.href='/notice?command=noticeListFormAction'" class="pull-left"/>
-                    <input type="button" value="목록 " class="pull-right" onclick="location.href='/notice?command=noticeListFormAction'"/>
+                    <input type="button" value="돌아가기 " class="pull-right" onclick="location.href='/notice?command=noticeListFormAction'"/>
                     
                 </td>
             </tr>
      
     	</tbody>
-			</table>
+			</table> --%>
 			   </form>
 		</div>
 		

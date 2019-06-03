@@ -208,7 +208,7 @@
                      <a class="nav-link dropdown-toggle" href="#" id="blogMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">독서 생태계</a>
                      <ul class="dropdown-menu" aria-labelledby="blogMenu">
                         <li class="dropdown-submenu">
-                           <a class="dropdown-item" href="#">운영게시판</a>
+                           <a class="dropdown-item" href="/notice?command=noticeListFormAction">운영게시판</a>
                          <!--   <ul class="dropdown-menu">
                               <li> <a class="dropdown-item" href="blog-classic.html">Full Width</a> </li>
                               <li> <a class="dropdown-item" href="blog-classic-left-sidebar.html">Left Sidebar</a> </li>
@@ -216,7 +216,7 @@
                            </ul> -->
                         </li>
                         <li class="dropdown-submenu">
-                           <a class="dropdown-item" href="#">독후감</a>
+                           <a class="dropdown-item" href="/book?command=bookList">독후감</a>
                           <!--  <ul class="dropdown-menu">
                               <li> <a class="dropdown-item" href="/book?command=bookList">Three column</a> </li>
                               <li> <a class="dropdown-item" href="blog-grid-column-4.html">Four column</a> </li>
@@ -265,13 +265,13 @@
                   <li class="nav-item dropdown">
                   <!-- 관리자로 로그인을 했을 시 이달의 책 등록-->
                         <c:if test = "${LoginUser.authority eq 3}">
-                     <a class="nav-link" href="/book?command=adminTodayBookList" id="portfolioMenu"  aria-haspopup="true" aria-expanded="false">이달의 책</a>
-                     </c:if>
+                   			<li><a class="nav-link" href="/book?command=adminTodayBookList" id="portfolioMenu"  aria-haspopup="true" aria-expanded="false">이달의 책</a></li>
+                     	</c:if>
                      
-                      <!-- 사용자로 로그인을 했을 시 이달의 책 등록-->
-                              <c:if test = "${LoginUser.authority ne 3}">
-                  <li><a class="nav-link" href="/book?command=todayBookList"  id="portfolioMenu"  aria-haspopup="true" aria-expanded="false">이달의 책</a></li>
-                  </c:if>
+                  <!-- 사용자로 로그인을 했을 시 이달의 책 등록-->
+                        <c:if test = "${LoginUser.authority ne 3}">
+                 			 <li><a class="nav-link" href="/book?command=todayBookList"  id="portfolioMenu"  aria-haspopup="true" aria-expanded="false">이달의 책</a></li>
+                  		</c:if>
                      
                      <%-- <ul class="dropdown-menu" aria-labelledby="portfolioMenu">
                         <li> <a class="dropdown-item" href="/notice?command=noticeListFormAction">운영 게시판</a> </li>

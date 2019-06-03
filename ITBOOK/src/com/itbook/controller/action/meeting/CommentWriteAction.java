@@ -33,7 +33,7 @@ public class CommentWriteAction implements Action {
         if(result){
             response.setContentType("text/html;charset=euc-kr");
             PrintWriter out = response.getWriter();
-            out.println("1");
+            new MetBoardViewAction().execute(request, response);
             out.close();
         }
             

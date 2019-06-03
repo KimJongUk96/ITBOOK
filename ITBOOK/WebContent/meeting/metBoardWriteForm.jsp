@@ -88,7 +88,7 @@
                 <td colspan="2">
                     <input type="submit" value="등록" class="pull-right" onclick="return noticeCheck()" >
                     <input type="reset" value="취소" onclick="location.href='/meeting?command=metBoardListFormAction'" class="pull-left"/>
-                    <input type="button" value="목록 " class="pull-right" onclick="location.href='/notice?command=noticeListFormAction'"/>
+                    <input type="button" value="돌아가기 " class="pull-right" onclick="location.href='/meeting?command=metBoardListFormAction'"/>
                     
                 </td>
             </tr>
