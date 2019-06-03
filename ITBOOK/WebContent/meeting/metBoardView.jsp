@@ -187,7 +187,7 @@ function deleteCmt(metComtNum)
 									</form>
 										
 										<!-- sub comment-->
-										<div class="comment-child">
+										<!-- <div class="comment-child">
 											<div class="comment">
 												<div class="comment-author">
 													<img class="avatar"
@@ -213,7 +213,7 @@ function deleteCmt(metComtNum)
 													</div>
 												</div>
 											</div>
-										</div>
+										</div> -->
 										<!-- sub comment end-->
 									</div>
 									</c:forEach>
