@@ -4,11 +4,12 @@ package com.itbook.vo.Meeting;
  * 독서모임번호
  * 독서모임명
  * 독서모임인사말
- * 독서모임인트로
+ * 독서모임소개
  * 대표자명
- * 키워드
- * 모임개설일
- * 모임인원수
+ * 활동지역
+ * 활동주제
+ * 개설일자
+ * 회원수
  *
  */
 
@@ -20,9 +21,11 @@ public class MeetingVO {
 	private String metGreeting;
 	private String metIntro;
 	private String represent;
+	private String metPlace;
 	private String keyword;
 	private Date metDate;
 	private int headCount;
+	
 	
 	public String getMetNum() {
 		return metNum;
@@ -54,6 +57,12 @@ public class MeetingVO {
 	public void setRepresent(String represent) {
 		this.represent = represent;
 	}
+	public String getMetPlace() {
+		return metPlace;
+	}
+	public void setMetPlace(String metPlace) {
+		this.metPlace = metPlace;
+	}
 	public String getKeyword() {
 		return keyword;
 	}
@@ -76,10 +85,8 @@ public class MeetingVO {
 	@Override
 	public String toString() {
 		return "MeetingVO [metNum=" + metNum + ", metName=" + metName + ", metGreeting=" + metGreeting + ", metIntro="
-				+ metIntro + ", represent=" + represent + ", keyword=" + keyword + ", metDate=" + metDate
-				+ ", headCount=" + headCount + "]";
+				+ metIntro + ", represent=" + represent + ", metPlace=" + metPlace + ", keyword=" + keyword
+				+ ", metDate=" + metDate + ", headCount=" + headCount + "]";
 	}
-	
-	
 	
 }

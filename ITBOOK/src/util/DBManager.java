@@ -4,10 +4,10 @@ import java.sql.*;
 
 
 /**
- * JDBC 연결과 해제를 쉽게 진행하기 위하여 
- * getConnection(), close() 등의 메소드를 지원하는 클래스
+ * JDBC �곌껐怨� �댁��瑜� �쎄� 吏�����湲� ������ 
+ * getConnection(), close() �깆�� 硫�����瑜� 吏������� �대����
  * 
- * @author 정민
+ * @author ��誘�
  *
  */
 
@@ -30,7 +30,7 @@ public class DBManager {
 			Class.forName(driver);
 			
 			Connection conn = DriverManager.getConnection(url, username, password);
-			System.out.println("DB접속 : " + conn);
+			System.out.println("DBManager : " + conn);
 
 			return conn;
 			
@@ -44,7 +44,7 @@ public class DBManager {
 			return null;
 		}
 	 /**
-	    * DQL(select)을 수행한 후 리소스 해제를 위한 메소드
+	    * DQL(select)�� ������ �� 由ъ���� �댁��瑜� ���� 硫�����
 	    * 
 	    * @param conn
 	    * @param stmt
@@ -61,7 +61,7 @@ public class DBManager {
 	   }
 	   
 	   /**
-	    * DML(insert, update, delete)을 수행한 후 리소스 해제를 위한 메소드
+	    * DML(insert, update, delete)�� ������ �� 由ъ���� �댁��瑜� ���� 硫�����
 	    * 
 	    * @param conn
 	    * @param stmt

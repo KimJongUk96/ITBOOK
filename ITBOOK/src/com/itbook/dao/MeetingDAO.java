@@ -41,7 +41,8 @@ public class MeetingDAO {
 				/* + "         ,keword" */
 				+ "         ,metDate"
 				+ "         ,headCount"
-				+ "	  FROM itbook.meeting";
+				+ "	  FROM itbook.meeting"
+				+ "   ORDER BY metDate DESC";
 		
 		List<MeetingVO> list = new ArrayList<MeetingVO>();
 		Connection conn = null;
@@ -168,5 +169,16 @@ public class MeetingDAO {
 			DBManager.close(conn, pstmt, rs);
 		}
 		return mVo;
+	}
+	
+	//독서모임 수정
+	public void updateMeeting(MeetingVO mVo) {
+		
+		String sql = "UPDATE itbook.meeting"
+				+ " SET metIntro= ?"
+				+ ",	metGreeting= ?"
+				+ ",	metPlace=?"
+				+ ",	keyword=?"
+				+ " WHERE metNum = ?";
 	}
 }

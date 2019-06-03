@@ -62,8 +62,8 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">독서모임 신청</h1>
-					<h6 class="subtitle">나만의 독서모임 신청하기</h6>
+					<h1 class="innerpage-title">독서모임 수정</h1>
+					<h6 class="subtitle">나만의 독서모임 수정하기</h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="/index.jsp"><i class="ti-home"></i> Home</a></li>
