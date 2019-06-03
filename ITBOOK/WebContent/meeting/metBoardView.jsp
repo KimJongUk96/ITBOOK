@@ -33,6 +33,64 @@
 <!-- Theme CSS -->
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
 
+ <script type="text/javascript">
+ 
+ // httpRequest 객체 생성
+ function getXMLHttpRequest(){
+     var httpRequest = null;
+ 
+     if(window.ActiveXObject){
+         try{
+             httpRequest = new ActiveXObject("Msxml2.XMLHTTP");    
+         } catch(e) {
+             try{
+                 httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+             } catch (e2) { httpRequest = null; }
+         }
+     }
+     else if(window.XMLHttpRequest){
+         httpRequest = new window.XMLHttpRequest();
+     }
+     return httpRequest;    
+ }
+
+function checkFunc(){
+    if(httpRequest.readyState == 4){
+        // 결과값을 가져온다.
+        var resultText = httpRequest.responseText;
+        if(resultText == 1){ 
+            document.location.reload(); // 상세보기 창 새로고침
+        }
+    }
+}
+
+// 댓글 삭제창
+function cmDeleteOpen(metComtNum){
+    var msg = confirm("댓글을 삭제합니다.");    
+    if(msg == true){ // 확인을 누를경우
+        location.reload();
+    }
+    else{
+        return false; // 삭제취소
+    }
+}
+
+
+// 댓글 삭제
+function deleteCmt(metComtNum)
+{
+    var param="metComtNum="+metComtNum;
+    
+    httpRequest = getXMLHttpRequest();
+    httpRequest.onreadystatechange = checkFunc;
+    httpRequest.open("POST", "com.itbook.controller.action.meeting.CommentDeleteAction", true);    
+    httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=EUC-KR'); 
+    httpRequest.send(param);
+}
+
+
+</script>
+
 </head>
 
 <body>
@@ -102,7 +160,9 @@
 								<!-- Comment-->
 								<c:forEach var="comment" items="${requestScope.commentList}">
 									<div class="comment">
-									
+										<form name="frm" method="post"	action="/meeting?command=commentDeleteAction">
+											<input type="hidden" name="metBrdNum" value="${metbrd.metBrdNum }">
+											<input type="hidden" name="metComtNum" value="${comment.metComtNum}">
 										<div class="comment-author">
 											<img class="avatar"
 												src="assets/images/thumbnails/avatar-01.jpg" alt="">
@@ -120,8 +180,11 @@
 											</div>
 											<div class="comment-reply">
 												<a class="btn btn-xs btn-light" href="#">댓글</a>
+												<input type="submit" value="삭제" class="btn btn-xs btn-light">
+												 
 											</div>
 										</div>
+									</form>
 										
 										<!-- sub comment-->
 										<div class="comment-child">
@@ -154,6 +217,7 @@
 										<!-- sub comment end-->
 									</div>
 									</c:forEach>
+									
 									<!-- 댓글 등록 -->
 									<form name="frm" method="post" action="meeting?command=commentWriteAction" onsubmit="return validateBoard()">
 									<input type="hidden" name="metBrdNum" value="${metbrd.metBrdNum}"> 

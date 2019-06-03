@@ -128,6 +128,45 @@ public class MetCommentDAO {
         DBManager.close(conn, pstmt, rs);
         return list;
     } // end getCommentList
+    
+    //댓글 삭제
+    public boolean deleteComment(String metComtNum) 
+    {
+        boolean result = false;
+        
+        Connection conn = null;
+		PreparedStatement pstmt = null;
+ 
+        try {
+            conn = DBManager.getConnection();
+            conn.setAutoCommit(false); // 자동 커밋을 false로 한다.
+ 
+            StringBuffer sql = new StringBuffer();
+            sql.append("DELETE FROM met_comment");
+            sql.append(" WHERE metComtNum = ? ");
+            
+            pstmt = conn.prepareStatement(sql.toString());
+            pstmt.setString(1, metComtNum);
+            
+            int flag = pstmt.executeUpdate();
+            if(flag > 0){
+                result = true;
+                conn.commit(); // 완료시 커밋
+            }    
+            
+        } catch (Exception e) {
+            try {
+                conn.rollback(); // 오류시 롤백
+            } catch (SQLException sqle) {
+                sqle.printStackTrace();
+            }
+            throw new RuntimeException(e.getMessage());
+        }
+ 
+        DBManager.close(conn, pstmt);
+        return result;
+    } // end deleteComment  
+
 
 
 
