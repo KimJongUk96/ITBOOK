@@ -18,6 +18,13 @@ public class MetCommentVO {
 	private Date metComtDate;
 	private String metBrdNum;
 	private String memNum;
+	private String memName;
+	public String getMemName() {
+		return memName;
+	}
+	public void setMemName(String memName) {
+		this.memName = memName;
+	}
 	private String metComtParent;
 	public String getMetComtNum() {
 		return metComtNum;
@@ -58,8 +65,8 @@ public class MetCommentVO {
 	@Override
 	public String toString() {
 		return "MetCommentVO [metComtNum=" + metComtNum + ", metComtContent=" + metComtContent + ", metComtDate="
-				+ metComtDate + ", metBrdNum=" + metBrdNum + ", memNum=" + memNum + ", metComtParent=" + metComtParent
-				+ "]";
+				+ metComtDate + ", metBrdNum=" + metBrdNum + ", memNum=" + memNum + ", memName=" + memName
+				+ ", metComtParent=" + metComtParent + "]";
 	}
 	
 	

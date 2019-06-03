@@ -68,7 +68,8 @@
 							<li class="nav-filter active" data-filter="*">All Works</li>
 							<li class="nav-filter" data-filter=".공지">공지</li>
 							<li class="nav-filter" data-filter=".일반">일반</li>
-							<li class="nav-filter" data-filter=".photo">Photography</li>
+							<li class="nav-filter" data-filter=".행사 및 세미나">행사 및 세미나</li>
+							<li class="nav-filter" data-filter=".자료">자료</li>
 						</ul>
 					</div>
 					

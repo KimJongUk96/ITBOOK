@@ -11,6 +11,7 @@ import com.itbook.controller.action.admin.AdminNoticeListFormAction;
 import com.itbook.controller.action.admin.AdminReportDeleteAction;
 import com.itbook.controller.action.admin.AdminReportListForm;
 import com.itbook.controller.action.admin.AdminTodayBookListFormAction;
+import com.itbook.controller.action.admin.MailPopupForm;
 import com.itbook.controller.action.book.AdminTodayBookListAction;
 import com.itbook.controller.action.book.AdminTodayBookRegisterFormAction;
 
@@ -54,7 +55,10 @@ public class AdminActionFactory {
 		}else if(command.equals("senderEmailListFormAction")) {
 			action = new AdminMemberEmailListFormAction();
 			//독후감 리스트로 이동
-		}else if(command.equals("reportListForm")) {
+		}else if(command.equals("mailPopupForm")) {
+			action = new MailPopupForm();
+		}
+		else if(command.equals("reportListForm")) {
 			action = new AdminReportListForm();
 			//독후감 목록 삭제
 		}else if(command.equals("reportDelete")) {

@@ -1,4 +1,4 @@
-package com.itbook.controller.action.admin;
+package com.itbook.controller.action.member;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -18,15 +18,15 @@ import javax.servlet.http.HttpServletResponse;
 import com.itbook.controller.action.SendEmail;
 import com.itbook.vo.MemberVO;
 
-public class SendEmailAction implements SendEmail{
+public class SignUpEmailAction implements SendEmail{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, AddressException, MessagingException {
 		
-		String host = "smtp.gmail.com"; // GMAIL = "smtp.gmail.com"
+		String host = "smtp.naver.com"; // GMAIL = "smtp.gmail.com"
 		
 		final String username = "kofdlfma2574";  // 발신자 
-		final String password = "whddnr80lj"; // 비밀번호
+		final String password = "rlawhddnr80lj!@"; // 비밀번호
 		int port = 465; //포트번호 25(일반적인) 465(SSL) 587(TSL)
 		
 		String[] email = request.getParameterValues("email"); 
@@ -47,15 +47,16 @@ public class SendEmailAction implements SendEmail{
 		String recipient = Arrays.toString(email).replace(",","").replace("[","").replace("]",""); //수신자 배열로받아와서 []제거
 				
 		
-		
-		  String subject = request.getParameter("subject"); 
-		  String body = request.getParameter("body");
+		/*
+		 * String subject = request.getParameter("subject"); String body =
+		 * request.getParameter("body");
+		 */
 		 
 		
-/**		
+		
+		
 		String subject = "희망의책 입니다."; //제목 
 		String body = "기부회원을 유지하시려면 결제를 해주세요!";//내용
-		**/
 		 	 		
 		Properties props = System.getProperties(); 
 		
@@ -75,7 +76,7 @@ public class SendEmailAction implements SendEmail{
 		session.setDebug(true); // for debug 
 		
 		Message mimeMessage = new MimeMessage(session);
-		mimeMessage.setFrom(new InternetAddress("kofdlfma2574@gmail.com")); //발신자
+		mimeMessage.setFrom(new InternetAddress("kofdlfma2574@naver.com")); //발신자
 		mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));  //수신자
 		mimeMessage.setSubject(subject); //제목셋팅
 		System.out.println("subject : " + subject);
@@ -84,10 +85,9 @@ public class SendEmailAction implements SendEmail{
 		Transport.send(mimeMessage); //javax.mail.Transport.send() 이용 }
 		System.out.println("message sent successfully...");
 		
-		new AdminMemberEmailListFormAction().execute(request, response);
 
+		new InsertMemberAction().execute(request, response);
 	}
-
 
 }
 

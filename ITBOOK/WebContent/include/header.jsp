@@ -94,14 +94,14 @@
                   <!-- Top Account -->               
                   <div class="dropdown">
                <c:if test = "${LoginUser.authority eq 1 or LoginUser.authority eq 2}">
-                    <a class="dropdown-toggle" href="" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-user mr-2"></i>로그인 </a>
+                    <a class="dropdown-toggle" href="" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-user mr-2"></i>내정보 </a>
                     <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownAccount">
                       <a class="dropdown-item" href="member/myPage.jsp">내 정보</a>
                     </div>
                   </c:if>
                   
                   <c:if test = "${LoginUser.authority eq 3}">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-user mr-2"></i>Account </a>
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-user mr-2"></i>내정보 </a>
                     <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownAccount">
                       <a class="dropdown-item" href="member/myPage.jsp">내 정보</a>
                       <a class="dropdown-item" onclick="logout();">로그아웃</a>
@@ -110,7 +110,7 @@
                   </div> 
                   
                   <div class="dropdown">
-               <c:if test = "${LoginUser.authority ne 1 and LoginUser.authority ne 2 and LoginUser.authority ne 3}">                  
+               <c:if test = "${LoginUser.authority eq null}">                  
                     <a class="nav-link" href="login.jsp">로그인</a>
                   </c:if>
                   </div>
@@ -265,13 +265,13 @@
                   <li class="nav-item dropdown">
                   <!-- 관리자로 로그인을 했을 시 이달의 책 등록-->
                         <c:if test = "${LoginUser.authority eq 3}">
-                     <a class="nav-link" href="/book?command=adminTodayBookList" id="portfolioMenu"  aria-haspopup="true" aria-expanded="false">이달의 책</a>
-                     </c:if>
+                   			<li><a class="nav-link" href="/book?command=adminTodayBookList" id="portfolioMenu"  aria-haspopup="true" aria-expanded="false">이달의 책</a></li>
+                     	</c:if>
                      
-                      <!-- 사용자로 로그인을 했을 시 이달의 책 등록-->
-                              <c:if test = "${LoginUser.authority ne 3}">
-                  <li><a class="nav-link" href="/book?command=todayBookList"  id="portfolioMenu"  aria-haspopup="true" aria-expanded="false">이달의 책</a></li>
-                  </c:if>
+                  <!-- 사용자로 로그인을 했을 시 이달의 책 등록-->
+                        <c:if test = "${LoginUser.authority ne 3}">
+                 			 <li><a class="nav-link" href="/book?command=todayBookList"  id="portfolioMenu"  aria-haspopup="true" aria-expanded="false">이달의 책</a></li>
+                  		</c:if>
                      
                      <%-- <ul class="dropdown-menu" aria-labelledby="portfolioMenu">
                         <li> <a class="dropdown-item" href="/notice?command=noticeListFormAction">운영 게시판</a> </li>
