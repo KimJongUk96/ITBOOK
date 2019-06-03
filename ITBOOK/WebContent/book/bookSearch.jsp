@@ -144,6 +144,5 @@ function sendToParent(booknum, bookTitle, writer, publisher){
 }
 
 </script>   
-   <%@ include file="../include/footer.jsp"%>
 </body>
 </html>
