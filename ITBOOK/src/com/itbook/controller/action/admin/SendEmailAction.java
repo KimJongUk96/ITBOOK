@@ -23,10 +23,10 @@ public class SendEmailAction implements SendEmail{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, AddressException, MessagingException {
 		
-		String host = "smtp.naver.com"; // GMAIL = "smtp.gmail.com"
+		String host = "smtp.gmail.com"; // GMAIL = "smtp.gmail.com"
 		
 		final String username = "kofdlfma2574";  // 발신자 
-		final String password = "rlawhddnr80lj!@"; // 비밀번호
+		final String password = "whddnr80lj"; // 비밀번호
 		int port = 465; //포트번호 25(일반적인) 465(SSL) 587(TSL)
 		
 		String[] email = request.getParameterValues("email"); 
@@ -75,7 +75,7 @@ public class SendEmailAction implements SendEmail{
 		session.setDebug(true); // for debug 
 		
 		Message mimeMessage = new MimeMessage(session);
-		mimeMessage.setFrom(new InternetAddress("kofdlfma2574@naver.com")); //발신자
+		mimeMessage.setFrom(new InternetAddress("kofdlfma2574@gmail.com")); //발신자
 		mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));  //수신자
 		mimeMessage.setSubject(subject); //제목셋팅
 		System.out.println("subject : " + subject);
