@@ -27,7 +27,7 @@ public class ReportDAO {
 	// 독후감 조회
 	public List<ReportBoardVO> selectAllReports() {
 
-		String sql ="select r.reportNum,r.reportTitle,r.reportContent,r.reportCount,r.bookNum,r.memNum,m.memName from itbook.report_board r , itbook.member m where r.memNum = m.memNum order by ReportNum desc";
+		String sql ="select r.reportNum,r.reportTitle,r.reportContent,r.reportDate,r.reportCount,r.bookNum,r.memNum,m.memName from itbook.report_board r , itbook.member m where r.memNum = m.memNum order by ReportNum desc";
 
 
 		List<ReportBoardVO> list = new ArrayList<ReportBoardVO>();
@@ -46,6 +46,7 @@ public class ReportDAO {
 				rVo.setReportNum(rs.getString("reportNum"));
 				rVo.setReportTitle(rs.getString("reportTitle"));
 				rVo.setReportContent(rs.getString("reportContent"));
+				rVo.setReportDate(rs.getDate("reportDate"));
 				rVo.setReportCount(rs.getInt("reportCount"));
 				rVo.setBookNum(rs.getString("bookNum"));
 				rVo.setMemNum(rs.getString("memNum"));
@@ -63,7 +64,7 @@ public class ReportDAO {
 
 	// 독후감 등록하기
 	public void insertReport(ReportBoardVO rVo) {
-		String sql = "insert into itbook.report_board (reportTitle,reportContent,memNum,bookNum,writer,publisher) value (?,?,?,?,?,?)";
+		String sql = "insert into itbook.report_board (reportTitle,reportContent,reportCount,reportDate,memNum,bookNum,writer,publisher) value (?,?,?,sysdate(),?,?,?,?)";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -74,10 +75,11 @@ public class ReportDAO {
 
 			pstmt.setString(1, rVo.getReportTitle());
 			pstmt.setString(2, rVo.getReportContent());
-			pstmt.setString(3, rVo.getMemNum());
-			pstmt.setString(4, rVo.getBookNum());
-			pstmt.setString(5, rVo.getWriter());
-			pstmt.setString(6, rVo.getPublisher());
+			pstmt.setInt(3, 0);		
+			pstmt.setString(4, rVo.getMemNum());
+			pstmt.setString(5, rVo.getBookNum());
+			pstmt.setString(6, rVo.getWriter());
+			pstmt.setString(7, rVo.getPublisher());
 			
 			pstmt.executeUpdate();
 
@@ -129,16 +131,16 @@ public class ReportDAO {
 	}
 
 	// 독후감 조회수 올리기
-	public void updateReportCount(int ReportNum) {
-		String sql = "update itbook.report_board set ReportCount = ReportCount + 1 where ReportNum=?";
+	public void updateReportCount(String ReportNum) {
+		String sql = "update itbook.report_board set reportCount = reportCount+1 where reportNum=?";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, ReportNum);
-			pstmt.executeQuery();
+			pstmt.setString(1, ReportNum);
+			pstmt.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -150,7 +152,7 @@ public class ReportDAO {
 	// 독후감 게시글 수정하기
 	public void updateReport(ReportBoardVO rVo) {
 		String sql = "UPDATE itbook.report_board SET ReportTitle=?, ReportContent=? WHERE ReportNum=?";
-//		String sql = "UPDATE itbook.report_board SET ReportTitle=?, ReportContent=? WHERE bookNum=?";
+
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
@@ -192,6 +194,7 @@ public class ReportDAO {
 		}
 	}
 	
+	//admin delete
 	public void ReportDelete(ReportBoardVO rVO) {
 		String sql = "DELETE FROM ITBOOK.REPORT_BOARD WHERE REPORTNUM = ?";
 		
@@ -216,7 +219,7 @@ public class ReportDAO {
 	// 독후감 리스트 총 게시글 수 보기
 	public Paging selectReportRowCount(Paging paging) {
 		int cnt = 0;
-		String sql = "SELECT COUNT(*) CNT" + "     FROM itbook.report_board";
+		String sql = "SELECT COUNT(*) CNT FROM itbook.report_board";
 
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -245,7 +248,7 @@ public class ReportDAO {
 	// 독후감 리스트 페이징 처리
 	public ArrayList<ReportBoardVO> selectReportPage(Paging paging) {
 
-		String sql = "select r.reportNum, r.reportTitle, m.memName from itbook.report_board r, itbook.member m where r.memNum=m.memNum order by ReportNum desc limit ?, 9";
+		String sql = "select r.reportNum, r.reportTitle, r.reportDate,r.reportCount, m.memName from itbook.report_board r, itbook.member m where r.memNum=m.memNum order by ReportNum desc limit ?, 10";
 
 		ArrayList<ReportBoardVO> list = new ArrayList<ReportBoardVO>();
 		Connection conn = null;
@@ -264,6 +267,8 @@ public class ReportDAO {
 
 				rVo.setReportNum(rs.getString("reportNum"));
 				rVo.setReportTitle(rs.getString("reportTitle"));
+				rVo.setReportDate(rs.getDate("reportDate"));
+				rVo.setReportCount(rs.getInt("reportCount"));
 				rVo.setMemName(rs.getString("memName"));
 				
 				
