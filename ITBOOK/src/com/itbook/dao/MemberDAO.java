@@ -375,6 +375,36 @@ public class MemberDAO {
 		 return list;
 		 
 	 }
+	 
+	 public MemberVO getEmail(String memNum) {
+		
+		String sql = "Select email from itbook.member where memNum = ?";
+		MemberVO mVo = null; 
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memNum);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				mVo = new MemberVO();
+				mVo.setMemNum(rs.getString("memNum"));
+				mVo.setEmail(rs.getString("email"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return mVo;
+		
+	 }
 	
 
 }

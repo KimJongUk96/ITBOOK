@@ -41,7 +41,8 @@ public class MeetingDAO {
 				/* + "         ,keword" */
 				+ "         ,metDate"
 				+ "         ,headCount"
-				+ "	  FROM itbook.meeting";
+				+ "	  FROM itbook.meeting"
+				+ "   ORDER BY metDate DESC";
 		
 		List<MeetingVO> list = new ArrayList<MeetingVO>();
 		Connection conn = null;
@@ -124,15 +125,16 @@ public class MeetingDAO {
 	public MeetingVO selectOneMeetingByNum(String metNum){
 		
 		String sql = "SELECT metNum"
-				+ ", metName"
-				+ ", metGreeting"
-				+ ", metIntro"
-				+ ", represent"
-				+ ", keyword"
-				+ ", metDate"
-				+ ", headCount"
-				+ "FROM itbook.meeting"
-				+ "WHERE metNum = ?";
+				+ "			, metName"
+				+ "			, metIntro"
+				+ "			, metGreeting"
+				+ "			, represent"
+				+ "			, metPlace"	
+				+ "			, keyword"
+				+ "			, metDate"
+				+ "			, headCount"
+				+ " FROM itbook.meeting"
+				+ " WHERE metNum = ?";
 		
 		MeetingVO mVo = null;
 		Connection conn = null;
@@ -153,9 +155,10 @@ public class MeetingDAO {
 			
 			mVo.setMetNum(rs.getString("metNum"));
 			mVo.setMetName(rs.getString("metName"));
-			mVo.setMetGreeting(rs.getString("metGreeting"));
 			mVo.setMetIntro(rs.getString("metIntro"));
+			mVo.setMetGreeting(rs.getString("metGreeting"));
 			mVo.setRepresent(rs.getString("represent"));
+			mVo.setMetPlace(rs.getString("metPlace"));
 			mVo.setKeyword(rs.getString("keyword"));
 			mVo.setMetDate(rs.getDate("metDate"));
 			mVo.setHeadCount(rs.getInt("headCount"));
@@ -168,5 +171,17 @@ public class MeetingDAO {
 			DBManager.close(conn, pstmt, rs);
 		}
 		return mVo;
+	}
+	
+	
+	//독서모임 수정
+	public void updateMeeting(String metNum) {
+		
+		String sql = "UPDATE itbook.meeting"
+				+ " SET metIntro= ?"
+				+ ",	metGreeting= ?"
+				+ ",	metPlace=?"
+				+ ",	keyword=?"
+				+ " WHERE metNum = ?";
 	}
 }

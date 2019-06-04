@@ -64,10 +64,10 @@
 	</tr>
 	</thead>
 
-<c:forEach items="${memberList}" var="MemberVO">
+<c:forEach items="${memberList}" var="MemberVO" varStatus="listStat">
 	<tbody >
 	<tr style ="text-align:center;">
-		<td><input type ="checkbox" value="${MemberVO.email}" name="email" ></td>
+		<td><input type ="checkbox" value="${MemberVO.memNum}" name="memNum" ></td>
 		<td>${MemberVO.memId}</td>
 		<td>${MemberVO.memName}</td>
 		<td>${MemberVO.email}</td>
@@ -80,7 +80,7 @@
 </c:forEach>
 </table> 
 </div>
-		    <button type = "submit" class="btn btn-danger" style = "float : right">메일전송</button> 
+		    <button type = "button" class="btn btn-danger" onclick="sendEmailForm()" style = "float : right">메일전송</button> 
 </div>
 			 </form>
 			<section class="pt-0">
@@ -148,6 +148,13 @@
 		$("input[name='eamil']").prop("checked", false);
 	}
 }); 
+function sendEmailForm(){
+	 var email = $("#email").val();
+     var popUrl ="/admin?command=mailPopupForm&email="+email;
+     var popOption = "width=650px, height=550px, resizable=no, location=no, top=300px, left=300px;"
+        
+        window.open(popUrl,"메일전송폼 ",popOption);    
+ }
 
     </script>
 

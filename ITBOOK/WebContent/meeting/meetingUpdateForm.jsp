@@ -62,8 +62,8 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">독서모임 신청</h1>
-					<h6 class="subtitle">나만의 독서모임 신청하기</h6>
+					<h1 class="innerpage-title">독서모임 수정</h1>
+					<h6 class="subtitle">나만의 독서모임 수정하기</h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="/index.jsp"><i class="ti-home"></i> Home</a></li>
@@ -88,31 +88,31 @@
 					<!-- 독서모임명 -->
 					<div class="form-group">
 						<label>독서모임명</label>
-						<input type="text" name="metName" class="form-control" placeholder="독서모임명을 입력해주세요.">
+						<input type="text" name="metName" class="form-control" value="${meeting.metName}">
 					</div>
 
 					<!-- 독서모임소개 -->
 					<div class="form-group">
 						<label>독서모임소개</label>
-						<textarea name="metIntro" class="form-control" rows="7" placeholder="독서모임을 소개합니다."></textarea>
+						<textarea name="metIntro" class="form-control" rows="7">${meeting.metIntro}</textarea>
 					</div>
 					
 					<!-- 독서모임 인사말 -->
 					<div class="form-group">
 						<label>인사말</label>
-						<textarea name="metIntro" class="form-control" rows="2" placeholder="대표 인사말을 입력하세요."></textarea>
+						<textarea name="metIntro" class="form-control" rows="2">${meeting.metGreeting}</textarea>
 					</div>
 					
 					<!-- 대표자명 -->
 					<div class="form-group">
 						<label>대표자</label>
-						<input type="text" name="represent" value="${LoginUser.memName}" class="form-control" placeholder="대표자를 입력해주세요." style="width:250px">
+						<input type="text" name="represent" value="${LoginUser.memName}" class="form-control" style="width:250px">
 					</div>
 
 					<!-- Select -->
 					<div class="form-group">
 						<label>주 활동지역</label><br/>
-						<select name="location" class="custom-select select-big mb-3" style="float:left; width:200px;">
+						<select id ="location" name="location" class="custom-select select-big mb-3" style="float:left; width:200px;">
 							<option selected>전국</option>
 							<option value="location1">서울특별시</option>
 							<option value="location2">인천광역시</option>

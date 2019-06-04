@@ -1,4 +1,4 @@
-package com.itbook.controller.action.meeting;
+package com.itbook.controller.action.admin;
 
 import java.io.IOException;
 
@@ -9,26 +9,24 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
 import com.itbook.dao.MemberDAO;
+import com.itbook.vo.MemberVO;
 
+public class MailPopupForm implements Action{
 
-public class MeetingApplyFormAction implements Action {
-
-	//독서모임 신청을 위한 폼으로 이동하는 액션 클래스
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String url = "/admin/mailPopup.jsp";
+		String memNum = request.getParameter("memNum");
+		request.setAttribute("memNum", memNum);
 		
-		String url = "/meeting/meetingApplyForm.jsp";
-		
-		//LoginUser의 Member테이블에서 memName 가져오기
-		String LoginUser = request.getParameter("memName");
-		
-		//private로 선언된 DAO 클래스의 인스턴스를 가져오는 getInstance() 함수 사용
+		MemberVO mVo = new MemberVO();
 		MemberDAO mDao = MemberDAO.getInstance();
+		mDao.getEmail(memNum);
 		
-		request.setAttribute("LoginUser", LoginUser);
+		String email = request.getParameter("email");
+		request.setAttribute("email", email);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}
-
 }

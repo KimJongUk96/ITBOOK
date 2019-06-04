@@ -1,6 +1,7 @@
-package com.itbook.controller.action.meeting;
+package com.itbook.controller.action.bookstore;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,27 +9,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
-import com.itbook.dao.MemberDAO;
+import com.itbook.dao.BookstoreDAO;
+import com.itbook.vo.Bookstore.BookstoreVO;
 
+public class AdminBookstoreList implements Action {
 
-public class MeetingApplyFormAction implements Action {
-
-	//µ¶¼­¸ðÀÓ ½ÅÃ»À» À§ÇÑ ÆûÀ¸·Î ÀÌµ¿ÇÏ´Â ¾×¼Ç Å¬·¡½º
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String url = "/meeting/meetingApplyForm.jsp";
 		
-		//LoginUserÀÇ MemberÅ×ÀÌºí¿¡¼­ memName °¡Á®¿À±â
-		String LoginUser = request.getParameter("memName");
+String url = "/bookstore/adminBookstoreList.jsp";
 		
-		//private·Î ¼±¾ðµÈ DAO Å¬·¡½ºÀÇ ÀÎ½ºÅÏ½º¸¦ °¡Á®¿À´Â getInstance() ÇÔ¼ö »ç¿ë
-		MemberDAO mDao = MemberDAO.getInstance();
+		BookstoreDAO bsDao = BookstoreDAO.getInstance();
 		
-		request.setAttribute("LoginUser", LoginUser);
+		List<BookstoreVO> bookstoreList = bsDao.selectBookstoreList();
+		request.setAttribute("bookstoreList", bookstoreList);
 		
+		System.out.println(bookstoreList + "adminbookList ì¶œë ¥ì™„ë£Œ.");
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
+		
+
 	}
 
 }

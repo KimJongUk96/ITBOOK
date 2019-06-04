@@ -1,4 +1,4 @@
-package com.itbook.controller.action.meeting;
+package com.itbook.controller.action.bookstore;
 
 import java.io.IOException;
 
@@ -8,24 +8,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
-import com.itbook.dao.MemberDAO;
+import com.itbook.dao.BookstoreDAO;
+import com.itbook.vo.Bookstore.BookstoreVO;
 
+public class BookstoreUpdateForm implements Action {
 
-public class MeetingApplyFormAction implements Action {
-
-	//독서모임 신청을 위한 폼으로 이동하는 액션 클래스
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		
-		String url = "/meeting/meetingApplyForm.jsp";
 		
-		//LoginUser의 Member테이블에서 memName 가져오기
-		String LoginUser = request.getParameter("memName");
+		String url = "/bookstore/bookstoreUpdate.jsp";
 		
-		//private로 선언된 DAO 클래스의 인스턴스를 가져오는 getInstance() 함수 사용
-		MemberDAO mDao = MemberDAO.getInstance();
+		String bookstoreNum = request.getParameter("bookstoreNum");
 		
-		request.setAttribute("LoginUser", LoginUser);
+		
+		BookstoreDAO bsDao = BookstoreDAO.getInstance();
+				
+		BookstoreVO bsVo = bsDao.selectOneBookstoreNum(bookstoreNum);
+				
+		request.setAttribute("bookstoreList", bsVo);
+		
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

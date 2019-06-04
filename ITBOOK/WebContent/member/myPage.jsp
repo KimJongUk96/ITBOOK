@@ -37,6 +37,30 @@
 	<header>
 		<%@ include file="../include/header.jsp"%>
 	</header>
+	
+	<style>
+.container {
+  width: 70%;
+  height: 70%;
+  margin: 10px auto;
+}
+.outer {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.inner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.centered {
+  position: relative;
+  display: inline-block;
+ 
+  width: 50%;
+}
+ </style>
 
 	<div class="innerpage-banner center bg-overlay-dark-7 py-7"
 		style="background: url(../assets/images/bg/04.jpg) no-repeat; background-size: cover; background-position: center center;">
@@ -185,8 +209,14 @@
 					
 				</div>
 			</div>
+					<div class="outer">
+    <div class="inner">
+    <div class="centered">
 			<button type = "submit" class = "btn btn-grad border-radius-left-0 mb-0">수정하기</button>
 			<a href = "member?command=memberPwModifyForm" ><button type = "button" class = "btn btn-grad border-radius-left-0 mb-0">비밀번호 변경</button></a>
+		</div>
+		</div>
+		</div>
 			</c:if>
 		</form>
 

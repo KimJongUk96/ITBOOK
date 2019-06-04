@@ -30,8 +30,16 @@
 	<link rel="stylesheet" type="text/css" href="../assets/vendor/fancybox/css/jquery.fancybox.min.css" />
 
 	<!-- Theme CSS -->
-	<link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css"/>
+	
+	<!-- List div CSS -->
+	<style type="text/css">
+	.portfolio-card-body {
+	width:295px;
+	height:313.59px;
+	overflow:hidden;
+	}
+	</style>
 </head>
 
 <body>
@@ -99,8 +107,8 @@
 									<fmt:formatDate value="${meetingList.metDate}"/>, 
 									회원수 : ${meetingList.headCount}
 									</div>
-									<div><h6 class="info-title"><a href="/meeting?command=meetingHome" title="독서모임">${meetingList.metName}</a></h6></div>
-									<p>${meetingList.metIntro}</p>
+									<div><h6 class="info-title"><b><a href="/meeting?command=meetingHome" title="독서모임">${meetingList.metName}</a></b></h6></div>
+									<span>${meetingList.metIntro}</span>
 								</div>
 							</div>
 						</div>
