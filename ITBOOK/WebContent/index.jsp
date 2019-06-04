@@ -61,7 +61,7 @@
 			<div class="swiper-wrapper">
 				<!-- slide 1-->
 				<div class="swiper-slide bg-overlay-dark-2"
-					style="background-image: url(assets/images/banner/book1.jpg); background-position: center center; background-size: cover;">
+					style="background-image: url(https://i.ibb.co/qJR1sJv/book.jpg); background-position: center center; background-size: cover;">
 					<div class="container h-100">
 						<div class="row d-flex h-100">
 							<div
