@@ -81,7 +81,7 @@ function deleteCmt(metComtNum)
 {
     var param="metComtNum="+metComtNum;
     
-    httpRequest = getXMLHttpRequest();
+    httpRequest = getXMLHttpRequest(); 
     httpRequest.onreadystatechange = checkFunc;
     httpRequest.open("POST", "com.itbook.controller.action.meeting.CommentDeleteAction", true);    
     httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=EUC-KR'); 

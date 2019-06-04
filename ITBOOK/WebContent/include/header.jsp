@@ -337,7 +337,7 @@
                            </ul> -->
                         </li>
                         <li class="dropdown-submenu">
-                           <a class="dropdown-item" href="#">개인후원</a>
+                           <a class="dropdown-item" href="/notice?command=donationListFormAction">개인후원</a>
                           <!--  <ul class="dropdown-menu">
                               <li> <a class="dropdown-item" href="/book?command=bookList">Three column</a> </li>
                               <li> <a class="dropdown-item" href="blog-grid-column-4.html">Four column</a> </li>
