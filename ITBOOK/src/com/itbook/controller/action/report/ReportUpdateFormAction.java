@@ -26,15 +26,6 @@ public class ReportUpdateFormAction implements Action {
 		ReportBoardVO rVo = rDao.selectOneReportByNum(reportNum);
 
 		request.setAttribute("reportList", rVo);
-		
-		
-		/* rDao.updateReportCount(ReportNum); */
-		
-		/*
-		 * ReportBoardVO rVo = new ReportBoardVO();
-		 * 
-		 * rVo.setReportNum(reportNum); rDao.updateReport(rVo);
-		 */
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
