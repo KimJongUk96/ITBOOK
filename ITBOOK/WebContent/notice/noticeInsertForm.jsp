@@ -77,9 +77,10 @@
 									<option value="자료">자료</option>
 								</select>
 								</div>
-								<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="제목"></span></div>
+								<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="제목" name="noticeTitle"></span></div>
 								<!-- <div class="col-md-6"><span class="form-group"><input type="email" class="form-control" placeholder="E-mail"></span></div> -->
-								<div class="col-md-12" style="min-height:480px;"><span class="form-group"><textarea cols="40" rows="20" class="form-control" placeholder="Message"></textarea></span></div>
+								<div class="col-md-12" style="min-height:480px;"><span class="form-group"><textarea cols="40" rows="20"  name="noticeContent"
+								class="form-control" placeholder="Message"></textarea></span></div>
 								
 								<!-- 첨부파일 시작 -->
 								<div class="col-md-12">
@@ -88,13 +89,16 @@
 											<span class="input-group-text">Upload</span>
 										</div>
 										<div class="custom-file">
-											<input type="file" class="custom-file-input" id="inputGroupFile01">
+											<input type="file" name="noticeFile" class="custom-file-input" id="inputGroupFile01">
 											<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
 										</div>
 									</div>
 								</div>
 								
-								<div class="col-md-2 text-center"><button class="btn-block btn btn-dark">Post Comment</button></div>
+								<div class="col-md-2 text-center">
+								<input type="submit" value="등록" class="btn-block btn btn-dark" onclick="return noticeCheck()"/> </div>
+								<div class="col-md-2 text-center">
+								<input type="button" value="돌아가기 " class="btn-block btn btn-dark" onclick="location.href='/notice?command=noticeListFormAction'"/></div>
 								
 							</div>
 		<%-- <table class="table table-bordered">

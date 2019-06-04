@@ -82,7 +82,7 @@
 						<div align="right">
 							<input type="submit" value="수정" class="btn btn-primary" >
 							<input type="button" value="삭제" class="btn btn-primary" onclick="location.href='/notice?command=noticeDeleteAction&noticeNum=${notice.noticeNum}'">
-							<input type="button" value="목록" class="btn btn-primary" onclick="location.href='/notice?command=noticeListFormAction'">
+							<input type="button" value="돌아가기" class="btn btn-primary" onclick="location.href='/notice?command=noticeListFormAction'">
 						</div>
 					</div>
 					</form>

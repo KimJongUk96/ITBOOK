@@ -146,7 +146,7 @@ function deleteCmt(metComtNum)
 								<input type="submit" value="수정" class="btn btn-primary">
 								<input type="button" value="삭제" class="btn btn-primary"
 									onclick="location.href='/meeting?command=metBoardDeleteAction&metBrdNum=${metbrd.metBrdNum}'">
-								<input type="button" value="목록" class="btn btn-primary"
+								<input type="button" value="돌아가기" class="btn btn-primary"
 									onclick="location.href='/meeting?command=metBoardListFormAction'">
 							</div>
 						</div>
@@ -180,6 +180,7 @@ function deleteCmt(metComtNum)
 											</div>
 											<div class="comment-reply">
 												<a class="btn btn-xs btn-light" href="#">댓글</a>
+												<input type="submit" value="수정" class="btn btn-xs btn-light">
 												<input type="submit" value="삭제" class="btn btn-xs btn-light">
 												 
 											</div>
