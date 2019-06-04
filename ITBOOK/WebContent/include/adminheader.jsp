@@ -137,7 +137,7 @@
                <!--  <span class="label label-primary pull-right">4</span> -->
               </a>
               <ul class="treeview-menu">
-                <li><a href="admin?command=memberListForm"><i class="fa fa-magic"></i> 회원정보 수정</a></li>
+                <li><a href="admin?command=memberListForm"><i class="fa fa-magic"></i> 회원정보 삭제</a></li>
                 <li><a href="admin?command=senderEmailListFormAction"><i class="fa fa-magic"></i> 메일전송</a></li>
               </ul>
             </li>
@@ -148,22 +148,22 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="admin?command=noticeListForm"><i class="fa fa-magic"></i> 공지사항 목록</a></li>
-                <li><a href="/admin/imgGallery/list"><i class="fa fa-magic"></i> 모임 목록</a></li>
-                <li><a href="/admin/eventBoard/list"><i class="fa fa-magic"></i> 행사 목록</a></li>
-                <li><a href="admin?command=todayBookList"><i class="fa fa-magic"></i> 이달의책 목록</a></li>
-                <li><a href="admin?command=reportListForm"><i class="fa fa-magic"></i> 독후감 목록</a></li>
+                <li><a href="admin?command=noticeListForm"><i class="fa fa-magic"></i> 공지사항 등록 수정 삭제</a></li>
+                <li><a href="/admin/imgGallery/list"><i class="fa fa-magic"></i> 모임 삭제</a></li>
+                <li><a href="/admin/eventBoard/list"><i class="fa fa-magic"></i> 행사 등록 수정 삭제</a></li>
+                <li><a href="admin?command=todayBookList"><i class="fa fa-magic"></i> 이달의책 등록 수정 삭제</a></li>
+                <li><a href="admin?command=reportListForm"><i class="fa fa-magic"></i> 독후감 삭제</a></li>
               </ul>
             </li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-book"></i> <span>기타관리</span>
+                <i class="fa fa-book"></i> 
+                <span>기타관리</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="admin?command=bookListForm"><i class="fa fa-magic"></i> 등록된 책 목록</a></li>
-                <li><a href="/admin/review/list"><i class="fa fa-magic"></i> 등록된 행사 목록</a></li>
-                <li><a href="/admin/review/list"><i class="fa fa-magic"></i> 서점/도서관 목록</a></li>
+                <li><a href="admin?command=bookListForm"><i class="fa fa-magic"></i> 등록된 책 삭제</a></li>
+                <li><a href="/admin/review/list"><i class="fa fa-magic"></i> 등록된 행사 삭제</a></li>
               </ul>
              </li>
         </section>
