@@ -175,7 +175,7 @@
                <ul class="navbar-nav ml-auto">
                 <!-- Menu item 1 Pages-->
                   <li class="nav-item dropdown">
-                     <a class="nav-link" href="/notice?command=introAction" id="pagesMenu" aria-haspopup="true" aria-expanded="false">희망의 책</a>
+                     <a class="nav-link" href="/notice?command=introAction" id="pagesMenu" aria-haspopup="true" aria-expanded="false">희망의 책 알아보기</a>
                      <!-- <ul class="dropdown-menu" aria-labelledby="pagesMenu"> -->
                        <!--  <li> <a class="dropdown-item" href="/meeting?command=meetingList">독서모임</a></li> -->
                        <!--  <li> <a class="dropdown-item" href="about-advance.html">About Advance</a> </li>
