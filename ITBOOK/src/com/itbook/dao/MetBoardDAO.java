@@ -36,8 +36,8 @@ public class MetBoardDAO {
 			
 			StringBuffer sql = new StringBuffer();
 			
-			sql.append("insert into met_board(metBrdName, metBrdContent, metBrdFile, metBrdCount, metBrdDate)");
-			sql.append("values( ?, ?, ?, ?, sysdate())");
+			sql.append("insert into met_board(metBrdName, metBrdContent, metBrdFile, metBrdCount, metBrdDate, metBrdCategory)");
+			sql.append("values( ?, ?, ?, ?, sysdate(), ?)");
 			
 			pstmt = conn.prepareStatement(sql.toString());
 			
@@ -45,6 +45,7 @@ public class MetBoardDAO {
 			pstmt.setString(2, mVo.getMetBrdContent());
 			pstmt.setString(3, mVo.getMetBrdFile());
 			pstmt.setInt(4, mVo.getMetBrdCount());
+			pstmt.setString(5, mVo.getMetBrdCategory());
 			
 			int flag = pstmt.executeUpdate();
 			
@@ -122,6 +123,7 @@ public class MetBoardDAO {
 				mVo.setMetBrdDate(rs.getDate("metBrdDate"));
 				mVo.setMetBrdFile(rs.getString("metBrdFile"));
 				mVo.setMetBrdCount(rs.getInt("metBrdCount"));
+				mVo.setMetBrdCategory(rs.getString("metBrdCategory"));
 				
 				list.add(mVo);
 			}
@@ -225,6 +227,7 @@ public class MetBoardDAO {
 					mVo.setMetBrdDate(rs.getDate("metBrdDate"));
 					mVo.setMetBrdCount(rs.getInt("metBrdCount"));
 					mVo.setMetBrdFile(rs.getString("metBrdFile"));
+					mVo.setMetBrdCategory(rs.getString("metBrdCategory"));
 					
 				}
 				

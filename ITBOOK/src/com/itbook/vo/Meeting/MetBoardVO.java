@@ -19,6 +19,14 @@ public class MetBoardVO {
 	private int metBrdCount;
 	private Date metBrdDate; 
 	private String metNum;
+	private String metBrdCategory;
+	
+	public String getMetBrdCategory() {
+		return metBrdCategory;
+	}
+	public void setMetBrdCategory(String metBrdCategory) {
+		this.metBrdCategory = metBrdCategory;
+	}
 	public String getMetBrdNum() {
 		return metBrdNum;
 	}
@@ -65,8 +73,9 @@ public class MetBoardVO {
 	public String toString() {
 		return "MetBoardVO [metBrdNum=" + metBrdNum + ", metBrdName=" + metBrdName + ", metBrdContent=" + metBrdContent
 				+ ", metBrdFile=" + metBrdFile + ", metBrdCount=" + metBrdCount + ", metBrdDate=" + metBrdDate
-				+ ", metNum=" + metNum + "]";
+				+ ", metNum=" + metNum + ", metBrdCategory=" + metBrdCategory + "]";
 	}
+	
 	
 	
 	

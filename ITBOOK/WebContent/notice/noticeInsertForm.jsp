@@ -77,13 +77,20 @@
 									<option value="자료">자료</option>
 								</select>
 								</div>
-								<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="제목" name="noticeTitle"></span></div>
+								<div class="col-md-7"><span class="form-group"><input type="text" class="form-control" placeholder="제목" name="noticeTitle"></span></div>
 								<!-- <div class="col-md-6"><span class="form-group"><input type="email" class="form-control" placeholder="E-mail"></span></div> -->
+								
+								<div class="col-md-3">
+									<div class="form-group">
+										<input type="file" name="noticeFile" class="form-control-file" id="exampleFormControlFile1">
+									</div>
+								</div>
+								
 								<div class="col-md-12" style="min-height:480px;"><span class="form-group"><textarea cols="40" rows="20"  name="noticeContent"
 								class="form-control" placeholder="Message"></textarea></span></div>
 								
 								<!-- 첨부파일 시작 -->
-								<div class="col-md-12">
+								<!-- <div class="col-md-12">
 									<div class="input-group mb-3">
 										<div class="input-group-prepend">
 											<span class="input-group-text">Upload</span>
@@ -93,7 +100,7 @@
 											<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
 										</div>
 									</div>
-								</div>
+								</div> -->
 								
 								<div class="col-md-2 text-center">
 								<input type="submit" value="등록" class="btn-block btn btn-dark" onclick="return noticeCheck()"/> </div>

@@ -45,6 +45,7 @@
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
 					<h1 class="innerpage-title">운영 게시판</h1>
+					<h6 class="subtitle">사람과의 만남이 중요하듯 또 다른 소중한 만남이 있습니다.</h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="index.jsp"><i
