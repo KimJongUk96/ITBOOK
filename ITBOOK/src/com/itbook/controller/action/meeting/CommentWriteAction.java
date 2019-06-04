@@ -31,7 +31,7 @@ public class CommentWriteAction implements Action {
         boolean result = dao.insertComment(comment);
         
         if(result){
-            response.setContentType("text/html;charset=euc-kr");
+            response.setContentType("text/html;charset=UTF-8");
             PrintWriter out = response.getWriter();
             new MetBoardViewAction().execute(request, response);
             out.close();

@@ -88,6 +88,14 @@ function deleteCmt(metComtNum)
     httpRequest.send(param);
 }
 
+// 댓글 수정창
+function cmUpdateOpen(metComtNum){
+    window.name = "parentForm";
+    window.open("CommentUpdateFormAction.co?num="+metComtNum,
+                "updateForm", "width=570, height=350, resizable = no, scrollbars = no");
+}
+
+
 
 </script>
 
@@ -180,7 +188,8 @@ function deleteCmt(metComtNum)
 											</div>
 											<div class="comment-reply">
 												<a class="btn btn-xs btn-light" href="#">댓글</a>
-												<input type="submit" value="수정" class="btn btn-xs btn-light">
+												<a href="#" class="btn btn-xs btn-light"
+												onclick="cmUpdateOpen(${comment.metComtNum})">수정</a>
 												<input type="submit" value="삭제" class="btn btn-xs btn-light">
 												 
 											</div>
