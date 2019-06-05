@@ -58,6 +58,8 @@ public class AdminTodayBookRegisterAction implements Action {
             // 파일이름 가져오기
             String fileName = "";
             Enumeration<String> names = multi.getFileNames();
+            
+            
             if(names.hasMoreElements())
             {
                 String name = names.nextElement();

@@ -1,8 +1,4 @@
 package com.itbook.controller;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -55,35 +51,6 @@ public class BookServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		doGet(request, response);
 		
-		
-//		System.out.println("displayFile");
-//	      
-//	      String fileName = request.getParameter("fileName");
-//	      
-//	      System.out.println("fileName ====> " + fileName);
-//	      String uploadFilePath = request.getServletContext().getRealPath("/") + "mlbFile/";
-//	      
-//	      String dFileName = request.getParameter("fileName");
-//	      response.setHeader("Content-Type","image/png");
-//	      java.io.File file = new java.io.File(uploadFilePath+dFileName);
-//	      byte b[] = new byte[(int)file.length()];
-//	      
-//	      response.setHeader("Content-Disposition","attachement:filename="+new String(dFileName.getBytes("UTF-8"))+";");
-//	      
-//	      if(file.isFile()){
-//	         
-//	         System.out.println("isFile ");
-//	         
-//	          BufferedInputStream fin = new BufferedInputStream(new FileInputStream(file));
-//	          BufferedOutputStream outs = new BufferedOutputStream(response.getOutputStream());
-//	          int read = 0;
-//	          while ((read=fin.read(b))!=-1){
-//	              outs.write(b,0,read);
-//	          }
-//	          outs.close();
-//	          fin.close();
-//	      }
+
+	      }
 	}
-
-
-}

@@ -73,11 +73,11 @@
 					<!-- 이달의 책 게시판 글 / 첨부파일 -->
 
 <!-- 예시 -->				
-				  <section class="blog-page pb-0">
+<!-- 				  <section class="blog-page pb-0">
       <div class="container">
          <div class="row">
             <div class="col-md-12 blog-grid blog-grid-3 portfolio-wrap" data-isotope='{ "itemSelector": ".post-item", "layoutMode": "fitRows" }'>
-               <!-- Post item  with image-->
+               Post item  with image
                <div class="post-item">
                   <div class="post-item-wrap">
                      <div class="post-image">
@@ -94,7 +94,7 @@
                      </div>
                   </div>
                </div>
-  
+   -->
 <!-- 끝 -->					
 					
 			<c:forEach var="todayBookList" items="${todayBookList}" varStatus="status">
@@ -104,9 +104,8 @@
 							<%-- <input type="hidden" name="bookNum" value="${todayBookList.bookNum}">
 							<input type="hidden" name="bookBrdNum" value="${todayBookList.bookBrdNum}"> --%>
 								
-								<img src=""alt="${todayBookList.imgPath}">
+								<img src="/displayFile?fileName=${todayBookList.imgPath}" alt="">
 								<span class="post-meta-category bg-grad">${(paging.numOfRow - status.index) - (paging.pageNum -1) * 10}</span>
-								
 							</div>
 							
 							<div class="post-item-desc">
