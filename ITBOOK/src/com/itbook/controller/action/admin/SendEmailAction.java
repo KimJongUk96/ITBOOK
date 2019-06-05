@@ -45,9 +45,12 @@ public class SendEmailAction implements SendEmail{
 		  //.replace(",","")
 		 String recipient = Arrays.toString(email).replace("[","").replace("]","");
 		 String [] result = recipient.split(",");
-
-		  String subject = request.getParameter("subject"); 
-		  String body = request.getParameter("body");
+		 
+		/*
+		 * for(int i =0; i<10; i++) { System.out.println("result :" + result[i]); }
+		 */
+		 String subject = request.getParameter("subject"); 
+		 String body = request.getParameter("body");
 		 
 		
 		Properties props = System.getProperties(); 
@@ -71,13 +74,14 @@ public class SendEmailAction implements SendEmail{
 		mimeMessage.setFrom(new InternetAddress("kofdlfma2574@gmail.com")); //발신자
 		
 		//mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));  //수신자
-		InternetAddress[] toAddr = new InternetAddress[10];
+		
+		InternetAddress[] toAddr = new InternetAddress[result.length];
 		for(int i=0; i<result.length; i++) {
 		toAddr[i] = new InternetAddress (result[i]);
-		System.out.println("result : " + result[i]);
+		System.out.println("result : " + toAddr[i]);
 		}
-		mimeMessage.setRecipients(Message.RecipientType.TO, toAddr );
 		
+		mimeMessage.setRecipients(Message.RecipientType.TO, toAddr);
 			
 		mimeMessage.setSubject(subject); //제목셋팅
 		System.out.println("subject : " + subject);
@@ -86,8 +90,6 @@ public class SendEmailAction implements SendEmail{
 		Transport.send(mimeMessage); //javax.mail.Transport.send() 이용 }
 		System.out.println("message sent successfully...");
 		
-		new AdminMemberEmailListFormAction().execute(request, response);
-
 	}
 
 

@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.itbook.vo.MemberVO;
+import com.itbook.vo.Paging;
 import com.itbook.vo.Meeting.MeetingVO;
 import util.DBManager;
 
@@ -185,4 +187,75 @@ public class MeetingDAO {
 				+ ",	keyword=?"
 				+ " WHERE metNum = ?";
 	}
+	
+	// 모임신청 리스트(관리자 화면)
+	public ArrayList<MeetingVO> meetingList(Paging paging) {
+		String sql = "SELECT metNum,metName,metIntro,metPlace,metDate,represent FROM ITBOOK.MEETING order by metNum desc limit ?, 10";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<MeetingVO> list = new ArrayList<MeetingVO>();
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, ((paging.getPageNum() - 1) * paging.getPerPage()));
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+			MeetingVO mVo = new MeetingVO();
+			mVo.setMetNum(rs.getString("metNum"));
+			mVo.setMetName(rs.getString("metName"));
+			mVo.setMetIntro(rs.getString("metIntro"));
+			mVo.setMetPlace(rs.getString("metPlace"));
+			mVo.setMetDate(rs.getDate("metDate"));
+			mVo.setRepresent(rs.getString("represent"));
+				/*
+				 * mVo.setMetGreeting(rs.getString("metGreeting"));
+				 * mVo.setKeyword(rs.getString("keyword"));
+				 * mVo.setHeadCount(rs.getInt("headCount"));
+				 */
+			list.add(mVo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return list;
+	}
+	
+	 // 총게시글 수 보기
+		public Paging meetingRowCount(Paging paging) {
+			int cnt = 0;
+			String sql = "SELECT COUNT(*) CNT"
+		            + "     FROM itbook.meeting";
+		      
+		         Connection conn = null;
+		         PreparedStatement stmt = null;
+		         ResultSet rs = null;
+		         
+		         try
+		         {
+		            conn = DBManager.getConnection();
+		            stmt = conn.prepareStatement(sql);
+		            
+		            rs = stmt.executeQuery();
+		            
+		            while (rs.next())
+		            {
+		               cnt = rs.getInt("CNT");
+		               paging.setNumOfRow(cnt);;
+		            }
+		            
+		         }
+		         catch (Exception e)
+		         {
+		            e.printStackTrace();
+		         }finally {
+		 			DBManager.close(conn, stmt);
+		 		}
+		         return paging;
+		   }
 }
