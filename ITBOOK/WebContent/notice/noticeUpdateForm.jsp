@@ -82,9 +82,8 @@
 						</table>
 							
 						<div align="right">
-							<input type="reset"  class="btn btn-primary" value="작성취소" >
 							<input type="submit"  class="btn btn-primary" value="수정" >
-							<input type="button" value="목록" class="btn btn-primary" onclick="location.href='/notice?command=noticeListFormAction&page=${pageNum}'">
+							<input type="button" value="돌아가기" class="btn btn-primary" onclick="location.href='/notice?command=noticeListFormAction'">
 						</div>
 					</div>
 					</form>

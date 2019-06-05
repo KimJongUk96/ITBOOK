@@ -3,6 +3,7 @@ package com.itbook.controller;
 import com.itbook.controller.action.Action;
 import com.itbook.controller.action.MainAction;
 import com.itbook.controller.action.notice.DonationListFormAction;
+import com.itbook.controller.action.notice.DonationWriteFormAction;
 import com.itbook.controller.action.notice.FileDownloadAction;
 import com.itbook.controller.action.notice.IntroAction;
 import com.itbook.controller.action.notice.NoticeDeleteAction;
@@ -72,10 +73,16 @@ public class NoticeActionFactory {
 
 			action = new DonationListFormAction();
 
+		} else if (command.equals("donationWriteFormAction")) {
+
+			action = new DonationWriteFormAction();
+
 		}
 		
 		return action;
 		
 	}
+	
+	
 	
 }

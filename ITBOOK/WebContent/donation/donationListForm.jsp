@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>희망의 책 후원하기</title>
+<title>후원하기</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,7 +43,7 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="font-weight-bold display-4 display-md-1 mb-2 mb-md-n4 mt-9">후원하기</h1>
+					<h1 class="font-weight-bold display-4 display-md-1 mb-2 mb-md-n4 mt-9">후원안내</h1>
 				</div>
 			</div>
 		</div>
@@ -72,7 +72,7 @@
 				<div class="col-md-10 col-lg-6 mx-md-auto align-self-center ">
 					<img class="rounded" src="https://i.ibb.co/hct7v9B/meeting.jpg" alt="">
 					<div class="position-absolute left-0 bottom-0 ml-4 ml-md-n2 mb-3">
-						<a class="btn btn-grad" data-fancybox href="https://youtu.be/n_Cn8eFo7u8"> <i class="fa fa-play text-white"></i>후원하기 </a>
+						<a class="btn btn-grad" data-fancybox href="/notice?command=donationWriteFormAction"> <i class="fa fa-play text-white"></i>후원하기 </a>
 					</div>
 				</div>
 			</div>
