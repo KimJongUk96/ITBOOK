@@ -64,7 +64,7 @@ public class ReportDAO {
 
 	// 독후감 등록하기
 	public void insertReport(ReportBoardVO rVo) {
-		String sql = "insert into itbook.report_board (reportTitle,reportContent,reportCount,reportDate,memNum,bookNum,writer,publisher) value (?,?,?,sysdate(),?,?,?,?)";
+		String sql = "insert into itbook.report_board (reportTitle,reportContent,reportCount,reportDate,memNum,bookNum,writer,publisher,reportCategory) value (?,?,?,sysdate(),?,?,?,?,?)";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -80,6 +80,7 @@ public class ReportDAO {
 			pstmt.setString(5, rVo.getBookNum());
 			pstmt.setString(6, rVo.getWriter());
 			pstmt.setString(7, rVo.getPublisher());
+			pstmt.setString(8, rVo.getReportCategory());
 			
 			pstmt.executeUpdate();
 
@@ -248,7 +249,7 @@ public class ReportDAO {
 	// 독후감 리스트 페이징 처리
 	public ArrayList<ReportBoardVO> selectReportPage(Paging paging) {
 
-		String sql = "select r.reportNum, r.reportTitle, r.reportDate,r.reportCount, m.memName from itbook.report_board r, itbook.member m where r.memNum=m.memNum order by ReportNum desc limit ?, 10";
+		String sql = "select r.reportNum, r.reportTitle, r.reportCategory,r.reportDate,r.reportCount, m.memName from itbook.report_board r, itbook.member m where r.memNum=m.memNum order by ReportNum desc limit ?, 10";
 
 		ArrayList<ReportBoardVO> list = new ArrayList<ReportBoardVO>();
 		Connection conn = null;
@@ -267,6 +268,7 @@ public class ReportDAO {
 
 				rVo.setReportNum(rs.getString("reportNum"));
 				rVo.setReportTitle(rs.getString("reportTitle"));
+				rVo.setReportCategory(rs.getString("reportCategory"));
 				rVo.setReportDate(rs.getDate("reportDate"));
 				rVo.setReportCount(rs.getInt("reportCount"));
 				rVo.setMemName(rs.getString("memName"));

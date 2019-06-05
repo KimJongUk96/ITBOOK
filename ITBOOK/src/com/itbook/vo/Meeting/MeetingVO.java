@@ -25,6 +25,7 @@ public class MeetingVO {
 	private String keyword;
 	private Date metDate;
 	private int headCount;
+	private char approval;
 	
 	
 	public String getMetNum() {
@@ -81,12 +82,20 @@ public class MeetingVO {
 	public void setHeadCount(int headCount) {
 		this.headCount = headCount;
 	}
+	public char getApproval() {
+		return approval;
+	}
+	public void setApproval(char approval) {
+		this.approval = approval;
+	}
+	
 	
 	@Override
 	public String toString() {
 		return "MeetingVO [metNum=" + metNum + ", metName=" + metName + ", metGreeting=" + metGreeting + ", metIntro="
 				+ metIntro + ", represent=" + represent + ", metPlace=" + metPlace + ", keyword=" + keyword
-				+ ", metDate=" + metDate + ", headCount=" + headCount + "]";
+				+ ", metDate=" + metDate + ", headCount=" + headCount + ", approval=" + approval + "]";
 	}
+	
 	
 }

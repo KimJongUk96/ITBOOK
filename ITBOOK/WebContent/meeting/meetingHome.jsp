@@ -44,6 +44,7 @@
 
 	<!-- =======================
 	Banner innerpage -->
+
 	<div class="innerpage-banner center bg-overlay-dark-7 py-7" style="background:url(../assets/images/bg/04.jpg) no-repeat; background-size:cover; background-position: center center;">
 		<div class="container">
 			<div class="row all-text-white">
@@ -55,7 +56,7 @@
 							<li class="breadcrumb-item">독서모임</li>
 						</ol>
 					</nav>
-				</div>
+				</div>	
 			</div>
 		</div>
 	</div>
@@ -68,10 +69,11 @@
 		<div class="container">
 			<div class="row mb-4">
 				<!-- portfolio images -->
-				<div class="col-md-8">
+				
+				<!-- <div class="col-md-8">
 					<a class="mb-4 d-block" href="../assets/images/portfolio/big/01.jpg" data-fancybox="portfolio" data-caption="Perfect planning"><img src="../assets/images/portfolio/big/01.jpg" alt=""></a>
 					<a class="mb-4 d-block" href="../assets/images/portfolio/big/02.jpg" data-fancybox="portfolio" data-caption="Kitchen design"><img src="../assets/images/portfolio/big/02.jpg" alt=""></a>
-				</div>
+				</div> -->
 				<!-- portfolio details -->
 				<div class="col-md-4">
 					<div class="sticky-element">
@@ -174,6 +176,7 @@
 		</div>
 		<!-- portfolio End -->
 	</section>
+	
 	<!-- =======================
 	portfolio -->
 

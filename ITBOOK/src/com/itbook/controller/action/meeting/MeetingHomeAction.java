@@ -1,6 +1,7 @@
 package com.itbook.controller.action.meeting;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,13 +25,11 @@ public class MeetingHomeAction implements Action {
 		
 		MeetingDAO mDao = MeetingDAO.getInstance();
 		
-		MeetingVO mVo = mDao.selectOneMeetingByNum(metNum);
-		
-		//mDao.updateReadCount(metNum);
+		List<MeetingVO> meeting = mDao.selectOneMeetingByNum(metNum);
 		
 		//MeetingVO mVo = mDao.uploadCheckbox(metNum);
 		
-		request.setAttribute("meeting", mVo);
+		request.setAttribute("meeting", meeting);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

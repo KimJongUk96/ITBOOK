@@ -49,7 +49,7 @@
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="index.html"><i
 									class="ti-home"></i> Home</a></li>
-							
+
 						</ol>
 					</nav>
 				</div>
@@ -61,16 +61,27 @@
 			<div class="row">
 				<div class="col-md-4">
 					<form name="frm" method="post" action="report?command=Report_Reg">
-						 <input type="hidden" name="bookNum">
+						<input type="hidden" name="bookNum">
 						<!-- <input type="hidden" name="memNum" > -->
 						<%-- <input type ="hidden" name = "memNum" value = "${LoginUser.memNum}"> --%>
 						<div class="form-group">
-							<div class="col-md-4 col-xs-4">	
-								<button type="button" class="form-control"
-									onclick="openPopUp()">책 검색</button>
+							<div class="col-md-4 col-xs-4">
+								<button type="button" class="form-control" onclick="openPopUp()">책
+									검색</button>
 							</div>
 						</div>
-						
+
+
+						<div class="form-group">
+							<label>분류</label> <select class="custom-select select-big mb-3"
+								name="reportCategory">
+								<option value="문학">문학</option>
+								<option value="경제">경제</option>
+								<option value="자연과학">자연과학</option>
+								<option value="인문사회">인문사회</option>
+							</select>
+						</div>
+
 						<div class="form-group">
 							<label>책 제목</label> <input class="form-control" name="bookTitle"
 								placeholder="책 제목을 입력하세요.">
