@@ -2,6 +2,8 @@ package com.itbook.controller;
 
 import com.itbook.controller.action.Action;
 import com.itbook.controller.action.MainAction;
+import com.itbook.controller.action.main.MainMeetingListAction;
+
 
 public class ActionFactory {
 
@@ -20,12 +22,13 @@ public class ActionFactory {
 
 		System.out.println("ActionFactory : " + command);
 
-		//독후감
 		if (command.equals("main")) {
 			action = new MainAction();
+
+		} else if (command.equals("main_meetingList")) {
+			action = new MainMeetingListAction();
 
 		}
 		return action;
 	}
-
 }

@@ -23,7 +23,8 @@ public class ReportRegAction implements Action {
 		rVo.setBookNum(request.getParameter("bookNum")); 
 		rVo.setWriter(request.getParameter("writer"));
 		rVo.setPublisher(request.getParameter("publisher"));
-
+		rVo.setReportCategory(request.getParameter("reportCategory"));
+		
 		System.out.println("rvo : " + rVo);
 		// 사용자 memNum
 		MemberVO memVo = (MemberVO) request.getSession().getAttribute("LoginUser");
