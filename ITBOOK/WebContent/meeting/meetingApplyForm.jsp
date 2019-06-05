@@ -35,12 +35,7 @@
 	<style type="text/css">
 	form {
 	margin: 0 auto;
-	/* width:500px; */
 	}
-	
-	/* ui_select_text {
-	margin: 4em 0;
-	} */
 	</style>
 	
 	<!-- Form JavaScript -->

@@ -42,6 +42,7 @@ public class MeetingDAO {
 				+ "         ,metDate"
 				+ "         ,headCount"
 				+ "	  FROM itbook.meeting"
+				+ "	  WHERE approval = 'T'"
 				+ "   ORDER BY metDate DESC";
 		
 		List<MeetingVO> list = new ArrayList<MeetingVO>();
