@@ -46,8 +46,6 @@
 					<h3 class="box-title">회원정보 관리</h3>
 				</div>
 				<form name = "frm" method = "post" action = "email?command=senderEmail&email=${MemberVO.email}">
-				<input type="hidden" value="subject" name="subject">
-				<input type="hidden" value="body" name="body">
  				<div class="box-body">
 
 <div> 
@@ -67,7 +65,7 @@
 <c:forEach items="${memberList}" var="MemberVO" varStatus="listStat">
 	<tbody >
 	<tr style ="text-align:center;">
-		<td><input type ="checkbox" value="${MemberVO.memNum}" name="memNum" ></td>
+		<td><input type ="checkbox" value="${MemberVO.email}" name="email" id="email" ></td>
 		<td>${MemberVO.memId}</td>
 		<td>${MemberVO.memName}</td>
 		<td>${MemberVO.email}</td>
@@ -83,6 +81,7 @@
 		    <button type = "button" class="btn btn-danger" onclick="sendEmailForm()" style = "float : right">메일전송</button> 
 </div>
 			 </form>
+
 			<section class="pt-0">
 		<div class="container">
 		<div class="outer">
@@ -143,13 +142,30 @@
 	var chk = $(this).is(":checked");
 	
 	if(chk){
-		$("input[name='eamil']").prop("checked", true);
+		$("input[name='email']").prop("checked", true);
 	} else{
-		$("input[name='eamil']").prop("checked", false);
+		$("input[name='email']").prop("checked", false);
 	}
-}); 
+});
 function sendEmailForm(){
-	 var email = $("#email").val();
+/* 	 var email = [];
+	 $("#email:checked").each(function(){
+		email.push($(this).val()); 
+	 }); */
+	 var total_cnt=0;
+	 var email = new Array();
+	 $('input:checkbox[name = "email"]').each(function(){
+		 if(this.checked){
+			 email[total_cnt] = this.value;
+			 total_cnt++;
+		 }
+	 });
+	 
+	 
+	 /* 	 $("input:checkbox:checked").each(function(index){
+		email += $(this).val()+","; 
+	 });  */
+ 	 
      var popUrl ="/admin?command=mailPopupForm&email="+email;
      var popOption = "width=650px, height=550px, resizable=no, location=no, top=300px, left=300px;"
         

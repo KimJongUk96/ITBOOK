@@ -44,8 +44,8 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">희망의 책 모임게시판</h1>
-					<h6 class="subtitle">We transform your perception into an excellent website</h6>
+					<h1 class="innerpage-title">모임게시판</h1>
+					<h6 class="subtitle">함께 만드는 아름다운 소통과 교류의 장</h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active">
@@ -59,12 +59,20 @@
 	</div>
 	<!-- =======================
 	Banner innerpage -->
-	<section>
+	<section class="portfolio pb-0">
 		<div class="container">
 			<div class="row">
 
-				<div class="col-sm-12 mb-5">
-					<h5 class="text-center mb-4">Table default with row hover</h5>
+				<div class="col-sm-12  p-0">
+				<div class="nav justify-content-center">
+						<ul class="nav-tabs nav-tabs-style-2 text-center px-2 p-md-0 m-0 mb-4">
+							<li class="nav-filter active" data-filter="*">All Works</li>
+							<li class="nav-filter" data-filter=".공지">공지</li>
+							<li class="nav-filter" data-filter=".일반">일반</li>
+							<li class="nav-filter" data-filter=".행사 및 세미나">행사 및 세미나</li>
+							<li class="nav-filter" data-filter=".자료">자료</li>
+						</ul>
+					</div>
 
 					<!-- 검색 폼 스타트 -->
 					<div id="searchForm">
@@ -82,6 +90,7 @@
 							<thead>
 								<tr>
 									<th scope="col">번호</th>
+									<th scope="col">분류</th>
 									<th scope="col">제목</th>
 									<th scope="col">작성자</th>
 									<th scope="col">작성일</th>
@@ -93,6 +102,7 @@
 								<c:forEach var="metbrd" items="${metboardList}">
 									<tr>
 										<th scope="row">${metbrd.metBrdNum}</th>
+										<th>${metbrd.metBrdCategory}</th>
 										<td><a href="/meeting?command=metBoardViewAction&metBrdNum=${metbrd.metBrdNum}">${metbrd.metBrdName }</a></td>
 										<td>관리자</td>
 										<td><fmt:formatDate value="${metbrd.metBrdDate }" /></td>

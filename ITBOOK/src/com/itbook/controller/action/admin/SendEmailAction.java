@@ -29,34 +29,27 @@ public class SendEmailAction implements SendEmail{
 		final String password = "whddnr80lj"; // 비밀번호
 		int port = 465; //포트번호 25(일반적인) 465(SSL) 587(TSL)
 		
-		String[] email = request.getParameterValues("email"); 
 		
-		if(email != null) { 
-			
-		for (int idx = 0; email.length > idx; idx++) {
-			request.setAttribute("email", email[idx]);
+		  String[] email = request.getParameterValues("email");
 
-			System.out.println("email : " + email[idx]);
+		  if(email != null) {
+		  
+		  for (int idx = 0; email.length > idx; idx++) { 
+          request.setAttribute("email", email[idx]);
+		  System.out.println("email : " + email[idx]);
+		  MemberVO mVO = new MemberVO();
+		  
+		  mVO.setEmail(email[idx]); 
+		  } 
+		 }
+		  //.replace(",","")
+		 String recipient = Arrays.toString(email).replace("[","").replace("]","");
+		 String [] result = recipient.split(",");
 
-			MemberVO mVO = new MemberVO();
-
-			mVO.setEmail(email[idx]);
-		}
-		}
-			
-		String recipient = Arrays.toString(email).replace(",","").replace("[","").replace("]",""); //수신자 배열로받아와서 []제거
-				
-		
-		
 		  String subject = request.getParameter("subject"); 
 		  String body = request.getParameter("body");
 		 
 		
-/**		
-		String subject = "희망의책 입니다."; //제목 
-		String body = "기부회원을 유지하시려면 결제를 해주세요!";//내용
-		**/
-		 	 		
 		Properties props = System.getProperties(); 
 		
 		props.put("mail.smtp.host", host); 
@@ -76,7 +69,16 @@ public class SendEmailAction implements SendEmail{
 		
 		Message mimeMessage = new MimeMessage(session);
 		mimeMessage.setFrom(new InternetAddress("kofdlfma2574@gmail.com")); //발신자
-		mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));  //수신자
+		
+		//mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));  //수신자
+		InternetAddress[] toAddr = new InternetAddress[10];
+		for(int i=0; i<result.length; i++) {
+		toAddr[i] = new InternetAddress (result[i]);
+		System.out.println("result : " + result[i]);
+		}
+		mimeMessage.setRecipients(Message.RecipientType.TO, toAddr );
+		
+			
 		mimeMessage.setSubject(subject); //제목셋팅
 		System.out.println("subject : " + subject);
 		mimeMessage.setText(body); //내용셋팅 

@@ -1,4 +1,4 @@
-package com.itbook.controller.action.admin;
+package com.itbook.controller.action.notice;
 
 import java.io.IOException;
 
@@ -8,18 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
-import com.itbook.vo.MemberVO;
 
-public class MailPopupForm implements Action{
+public class DonationListFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "/admin/mailPopup.jsp";
-		
-		String email = request.getParameter("email");
-		request.setAttribute("email", email);
-		
+
+		String url = "donation/donationListForm.jsp";
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
+
 	}
+
 }
