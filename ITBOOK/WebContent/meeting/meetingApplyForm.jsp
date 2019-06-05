@@ -46,6 +46,15 @@
 	<!-- Form JavaScript -->
 	<script type="text/javascript" src="/js/meetingCheck.js"></script>
 	
+	<script type="text/javascript">
+	
+	function meetingList() {
+		
+	location.href='meeting?command=meetingList';
+	}
+	
+	</script>
+	
 </head>
 <body>
 <!-- header 삽입 -->
@@ -112,7 +121,7 @@
 					<!-- Select -->
 					<div class="form-group">
 						<label>주 활동지역</label><br/>
-						<select name="location" class="custom-select select-big mb-3" style="float:left; width:200px;">
+						<select name="location" class="custom-select select-big mb-3" style="float:left; width:25%;">
 							<option selected>전국</option>
 							<option value="location1">서울특별시</option>
 							<option value="location2">인천광역시</option>
@@ -126,7 +135,7 @@
 							<option value="location10">울릉도</option>
 							<option value="location11">독도</option>
 						</select>
-							<input type="text" name="place" class="form-control" placeholder="활동장소를 입력하세요" style="float:left; width:468px; height:45.52px;">
+							<input type="text" name="place" class="form-control" placeholder="활동장소를 입력하세요" style="float:left; width:75%; height:45.52px;">
 				 	</div>
 
 				<!-- <div class="col-md-6"> -->
@@ -222,7 +231,8 @@
 					<div class="text-center text-md-center mt-md-0 align-self-center ">
 						<button class="btn btn-outline-light mb-0" type="submit" onclick="return meetingCheck()">신청</button>
 						<button class="btn btn-outline-light mb-0" type="reset">다시작성</button>
-						<input type ="button" class="btn btn-outline-light mb-0" value="취소" onclick="location.href='meeting?command=meetingList'">
+						<input class="btn btn-outline-light mb-0" type="button" onclick="meetingList()" value="취소" />
+						<!-- <input type ="button" class="btn btn-outline-light mb-0" value="취소" onclick="location.href='meeting?command=meetingList'"> -->
 					</div>
 					</section>
 				</form>
