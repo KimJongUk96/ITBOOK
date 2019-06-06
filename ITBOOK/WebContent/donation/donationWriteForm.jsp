@@ -58,12 +58,26 @@
 			<div class="row">
 				<!-- Job positions -->
 				<div class="col-md-8">
-					<h2 class="mb-4">희망의 책 대전본부</h2>
-					<p>책읽는사회는 법인세법에 의거한 지정기부금단체입니다.</p>
+					<h2 class="mb-4">만 14세 이상 후원 신청 동의</h2>
+					<p>신청인이 만 14세 이상인 경우만 신청할 수 있습니다. 만 14세 이상입니까?  &nbsp;&nbsp;&nbsp;<input type="checkbox"></p>
+					
+					<h2 class="mb-4">개인정보처리방침</h2>
+					<div class="col-md-12">
+					<textarea rows="5" class="form-control" >[개인정보 수집 및 이용 동의]
+					 
+- 수집 및 이용목적 : CMS 출금이체를 통한 요금수납
+- 수집항목 : 성명, 전화번호, 휴대폰번호, 금융기관명, 계좌번호
+- 보유 및 이용기간 : 수집, 이용 동의일로부터 CMS 출금이체 종료일(해지일) 후 5년까지
+- 신청자는 개인정보 수집 및 이용을 거부할 권리가 있으며, 권리행사시 출금이체 신청이 거부될 수 있습니다.
 
-					<p>후원해주신 기부금은 법인은 소득 금액의 10%, 개인은 30% 범위 내에서 </p>
-
-					<p>손비인정 또는 소득공제를 받을 수 있는 기부금 영수증을 발급해드립니다.</p>
+[개인정보 제3자 제공 동의]					
+					
+					
+					</textarea></div>
+					<p><span style="float:right;margin-right:20px;font-weight:normal;">개인정보 수집 및 이용 동의 &nbsp;&nbsp;&nbsp;<input type="checkbox"><br>
+					개인정보 제3자 제공 동의 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox"></span></p>
+					
+					<br><br><br>
 
 
 					<!-- Apply form -->

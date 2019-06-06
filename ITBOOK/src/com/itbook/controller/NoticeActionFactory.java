@@ -6,6 +6,7 @@ import com.itbook.controller.action.notice.DonationListFormAction;
 import com.itbook.controller.action.notice.DonationWriteFormAction;
 import com.itbook.controller.action.notice.FileDownloadAction;
 import com.itbook.controller.action.notice.IntroAction;
+import com.itbook.controller.action.notice.IntroBusinessFormAction;
 import com.itbook.controller.action.notice.NoticeDeleteAction;
 import com.itbook.controller.action.notice.NoticeInsertAction;
 import com.itbook.controller.action.notice.NoticeInsertFormAction;
@@ -76,6 +77,10 @@ public class NoticeActionFactory {
 		} else if (command.equals("donationWriteFormAction")) {
 
 			action = new DonationWriteFormAction();
+
+		} else if (command.equals("introBusinessFormAction")) {
+
+			action = new IntroBusinessFormAction();
 
 		}
 		

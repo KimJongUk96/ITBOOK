@@ -58,9 +58,8 @@
 			<div class="row">
 				<div class="col-md-12 col-lg-6 align-self-center ">
 					<div class="title text-left">
-						<span class="pre-title">We are the Wizixo!</span>
-						<h2>We are a full service <span class="text-primary">Creative agency</span> that makes good ideas come to life.</h2>
-						<p class="mb-0">We are an insight and behaviour driven creative marketing agency. A Full package Digital Creative Agency Specializing in: Video Production, Web Design, Branding, Brand Strategy, Content Marketing and Aerial Cinematography. </p>
+						<h2>희망의 책은 <span class="text-primary">법인세법</span>에 의거한  <span class="text-primary"><br>지정기부금단체</span>입니다.</h2>
+						<p class="mb-0"><br>후원해주신 기부금은 <strong>법인은 소득 금액의 10%, 개인은 30% 범위 </strong> 내에서 <strong> <br>손비인정 또는 소득공제</strong>를 받을 수 있는 기부금 영수증을 발급해드립니다. </p>
 						<div class="list-group-inline list-group-number list-unstyled mt-4">
 							<a href="#" class="list-group-item list-group-item-action"><span>01</span> Creative Ideas</a>
 							<a href="#" class="list-group-item list-group-item-action"><span>02</span> Super Responsive for all devices</a>
@@ -78,33 +77,6 @@
 			</div>
 			<!-- row end -->
 
-			<div class="row mt-4">
-				<!-- feature 1 -->
-				<div class="col-md-4">
-					<div class="feature-box h-100 icon-primary">
-						<div class="feature-box-icon"><i class="ti-settings"></i></div>
-						<h3 class="feature-box-title">Unlimited Helpers</h3>
-						<p class="feature-box-desc">We have vast collection of sed do eiusmod tempor incididunt ut labore et <strong>Dolore magna aliqua.</strong> </p>
-					</div>
-				</div>
-				<!-- feature 2 -->
-				<div class="col-md-4">
-					<div class="feature-box h-100 icon-primary">
-						<div class="feature-box-icon"><i class="ti-support"></i></div>
-						<h3 class="feature-box-title">Friendly Support</h3>
-						<p class="feature-box-desc">With this template you can incididunt ut labore et dolore magna aliqua ad minim veniam quis ullamco.</p>
-					</div>
-				</div>
-				<!-- feature 3 -->
-				<div class="col-md-4">
-					<div class="feature-box h-100 icon-primary">
-						<div class="feature-box-icon"><i class="ti-bolt"></i></div>
-						<h3 class="feature-box-title">Instant Solutions</h3>
-						<p class="feature-box-desc">Exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <strong>$255.00</strong>dolor in reprehe. </p>
-					</div>
-				</div>
-			</div>
-			<!-- row end -->
 		</div>
 	</section>
 	<!-- =======================
