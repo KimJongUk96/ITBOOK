@@ -3,6 +3,7 @@ import com.itbook.controller.action.Action;
 import com.itbook.controller.action.MainAction;
 import com.itbook.controller.action.admin.AdminBookDeleteAction;
 import com.itbook.controller.action.admin.AdminBookListFormAction;
+import com.itbook.controller.action.admin.AdminMeetingListAction;
 import com.itbook.controller.action.admin.AdminMemberDeleteAction;
 import com.itbook.controller.action.admin.AdminMemberEmailListFormAction;
 import com.itbook.controller.action.admin.AdminMemberListFormAction;
@@ -66,6 +67,9 @@ public class AdminActionFactory {
 			//이달의 책 관리자 화면으로 이동
 		}else if(command.equals("todayBookList")) {
 			action = new AdminTodayBookListFormAction();
+			//모임 승인거절 화면으로 이동
+		}else if(command.equals("meetingListForm")) {
+			action = new AdminMeetingListAction();
 		}
 			return action;
 	}
