@@ -67,7 +67,8 @@
 				<div class="nav justify-content-center">
 						<ul class="nav-tabs nav-tabs-style-2 text-center px-2 p-md-0 m-0 mb-4">
 							<li class="nav-filter active" data-filter="*">All Works</li>
-							<li class="nav-filter" data-filter=".공지">공지</li>
+							<li class="nav-filter" data-filter=".공지">
+								<a href="/notice?command=noticeListFormAction&category=1">공지</a></li>
 							<li class="nav-filter" data-filter=".일반">일반</li>
 							<li class="nav-filter" data-filter=".행사 및 세미나">행사 및 세미나</li>
 							<li class="nav-filter" data-filter=".자료">자료</li>

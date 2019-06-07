@@ -130,7 +130,7 @@ public class NoticeDAO {
 				StringBuffer sql = new StringBuffer();
 				
 				// 글목록 전체를 보여줄 때
-				if(opt == null)
+				if(opt == null )
 				{
 					sql.append("select * from notice order by noticeNum desc limit ?, 10");
 					
@@ -215,6 +215,7 @@ public class NoticeDAO {
 	                
 	                sql.delete(0, sql.toString().length());
 	            }
+	            
 	            rs = pstmt.executeQuery();
 	            if(rs.next())    result = rs.getInt(1);
 	            

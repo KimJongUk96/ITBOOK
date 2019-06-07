@@ -31,6 +31,8 @@ public class NoticeListFormAction implements Action{
 		// 검색조건과 검색내용을 가져온다.
 		String opt = request.getParameter("opt");
 		String condition = request.getParameter("condition");
+		String category = request.getParameter("category");
+		
 		
 
 		// 검색조건과 내용을 Map에 담는다.
@@ -38,6 +40,7 @@ public class NoticeListFormAction implements Action{
 		listOpt.put("opt", opt);
 		listOpt.put("condition", condition);
 		listOpt.put("start", spage*10-10);
+		
 		
 		NoticeDAO nDao = NoticeDAO.getInstance();
 		int listCount = nDao.getNoticeListCount(listOpt);
