@@ -6,21 +6,30 @@
 
 function meetingCheck(){
 	
-	if(document.frm.metName.value.length == 0) {
+	if(document.frm.metName.value == "") {
 		alert("독서모임명을 입력하세요.");
 		return false;
 	}
-	if (document.frm.metIntro.value.length == 0) {
+	/*if (document.frm.metIntro.value == "") {
 		alert("독서모임소개글을 입력하세요.");
 		return false;
-	}
-	if (document.frm.represent.value.length == 0) {
+	}*/
+	if (document.frm.represent.value == "") {
 		alert("대표자명을 입력하세요.");
+		return false;
+	}
+	if (document.frm.metGreeting.value == "") {
+		alert("모임 인사말을 입력하세요.");
+		return false;
+	}
+	if (document.frm.metPlace.value == "") {
+		alert("모임 활동 지역을 선택해주세요.");
 		return false;
 	}
 	return true;
 }
 
+//checkbox 유효성 검사
 function checkSub(){
 	
 	var boxCount = 0;
