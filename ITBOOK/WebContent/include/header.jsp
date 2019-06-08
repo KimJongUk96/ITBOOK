@@ -329,7 +329,7 @@
                      <a class="nav-link dropdown-toggle" href="#" id="blogMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">후원하기</a>
                      <ul class="dropdown-menu" aria-labelledby="blogMenu">
                         <li class="dropdown-submenu">
-                           <a class="dropdown-item" href="#">사업소개</a>
+                           <a class="dropdown-item" href="/notice?command=introBusinessFormAction">사업소개</a>
                          <!--   <ul class="dropdown-menu">
                               <li> <a class="dropdown-item" href="blog-classic.html">Full Width</a> </li>
                               <li> <a class="dropdown-item" href="blog-classic-left-sidebar.html">Left Sidebar</a> </li>

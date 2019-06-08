@@ -4,8 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@include file="../include/adminheader.jsp"%>
-
-<!-- Main content -->
 <style>
 .container {
   width: 70%;
@@ -29,8 +27,12 @@
   width: 50%;
 }
 
+
+
  </style>
-<script type="text/javascript" src="js/mailPopup.js"></script>
+<!-- Main content -->
+
+
 <section class="content">
 	<div class="row">
 		<!-- left column -->
@@ -39,48 +41,47 @@
 
 				
 			
-			<div class="box" >
+			<div class="box">
 			
 				<div class="box-header with-border">
-					<h3 class="box-title">회원정보 관리</h3>
+					<h3 class="box-title">모임 승인·거절</h3>
 				</div>
-				<form name = "frm" method = "post" action = "email?command=senderEmail&email=${MemberVO.email}">
- 				<div class="box-body">
+				<form name = "frm" method = "post" action = "admin?command=memberDelete">
+				<div class="box-body">
 
-<div> 
+<div>
 
  <table class="table table-bordered" id="user-table">
 	<thead>
-	<tr><th colspan="5" style = "text-align: center;">메일 전송</th></tr>
+	<tr><th colspan="5" style = "text-align: center;">모임신청 명단</th></tr>
 	<tr>
 	    <th style="width: 10px; text-align:center;"><input type = "checkbox" name = "AllCheck" ></th>
-		<th style="width: 100px; text-align: center;">아이디</th>
-		<th style="width: 100px;text-align: center;">이름</th>
-		<th style="width: 100px;text-align: center;">이메일</th>
-		<th style="width: 50px;text-align: center;">회원등급</th>
+		<th style="width: 100px; text-align: center;">모임명</th>
+		<th style="width: 100px;text-align: center;">모임소개</th>
+		<th style="width: 100px;text-align: center;">대표자</th>
+		<th style="width: 100px;text-align: center;">활동지역</th>
+		<th style="width: 50px;text-align: center;">신청일</th>
 	</tr>
 	</thead>
 
-<c:forEach items="${memberList}" var="MemberVO" varStatus="listStat">
+<c:forEach items="${metList}" var="MeetingVO">
 	<tbody >
 	<tr style ="text-align:center;">
-		<td><input type ="checkbox" value="${MemberVO.email}" name="email" id="email" ></td>
-		<td>${MemberVO.memId}</td>
-		<td>${MemberVO.memName}</td>
-		<td>${MemberVO.email}</td>
- 		<c:if test = "${MemberVO.authority eq '1'}"><td>일반회원</td></c:if>	
-		<c:if test = "${MemberVO.authority eq '2'}"><td>기부회원</td></c:if>
-		<c:if test = "${MemberVO.authority eq '3'}"><td>관리자</td></c:if> 
-		
+		<td><input type ="checkbox" value="${MeetingVO.metNum}" name="metNum" ></td>
+		<td>${MeetingVO.metName}</td>
+		<td>${MeetingVO.metIntro}</td>
+		<td>${MeetingVO.represent}</td>
+		<td>${MeetingVO.metPlace}
+		<td>${MemberVO.metDate}</td>
 	</tr>
 	</tbody>
 </c:forEach>
 </table> 
 </div>
-		    <button type = "button" class="btn btn-danger" onclick="sendEmailForm()" style = "float : right">메일전송</button> 
+		    <button type = "button" class="btn btn-danger" style = "float : right">거절</button>
+		    <button type = "button" class="btn btn-primary" style = "float : right">승인</button>
 </div>
-			 </form>
-
+			</form>
 			<section class="pt-0">
 		<div class="container">
 		<div class="outer">
@@ -88,7 +89,7 @@
     <div class="centered">
 						<ul class="pagination justify-content-center">
 						<c:if test="${paging.pageNum > 1}">
-							<li class="page-item"><a class ="page-link" href="admin?command=senderEmailListFormAction&pageNum=${paging.pageNum - 1}">Prev</a></li>
+							<li class="page-item"><a class ="page-link" href="admin?command=meetingListForm&pageNum=${paging.pageNum - 1}">Prev</a></li>
 						
 							
 						</c:if>	
@@ -102,14 +103,14 @@
                        
                                           <c:otherwise>
                                              <li class="page-item"><a class ="page-link"
-                                                href="admin?command=senderEmailListFormAction&pageNum=${idx}">${idx}</a></li>
+                                                href="admin?command=meetingListForm&pageNum=${idx}">${idx}</a></li>
                                           </c:otherwise>
                                           
                                        </c:choose>
                                     </c:forEach>
 						
 							<c:if test="${paging.numOfPage != paging.pageNum}">
-                                    <li class="page-item"><a class = "page-link" href="admin?command=senderEmailListFormAction&pageNum=${paging.pageNum + 1}">Next</a></li>   
+                                    <li class="page-item"><a class = "page-link" href="admin?command=meetingListForm&pageNum=${paging.pageNum + 1}">Next</a></li>   
                                     </c:if>
 							
 
@@ -131,6 +132,7 @@
 	
 	<!-- /.row -->
 </section>
+
 <!-- /.content -->
 <!-- </div> -->
 <!-- /.content-wrapper -->
@@ -141,36 +143,12 @@
 	var chk = $(this).is(":checked");
 	
 	if(chk){
-		$("input[name='email']").prop("checked", true);
+		$("input[name='memNum']").prop("checked", true);
 	} else{
-		$("input[name='email']").prop("checked", false);
+		$("input[name='memNum']").prop("checked", false);
 	}
-});
-function sendEmailForm(){
-/* 	 var email = [];
-	 $("#email:checked").each(function(){
-		email.push($(this).val()); 
-	 }); */
-	 var total_cnt=0;
-	 var email = new Array();
-	 $('input:checkbox[name = "email"]').each(function(){
-		 if(this.checked){
-			 email[total_cnt] = this.value;
-			 total_cnt++;
-		 }
-	 });
-	 
-	 
-	 /* 	 $("input:checkbox:checked").each(function(index){
-		email += $(this).val()+","; 
-	 });  */
- 	 
-     var popUrl ="/admin?command=mailPopupForm&email="+email;
-     var popOption = "width=650px, height=550px, resizable=no, location=no, top=300px, left=300px;"
-        
-        window.open(popUrl,"메일전송폼 ",popOption);    
- }
-
+}); 
+    
     </script>
 
 <%@include file="../include/adminfooter.jsp"%>

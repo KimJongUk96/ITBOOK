@@ -25,6 +25,15 @@ public class ReportBoardVO {
 	private String memName;
 	private String writer;
 	private String publisher;
+	private String reportCategory;
+
+	public String getReportCategory() {
+		return reportCategory;
+	}
+
+	public void setReportCategory(String reportCategory) {
+		this.reportCategory = reportCategory;
+	}
 
 	public String getReportNum() {
 		return reportNum;
@@ -111,7 +120,9 @@ public class ReportBoardVO {
 		return "ReportBoardVO [reportNum=" + reportNum + ", reportTitle=" + reportTitle + ", reportContent="
 				+ reportContent + ", reportDate=" + reportDate + ", reportCount=" + reportCount + ", bookNum=" + bookNum
 				+ ", memNum=" + memNum + ", memName=" + memName + ", writer=" + writer + ", publisher=" + publisher
-				+ "]";
+				+ ", reportCategory=" + reportCategory + "]";
 	}
+
+	
 
 }

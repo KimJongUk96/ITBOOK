@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>책 조회</title>
+   <title>책 검색</title>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
    <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,9 +33,7 @@
    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
    </head>
       <body>
-         <header>
-            <%@ include file="../include/header.jsp"%>
-         </header>
+
    <!-- =======================
    Banner innerpage -->
   <!--  <div class="innerpage-banner center bg-overlay-dark-7 py-7"
@@ -62,7 +60,6 @@
       <div class="container">
          <div class="row">
             <div class="col-sm-12 mb-5">
-               <h5 class="text-center mb-4">마음의 양식</h5> 
                <div class="table-responsive-sm" id ="searchForm">
                <form name="frm" action="/book?command=bookListSearch" method="post">
             
@@ -84,11 +81,13 @@
                          
                           
                         </tr>
+                        
+                        
                      </thead>
                      
                      <tbody>
                      <c:forEach var="bookList" items="${bookList}">
-                        
+                       
                      <%--    <!--id를 통해서 부모창으로 넘겨줌. -->
                         <input type="hidden" name="bookNum" id="bookNum" value="${bookList.bookNum}">
                         <input type="hidden" name="bookTitle" id="bookTitle" value="${bookList.bookTitle}">
@@ -113,11 +112,11 @@
                </div>
             </div>
          </div>
-      </div>
-   </section>
    <div align="right">
                      원하는 책이 없으면 --> <a class="btn btn-primary" onclick="javascript:opener.location.href='/book?command=bookRegFormAction';self.close();">책 등록</a>
                   </div>
+      </div>
+   </section>
    
    
    

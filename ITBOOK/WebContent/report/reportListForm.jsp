@@ -58,15 +58,27 @@
 		</div>
 	</div>
 
-	<section>
+	<section class="portfolio pb-0">
 		<div class="container">
 			<div class="row">
 
 				<div class="col-sm-12 mb-5">
-					
+					<div class="nav justify-content-center">
+						<ul
+							class="nav-tabs nav-tabs-style-2 text-center px-2 p-md-0 m-0 mb-4">
+							<li class="nav-filter active" data-filter="*">모두보기</li>
+							<li class="nav-filter" data-filter=".문학">문학</li>
+							<li class="nav-filter" data-filter=".경제">경제</li>
+							<li class="nav-filter" data-filter=".자연과학">자연과학</li>
+							<li class="nav-filter" data-filter=".인문사회">인문사회</li>
+						</ul>
+					</div>
+
 					<!-- 검색 폼 스타트 -->
 					<div id="searchForm">
-						<form name="frm" method="post" action="report?command=reportRegForm" onsubmit="return validateGalBoard()">
+						<form name="frm" method="post"
+							action="report?command=reportRegForm"
+							onsubmit="return validateGalBoard()">
 							<select name="opt">
 								<option value="0">제목</option>
 							</select> <input type="text" size="20" name="condition" />&nbsp; <input
@@ -74,12 +86,13 @@
 						</form>
 					</div>
 					<!-- 검색 폼 마지막 -->
-					
+
 					<div class="table-responsive-sm">
 						<table class="table table-hover">
 							<thead>
 								<tr>
 									<th scope="col">번호</th>
+									<th scope="col">분류</th>
 									<th scope="col">제목</th>
 									<th scope="col">작성자</th>
 									<th scope="col">작성일</th>
@@ -88,16 +101,19 @@
 							</thead>
 
 							<tbody>
-								<c:forEach var="reportList" items="${reportList}"  >
+								<c:forEach var="reportList" items="${reportList}">
 									<tr>
-										<th scope="row">${reportList.reportNum}</th>
 										
-										<td><a href="/report?command=Report_Detail&reportNum=${reportList.reportNum}">${reportList.reportTitle }</a></td>
-										<td>관리자</td>
-										<td><fmt:formatDate value="${reportList.reportDate}"/></td>
+										<th scope="row">${reportList.reportNum}</th>
+										<th>${reportList.reportCategory}</th>
+										<td><a
+											href="/report?command=Report_Detail&reportNum=${reportList.reportNum}">${reportList.reportTitle }</a></td>
+										<td>${reportList.memName}</td>
+										<td><fmt:formatDate value="${reportList.reportDate}" /></td>
 										<td>${reportList.reportCount}</td>
 									</tr>
 								</c:forEach>
+
 							</tbody>
 
 						</table>
@@ -105,7 +121,7 @@
 						<div align="right">
 							<a class="btn btn-primary" href="/report?command=Report_Reg_Form">글쓰기</a>
 						</div>
-					<%-- </c:if> --%>
+						<%-- </c:if> --%>
 					</div>
 				</div>
 			</div>
