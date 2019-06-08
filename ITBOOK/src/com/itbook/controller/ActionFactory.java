@@ -2,7 +2,7 @@ package com.itbook.controller;
 
 import com.itbook.controller.action.Action;
 import com.itbook.controller.action.MainAction;
-import com.itbook.controller.action.main.MainMeetingListAction;
+//import com.itbook.controller.action.main.MainMeetingListAction;
 
 
 public class ActionFactory {
@@ -26,7 +26,8 @@ public class ActionFactory {
 			action = new MainAction();
 
 		} else if (command.equals("main_meetingList")) {
-			action = new MainMeetingListAction();
+			
+			//action = new MainMeetingListAction();
 
 		}
 		return action;
