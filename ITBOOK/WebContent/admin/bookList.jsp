@@ -16,7 +16,7 @@
   display: table;
   width: 100%;
   height: 100%;
-}
+} 
 .inner {
   display: table-cell;
   vertical-align: middle;
