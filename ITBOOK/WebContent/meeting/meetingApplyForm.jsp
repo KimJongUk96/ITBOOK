@@ -87,7 +87,7 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				<form name="frm" method="post" action="/meeting?meetingApply" class="col-md-7">
+				<form name="frm" method="post" action="/meeting?command=meetingApply" class="col-md-7">
 
 					<!-- 독서모임명 -->
 					<div class="form-group">
@@ -104,7 +104,7 @@
 					<!-- 독서모임 인사말 -->
 					<div class="form-group">
 						<label>인사말</label>
-						<textarea name="metIntro" class="form-control" rows="2" placeholder="대표 인사말을 입력하세요."></textarea>
+						<textarea name="metGreeting" class="form-control" rows="2" placeholder="대표 인사말을 입력하세요."></textarea>
 					</div>
 					
 					<!-- 대표자명 -->
@@ -130,89 +130,89 @@
 							<option value="location10">울릉도</option>
 							<option value="location11">독도</option>
 						</select>
-							<input type="text" name="place" class="form-control" placeholder="활동장소를 입력하세요" style="float:left; width:75%; height:45.52px;">
+							<input type="text" name="metPlace" class="form-control" placeholder="활동장소를 입력하세요" style="float:left; width:75%; height:45.52px;">
 				 	</div>
 
 				<!-- <div class="col-md-6"> -->
 					<!-- custom checkbox -->
 					<label class="mt-3">활동주제</label>
 					<div class="custom-control custom-checkbox mr-sm-2">
-						<input type="checkbox" name="checkSub" value="home" class="custom-control-input" id="home">
+						<input type="checkbox" name="keyword" value="home" class="custom-control-input" id="home">
 						<label class="custom-control-label" for="home">가정/육아</label>
 					</div>
 						
 					<div class="custom-control custom-checkbox mr-sm-2">
-						<input type="checkbox" name="checkSub" value="health&beauti" class="custom-control-input" id="health&beauti">
+						<input type="checkbox" name="keyword" value="health&beauti" class="custom-control-input" id="health&beauti">
 						<label class="custom-control-label" for="health&beauti">건강/뷰티</label>
 					</div>
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="checkSub" value="economy&business" class="custom-control-input" id="economy&business">
+						<input type="checkbox" name="keyword" value="economy&business" class="custom-control-input" id="economy&business">
 						<label class="custom-control-label" for="economy&business">경제/경영</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="checkSub" value="education" class="custom-control-input" id="education">
+						<input type="checkbox" name="keyword" value="education" class="custom-control-input" id="education">
 						<label class="custom-control-label" for="education">교육</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="checkSub" value="literature" class="custom-control-input" id="literature">
+						<input type="checkbox" name="keyword" value="literature" class="custom-control-input" id="literature">
 						<label class="custom-control-label" for="literature">문학</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="checkSub" value="social&science" class="custom-control-input" id="social&science">
+						<input type="checkbox" name="keyword" value="social&science" class="custom-control-input" id="social&science">
 						<label class="custom-control-label" for="social&science">사회과학</label>
 					</div>
 					
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="checkSub" value="IT&programing" class="custom-control-input" id="IT&programing">
+						<input type="checkbox" name="keyword" value="IT&programing" class="custom-control-input" id="IT&programing">
 						<label class="custom-control-label" for="IT&programing">IT/개발</label>
 					</div>
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="checkSub" value="leisure" class="custom-control-input" id="leisure">
+						<input type="checkbox" name="keyword" value="leisure" class="custom-control-input" id="leisure">
 						<label class="custom-control-label" for="leisure">여가생활</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="checkSub" value="history" class="custom-control-input" id="history">
+						<input type="checkbox" name="keyword" value="history" class="custom-control-input" id="history">
 						<label class="custom-control-label" for="history">역사</label>
 					</div>
 					
 					<div class="custom-control custom-checkbox mr-sm-2">
-						<input type="checkbox" name="checkSub" value="art&popculture" class="custom-control-input" id="art&popculture">
+						<input type="checkbox" name="keyword" value="art&popculture" class="custom-control-input" id="art&popculture">
 						<label class="custom-control-label" for="art&popculture">예술/대중문화</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="checkSub" value="foreign" class="custom-control-input" id="foreign">
+						<input type="checkbox" name="keyword" value="foreign" class="custom-control-input" id="foreign">
 						<label class="custom-control-label" for="foreign">외국어/외국문학</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="checkSub" value="child&teenager" class="custom-control-input" id="child&teenager">
+						<input type="checkbox" name="keyword" value="child&teenager" class="custom-control-input" id="child&teenager">
 						<label class="custom-control-label" for="child&teenager">아동/청소년</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="checkSub" value="humanity" class="custom-control-input" id="humanity">
+						<input type="checkbox" name="keyword" value="humanity" class="custom-control-input" id="humanity">
 						<label class="custom-control-label" for="humanity">인문학</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="checkSub" value="self-improve" class="custom-control-input" id="self-improve">
+						<input type="checkbox" name="keyword" value="self-improve" class="custom-control-input" id="self-improve">
 						<label class="custom-control-label" for="self-improve">자기계발</label>
 					</div>
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="checkSub" value="natural&science" class="custom-control-input" id="natural&science">
+						<input type="checkbox" name="keyword" value="natural&science" class="custom-control-input" id="natural&science">
 						<label class="custom-control-label" for="natural&science">자연/과학</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="checkSub" value="computer&internet" class="custom-control-input" id="computer&internet">
+						<input type="checkbox" name="keyword" value="computer&internet" class="custom-control-input" id="computer&internet">
 						<label class="custom-control-label" for="computer&internet">컴퓨터/인터넷</label>
 					</div>
 					

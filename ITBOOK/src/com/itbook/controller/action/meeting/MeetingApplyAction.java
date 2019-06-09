@@ -22,14 +22,16 @@ public class MeetingApplyAction implements Action{
 			MeetingVO mVo = new MeetingVO();
 			
 			mVo.setMetName(request.getParameter("metName"));
+			mVo.setMetGreeting(request.getParameter("metGreeting"));
 			mVo.setMetIntro(request.getParameter("metIntro"));
 			mVo.setRepresent(request.getParameter("represent"));
+			mVo.setMetPlace(request.getParameter("metPlace"));
 			mVo.setKeyword(request.getParameter("keyword"));
 			
 			MeetingDAO mDao = MeetingDAO.getInstance();
 			mDao.insertMeeting(mVo);
 			
-			//데이터베이스에 저장된 정보는 리스트 화면에 뿌려진다.
+			// 리스트 화면
 			new MeetingListAction().execute(request, response);
 			
 		}

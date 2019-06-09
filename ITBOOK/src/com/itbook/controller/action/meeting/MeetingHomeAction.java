@@ -25,7 +25,7 @@ public class MeetingHomeAction implements Action {
 		
 		MeetingDAO mDao = MeetingDAO.getInstance();
 		
-		List<MeetingVO> meeting = mDao.selectOneMeetingByNum(metNum);
+		MeetingVO meeting = mDao.selectOneMeetingByNum(metNum);
 		
 		//MeetingVO mVo = mDao.uploadCheckbox(metNum);
 		

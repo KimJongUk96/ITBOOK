@@ -50,15 +50,15 @@
 						<table class="table table-hover">
 							
 								<tr>
-									<th scope="col">작성자</th>
-									<td>관리자</td>
+									<th scope="col">제목</th>
+									<td>${notice.noticeTitle}</td>
 									<th>작성일</th>
 									<td>${notice.noticeDate }</td>
 									
 								</tr>
 								<tr>
-									<th scope="col">제목</th>
-									<td>${notice.noticeTitle}</td>
+									<th scope="col">작성자</th>
+									<td>관리자</td>
 									<th>조회수</th>
 									<td>${notice.noticeCount}</td>
 									
@@ -69,15 +69,16 @@
 									<th></th>
 									<td></td>
 								</tr>
-								 <tr>
+								 <%-- <tr>
 								
 									<th scope="col">내용</th>
 									<td><textarea name="noticeContent" class="form-control" rows="10" style="width:100%;" disabled="disabled">${notice.noticeContent}</textarea></td> 
 									<th></th>
 									<td></td>
-								</tr> 
+								</tr>  --%>
 								
 						</table> 
+						<div class="col-md-12"><span class="form-group"><textarea cols="40" rows="10"  name="noticeContent" class="form-control" >${notice.noticeContent}</textarea></span></div>
 							
 						<div align="right">
 							<input type="submit" value="수정" class="btn btn-primary" >

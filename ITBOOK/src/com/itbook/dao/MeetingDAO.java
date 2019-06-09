@@ -91,11 +91,13 @@ public class MeetingDAO {
 				+ "   ,metGreeting"
 				+ "   ,metIntro"
 				+ "   ,represent"
+				+ "	  ,metPlace"
 				+ "	  ,keyword)"
 				+ "values (?"
 				+ "       , ?"
 				+ "       , ?"
 				+ "       , ?"
+				+ "		  , ?"
 				+ "       , ?)";
 		
 		Connection conn = null;
@@ -109,7 +111,8 @@ public class MeetingDAO {
 			pstmt.setString(2, mVo.getMetGreeting());
 			pstmt.setString(3, mVo.getMetIntro());
 			pstmt.setString(4, mVo.getRepresent());
-			pstmt.setString(5, mVo.getKeyword());
+			pstmt.setString(5, mVo.getMetPlace());
+			pstmt.setString(6, mVo.getKeyword());
 			
 			//sql문 update 실행
 			pstmt.executeUpdate();

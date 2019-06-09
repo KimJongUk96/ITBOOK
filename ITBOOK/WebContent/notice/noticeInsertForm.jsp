@@ -28,6 +28,8 @@
 
 	<!-- Theme CSS -->
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+	
+	<script type="text/javascript" src ="/js/notice.js"></script>
 </head>
 	<body>
 		<header>
@@ -89,18 +91,6 @@
 								<div class="col-md-12" style="min-height:480px;"><span class="form-group"><textarea cols="40" rows="20"  name="noticeContent"
 								class="form-control" placeholder="Message"></textarea></span></div>
 								
-								<!-- 첨부파일 시작 -->
-								<!-- <div class="col-md-12">
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text">Upload</span>
-										</div>
-										<div class="custom-file">
-											<input type="file" name="noticeFile" class="custom-file-input" id="inputGroupFile01">
-											<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-										</div>
-									</div>
-								</div> -->
 								
 								<div class="col-md-2 text-center">
 								<input type="submit" value="등록" class="btn-block btn btn-dark" onclick="return noticeCheck()"/> </div>
