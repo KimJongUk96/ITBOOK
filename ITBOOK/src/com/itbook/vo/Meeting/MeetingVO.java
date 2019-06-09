@@ -25,7 +25,7 @@ public class MeetingVO {
 	private String keyword;
 	private Date metDate;
 	private int headCount;
-	private char approval;
+	private String approval;
 	
 	
 	public String getMetNum() {
@@ -82,10 +82,10 @@ public class MeetingVO {
 	public void setHeadCount(int headCount) {
 		this.headCount = headCount;
 	}
-	public char getApproval() {
+	public String getApproval() {
 		return approval;
 	}
-	public void setApproval(char approval) {
+	public void setApproval(String approval) {
 		this.approval = approval;
 	}
 	

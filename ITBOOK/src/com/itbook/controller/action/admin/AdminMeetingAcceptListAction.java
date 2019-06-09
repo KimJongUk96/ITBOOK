@@ -12,11 +12,11 @@ import com.itbook.controller.action.Action;
 import com.itbook.dao.MeetingDAO;
 import com.itbook.vo.Paging;
 import com.itbook.vo.Meeting.MeetingVO;
-public class AdminMeetingListAction implements Action{
+public class AdminMeetingAcceptListAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "/admin/meetingListForm.jsp";
+		String url = "/admin/meetingAcceptForm.jsp";
 		MeetingDAO mDao = MeetingDAO.getInstance();
 	
 		

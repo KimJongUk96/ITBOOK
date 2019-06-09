@@ -44,44 +44,44 @@
 			<div class="box">
 			
 				<div class="box-header with-border">
-					<h3 class="box-title">회원정보 관리</h3>
+					<h3 class="box-title">모임 승인·거절</h3>
 				</div>
-				<form name = "frm" id ="frm" method = "post" action = "admin?command=memberDelete">
+				<form name = "frm" method = "post" action = "admin?command=meetingUpdate&metNum=${MeetingVO.metNum}">
 				<div class="box-body">
 
 <div>
 
  <table class="table table-bordered" id="user-table">
 	<thead>
-	<tr><th colspan="6" style = "text-align: center;">회원정보</th></tr>
+	<tr><th colspan="6" style = "text-align: center;">모임신청 명단</th></tr>
 	<tr>
 	    <th style="width: 10px; text-align:center;"><input type = "checkbox" name = "AllCheck" ></th>
-		<th style="width: 100px; text-align: center;">아이디</th>
-		<th style="width: 100px;text-align: center;">이름</th>
-		<th style="width: 100px;text-align: center;">이메일</th>
-		<th style="width: 100px;text-align: center;">가입일</th>
-		<th style="width: 50px;text-align: center;">회원등급</th>
+		<th style="width: 100px; text-align: center;">모임명</th>
+		<th style="width: 100px;text-align: center;">모임소개</th>
+		<th style="width: 100px;text-align: center;">대표자</th>
+		<th style="width: 100px;text-align: center;">활동지역</th>
+		<th style="width: 50px;text-align: center;">신청일</th>
 	</tr>
 	</thead>
 
-<c:forEach items="${memberList}" var="MemberVO">
+<c:forEach items="${metList}" var="MeetingVO">
+<c:if test = "${MeetingVO.approval eq 'F'}">
 	<tbody >
 	<tr style ="text-align:center;">
-		<td><input type ="checkbox" value="${MemberVO.memNum}" name="memNum" ></td>
-		<td>${MemberVO.memId}</td>
-		<td>${MemberVO.memName}</td>
-		<td>${MemberVO.email}</td>	
-		<td>${MemberVO.signDate}</td>
- 		<c:if test = "${MemberVO.authority eq '1'}"><td>일반회원</td></c:if>	
-		<c:if test = "${MemberVO.authority eq '2'}"><td>기부회원</td></c:if>
-		<c:if test = "${MemberVO.authority eq '3'}"><td>관리자</td></c:if> 
-		
+		<td><input type ="checkbox" value="${MeetingVO.metNum}" name="metNum" ></td>
+		<td>${MeetingVO.metName}</td>
+		<td>${MeetingVO.metIntro}</td>
+		<td>${MeetingVO.represent}</td>
+		<td>${MeetingVO.metPlace}
+		<td>${MemberVO.metDate}</td>
 	</tr>
 	</tbody>
+	</c:if>
 </c:forEach>
 </table> 
 </div>
-		    <button type = "submit" id = "btn" class="btn btn-danger" style = "float : right">삭제</button> 
+		    <button type = "button" class="btn btn-danger" style = "float : right">거절</button>
+		    <button type = "submit" class="btn btn-primary" style = "float : right">승인</button>
 </div>
 			</form>
 			<section class="pt-0">
@@ -91,7 +91,7 @@
     <div class="centered">
 						<ul class="pagination justify-content-center">
 						<c:if test="${paging.pageNum > 1}">
-							<li class="page-item"><a class ="page-link" href="admin?command=memberListForm&pageNum=${paging.pageNum - 1}">Prev</a></li>
+							<li class="page-item"><a class ="page-link" href="admin?command=meetingListForm&pageNum=${paging.pageNum - 1}">Prev</a></li>
 						
 							
 						</c:if>	
@@ -105,14 +105,14 @@
                        
                                           <c:otherwise>
                                              <li class="page-item"><a class ="page-link"
-                                                href="admin?command=memberListForm&pageNum=${idx}">${idx}</a></li>
+                                                href="admin?command=meetingListForm&pageNum=${idx}">${idx}</a></li>
                                           </c:otherwise>
                                           
                                        </c:choose>
                                     </c:forEach>
 						
 							<c:if test="${paging.numOfPage != paging.pageNum}">
-                                    <li class="page-item"><a class = "page-link" href="admin?command=memberListForm&pageNum=${paging.pageNum + 1}">Next</a></li>   
+                                    <li class="page-item"><a class = "page-link" href="admin?command=meetingListForm&pageNum=${paging.pageNum + 1}">Next</a></li>   
                                     </c:if>
 							
 
@@ -145,17 +145,19 @@
 	var chk = $(this).is(":checked");
 	
 	if(chk){
-		$("input[name='memNum']").prop("checked", true);
+		$("input[name='metNum']").prop("checked", true);
 	} else{
-		$("input[name='memNum']").prop("checked", false);
+		$("input[name='metNum']").prop("checked", false);
 	}
 }); 
 
- $("#btn").click(function(btn){
-		btn.preventDefault();
-		if(!confirm('정말로 삭제하시겠습니까?')) return;
-		$('#frm')[0].submit();
-	});   
+$(document).ready(function(){
+$('form').submit(function(){
+	var result = alert("승인되었습니다.");
+	
+	return result;
+})
+})
     
     </script>
 

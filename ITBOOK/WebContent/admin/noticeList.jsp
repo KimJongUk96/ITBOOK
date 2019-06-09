@@ -44,7 +44,7 @@
 				<div class="box-header with-border">
 					<h3 class="box-title">공지사항 관리</h3>
 				</div>
-				<form name = "frm" method = "post" action = "admin?command=noticeDelete">
+				<form name = "frm" id="frm" method = "post" action = "admin?command=noticeDelete">
 				<div class="box-body">
 
 <div>
@@ -76,7 +76,7 @@
 </c:forEach>
 </table> 
 </div>
-		    <button type = "submit" class="btn btn-danger" style = "float : right">삭제</button> 
+		    <button type = "submit" id = "btn" class="btn btn-danger" style = "float : right">삭제</button> 
 </div>
 			</form>
 		<!--/.col (left) -->
@@ -140,6 +140,12 @@
 		$("input[name='memNum']").prop("checked", false);
 	}
 }); 
+
+ $("#btn").click(function(btn){
+		btn.preventDefault();
+		if(!confirm('정말로 삭제하시겠습니까?')) return;
+		$('#frm')[0].submit();
+	});   
     
     </script>
 
