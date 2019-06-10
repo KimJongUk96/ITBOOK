@@ -44,14 +44,14 @@
 				<div class="box-header with-border">
 					<h3 class="box-title">독후감 관리</h3>
 				</div>
-				<form name = "frm" method = "post" action = "admin?command=reportDelete">
+				<form name = "frm" id="frm" method = "post" action = "admin?command=reportDelete">
 				<div class="box-body">
 
 <div>
 
  <table class="table table-bordered" id="user-table">
 	<thead>
-	<tr><th colspan="5" style = "text-align: center;">독후감 목록</th></tr>
+	<tr><th colspan="6" style = "text-align: center;">독후감 목록</th></tr>
 	<tr>
 	    <th style="width: 10px; text-align:center;"><input type = "checkbox" name = "AllCheck" ></th>
 	    <th style="width: 100px; text-align: center;">글 번호</th>
@@ -76,7 +76,7 @@
 </c:forEach>
 </table> 
 </div>
-		    <button type = "submit" class="btn btn-danger" style = "float : right">삭제</button> 
+		    <button type = "submit" id="btn" class="btn btn-danger" style = "float : right">삭제</button> 
 </div>
 			</form>
 			<section class="pt-0">
@@ -145,6 +145,12 @@
 		$("input[name='reportNum']").prop("checked", false);
 	}
 }); 
+
+ $("#btn").click(function(btn){
+		btn.preventDefault();
+		if(!confirm('정말로 삭제하시겠습니까?')) return;
+		$('#frm')[0].submit();
+	});   
     
     </script>
 

@@ -91,11 +91,13 @@ public class MeetingDAO {
 				+ "   ,metGreeting"
 				+ "   ,metIntro"
 				+ "   ,represent"
+				+ "	  ,metPlace"
 				+ "	  ,keyword)"
 				+ "values (?"
 				+ "       , ?"
 				+ "       , ?"
 				+ "       , ?"
+				+ "		  , ?"
 				+ "       , ?)";
 		
 		Connection conn = null;
@@ -109,7 +111,8 @@ public class MeetingDAO {
 			pstmt.setString(2, mVo.getMetGreeting());
 			pstmt.setString(3, mVo.getMetIntro());
 			pstmt.setString(4, mVo.getRepresent());
-			pstmt.setString(5, mVo.getKeyword());
+			pstmt.setString(5, mVo.getMetPlace());
+			pstmt.setString(6, mVo.getKeyword());
 			
 			//sql문 update 실행
 			pstmt.executeUpdate();
@@ -190,7 +193,7 @@ public class MeetingDAO {
 	
 	// 모임신청 리스트(관리자 화면)
 	public ArrayList<MeetingVO> meetingList(Paging paging) {
-		String sql = "SELECT metNum,metName,metIntro,metPlace,metDate,represent FROM ITBOOK.MEETING order by metNum desc limit ?, 10";
+		String sql = "SELECT*FROM ITBOOK.MEETING order by metNum desc limit ?, 10";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -211,11 +214,11 @@ public class MeetingDAO {
 			mVo.setMetPlace(rs.getString("metPlace"));
 			mVo.setMetDate(rs.getDate("metDate"));
 			mVo.setRepresent(rs.getString("represent"));
-				/*
-				 * mVo.setMetGreeting(rs.getString("metGreeting"));
-				 * mVo.setKeyword(rs.getString("keyword"));
-				 * mVo.setHeadCount(rs.getInt("headCount"));
-				 */
+		    mVo.setMetGreeting(rs.getString("metGreeting"));
+		    mVo.setKeyword(rs.getString("keyword"));
+			mVo.setHeadCount(rs.getInt("headCount"));
+			mVo.setApproval(rs.getString("approval"));
+			
 			list.add(mVo);
 			}
 		} catch (Exception e) {
@@ -258,4 +261,44 @@ public class MeetingDAO {
 		 		}
 		         return paging;
 		   }
+		
+		public void acceptMeeting(MeetingVO mVO) {
+			String sql = "Update itbook.meeting set metDate = sysdate(), approval = 'T'  where metNum = ?";
+			
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				conn = DBManager.getConnection();
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, mVO.getMetNum());
+				pstmt.executeUpdate();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				DBManager.close(conn, pstmt);
+			}
+		}
+		//모임 거절 및 삭제
+		public void deleteMeeting(MeetingVO mVO) {
+			String sql = "Delete From itbook.meeting Where metNum = ?";
+			
+			Connection conn =  null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				conn = DBManager.getConnection();
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, mVO.getMetNum());
+				
+				pstmt.executeUpdate();
+			} catch (Exception e) {
+			e.printStackTrace();
+			}finally {
+				DBManager.close(conn, pstmt);
+			}
+		}
 }

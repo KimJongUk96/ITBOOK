@@ -46,9 +46,6 @@ public class SendEmailAction implements SendEmail{
 		 String recipient = Arrays.toString(email).replace("[","").replace("]","");
 		 String [] result = recipient.split(",");
 		 
-		/*
-		 * for(int i =0; i<10; i++) { System.out.println("result :" + result[i]); }
-		 */
 		 String subject = request.getParameter("subject"); 
 		 String body = request.getParameter("body");
 		 
@@ -89,7 +86,7 @@ public class SendEmailAction implements SendEmail{
 		System.out.println("body : " + body);
 		Transport.send(mimeMessage); //javax.mail.Transport.send() 이용 }
 		System.out.println("message sent successfully...");
-		
+	
 	}
 
 

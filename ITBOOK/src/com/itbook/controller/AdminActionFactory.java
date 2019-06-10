@@ -3,7 +3,10 @@ import com.itbook.controller.action.Action;
 import com.itbook.controller.action.MainAction;
 import com.itbook.controller.action.admin.AdminBookDeleteAction;
 import com.itbook.controller.action.admin.AdminBookListFormAction;
+import com.itbook.controller.action.admin.AdminMeetingAcceptListAction;
+import com.itbook.controller.action.admin.AdminMeetingDeleteAction;
 import com.itbook.controller.action.admin.AdminMeetingListAction;
+import com.itbook.controller.action.admin.AdminMeetingUpdateAction;
 import com.itbook.controller.action.admin.AdminMemberDeleteAction;
 import com.itbook.controller.action.admin.AdminMemberEmailListFormAction;
 import com.itbook.controller.action.admin.AdminMemberListFormAction;
@@ -68,8 +71,17 @@ public class AdminActionFactory {
 		}else if(command.equals("todayBookList")) {
 			action = new AdminTodayBookListFormAction();
 			//모임 승인거절 화면으로 이동
+		}else if(command.equals("meetingAcceptListForm")) {
+			action = new AdminMeetingAcceptListAction();
+			//모임 승인
+		}else if(command.equals("meetingUpdate")) {
+			action = new AdminMeetingUpdateAction();
+			//모임 리스트(승인된 모임들) 삭제화면으로
 		}else if(command.equals("meetingListForm")) {
 			action = new AdminMeetingListAction();
+			//모임 삭제
+		}else if(command.equals("meetingDelete")) {
+			action = new AdminMeetingDeleteAction();
 		}
 			return action;
 	}

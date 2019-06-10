@@ -133,24 +133,33 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i><!-- fa-files-o -->
-               <span>회원정보</span> <i class="fa fa-angle-left pull-right"></i>
+               <span>회원관리</span> <i class="fa fa-angle-left pull-right"></i>
                <!--  <span class="label label-primary pull-right">4</span> -->
               </a>
               <ul class="treeview-menu">
-                <li><a href="admin?command=memberListForm"><i class="fa fa-magic"></i> 회원정보 삭제</a></li>
                 <li><a href="admin?command=senderEmailListFormAction"><i class="fa fa-magic"></i> 메일전송</a></li>
+                <li><a href="admin?command=memberListForm"><i class="fa fa-magic"></i> 회원정보 삭제</a></li>
               </ul>
             </li>
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-table"></i>
-                <span>커뮤니티 관리</span>
+                <span>모임관리</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="admin?command=meetingAcceptListForm"><i class="fa fa-magic"></i> 모임 승인·거절</a></li>
+                <li><a href="admin?command=meetingListForm"><i class="fa fa-magic"></i> 모임 삭제</a></li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-table"></i>
+                <span>독서 생태계 관리</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li><a href="admin?command=noticeListForm"><i class="fa fa-magic"></i> 공지사항 등록·수정·삭제</a></li>
-                <li><a href="admin?command=meetingListForm"><i class="fa fa-magic"></i> 모임 승인·거절</a></li>
-                <li><a href="/admin/eventBoard/list"><i class="fa fa-magic"></i> 행사 등록·수정·삭제</a></li>
                 <li><a href="admin?command=todayBookList"><i class="fa fa-magic"></i> 이달의책 등록·수정·삭제</a></li>
                 <li><a href="admin?command=reportListForm"><i class="fa fa-magic"></i> 독후감 삭제</a></li>
               </ul>

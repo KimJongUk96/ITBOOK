@@ -16,7 +16,7 @@
   display: table;
   width: 100%;
   height: 100%;
-}
+} 
 .inner {
   display: table-cell;
   vertical-align: middle;
@@ -44,14 +44,14 @@
 				<div class="box-header with-border">
 					<h3 class="box-title">등록 책 관리</h3>
 				</div>
-				<form name = "frm" method = "post" action = "admin?command=bookDelete">
+				<form name = "frm" id="frm" method = "post" action = "admin?command=bookDelete">
 				<div class="box-body">
 
 <div>
 
  <table class="table table-bordered" id="user-table">
 	<thead>
-	<tr><th colspan="5" style = "text-align: center;">등록된 책</th></tr>
+	<tr><th colspan="6" style = "text-align: center;">등록된 책</th></tr>
 	<tr>
 	    <th style="width: 10px; text-align:center;"><input type = "checkbox" name = "AllCheck" ></th>
 		<th style="width: 100px; text-align: center;">번호</th>
@@ -74,7 +74,7 @@
      				</c:forEach>
 </table> 
 </div>
-		    <button type = "submit" class="btn btn-danger" style = "float : right">삭제</button> 
+		    <button type = "submit" id="btn" class="btn btn-danger" style = "float : right">삭제</button> 
 </div>
 </form>
 			<section class="pt-0">
@@ -143,6 +143,12 @@
 		$("input[name='bookNum']").prop("checked", false);
 	}
 }); 
+
+ $("#btn").click(function(btn){
+		btn.preventDefault();
+		if(!confirm('정말로 삭제하시겠습니까?')) return;
+		$('#frm')[0].submit();
+	});   
     
     </script>
 

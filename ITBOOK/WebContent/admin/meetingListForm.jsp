@@ -44,16 +44,16 @@
 			<div class="box">
 			
 				<div class="box-header with-border">
-					<h3 class="box-title">모임 승인·거절</h3>
+					<h3 class="box-title">모임 삭제</h3>
 				</div>
-				<form name = "frm" method = "post" action = "admin?command=memberDelete">
+				<form name = "frm" id = "frm" method = "post" action = "admin?command=meetingDelete&metNum=${MeetingVO.metNum}" onsubmit="return submit();">
 				<div class="box-body">
 
 <div>
 
  <table class="table table-bordered" id="user-table">
 	<thead>
-	<tr><th colspan="5" style = "text-align: center;">모임신청 명단</th></tr>
+	<tr><th colspan="6" style = "text-align: center;">모임 명단</th></tr>
 	<tr>
 	    <th style="width: 10px; text-align:center;"><input type = "checkbox" name = "AllCheck" ></th>
 		<th style="width: 100px; text-align: center;">모임명</th>
@@ -65,21 +65,22 @@
 	</thead>
 
 <c:forEach items="${metList}" var="MeetingVO">
+<c:if test = "${MeetingVO.approval eq 'T'}">
 	<tbody >
-	<tr style ="text-align:center;">
-		<td><input type ="checkbox" value="${MeetingVO.metNum}" name="metNum" ></td>
+	<tr>
+		<td style ="text-align:center;"><input type ="checkbox" value="${MeetingVO.metNum}" name="metNum" ></td>
 		<td>${MeetingVO.metName}</td>
 		<td>${MeetingVO.metIntro}</td>
-		<td>${MeetingVO.represent}</td>
-		<td>${MeetingVO.metPlace}
-		<td>${MemberVO.metDate}</td>
+		<td style ="text-align:center;">${MeetingVO.represent}</td>
+		<td>${MeetingVO.metPlace}</td>
+		<td style ="text-align:center;">${MemberVO.metDate}</td>
 	</tr>
 	</tbody>
+	</c:if>
 </c:forEach>
 </table> 
 </div>
-		    <button type = "button" class="btn btn-danger" style = "float : right">거절</button>
-		    <button type = "button" class="btn btn-primary" style = "float : right">승인</button>
+		    <button type = "submit" id = "btn" class="btn btn-danger" style = "float : right">모임삭제</button>
 </div>
 			</form>
 			<section class="pt-0">
@@ -143,12 +144,17 @@
 	var chk = $(this).is(":checked");
 	
 	if(chk){
-		$("input[name='memNum']").prop("checked", true);
+		$("input[name='metNum']").prop("checked", true);
 	} else{
-		$("input[name='memNum']").prop("checked", false);
+		$("input[name='metNum']").prop("checked", false);
 	}
 }); 
-    
+
+$("#btn").click(function(btn){
+	btn.preventDefault();
+	if(!confirm('정말로 삭제하시겠습니까?')) return;
+	$('#frm')[0].submit();
+});    
     </script>
 
 <%@include file="../include/adminfooter.jsp"%>
