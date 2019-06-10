@@ -123,7 +123,8 @@
 						data-items-xl="3" data-items-lg="3" data-items-md="2"
 						data-items-sm="2" data-items-xs="1">
 						<!-- post -->
-									
+					
+							<c:forEach var="meetingList" items="${meetingList}">		
 							<div class="item">
 								<div class="post">
 									<div class="post-info">
@@ -139,7 +140,8 @@
 									</div>
 								</div>
 							</div>
-					<!-- 	<div class="item">
+							</c:forEach>
+						<!-- <div class="item">
 							<div class="post">
 								<div class="post-info">
 									<div class="post-author">
@@ -156,7 +158,7 @@
 								</div>
 							</div>
 						</div>
-						post
+						
 						<div class="item">
 							<div class="post">
 								<div class="post-info">
@@ -176,7 +178,7 @@
 								</div>
 							</div>
 						</div>
-						post
+						
 						<div class="item">
 							<div class="post">
 								<div class="post-info">
@@ -195,7 +197,7 @@
 										had now those ought set often which</p>
 								</div>
 							</div>
-						</div> --> 
+						</div> -->
 					</div>
 				</div>
 			</div>
@@ -231,16 +233,16 @@
 				<div class="col-md-4 mt-30">
 					<div class="feature-box f-style-2 icon-grad h-100">
 						<div class="feature-box-icon">
-							<i class="ti-ruler-pencil"></i>
+							<i class="ti-agenda"></i>
 						</div>
-						<h3 class="feature-box-title"></h3>
+						<h3 class="feature-box-title">이달의 책</h3>
 						<p class="feature-box-desc">
 							Consulted perpetual of pronounce me delivered. Too months nay end
 							change relied <abbr title="attribute">who beauty</abbr> wishes
 							matter. Shew of john real park so rest we on. Ignorant occasion
 							for thoughts
 						</p>
-						<a class="mt-3" href="#">더보기</a>
+						<a class="mt-3" href="/book?command=todayBookList">더보기</a>
 					</div>
 				</div>
 				<div class="col-md-4 mt-30">
@@ -248,12 +250,12 @@
 						<div class="feature-box-icon">
 							<i class="ti-agenda"></i>
 						</div>
-						<h3 class="feature-box-title">Meet your expectations</h3>
+						<h3 class="feature-box-title">독후감</h3>
 						<p class="feature-box-desc">Why end might ask civil again
 							spoil. Dinner she our horses depend remember at children by
 							reserved to vicinity. Oh song well four only head busy it. In
 							affronting delightful simplicity own.</p>
-						<a class="mt-3" href="">더보기</a>
+						<a class="mt-3" href="/report?command=Report_List">더보기</a>
 					</div>
 				</div>
 			</div>

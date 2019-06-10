@@ -42,7 +42,7 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">희망의 책</h1>
+					<h1 class="innerpage-title">인사말</h1>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="index.jsp"><i class="ti-home"></i> Home</a></li>
@@ -58,18 +58,18 @@
 	<!-- =======================	blog -->
 <section class="blog-page pb-0">
 		<div class="container">
-			<div class="col-md-8 text-center mx-auto">
+			<!-- <div class="col-md-8 text-center mx-auto">
 					<h2 class="mb-2">인사말</h2>
 					<p class="mb-5">사람과의 만남이 중요하듯 또 다른 소중한 만남이 있습니다. <br>바로 책과의 만남입니다.</p>
 					
-				</div>
+				</div> -->
 			<div class="row justify-content-md-center">
 				<div class="col-md-8">
 						<!-- Post item  with image-->
 					<div class="post-item post-bb">
 						<div class="post-item-wrap">
 							<div class="post-image">
-								<a href="#"> <img src="https://i.ibb.co/yW4CBTf/03.jpg" alt=""> </a>
+								<a href="https://ibb.co/dMLcV8g"><img src="https://i.ibb.co/3dMsjgz/intro.png" alt="intro" border="0"></a>
 							</div>
 							<!-- <div class="post-item-desc">
 								<span class="post-meta">Jan 21,</span>

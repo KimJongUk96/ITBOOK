@@ -318,7 +318,7 @@
                         <li class="dropdown-submenu">
                            <a class="dropdown-item dropdown-toggle" href="#">우리지역 책방</a>
                            <ul class="dropdown-menu">
-                              <li> <a class="dropdown-item" href="blog-single-classic.html">대전 도서관</a> </li>
+                              <li> <a class="dropdown-item" href="/library?command=libraryList">대전 도서관</a> </li>
                               <li> <a class="dropdown-item" href="blog-single-minimal.html">대전 책방</a> </li>
                            </ul>
                         </li> 
