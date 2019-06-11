@@ -104,7 +104,7 @@
 	<!-- =======================
 	Main banner -->
 
-	
+
 	<!-- =======================
 	service -->
 	<section class="blog pb-0">
@@ -123,8 +123,8 @@
 						data-items-xl="3" data-items-lg="3" data-items-md="2"
 						data-items-sm="2" data-items-xs="1">
 						<!-- post -->
-					
-							<c:forEach var="meetingList" items="${meetingList}">		
+
+						<c:forEach var="meetingList" items="${meetingList}">
 							<div class="item">
 								<div class="post">
 									<div class="post-info">
@@ -140,7 +140,7 @@
 									</div>
 								</div>
 							</div>
-							</c:forEach>
+						</c:forEach>
 						<!-- <div class="item">
 							<div class="post">
 								<div class="post-info">
@@ -222,10 +222,8 @@
 						</div>
 						<h3 class="feature-box-title">공지사항</h3>
 						<p class="feature-box-desc">
-							 Residence certainly elsewhere something she preferred cordially
-							law. Age his surprise formerly Mrs perceive few moderate. Of in <strong>
-								power match on</strong> truth worse would an match learn.
-								
+							또 다른 소중한 만남이 있습니다. <br><strong>운영게시판</strong>에서 만나보세요.
+
 						</p>
 						<a class="mt-3" href="/notice?command=noticeListFormAction">더보기</a>
 					</div>
@@ -237,10 +235,7 @@
 						</div>
 						<h3 class="feature-box-title">이달의 책</h3>
 						<p class="feature-box-desc">
-							Consulted perpetual of pronounce me delivered. Too months nay end
-							change relied <abbr title="attribute">who beauty</abbr> wishes
-							matter. Shew of john real park so rest we on. Ignorant occasion
-							for thoughts
+							이달의 <strong>추천도서</strong>를 알려드립니다. <br>가장 인기있는 도서를 확인해보세요.
 						</p>
 						<a class="mt-3" href="/book?command=todayBookList">더보기</a>
 					</div>
@@ -251,10 +246,9 @@
 							<i class="ti-agenda"></i>
 						</div>
 						<h3 class="feature-box-title">독후감</h3>
-						<p class="feature-box-desc">Why end might ask civil again
-							spoil. Dinner she our horses depend remember at children by
-							reserved to vicinity. Oh song well four only head busy it. In
-							affronting delightful simplicity own.</p>
+						<p class="feature-box-desc">
+							책은 <strong>마음의 양식</strong>입니다. <br>책에서 소중한 인연을 만나보세요.
+						</p>
 						<a class="mt-3" href="/report?command=Report_List">더보기</a>
 					</div>
 				</div>
@@ -264,7 +258,7 @@
 	<!-- =======================
 	service -->
 
-	
+
 	<!-- =======================
 	package -->
 	<section class="package pt-5">
@@ -272,7 +266,7 @@
 			<div class="row">
 				<div class="col-md-7">
 					<div class="title text-left">
-						<h2>Choose affordable and 100% premium package</h2>
+						<h2>후원하기</h2>
 						<p>We are an insight and behaviour driven creative marketing
 							agency. A Full package Digital Creative Agency Specializing in:
 							Video Production, Web Design, Branding, Brand Strategy, Content
@@ -355,7 +349,7 @@
 			</div>
 		</div>
 
-	<!-- =======================
+		<!-- =======================
 	call to action-->
 	</section>
 
@@ -369,7 +363,7 @@
 					<div class="col-md-4">
 						<div class="widget">
 							<a href="index.html" class="footer-logo"> <!-- footer SVG logo Start -->
-								<svg class="footer-logo-item" xmlns="http://www.w3.org/2000/svg"
+								<%-- <svg class="footer-logo-item" xmlns="http://www.w3.org/2000/svg"
 									xmlns:xlink="http://www.w3.org/1999/xlink"
 									preserveAspectRatio="xMinYMid" width="325.656" height="100"
 									viewBox="0 0 325.656 100">
@@ -389,13 +383,12 @@
 										d="M86.607,38.585 L55.868,69.317 C53.678,71.508 50.126,71.508 47.936,69.317 C45.745,67.127 45.745,63.577 47.936,61.387 L78.674,30.654 C80.865,28.464 84.416,28.464 86.607,30.654 C88.797,32.844 88.797,36.395 86.607,38.585 ZM26.806,69.317 C25.679,70.444 24.193,70.981 22.716,70.948 C22.636,70.953 22.560,70.972 22.478,70.972 L20.552,70.972 C18.108,70.972 16.128,68.992 16.128,66.548 L16.128,33.452 C16.128,31.008 18.108,29.028 20.552,29.028 L22.478,29.028 C24.922,29.028 26.902,31.008 26.902,33.452 L26.902,53.359 L49.612,30.654 C51.802,28.464 55.354,28.464 57.544,30.654 C59.735,32.844 59.735,36.395 57.544,38.585 L26.806,69.317 Z"
 										class="fill-white" />
 								  </g>
-								</svg> <!-- footer SVG logo End -->
+								</svg>  --%> <img src="https://i.ibb.co/9473b6T/image.jpg"
+								width="170" height="150" alt="희망의 책 로고" /> <!-- footer SVG logo End -->
 							</a>
-							<p class="mt-3">Wizixo is a highly creative, modern, visually
-								stunning and Bootstrap 4 Creative Multi-purpose corporate and
-								portfolio HTML5 template.</p>
-							<p>It is based on the powerful Bootstrap 4 Framework to make
-								sure an entirely responsive layout.</p>
+							<p class="mt-3">
+							사람과의 만남이 중요하듯 또 다른 소중한 만남이 있습니다.<br> 바로 <strong>책과의 만남</strong>입니다.
+							</p>
 						</div>
 					</div>
 					<!-- Footer widget 2 -->
@@ -403,12 +396,12 @@
 						<div class="widget address"
 							style="background-image: url('assets/images/world-map.png'); background-position: 50% 20px; background-repeat: no-repeat; background-size: contain;">
 							<ul class="list-unstyled">
-								<li class="media mb-3"><i class="mr-3 display-8 ti-map-alt"></i>1421
-									Coburn Hollow Road Metamora, Near Center Point, IL 61548.</li>
+								<li class="media mb-3"><i class="mr-3 display-8 ti-map-alt"></i>
+									(301-010)대전광역시 중구 대흥로 109 종합문화복지관</li>
 								<li class="media mb-3"><i
-									class="mr-3 display-8 ti-headphone-alt"></i> (251) 854-6308</li>
+									class="mr-3 display-8 ti-headphone-alt"></i> (042) 252-9540</li>
 								<li class="media mb-3"><i class="mr-3 display-8 ti-email"></i>
-									help@wizixo.com</li>
+									djbook21@hanmail.net</li>
 								<li class="media mb-3"><i class="mr-3 display-8 ti-time"></i>
 									<p>
 										Mon - Fri: <strong>09:00 - 21:00</strong> <br>Sat & Sun:
@@ -423,14 +416,15 @@
 							<h6>Quick LInks</h6>
 							<ul class="nav flex-column primary-hover">
 								<li class="nav-item"><a class="nav-link"
-									href="about-classic.html">About</a></li>
+									href="/notice?command=introAction">희망의책 소개</a></li>
 								<li class="nav-item"><a class="nav-link"
-									href="contact.html">Contact</a></li>
-								<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+									href="/book?command=todayBookList">이달의책</a></li>
 								<li class="nav-item"><a class="nav-link"
-									href="blog-grid-left-sidebar.html">Blog</a></li>
+									href="/meeting?command=meetingList">독서모임</a></li>
 								<li class="nav-item"><a class="nav-link"
-									href="portfolio-grid-column-4.html">Portfolio</a></li>
+									href="/notice?command=noticeListFormActionl">운영게시판</a></li>
+								<li class="nav-item"><a class="nav-link"
+									href="portfolio-grid-column-4.html">후원하기</a></li>
 							</ul>
 						</div>
 					</div>
@@ -438,12 +432,13 @@
 					<div class="col-md-3">
 						<div class="widget bg-grad p-4 all-text-white border-radius-3">
 							<i class="ti-email newsletter-icon"></i>
-							<p class="mb-2">Subscribe to our newsletter to receive
-								exclusive offers.</p>
+							<p class="mb-2">여러분과 함께 만드는 <br>아름다운 소통과 교류의 장 </p>
 							<div class="form-group mb-0">
-								<input class="form-control border-white mb-3" type="email"
-									placeholder="Enter email...">
-								<button class="btn btn-dark mb-0">Join us</button>
+								<!-- 	<input class="form-control border-white mb-3" type="email"
+									placeholder="Enter email..."> -->
+								<a href="signup.jsp">
+									<button class="btn btn-dark mb-0">가입하기</button>
+								</a>
 							</div>
 						</div>
 					</div>
@@ -458,11 +453,13 @@
 				<div
 					class="d-md-flex justify-content-between align-items-center py-3 text-center text-md-left">
 					<!-- copyright text -->
-					<div class="copyright-text">
-						Â©2019 All Rights Reserved by <a href="#!"> Wizixo.</a>
+					<div class="copyright-text-center" >
+					
+					Â©2019 All Rights Reserved by <a href="#!"> 희망의책.</a>
+			
 					</div>
 					<!-- copyright links-->
-					<div class="copyright-links primary-hover mt-3 mt-md-0">
+					<!-- <div class="copyright-links primary-hover mt-3 mt-md-0">
 						<ul class="list-inline">
 							<li class="list-inline-item pl-2"><a
 								class="list-group-item-action" href="#">Home</a></li>
@@ -475,7 +472,7 @@
 							<li class="list-inline-item pl-2"><a
 								class="list-group-item-action pr-0" href="#">Use of terms</a></li>
 						</ul>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
