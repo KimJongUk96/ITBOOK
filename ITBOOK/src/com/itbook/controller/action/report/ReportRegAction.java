@@ -11,6 +11,10 @@ import com.itbook.dao.ReportDAO;
 import com.itbook.vo.MemberVO;
 import com.itbook.vo.Report.ReportBoardVO;
 
+/**
+ * @author 수아
+ */
+
 public class ReportRegAction implements Action {
 
 	@Override
