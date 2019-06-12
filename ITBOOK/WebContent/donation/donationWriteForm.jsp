@@ -75,7 +75,7 @@
 					
 					</textarea></div>
 					<p><span style="float:right;margin-right:20px;font-weight:normal;">개인정보 수집 및 이용 동의 &nbsp;&nbsp;&nbsp;<input type="checkbox"><br>
-					개인정보 제3자 제공 동의 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox"></span></p>
+					개인정보 제 3자 제공 동의 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox"></span></p>
 					
 					<br><br><br>
 
