@@ -22,7 +22,7 @@
 								  	<linearGradient id="LogoGradientFooter">
 											<stop class="fill-grad-start" offset="0%" />
 											<stop class="fill-grad-end" offset="100%" />
-										</linearGradient>
+										</linearGradient> 
 									</defs>
 								  <g>
 									<path
