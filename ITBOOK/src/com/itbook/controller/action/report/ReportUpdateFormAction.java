@@ -11,6 +11,10 @@ import com.itbook.controller.action.Action;
 import com.itbook.dao.ReportDAO;
 import com.itbook.vo.Report.ReportBoardVO;
 
+/**
+ * @author 수아
+ */
+
 public class ReportUpdateFormAction implements Action {
 
 	@Override
