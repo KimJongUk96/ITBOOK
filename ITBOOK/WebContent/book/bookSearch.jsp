@@ -115,9 +115,15 @@
                </div>
             </div>
          </div>
-   <div align="right">
-                     원하는 책이 없으면 --> <a class="btn btn-primary" onclick="javascript:opener.location.href='/book?command=bookRegFormAction';self.close();">책 등록</a>
+         
+   		<!-- 			<div align="right">
+                  <a class="btn btn-primary" onclick="javascript:opener.location.href='/book?command=bookRegFormAction';self.close();"></a>
+                  </div> -->
+                  
+                  <div align="right">
+                  <button class="btn btn-primary" onclick="javascript:opener.location.href='/book?command=bookRegFormAction';self.close();">등록</button>
                   </div>
+                  
       </div>
    </section>
    

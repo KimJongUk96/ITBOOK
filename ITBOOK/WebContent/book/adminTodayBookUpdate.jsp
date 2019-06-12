@@ -44,16 +44,12 @@
       <div class="container">
          <div class="row all-text-white">
             <div class="col-md-12 align-self-center">
-               <h1 class="innerpage-title">이달의 책 수정
-               
-               </h1>
-               <h6 class="subtitle">I can find the answer in the book and the
-                  book is the way to help me.</h6>
+              <h1 class="innerpage-title">이달의 책</h1>
+					<h6 class="subtitle">희망의 책에서 추천하는 이달의 책입니다.</h6>
                <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                     <li class="breadcrumb-item active"><a href="index.html"><i
-                           class="ti-home"></i> Home</a></li>
-                     <li class="breadcrumb-item">Table</li>
+                     <li class="breadcrumb-item active"><a href="index.jsp"><i
+                           class="ti-home"></i>Home</a></li>
                   </ol>
                </nav>
             </div>
@@ -130,11 +126,11 @@
                	<!--업로드 끝  -->
                
                
-                 <button type="submit" class="btn btn-success"><i class="fa fa-check-circle-o"></i>수정</button>
-                  <button type="button" class="btn btn-warning" onclick="location.href='book?command=adminTodayBookDelete&bookBrdNum=${todayBookList.bookBrdNum}'" >
-                  <i class="fa fa-close"></i>삭제</button>
+                 <button type="submit" class="btn btn-grad">수정</button>
+                  <button type="button" class="btn btn-grad" onclick="location.href='book?command=adminTodayBookDelete&bookBrdNum=${todayBookList.bookBrdNum}'" >
+                 삭제</button>
                   
-                  	<button type = "button" class="btn btn-secondary" onclick="location.href='book?command=adminTodayBookList'"><i class="fa fa-arrow-circle-right"></i>목록</button>
+                  	<button type = "button" class="btn btn-grad" onclick="location.href='book?command=adminTodayBookList'">취소</button>
 					</form>
                   
             </div>

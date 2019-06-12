@@ -46,13 +46,12 @@
       <div class="container">
          <div class="row all-text-white">
             <div class="col-md-12 align-self-center">
-               <h1 class="innerpage-title">책 등록</h1>
-               <h6 class="subtitle">희망의 책 대전본부</h6>
+              <h1 class="innerpage-title">책 등록</h1>
+					<h6 class="subtitle">회원들이 원하는 책이 없으면 책을 등록하세요.</h6>
                <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                     <li class="breadcrumb-item active"><a href="index.html"><i
-                           class="ti-home"></i>Main</a></li>
-                     <li class="breadcrumb-item">책 등록</li>
+                     <li class="breadcrumb-item active"><a href="index.jsp"><i
+                           class="ti-home"></i>Home</a></li>
                   </ol>
                </nav>
             </div>
