@@ -130,7 +130,7 @@
    
    
 <script type="text/javascript">
-function sendToParent(booknum, bookTitle, isbn, writer, publisher){
+function sendToParent(booknum, bookTitle, writer, publisher){
 	
 	
 //	alert(booknum + bookTitle + writer + publisher);
@@ -143,7 +143,6 @@ function sendToParent(booknum, bookTitle, isbn, writer, publisher){
    
    window.opener.document.frm.bookNum.value = booknum;
    window.opener.document.frm.bookTitle.value = bookTitle;
-   window.opener.document.frm.bookTitle.value = isbn;
    window.opener.document.frm.writer.value = writer;
    window.opener.document.frm.publisher.value = publisher; 
    

@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>책 조회</title>
+   <title>대전책방</title>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
    <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,13 +45,12 @@
       <div class="container">
          <div class="row all-text-white">
             <div class="col-md-12 align-self-center">
-               <h1 class="innerpage-title">우리동네책방</h1>
-               <h6 class="subtitle">희망의 책 대전본부</h6>
+               <h1 class="innerpage-title">대전 책방</h1>
+               <h6 class="subtitle">우리 동네 책방 찾기</h6>
                <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                     <li class="breadcrumb-item active"><a href="index.html"><i
-                           class="ti-home"></i>Main</a></li>
-                     <li class="breadcrumb-item">책 조회</li>
+                     <li class="breadcrumb-item active"><a href="index.jsp"><i
+                           class="ti-home"></i>Home</a></li>
                   </ol>
                </nav>
             </div>
@@ -73,7 +72,7 @@
                      
                         <tr>
                            <th scope="col">번호</th>
-                           <th scope="col">책방</th>
+                           <th scope="col">책방이름</th>
                          <th scope="col">URL</th>
                          <th scope="col">주소</th>
                           
@@ -98,7 +97,7 @@
                   </table>
              	 <div align="right">
              	 
-                  <a class="btn btn-primary" href="bookstore?command=bookstoreRegisterForm">책 등록</a>
+                  <a class="btn btn-grad" href="bookstore?command=bookstoreRegisterForm">등록</a>
 
                   </div>
                </div>

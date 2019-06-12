@@ -31,7 +31,8 @@
 
 <!-- Theme CSS -->
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-
+<script type="text/javascript" src ="/js/bookstore.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
   
@@ -46,13 +47,12 @@
       <div class="container">
          <div class="row all-text-white">
             <div class="col-md-12 align-self-center">
-               <h1 class="innerpage-title">책 등록</h1>
-               <h6 class="subtitle">희망의 책 대전본부</h6>
+               <h1 class="innerpage-title">대전 책방</h1>
+               <h6 class="subtitle">우리 동네 책방 찾기</h6>
                <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                     <li class="breadcrumb-item active"><a href="index.html"><i
-                           class="ti-home"></i>Main</a></li>
-                     <li class="breadcrumb-item">책 등록</li>
+                     <li class="breadcrumb-item active"><a href="index.jsp"><i
+                           class="ti-home"></i>Home</a></li>
                   </ol>
                </nav>
             </div>
@@ -69,8 +69,8 @@
 	<input type = "hidden" name = "command" value="bookstoreRegister">
     <%-- <input type ="hidden" name = "memNum" value = "${LoginUser.memNum}"> --%>
                <div class="form-group">
-                  <label>제목</label> <input class="form-control" type="text" name = "bookstoreTitle"
-                     placeholder="* 책방을 입력하세요.">
+                  <label>책방이름</label> <input class="form-control" type="text" name = "bookstoreTitle"
+                     placeholder="*책방이름을 입력하세요.">
                </div>
                
                <div class="form-group">
@@ -79,13 +79,12 @@
                </div>
                
                <div class="form-group">
-                  <label>책방주소</label> <input class="form-control" type="text" name = "bookstoreContent"
-                     placeholder="주소을 입력하세요.">
+                  <label>주소</label> <input class="form-control" type="text" name = "bookstoreContent"
+                     placeholder="*주소을 입력하세요.">
                </div>
                
-               <button type ="submit" class ="btn btn-success" ><i class="fa fa-check-circle-o"></i>등록하기</button>
-               <button type = "button" class="btn btn-warning" onclick="location.href='bookstore?command=bookstoreList'">
-               <i class="fa  fa-close"></i>취소하기</button>
+               <input type ="submit" class ="btn btn-grad" value="등록" onclick="return bookstoreCheck()">
+               <button type = "button" class="btn btn-grad" onclick="location.href='bookstore?command=adminBookstoreList'">취소</button>
          </form>
             </div>
          
@@ -93,7 +92,15 @@
          
       </div>
    </section>
-
+<script>
+$(document).ready(function(){
+	$('form').submit(function(){
+ 	  var result = alert("등록되었습니다.");
+   
+	   return result;
+	})
+	})
+</script>
 
    <%@ include file="../include/footer.jsp"%>
 </body>

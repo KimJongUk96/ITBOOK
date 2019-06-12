@@ -31,7 +31,8 @@
 
 <!-- Theme CSS -->
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-
+<script type="text/javascript" src ="/js/book.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
   
@@ -97,9 +98,8 @@
                      placeholder="* 출판사를 입력하세요.">
                </div>
                
-               <button type ="submit" class ="btn btn-success" ><i class="fa fa-check-circle-o"></i>등록하기</button>
-               <button type = "button" class="btn btn-warning" onclick="location.href='book?command=bookList'">
-               <i class="fa  fa-close"></i>취소하기</button>
+               <input type ="submit" class ="btn btn-grad" onclick="return bookCheck()" value="등록">
+               <button type = "button" class="btn btn-grad" onclick="location.href='book?command=bookList'">취소</button>
          </form>
             </div>
          
@@ -107,7 +107,15 @@
          
       </div>
    </section>
-
+<script>
+$(document).ready(function(){
+	$('form').submit(function(){
+ 	  var result = alert("등록되었습니다.");
+   
+	   return result;
+	})
+	})
+</script>
 
    <%@ include file="../include/footer.jsp"%>
 </body>

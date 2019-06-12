@@ -43,7 +43,7 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">우리동네책방</h1>
+					<h1 class="innerpage-title">대전 책방</h1>
 					<h6 class="subtitle">I can find the answer in the book and the
 						book is the way to help me.</h6>
 					<nav aria-label="breadcrumb">
@@ -93,11 +93,9 @@
 
 								<h3 class="feature-box-title">
 								${bookstoreList.bookstoreTitle}
-									<%-- <a
-										href="report?command=Report_Detail&reportNum=${bookstoreList.bookstoreTitle}">
-										${reportList.reportTitle}</a> --%>
+									
 								</h3>
-								<p class="feature-box-desc">${bookstoreList.bookstoreUrl}</p>
+								<a href="${bookstoreList.bookstoreUrl}" target="_blank">${bookstoreList.bookstoreUrl}</a>
 								<p class="feature-box-desc">${bookstoreList.bookstoreContent}</p>
 							</div>
 						</div>

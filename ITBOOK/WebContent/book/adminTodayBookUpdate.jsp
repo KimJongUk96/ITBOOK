@@ -31,6 +31,8 @@
 
 <!-- Theme CSS -->
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+<script type="text/javascript" src ="/js/todayBook.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 </head>
 <body>
@@ -116,7 +118,7 @@
          		
 
 				<div class="form-group">
-                  <label>기존 파일</label> <input class="form-control" type="text" value = "${todayBookList.imgPath}" name ="imgPath">
+                  <label>기존 파일</label> <input class="form-control" type="text" value = "${todayBookList.imgPath}" name ="imgPath" readonly="readonly">
                	</div>
          		
          		 <!-- 업로드 시작-->
@@ -126,8 +128,9 @@
                	<!--업로드 끝  -->
                
                
-                 <button type="submit" class="btn btn-grad">수정</button>
-                  <button type="button" class="btn btn-grad" onclick="location.href='book?command=adminTodayBookDelete&bookBrdNum=${todayBookList.bookBrdNum}'" >
+                 <input type="submit" class="btn btn-grad" onclick="return todayBookCheck()" value="수정">
+                 
+                  <button type="button"  class="btn btn-grad" id="btn" onclick="location.href='book?command=adminTodayBookDelete&bookBrdNum=${todayBookList.bookBrdNum}'" >
                  삭제</button>
                   
                   	<button type = "button" class="btn btn-grad" onclick="location.href='book?command=adminTodayBookList'">취소</button>
@@ -155,6 +158,20 @@
 
       window.open(url, title, status);
    }
+   
+   $("#btn").click(function(btn){
+	    btn.preventDefault();
+	    if(!confirm('정말로 삭제하시겠습니까?')) return;
+ 	   $('#frm')[0].submit();
+ 	}); 
+   
+   $(document).ready(function(){
+		$('form').submit(function(){
+	 	  var result = alert("수정되었습니다.");
+	   
+		   return result;
+		})
+		})
 </script> 
 
    <%@ include file="../include/footer.jsp"%>

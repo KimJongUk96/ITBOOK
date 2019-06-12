@@ -32,7 +32,8 @@
 
 <!-- Theme CSS -->
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-
+<script type="text/javascript" src ="/js/todayBook.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
 
@@ -97,21 +98,21 @@
 
             <div class="form-group">
                   <label>책제목</label> <input class="form-control" type="text" name = "bookTitle"
-                     placeholder="책제목">
+                     placeholder="*책제목">
                </div> 
                
 			<div class="form-group">
                   <label>저자</label> <input class="form-control" type="text" name = "writer"
-                     placeholder="저자">
+                     placeholder="*저자">
                </div>
                <div class="form-group">
                   <label>출판사</label> <input class="form-control" type="text" name = "publisher"
-                     placeholder="출판사">
+                     placeholder="*출판사">
                </div>
                <div class="form-group">
                   <label>내용</label>
                   <textarea class="form-control" rows="10" name = "bookBrdContent"
-                     placeholder="내용을 입력하세요."></textarea>
+                     placeholder="*내용을 입력하세요."></textarea>
                </div>
                
             
@@ -132,9 +133,9 @@
               	 </div>
                	<!--업로드 끝  -->
          
-               <button type ="submit" class ="btn btn-success" ><i class="fa fa-check-circle-o"></i>등록</button>
-               <button type = "button" class="btn btn-warning" onclick="location.href='book?command=adminTodayBookList'">
-               <i class="fa  fa-close"></i>취소</button>
+               <input type ="submit" class ="btn btn-grad" onclick="return todayBookCheck()" value="등록">
+               <button type = "button" class="btn btn-grad" onclick="location.href='book?command=adminTodayBookList'">
+              취소</button>
                
                 </form>
               
@@ -160,6 +161,13 @@
 
       window.open(url, title, status);
    }
+   $(document).ready(function(){
+		$('form').submit(function(){
+	 	  var result = alert("등록되었습니다.");
+	   
+		   return result;
+		})
+		})
 </script>
 
 

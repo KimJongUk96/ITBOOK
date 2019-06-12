@@ -32,6 +32,8 @@
 
 <!-- Theme CSS -->
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+<script type="text/javascript" src ="/js/bookstore.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 </head>
 <body>
@@ -47,13 +49,12 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">우리동네책방</h1>
-					<h6 class="subtitle">희망의 책 대전본부</h6>
+					 <h1 class="innerpage-title">대전 책방</h1>
+               <h6 class="subtitle">우리 동네 책방 찾기</h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="index.html"><i
-									class="ti-home"></i>Main</a></li>
-							<li class="breadcrumb-item">책 수정</li>
+							<li class="breadcrumb-item active"><a href="index.jsp"><i
+									class="ti-home"></i>Home</a></li>
 						</ol>
 					</nav>
 				</div>
@@ -67,11 +68,10 @@
 					<!-- 책 수정 폼 -->
 					<form name="frm" method="post"
 						action="bookstore?command=bookstoreUpdate">
-					===${bookstoreList.bookstoreNum}-"${bookstoreList.bookstoreNum}"
 						<input type="hidden" name="bookstoreNum" value="${bookstoreList.bookstoreNum}">
 						<div class="form-group">
-							<label>책방</label> <input class="form-control" type="text"
-								name="bookstoreTitle" value = "${bookstoreList.bookstoreTitle}" placeholder="* 제목을 입력하세요.">
+							<label>책방이름</label> <input class="form-control" type="text"
+								name="bookstoreTitle" value = "${bookstoreList.bookstoreTitle}" placeholder="*책방이름을 입력하세요.">
 						</div>
 				
 						<div class="form-group">
@@ -81,13 +81,12 @@
 
 						<div class="form-group">
 							<label>책방주소</label> <input class="form-control" type="text"
-								name="bookstoreContent" value = "${bookstoreList.bookstoreContent}" placeholder="책방주소를 입력하세요.">
+								name="bookstoreContent" value = "${bookstoreList.bookstoreContent}" placeholder="*책방주소를 입력하세요.">
 						</div>
 
-                  <button type="submit" class="btn btn-success"><i class="fa fa-check-circle-o"></i>수정</button>
-                  <button type="button" class="btn btn-warning" onclick="location.href='bookstore?command=bookstoreDelete&bookstoreNum=${bookstoreList.bookstoreNum}'" >
-                  <i class="fa fa-close"></i>삭제</button>
-				<button type = "button" class="btn btn-secondary" onclick="location.href='bookstore?command=adminBookstoreList'"><i class="fa fa-arrow-circle-right"></i>목록</button>
+                  <input type="submit" class="btn btn-grad" value="수정" onclick="return bookstoreCheck()">
+                  <button type="button" class="btn btn-grad" id="btn" onclick="location.href='bookstore?command=bookstoreDelete&bookstoreNum=${bookstoreList.bookstoreNum}'" >삭제</button>
+				<button type = "button" class="btn btn-grad" onclick="location.href='bookstore?command=adminBookstoreList'">취소</button>
 					</form>
                   </div>
 						
@@ -98,7 +97,21 @@
 			</div>
 
 	</section>
+<script>
+$(document).ready(function(){
+	$('form').submit(function(){
+ 	  var result = alert("수정되었습니다.");
+   
+	   return result;
+	})
+	})
 
+$("#btn").click(function(btn){
+    btn.preventDefault();
+    if(!confirm('정말로 삭제하시겠습니까?')) return;
+	   $('#frm')[0].submit();
+	}); 
+</script>
 
 	<%@ include file="../include/footer.jsp"%>
 </body>
