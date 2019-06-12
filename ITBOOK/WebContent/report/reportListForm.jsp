@@ -57,7 +57,6 @@
 			</div>
 		</div>
 	</div>
-
 	<section class="portfolio pb-0">
 		<div class="container">
 			<div class="row">
@@ -103,7 +102,6 @@
 							<tbody>
 								<c:forEach var="reportList" items="${reportList}">
 									<tr>
-										
 										<th scope="row">${reportList.reportNum}</th>
 										<th>${reportList.reportCategory}</th>
 										<td><a
@@ -113,77 +111,16 @@
 										<td>${reportList.reportCount}</td>
 									</tr>
 								</c:forEach>
-
 							</tbody>
-
 						</table>
-						<%-- <c:if test = ${LoginUser.authority eq '1'  or LoginUser.authority eq '2' or LoginUser.authority eq '3'}> --%>
 						<div align="right">
 							<a class="btn btn-primary" href="/report?command=Report_Reg_Form">글쓰기</a>
 						</div>
-						<%-- </c:if> --%>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
-
-	<%-- <section class="service">
-
-		<form name="frm" method="post" action="report?command=reportRegForm">
-			<div class="col-md-12">
-
-
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-12 text-md-center mt-5 mb-4">
-
-							<div class="col-md-6 text-md-center mb-4">
-								<blockquote class="blockquote">
-									<h5 class="mb-2 text-light-gray">
-										책은 마음의 양식입니다. <br> <strong>자신의 생각을 자유롭게 표현해보세요!</strong>
-									</h5>
-
-								</blockquote>
-
-							</div>
-							<a href="report?command=Report_Reg_Form">
-								<button type="button" class="btn btn-outline-primary">
-									<i class="fa fa-check-circle-o"></i>등록하기
-								</button>
-							</a>
-							<button type="button" class="btn btn-outline-primary"
-								onclick="openPopUp()">책 검색</button>
-						</div>
-
-						<div class="divider">
-							<i class="ti-book"></i>
-						</div>
-						<c:forEach var="reportList" items="${reportList}">
-
-							<h5 class="mb-2 mt-5"></h5>
-
-							<div class="col-lg-4 mt-4">
-								<div class="feature-box f-style-3 h-100 icon-grad">
-									<div class="feature-box-icon">
-										<i class="ti-book"></i>
-									</div>
-									<h3 class="feature-box-title">
-										<a href="report?command=Report_Detail&reportNum=${reportList.reportNum}">
-											${reportList.reportTitle}</a>
-									</h3>
-									<p class="feature-box-desc">${reportList.memName}</p>
-								</div>
-							</div>
-							
-						</c:forEach>
-					</div>
-				</div>
-			</div>
-		</form>
-
-	</section> --%>
 	<script>
 		function openPopUp() {
 			// window.name = "부모창 이름"; 

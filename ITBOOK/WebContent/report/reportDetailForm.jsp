@@ -79,6 +79,7 @@
 								<ul class="list-unstyled p-0">
 									<li class="mb-3"><strong>저자:</strong>${reportList.writer}</li>
 									<li class="mb-3"><strong>출판사:</strong>${reportList.publisher}</li>
+									<li class="mb-3"><strong>분류:</strong>${reportList.reportCategory}</li>
 
 								</ul>
 							</div>
@@ -101,7 +102,7 @@
 
 				<%-- 	<c:if test="${requestScope.commentList != null}">
 					<c:forEach var="comment" items="${requestScope.commentList}"> --%>
-				<div class="row mt-5 comments-area">
+				<%-- 	<div class="row mt-5 comments-area">
 					<div class="col-sm-12">
 						<h4>댓글</h4>
 						<div class="comment-list">
@@ -188,37 +189,32 @@
 								</div>
 							</form>
 						</div>
-					</div>
+					</div> --%>
 
 
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
+				<br> <br> <br> <br> <br> <br>
 
-                        <div class="col-md-12 text-center">
-                           <button type="button"
-                              class="btn btn-grad border-radius-left-0 mb-0">이전 글</button>
+				<div class="col-md-12 text-center">
+					<button type="button"
+						class="btn btn-grad border-radius-left-0 mb-0">이전 글</button>
 
-                           <a href="report?command=Report_List">
-                              <button type="button"
-                                 class="btn btn-grad border-radius-left-0 mb-0">글 목록</button>
-                           </a>
+					<a href="report?command=Report_List">
+						<button type="button"
+							class="btn btn-grad border-radius-left-0 mb-0">글 목록</button>
+					</a>
 
-                           <button type="button"
-                              class="btn btn-grad border-radius-left-0 mb-0">다음 글</button>
-                        </div>
-                     </div>
-                  </div>
+					<button type="button"
+						class="btn btn-grad border-radius-left-0 mb-0">다음 글</button>
 				</div>
-            
-   </section>
+			</div>
+		</div>
+		</div>
 
-				<%-- </c:forEach>
+	</section>
+
+	<%-- </c:forEach>
 				</c:if> --%>
-	
+
 
 	<%@ include file="../include/footer.jsp"%>
 </body>

@@ -47,6 +47,11 @@ public class MainServlet extends HttpServlet {
 
 			if (action != null) {
 				action.execute(request, response);
+			
+		} else if (command.equals("meetingList")) {
+				RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+				dispatcher.forward(request, response);
+
 			}
 		}
 
