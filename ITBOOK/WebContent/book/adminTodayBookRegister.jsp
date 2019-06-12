@@ -116,18 +116,23 @@
                      placeholder="내용을 입력하세요."></textarea>
                </div>
                
-               
-               
-               <!-- 업로드 시작-->
+            
+                <!--   <label>파일 업로드</label>
                
                  <div class="custom-file">
-                  <label>Upload Book</label><input type="file" class="custom-file-input" name ="imgPath">
-								<label class="custom-file-label">Upload Book</label>
-								
-               </div> 
-               <!--업로드 끝  -->
+                  <label class="custom-file-label">Upload Book</label> ---
+                  <input type="file" class="custom-file-input" name ="imgPath">
+								 ------
+              	 </div>  -->
+              	 
+              	 
+              <!-- 업로드 시작-->
                
-               
+               <div class="form-group">
+                  <input type="file" class="form-control-file" name ="imgPath" >
+							
+              	 </div>
+               	<!--업로드 끝  -->
          
                <button type ="submit" class ="btn btn-success" ><i class="fa fa-check-circle-o"></i>등록</button>
                <button type = "button" class="btn btn-warning" onclick="location.href='book?command=adminTodayBookList'">

@@ -65,7 +65,9 @@
             
             <select name="opt">
                 <option value="0">제목</option>
+                <option value="2">ISBN</option>
                 <option value="1">키워드</option>
+                
             </select>
             
             <input type="text" size="20" name="condition"/>
@@ -75,6 +77,7 @@
                      <thead>
                         <tr>
                            <th scope="col">제목</th>
+                           <th scope="col">ISBN</th>
                          <th scope="col">키워드</th>
                          <th scope="col">저자</th>
                           <th scope="col">출판사</th>
@@ -99,7 +102,7 @@
                         
                             <th scope = "row" onclick="sendToParent('${bookList.bookNum}', '${bookList.bookTitle}','${bookList.writer}','${bookList.publisher}')"><a href ="">${bookList.bookTitle}</a></th>
 
-
+						   <td>${bookList.isbn}</td>
                            <td>${bookList.bookKeyword1}, ${bookList.bookKeyword2}, ${bookList.bookKeyword3}</td>
                            <td>${bookList.writer}</td>
                            <td>${bookList.publisher}</td>
@@ -121,7 +124,7 @@
    
    
 <script type="text/javascript">
-function sendToParent(booknum, bookTitle, writer, publisher){
+function sendToParent(booknum, bookTitle, isbn, writer, publisher){
 	
 	
 //	alert(booknum + bookTitle + writer + publisher);
@@ -134,6 +137,7 @@ function sendToParent(booknum, bookTitle, writer, publisher){
    
    window.opener.document.frm.bookNum.value = booknum;
    window.opener.document.frm.bookTitle.value = bookTitle;
+   window.opener.document.frm.bookTitle.value = isbn;
    window.opener.document.frm.writer.value = writer;
    window.opener.document.frm.publisher.value = publisher; 
    

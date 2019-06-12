@@ -19,6 +19,7 @@ public class BookUpdateAction implements Action {
 		
 		bVo.setBookNum(request.getParameter("bookNum"));
 		bVo.setBookTitle(request.getParameter("bookTitle"));
+		bVo.setIsbn(request.getParameter("isbn"));
 		bVo.setWriter(request.getParameter("writer"));
 		bVo.setPublisher(request.getParameter("publisher"));
 		bVo.setBookKeyword1(request.getParameter("bookKeyword1"));

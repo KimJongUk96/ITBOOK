@@ -24,8 +24,16 @@ public class BookVO {
 	private String bookKeyword1;
 	private String bookKeyword2;
 	private String bookKeyword3;
+	private String isbn;
 	
 	
+	
+	public String getIsbn() {
+		return isbn;
+	}
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
 	public String getMemName() {
 		return memName;
 	}
@@ -91,8 +99,10 @@ public class BookVO {
 		return "BookVO [bookNum=" + bookNum + ", bookTitle=" + bookTitle + ", writer=" + writer + ", publisher="
 				+ publisher + ", publishDate=" + publishDate + ", memNum=" + memNum + ", memName=" + memName
 				+ ", bookKeyword1=" + bookKeyword1 + ", bookKeyword2=" + bookKeyword2 + ", bookKeyword3=" + bookKeyword3
-				+ "]";
+				+ ", isbn=" + isbn + "]";
 	}
+	
+
 	
 	
 	

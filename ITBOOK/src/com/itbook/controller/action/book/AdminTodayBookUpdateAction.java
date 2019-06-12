@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
 import com.itbook.dao.BookDAO;
-import com.itbook.vo.MemberVO;
 import com.itbook.vo.Book.BookBoardVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -42,54 +41,54 @@ public class AdminTodayBookUpdateAction implements Action {
         // 업로드될 폴더 경로
         String uploadPath = request.getServletContext().getRealPath("/META-INF/UploadFolder");
         
-        System.out.println("============ uploadFilePath = " + uploadPath);
-        
         try {
-            
-            // 파일업로드 
             MultipartRequest multi = new MultipartRequest
                     (request, uploadPath, fileSize, "UTF-8", new DefaultFileRenamePolicy());
- 
-            // 파일이름 가져오기
-            String fileName = "";
-            Enumeration<String> names = multi.getFileNames();
-            if(names.hasMoreElements())
-            {
-                String name = names.nextElement();
-                fileName = multi.getFilesystemName(name);
+            
+            //파라미터 값을 가져온다.
+            String bookBrdNum = multi.getParameter("bookBrdNum");
+            String bookBrdTitle = multi.getParameter("bookBrdTitle");
+            String bookBrdContent = multi.getParameter("bookBrdContent");
+            String bookTitle = multi.getParameter("bookTitle");
+            String writer = multi.getParameter("writer");
+            String publisher = multi.getParameter("publisher");
+            String bookNum = multi.getParameter("bookNum");
+            String existFile = multi.getParameter("existing_file"); //기존첨부파일
+            
+            
+            //파라미터 값을 자바빈에 세팅한다.
+            BookBoardVO bVo = new BookBoardVO();
+            bVo.setBookBrdNum(bookBrdNum);
+            bVo.setBookBrdTitle(bookBrdTitle);
+            bVo.setBookBrdContent(bookBrdContent);
+            bVo.setBookTitle(bookTitle);
+            bVo.setWriter(writer);
+            bVo.setPublisher(publisher);
+            bVo.setBookNum(bookNum);
+            
+     
+            //글 수정 시 업로드된 파일 가져오기
+            Enumeration<String> fileNames = multi.getFileNames();
+            if(fileNames.hasMoreElements()) {
+            	String fileName = fileNames.nextElement();
+            	String updateFile = multi.getFilesystemName(fileName);
+            	if(updateFile == null) //수정시 새로운 파일을 첨부 안했다면 기존파일명 세팅
+            		bVo.setImgPath(existFile);
+            	else
+            		bVo.setImgPath(updateFile);
             }
             
-            System.out.println("fileName : " + fileName);
-
             BookDAO bDao = BookDAO.getInstance();
-            BookBoardVO bVo = new BookBoardVO();
-            
-            bVo.setBookBrdTitle(multi.getParameter("bookBrdTitle"));
-    		bVo.setBookBrdContent(multi.getParameter("bookBrdContent"));
-    		bVo.setBookTitle(multi.getParameter("bookTitle"));
-    		bVo.setWriter(multi.getParameter("writer"));
-    		bVo.setPublisher(multi.getParameter("publisher"));
-    		bVo.setBookNum(multi.getParameter("bookNum"));
-    		bVo.setImgPath(multi.getFilesystemName("imgPath"));
-    		
-    		//섹션값 가져오기.
-//    		MemberVO memVo = (MemberVO)request.getSession().getAttribute("LoginUser");
-//    	      bVo.setMemNum(memVo.getMemNum());
-//            
-    		
             boolean result = bDao.updateAdminTodayBook(bVo);
+        
             
             if(result) {
-            	
             	new AdminTodayBookListAction().execute(request, response);
             }
-            	
-            } catch (Exception e) {
-                
-            	e.printStackTrace();
-                System.out.println("글 작성 오류 : " + e.getMessage());
-            }
-        	
-        
-        }  
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("글 수정 오류 : " + e.getMessage());
+		}
+	}
 }

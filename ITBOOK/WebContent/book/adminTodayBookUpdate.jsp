@@ -44,7 +44,9 @@
       <div class="container">
          <div class="row all-text-white">
             <div class="col-md-12 align-self-center">
-               <h1 class="innerpage-title">희망의 책 독후감</h1>
+               <h1 class="innerpage-title">이달의 책 수정
+               
+               </h1>
                <h6 class="subtitle">I can find the answer in the book and the
                   book is the way to help me.</h6>
                <nav aria-label="breadcrumb">
@@ -69,6 +71,7 @@
                <div class="form-group">
                <input type="hidden" name="bookNum" value="${todayBookList.bookNum}">
                <input type="hidden" name="bookBrdNum" value="${todayBookList.bookBrdNum}">
+               
                   <label>이달의 책제목</label> <input class="form-control" type="text" value = "${todayBookList.bookBrdTitle}" name ="bookBrdTitle"
                      placeholder="* 이달의 책 제목을 입력하세요.">
                </div>
@@ -109,21 +112,25 @@
                
                <div class="form-group">
                   <label>내용</label>
-                  <textarea class="form-control" rows="10"  name ="bookBrdContent"
+                  <textarea class="form-control" rows="10"  name ="bookBrdContent" 
                      placeholder="내용을 입력하세요.">${todayBookList.bookBrdContent}</textarea>
                </div>
          		
          		
-                <div class="custom-file">
-                  <label>Upload Book</label><input type="file" class="custom-file-input" value = "${todayBookList.imgPath}" name = "imgPath">
-								<label class="custom-file-label" for="inputGroupFile01">Upload Book</label>
-               </div>
-               
          		
-         		 
+
+				<div class="form-group">
+                  <label>기존 파일</label> <input class="form-control" type="text" value = "${todayBookList.imgPath}" name ="imgPath">
+               	</div>
+         		
+         		 <!-- 업로드 시작-->
+               <div class="form-group">
+					 <input type="file" class="form-control-file" name ="imgPath" value = "${todayBookList.imgPath}">                  
+              	 </div>
+               	<!--업로드 끝  -->
+               
+               
                  <button type="submit" class="btn btn-success"><i class="fa fa-check-circle-o"></i>수정</button>
-                  
-                  
                   <button type="button" class="btn btn-warning" onclick="location.href='book?command=adminTodayBookDelete&bookBrdNum=${todayBookList.bookBrdNum}'" >
                   <i class="fa fa-close"></i>삭제</button>
                   
@@ -136,7 +143,7 @@
          
       </div>
    </section>
-<script>
+ <script>
    function openPopUp() {
       // window.name = "부모창 이름"; 
       window.name = "parentForm";
@@ -152,7 +159,7 @@
 
       window.open(url, title, status);
    }
-</script>
+</script> 
 
    <%@ include file="../include/footer.jsp"%>
 </body>

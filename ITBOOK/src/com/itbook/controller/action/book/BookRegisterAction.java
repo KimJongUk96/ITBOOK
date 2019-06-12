@@ -19,6 +19,7 @@ public class BookRegisterAction implements Action {
 		BookVO bVo = new BookVO();
 		
 		bVo.setBookTitle(request.getParameter("bookTitle"));
+		bVo.setIsbn(request.getParameter("isbn"));
 		bVo.setWriter(request.getParameter("writer"));
 		bVo.setPublisher(request.getParameter("publisher"));
 		bVo.setBookKeyword1(request.getParameter("bookKeyword1"));

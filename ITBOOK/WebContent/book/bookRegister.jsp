@@ -74,6 +74,12 @@
                </div>
                
                <div class="form-group">
+                  <label>ISBN</label> <input class="form-control" type="text" name = "isbn"
+                     placeholder="* ISBN번호를 입력하세요.">
+               </div>
+               
+               
+               <div class="form-group">
                   <label>저자</label> <input class="form-control" type="text" name = "writer"
                      placeholder="* 저자를 입력하세요.">
                </div>
@@ -82,9 +88,9 @@
                   <label>키워드</label> <input class="form-control" type="text" name = "bookKeyword1"
                      placeholder="* 키워드를 입력하세요.">
                      <input class="form-control" type="text" name = "bookKeyword2"
-                     placeholder="* 키워드를 입력하세요.">
+                     placeholder=" 키워드를 입력하세요.">
                      <input class="form-control" type="text" name = "bookKeyword3"
-                     placeholder="* 키워드를 입력하세요.">
+                     placeholder=" 키워드를 입력하세요.">
                </div>
                
                <div class="form-group">
