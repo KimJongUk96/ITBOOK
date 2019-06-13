@@ -100,14 +100,14 @@
 							</thead>
 
 							<tbody>
-								<c:forEach var="metbrd" items="${metboardList}">
+								<c:forEach var="metpost" items="${metpostList}">
 									<tr>
-										<th scope="row">${metbrd.metBrdNum}</th>
-										<th>${metbrd.metBrdCategory}</th>
-										<td><a href="/meeting?command=metBoardViewAction&metBrdNum=${metbrd.metBrdNum}">${metbrd.metBrdName }</a></td>
+										<th scope="row">${metpost.metPostNum}</th>
+										<th>${metpost.metPostCategory}</th>
+										<td><a href="/meeting?command=metBoardViewAction&metPostNum=${metpost.metPostNum}">${metpost.metPostTitle}</a></td>
 										<td>관리자</td>
-										<td><fmt:formatDate value="${metbrd.metBrdDate }" /></td>
-										<td>${metbrd.metBrdCount }</td>
+										<td><fmt:formatDate value="${metpost.metPostDate }" /></td>
+										<td>${metpost.metPostCount }</td>
 									</tr>
 								</c:forEach>
 							</tbody>

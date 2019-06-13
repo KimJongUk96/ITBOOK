@@ -20,6 +20,21 @@ public class MetPostVO {
 	private Date metPostDate;
 	private int metPostCount;
 	private String metBrdNum;
+	private String metPostFile;
+	private String metPostCategory;
+	
+	public String getMetPostFile() {
+		return metPostFile;
+	}
+	public void setMetPostFile(String metPostFile) {
+		this.metPostFile = metPostFile;
+	}
+	public String getMetPostCategory() {
+		return metPostCategory;
+	}
+	public void setMetPostCategory(String metPostCategory) {
+		this.metPostCategory = metPostCategory;
+	}
 	public String getMetPostNum() {
 		return metPostNum;
 	}
@@ -56,13 +71,14 @@ public class MetPostVO {
 	public void setMetBrdNum(String metBrdNum) {
 		this.metBrdNum = metBrdNum;
 	}
-	
 	@Override
 	public String toString() {
-		return "MetPost [metPostNum=" + metPostNum + ", metPostTitle=" + metPostTitle + ", metPostContent="
+		return "MetPostVO [metPostNum=" + metPostNum + ", metPostTitle=" + metPostTitle + ", metPostContent="
 				+ metPostContent + ", metPostDate=" + metPostDate + ", metPostCount=" + metPostCount + ", metBrdNum="
-				+ metBrdNum + "]";
+				+ metBrdNum + ", metPostFile=" + metPostFile + ", metPostCategory=" + metPostCategory + "]";
 	}
+	
+	
 	
 	
 }

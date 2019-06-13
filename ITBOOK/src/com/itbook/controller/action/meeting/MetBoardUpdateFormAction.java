@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
-import com.itbook.dao.MetBoardDAO;
-import com.itbook.vo.Meeting.MetBoardVO;
+import com.itbook.dao.MetPostDAO;
+import com.itbook.vo.Meeting.MetPostVO;
 
 public class MetBoardUpdateFormAction implements Action {
 
@@ -20,13 +20,13 @@ public class MetBoardUpdateFormAction implements Action {
 
 		// 페이지 번호와 글 번호를 가져온다.
 		String pageNum = request.getParameter("page");
-		String metBrdNum = request.getParameter("metBrdNum");
+		String metPostNum = request.getParameter("metPostNum");
 		
 		
-		MetBoardDAO mDao = MetBoardDAO.getInstance();
-		MetBoardVO metbrd = mDao.selectOneMetBoardByNum(metBrdNum);
+		MetPostDAO mDao = MetPostDAO.getInstance();
+		MetPostVO metpost = mDao.selectOneMetPostByNum(metPostNum);
 
-		request.setAttribute("metbrd", metbrd);
+		request.setAttribute("metpost", metpost);
 		request.setAttribute("pageNum", pageNum);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);

@@ -114,7 +114,7 @@ function cmUpdateOpen(metComtNum){
 					<h5 class="text-center mb-4">독서모임 게시판 상세보기</h5>
 					<form name="frm" method="post"
 						action="/meeting?command=metBoardUpdateFormAction">
-						<input type="hidden" name="metBrdNum" value="${metbrd.metBrdNum }">
+						<input type="hidden" name="metPostNum" value="${metpost.metPostNum}">
 						<div class="table-responsive-sm">
 							<table class="table table-hover">
 
@@ -122,28 +122,28 @@ function cmUpdateOpen(metComtNum){
 									<th scope="col">작성자</th>
 									<td>관리자</td>
 									<th>작성일</th>
-									<td>${metbrd.metBrdDate }</td>
+									<td>${metpost.metPostDate }</td>
 
 								</tr>
 								<tr>
 									<th scope="col">제목</th>
-									<td>${metbrd.metBrdName}</td>
+									<td>${metpost.metPostTitle}</td>
 									<th>조회수</th>
-									<td>${metbrd.metBrdCount}</td>
+									<td>${metpost.metPostCount}</td>
 
 								</tr>
 								<tr>
 									<th scope="col">첨부파일</th>
 									<td><a
-										href='/notice?command=fileDownloadAction&file_name=${metbrd.metBrdFile}'>${metbrd.metBrdFile}</a></td>
+										href='/notice?command=fileDownloadAction&file_name=${metpost.metPostFile}'>${metpost.metPostFile}</a></td>
 									<th></th>
 									<td></td>
 								</tr>
 								<tr>
 
 									<th scope="col">내용</th>
-									<td><textarea name="noticeContent" class="form-control"
-											rows="10" style="width: 100%;" disabled="disabled">${metbrd.metBrdContent}</textarea></td>
+									<td><textarea name="metPostContent" class="form-control"
+											rows="10" style="width: 100%;" disabled="disabled">${metpost.metPostContent}</textarea></td>
 									<th></th>
 									<td></td>
 								</tr>
@@ -153,7 +153,7 @@ function cmUpdateOpen(metComtNum){
 							<div align="right">
 								<input type="submit" value="수정" class="btn btn-primary">
 								<input type="button" value="삭제" class="btn btn-primary"
-									onclick="location.href='/meeting?command=metBoardDeleteAction&metBrdNum=${metbrd.metBrdNum}'">
+									onclick="location.href='/meeting?command=metBoardDeleteAction&metPostNum=${metpost.metPostNum}'">
 								<input type="button" value="돌아가기" class="btn btn-primary"
 									onclick="location.href='/meeting?command=metBoardListFormAction'">
 							</div>
@@ -169,7 +169,7 @@ function cmUpdateOpen(metComtNum){
 								<c:forEach var="comment" items="${requestScope.commentList}">
 									<div class="comment">
 										<form name="frm" method="post"	action="/meeting?command=commentDeleteAction">
-											<input type="hidden" name="metBrdNum" value="${metbrd.metBrdNum }">
+											<input type="hidden" name="metPostNum" value="${metpost.metPostNum }">
 											<input type="hidden" name="metComtNum" value="${comment.metComtNum}">
 										<div class="comment-author">
 											<img class="avatar"
@@ -230,7 +230,7 @@ function cmUpdateOpen(metComtNum){
 									
 									<!-- 댓글 등록 -->
 									<form name="frm" method="post" action="meeting?command=commentWriteAction" onsubmit="return validateBoard()">
-									<input type="hidden" name="metBrdNum" value="${metbrd.metBrdNum}"> 
+									<input type="hidden" name="metPostNum" value="${metPost.metPostNum}"> 
 									<input type="hidden" name="memNum" value="${LoginUser.memNum}">
 							<div class="row mt-5">
 								<div class="col-md-12">

@@ -35,12 +35,12 @@ public class MetCommentDAO {
             
             StringBuffer sql = new StringBuffer();
             sql.append("INSERT INTO met_comment");
-            sql.append(" (metBrdNum, memNum, metComtParent, metComtContent");
+            sql.append(" (metPostNum, memNum, metComtParent, metComtContent");
             sql.append(" , metComtDate)");
             sql.append(" VALUES(?,?,?,?,sysdate())");
     
             pstmt = conn.prepareStatement(sql.toString());
-            pstmt.setString(1, comment.getMetBrdNum());
+            pstmt.setString(1, comment.getMetPostNum());
             pstmt.setString(2, comment.getMemNum());
             pstmt.setString(3, comment.getMetComtParent());
             pstmt.setString(4, comment.getMetComtContent());
@@ -66,7 +66,7 @@ public class MetCommentDAO {
     } // end boardInsert();    
     
  // 댓글 목록 가져오기
-    public ArrayList<MetCommentVO> getCommentList(String metBrdNum)
+    public ArrayList<MetCommentVO> getCommentList(String metPostNum)
     {
         ArrayList<MetCommentVO> list = new ArrayList<MetCommentVO>();
         Connection conn = null;
@@ -98,12 +98,12 @@ public class MetCommentDAO {
             
             StringBuffer sql = new StringBuffer();
             sql.append("    select m.metComtNum, m.metComtContent, m.metComtDate,");
-            sql.append("           m.metBrdNum, m.memNum, b.memName ");
+            sql.append("           m.metPostNum, m.memNum, b.memName ");
             sql.append("    from met_comment m, member b");
             sql.append("    where m.memNum = b.memNum and m.metBrdNum = ?");
             
             pstmt = conn.prepareStatement(sql.toString());
-            pstmt.setString(1, metBrdNum);
+            pstmt.setString(1, metPostNum);
             
             rs = pstmt.executeQuery();
             while(rs.next())
@@ -111,7 +111,7 @@ public class MetCommentDAO {
             	MetCommentVO comment = new MetCommentVO();
                 comment.setMetComtNum(rs.getString("metComtNum"));
                 comment.setMetComtContent(rs.getString("metComtContent"));
-                comment.setMetBrdNum(rs.getString("metBrdNum"));
+                comment.setMetBrdNum(rs.getString("metPostNum"));
                 comment.setMetComtDate(rs.getDate("metComtDate"));
                 comment.setMemNum(rs.getString("memNum"));
                 comment.setMemName(rs.getString("memName"));

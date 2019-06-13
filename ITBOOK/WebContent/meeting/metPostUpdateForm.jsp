@@ -45,8 +45,8 @@
 				<div class="col-sm-12 mb-5">
 					<h5 class="text-center mb-4">모임게시판 수정</h5>
 					<form name="frm" method="post" action="/meeting?command=metBoardUpdateAction<%-- &page=${pageNum} For input string: "" 오류원인--%>" enctype="multipart/form-data">
-					<input type="hidden" name="metBrdNum" value="${metbrd.metBrdNum}">
-					<input type="hidden" name="existing_file" value="${metbrd.metBrdFile}"/>
+					<input type="hidden" name="metPostNum" value="${metpost.metPostNum}">
+					<input type="hidden" name="existing_file" value="${metpost.metPostFile}"/>
 
 					<div class="table-responsive-sm">
 						<table class="table table-hover">
@@ -55,26 +55,26 @@
 									<th scope="col">작성자</th>
 									<td>관리자</td>
 									<th>작성일</th>
-									<td>${metbrd.metBrdDate }</td>
+									<td>${metpost.metPostDate }</td>
 									
 								</tr>
 								<tr>
 									<th scope="col">제목</th>
-									<td><input name="metBrdName" type="text" size="70" maxlength="100" value="${metbrd.metBrdName}"/></td>
+									<td><input name="metPostTitle" type="text" size="70" maxlength="100" value="${metpost.metPostTitle}"/></td>
 									<th>조회수</th>
-									<td>${metbrd.metBrdCount}</td>
+									<td>${metpost.metPostCount}</td>
 									
 								</tr>
 								<tr>
 									<th scope="col">기존파일</th>
-									<td> &nbsp;&nbsp; ${metbrd.metBrdFile}</td>
+									<td> &nbsp;&nbsp; ${metpost.metPostFile}</td>
 									<th scope="col">첨부파일</th>
-									<td><input type="file" name="metBrdFile"/></td>
+									<td><input type="file" name="metPostFile"/></td>
 								</tr>
 								 <tr>
 								
 									<th scope="col">내용</th>
-									<td><textarea name="metBrdContent" class="form-control" rows="10" style="width:100%;">${metbrd.metBrdContent}</textarea></td> 
+									<td><textarea name="metPostContent" class="form-control" rows="10" style="width:100%;">${metpost.metPostContent}</textarea></td> 
 									<th></th>
 									<td></td>
 								</tr> 

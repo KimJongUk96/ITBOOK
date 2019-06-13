@@ -34,7 +34,7 @@ public class MainServlet extends HttpServlet {
 		System.out.println("MainServlet에서 요청을 받음을 확인 : " + command);
 
 		if (command == null) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("main.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 			dispatcher.forward(request, response);
 
 		} else if (command.equals("loginForm")) {

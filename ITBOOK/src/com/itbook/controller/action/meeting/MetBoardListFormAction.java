@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
-import com.itbook.dao.MetBoardDAO;
-import com.itbook.vo.Meeting.MetBoardVO;
+import com.itbook.dao.MetPostDAO;
+import com.itbook.vo.Meeting.MetPostVO;
 
 public class MetBoardListFormAction implements Action {
 
@@ -37,9 +37,9 @@ public class MetBoardListFormAction implements Action {
 		listOpt.put("condition", condition);
 		listOpt.put("start", spage * 10 - 10);
 		
-		MetBoardDAO mDao = MetBoardDAO.getInstance();
-		int listCount = mDao.getMetBoardListCount(listOpt);
-		ArrayList<MetBoardVO> list = mDao.getMetBoardList(listOpt);
+		MetPostDAO mDao = MetPostDAO.getInstance();
+		int listCount = mDao.getMetPostListCount(listOpt);
+		ArrayList<MetPostVO> list = mDao.getMetPostList(listOpt);
 
 		// 한 화면에 10개의 게시글을 보여지게함
 		// 페이지 번호는 총 5개, 이후로는 [다음]으로 표시
@@ -61,7 +61,7 @@ public class MetBoardListFormAction implements Action {
 
 		// 글의 총 수와 글목록 저장
 		// request.setAttribute("listCount", listCount);
-		request.setAttribute("metboardList", list);
+		request.setAttribute("metpostList", list);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

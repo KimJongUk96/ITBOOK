@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
 import com.itbook.dao.MetBoardDAO;
+import com.itbook.dao.MetPostDAO;
 import com.itbook.vo.Meeting.MetBoardVO;
+import com.itbook.vo.Meeting.MetPostVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -30,16 +32,16 @@ public class MetBoardUpdateAction implements Action{
           MultipartRequest multi = new MultipartRequest (request, uploadPath, fileSize, "UTF-8", new DefaultFileRenamePolicy());
           
           // 파리미터 값을 가져온다.
-          String metBrdNum = multi.getParameter("metBrdNum");    // 글 번호
-          String metBrdName = multi.getParameter("metBrdName");    // 글 제목
-          String metBrdContent = multi.getParameter("metBrdContent");    // 글 내용
+          String metPostNum = multi.getParameter("metPostNum");    // 글 번호
+          String metPostTitle= multi.getParameter("metPostTitle");    // 글 제목
+          String metPostContent = multi.getParameter("metPostContent");    // 글 내용
           String existFile = multi.getParameter("existing_file");    // 기존 첨부 파일
           
           // 파라미터 값을 자바빈에 세팅한다.
-          MetBoardVO mVo = new MetBoardVO();
-          mVo.setMetBrdNum(metBrdNum);
-          mVo.setMetBrdName(metBrdName);
-          mVo.setMetBrdContent(metBrdContent);
+          MetPostVO mVo = new MetPostVO();
+          mVo.setMetPostNum(metPostNum);
+          mVo.setMetPostTitle(metPostTitle);
+          mVo.setMetPostContent(metPostContent);
           
           
           // 글 수정 시 업로드된 파일 가져오기
@@ -50,13 +52,13 @@ public class MetBoardUpdateAction implements Action{
               String updateFile = multi.getFilesystemName(fileName);
               
               if(updateFile == null)    // 수정시 새로운 파일을 첨부 안했다면 기존 파일명을 세팅
-            	  mVo.setMetBrdFile(existFile);
+            	  mVo.setMetPostFile(existFile);
               else    // 새로운 파일을 첨부했을 경우
-            	  mVo.setMetBrdFile(updateFile);
+            	  mVo.setMetPostFile(updateFile);
           }
           
-          MetBoardDAO mDao =  MetBoardDAO.getInstance();
-          boolean result = mDao.updateMetBoard(mVo);
+          MetPostDAO mDao =  MetPostDAO.getInstance();
+          boolean result = mDao.updateMetPost(mVo);
           
           if(result){
               

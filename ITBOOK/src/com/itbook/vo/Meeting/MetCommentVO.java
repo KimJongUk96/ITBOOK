@@ -19,6 +19,13 @@ public class MetCommentVO {
 	private String metBrdNum;
 	private String memNum;
 	private String memName;
+	private String metPostNum;
+	public String getMetPostNum() {
+		return metPostNum;
+	}
+	public void setMetPostNum(String metPostNum) {
+		this.metPostNum = metPostNum;
+	}
 	public String getMemName() {
 		return memName;
 	}
@@ -66,7 +73,7 @@ public class MetCommentVO {
 	public String toString() {
 		return "MetCommentVO [metComtNum=" + metComtNum + ", metComtContent=" + metComtContent + ", metComtDate="
 				+ metComtDate + ", metBrdNum=" + metBrdNum + ", memNum=" + memNum + ", memName=" + memName
-				+ ", metComtParent=" + metComtParent + "]";
+				+ ", metPostNum=" + metPostNum + ", metComtParent=" + metComtParent + "]";
 	}
 	
 	

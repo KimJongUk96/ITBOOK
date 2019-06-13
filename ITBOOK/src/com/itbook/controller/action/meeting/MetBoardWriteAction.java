@@ -9,8 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
 import com.itbook.dao.MetBoardDAO;
-
+import com.itbook.dao.MetPostDAO;
 import com.itbook.vo.Meeting.MetBoardVO;
+import com.itbook.vo.Meeting.MetPostVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -40,15 +41,15 @@ public class MetBoardWriteAction implements Action{
                 fileName = multi.getFilesystemName(name);
             }
             
-            MetBoardDAO mDao = MetBoardDAO.getInstance();
-            MetBoardVO mVo = new MetBoardVO();
+            MetPostDAO mDao = MetPostDAO.getInstance();
+            MetPostVO mVo = new MetPostVO();
             
-            mVo.setMetBrdName(multi.getParameter("metBrdName"));
-            mVo.setMetBrdContent(multi.getParameter("metBrdContent"));
-            mVo.setMetBrdCategory(multi.getParameter("metBrdCategory"));
-            mVo.setMetBrdFile(multi.getFilesystemName("metBrdFile"));
+            mVo.setMetPostTitle(multi.getParameter("metPostTitle"));
+            mVo.setMetPostContent(multi.getParameter("metPostContent"));
+            mVo.setMetPostCategory(multi.getParameter("metPostCategory"));
+            mVo.setMetPostFile(multi.getFilesystemName("metPostFile"));
             
-            boolean result = mDao.insertMetBoard(mVo);
+            boolean result = mDao.insertMetPost(mVo);
             
             
             if(result) {

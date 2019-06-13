@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.itbook.vo.Meeting.MetBoardVO;
-import com.itbook.vo.Notice.NoticeVO;
 
 import util.DBManager;
 
