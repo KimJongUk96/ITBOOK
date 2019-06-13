@@ -15,7 +15,7 @@ import com.itbook.vo.Meeting.MetPostVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class MetBoardWriteAction implements Action{
+public class MetPostWriteAction implements Action{
 	
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -54,7 +54,7 @@ public class MetBoardWriteAction implements Action{
             
             if(result) {
             	
-            	new MetBoardListFormAction().execute(request, response);
+            	new MetPostListFormAction().execute(request, response);
             }
             	
             } catch (Exception e) {

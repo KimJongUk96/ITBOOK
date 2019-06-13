@@ -15,7 +15,7 @@ import com.itbook.vo.Meeting.MetPostVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class MetBoardUpdateAction implements Action{
+public class MetPostUpdateAction implements Action{
 	
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -65,7 +65,7 @@ public class MetBoardUpdateAction implements Action{
               // 원래있던 페이지로 돌아가기 위해 페이지번호를 전달한다.
               //forward.setNextPath("BoardListAction.bo?page="+pageNum);
               
-              new MetBoardListFormAction().execute(request, response);
+              new MetPostListFormAction().execute(request, response);
           }
           
       } catch (Exception e) {

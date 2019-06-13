@@ -44,7 +44,7 @@
 			<div class="row">
 				<div class="col-sm-12 mb-5">
 					<h5 class="text-center mb-4">모임게시판 수정</h5>
-					<form name="frm" method="post" action="/meeting?command=metBoardUpdateAction<%-- &page=${pageNum} For input string: "" 오류원인--%>" enctype="multipart/form-data">
+					<form name="frm" method="post" action="/meeting?command=metPostUpdateAction<%-- &page=${pageNum} For input string: "" 오류원인--%>" enctype="multipart/form-data">
 					<input type="hidden" name="metPostNum" value="${metpost.metPostNum}">
 					<input type="hidden" name="existing_file" value="${metpost.metPostFile}"/>
 
@@ -84,7 +84,7 @@
 						<div align="right">
 							<input type="reset"  class="btn btn-primary" value="작성취소" >
 							<input type="submit"  class="btn btn-primary" value="수정" >
-							<input type="button" value="목록" class="btn btn-primary" onclick="location.href='/meeting?command=metBoardListFormAction&page=${pageNum}'">
+							<input type="button" value="목록" class="btn btn-primary" onclick="location.href='/meeting?command=metPostListFormAction&page=${pageNum}'">
 						</div>
 					</div>
 					</form>

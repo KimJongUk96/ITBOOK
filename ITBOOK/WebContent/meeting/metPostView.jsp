@@ -113,7 +113,7 @@ function cmUpdateOpen(metComtNum){
 				<div class="col-sm-12 mb-5">
 					<h5 class="text-center mb-4">독서모임 게시판 상세보기</h5>
 					<form name="frm" method="post"
-						action="/meeting?command=metBoardUpdateFormAction">
+						action="/meeting?command=metPostUpdateFormAction">
 						<input type="hidden" name="metPostNum" value="${metpost.metPostNum}">
 						<div class="table-responsive-sm">
 							<table class="table table-hover">
@@ -153,9 +153,9 @@ function cmUpdateOpen(metComtNum){
 							<div align="right">
 								<input type="submit" value="수정" class="btn btn-primary">
 								<input type="button" value="삭제" class="btn btn-primary"
-									onclick="location.href='/meeting?command=metBoardDeleteAction&metPostNum=${metpost.metPostNum}'">
+									onclick="location.href='/meeting?command=metPostDeleteAction&metPostNum=${metpost.metPostNum}'">
 								<input type="button" value="돌아가기" class="btn btn-primary"
-									onclick="location.href='/meeting?command=metBoardListFormAction'">
+									onclick="location.href='/meeting?command=metPostListFormAction'">
 							</div>
 						</div>
 					</form>

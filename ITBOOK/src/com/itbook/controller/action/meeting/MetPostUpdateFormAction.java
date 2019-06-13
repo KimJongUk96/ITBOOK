@@ -11,12 +11,12 @@ import com.itbook.controller.action.Action;
 import com.itbook.dao.MetPostDAO;
 import com.itbook.vo.Meeting.MetPostVO;
 
-public class MetBoardUpdateFormAction implements Action {
+public class MetPostUpdateFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String url = "/meeting/metBoardUpdateForm.jsp";
+		String url = "/meeting/metPostUpdateForm.jsp";
 
 		// 페이지 번호와 글 번호를 가져온다.
 		String pageNum = request.getParameter("page");

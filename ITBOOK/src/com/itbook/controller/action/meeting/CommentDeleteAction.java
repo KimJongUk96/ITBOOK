@@ -28,7 +28,7 @@ public class CommentDeleteAction implements Action {
 		PrintWriter out = response.getWriter();
 		
 		
-		new MetBoardViewAction().execute(request, response);
+		new MetPostViewAction().execute(request, response);
 		// 정상적으로 댓글을 삭제했을경우 1을 전달한다.
 		if(result) out.print("1");
 		

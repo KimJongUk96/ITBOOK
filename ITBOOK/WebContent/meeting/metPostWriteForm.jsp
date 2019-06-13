@@ -62,7 +62,7 @@
 	공지사항 글쓰기 폼 시작 -->
 	<section>
 		<div class="container">
-		 <form name="frm" action="/meeting?command=metBoardWriteAction" method="post" onsubmit="return validateGalBoard()" enctype="multipart/form-data">
+		 <form name="frm" action="/meeting?command=metPostWriteAction" method="post" onsubmit="return validateGalBoard()" enctype="multipart/form-data">
 		<input type="hidden" name="memNum" value="${list.memNum}">
 		<!-- Comment-respond -->
 							<div class="row mt-5">
@@ -105,7 +105,7 @@
 								<div class="col-md-2 text-center">
 								<input type="submit" value="등록" class="btn-block btn btn-dark" onclick="return noticeCheck()"/> </div>
 								<div class="col-md-2 text-center">
-								<input type="button" value="돌아가기 " class="btn-block btn btn-dark" onclick="location.href='/meeting?command=metBoardListFormAction'"/></div>
+								<input type="button" value="돌아가기 " class="btn-block btn btn-dark" onclick="location.href='/meeting?command=metPostListFormAction'"/></div>
 								
 							</div>
 		<%-- <table class="table table-bordered">

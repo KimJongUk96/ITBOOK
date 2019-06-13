@@ -14,12 +14,12 @@ import com.itbook.dao.MetPostDAO;
 import com.itbook.vo.Meeting.MetCommentVO;
 import com.itbook.vo.Meeting.MetPostVO;
 
-public class MetBoardViewAction implements Action{
+public class MetPostViewAction implements Action{
 	
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String url = "meeting/metBoardView.jsp";
+		String url = "meeting/metPostView.jsp";
 		String metPostNum =request.getParameter("metPostNum");
 		
 		//중간에 조회수를 1증가시키기

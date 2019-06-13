@@ -13,12 +13,12 @@ import com.itbook.controller.action.Action;
 import com.itbook.dao.MetPostDAO;
 import com.itbook.vo.Meeting.MetPostVO;
 
-public class MetBoardListFormAction implements Action {
+public class MetPostListFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String url = "meeting/metBoardList.jsp";
+		String url = "meeting/metPostList.jsp";
 
 		// 현재 페이지 번호 만들기
 		int spage = 1;
