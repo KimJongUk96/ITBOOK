@@ -81,11 +81,10 @@
                      
                      <tbody>
                      <!-- varStatus를 통해서 책번호를 만든다. -->
-                     <c:forEach var="bookstoreList" items="${bookstoreList}" > <!-- varStatus="status" -->
+                     <c:forEach var="bookstoreList" items="${bookstoreList}" varStatus="status">
                         <tr>
                            <!-- 전체 페이지 데이터 값 : numOfRow , 현재 페이지 수 : pageNum -->
-                           <%-- <td>${(paging.numOfRow - status.index) - (paging.pageNum -1) * 10}</td> --%>
-                           <td>${bookstoreList.bookstoreNum}</td>
+                           <th scope = "row">${(paging.numOfRow - status.index) -  (paging.pageNum-1) * 10 }</th>
                            <th scope = "row"><a href="bookstore?command=bookstoreUpdateForm&bookstoreNum=${bookstoreList.bookstoreNum}">${bookstoreList.bookstoreTitle}</a></th>
                            <td>${bookstoreList.bookstoreUrl}</td>
                            <td>${bookstoreList.bookstoreContent}</td>
@@ -108,14 +107,14 @@
    
    
 <!-- 페이징 처리 -->  
-<%-- <section class="pt-0">
+ <section class="pt-0">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-8">
 					<nav>
 						<ul class="pagination justify-content-center">
 						<c:if test="${paging.pageNum > 1}">
-							<li class="page-item"><a class ="page-link" href="book?command=bookList&pageNum=${paging.pageNum - 1}">Prev</a></li>
+							<li class="page-item"><a class ="page-link" href="bookstore?command=adminBookstoreList&pageNum=${paging.pageNum - 1}">Prev</a></li>
 						
 							
 						</c:if>	
@@ -129,14 +128,14 @@
                        
                                           <c:otherwise>
                                              <li class="page-item"><a class ="page-link"
-                                                href="book?command=bookList&pageNum=${idx}">${idx}</a></li>
+                                                href="bookstore?command=adminBookstoreList&pageNum=${idx}">${idx}</a></li>
                                           </c:otherwise>
                                           
                                        </c:choose>
                                     </c:forEach>
 						
 							<c:if test="${paging.numOfPage != paging.pageNum}">
-                                    <li class="page-item"><a class = "page-link" href="book?command=bookList&pageNum=${paging.pageNum + 1}">Next</a></li>   
+                                    <li class="page-item"><a class = "page-link" href="bookstore?command=adminBookstoreList&pageNum=${paging.pageNum + 1}">Next</a></li>   
                                     </c:if>
 							
 
@@ -145,8 +144,8 @@
 				</div>
 			</div>
 		</div>
-	</section> --%>
-	
+	</section>
+
 	
    <%@ include file="../include/footer.jsp"%>
 </body>

@@ -12,25 +12,21 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="author" content="Webestica.com">
    <meta name="description" content="Creative Multipurpose Bootstrap Template">
+<!-- Favicon -->
+	<link rel="shortcut icon" href="../assets/images/favicon.ico">
 
-   <!-- Favicon -->
-   <link rel="shortcut icon" href="../assets/images/favicon.ico">
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
 
-   <!-- Google Font -->
-   <link
-   href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700"
-   rel="stylesheet">
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="../assets/vendor/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/vendor/themify-icons/css/themify-icons.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/vendor/animate/animate.min.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/vendor/fancybox/css/jquery.fancybox.min.css" />
 
-   <!-- Plugins CSS -->
-   <link rel="stylesheet" type="text/css"
-   href="../assets/vendor/font-awesome/css/font-awesome.min.css" />
-   <link rel="stylesheet" type="text/css"
-   href="../assets/vendor/themify-icons/css/themify-icons.css" />
-   <link rel="stylesheet" type="text/css"
-   href="../assets/vendor/animate/animate.min.css" />
-
-   <!-- Theme CSS -->
-   <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css"/>
+   
    </head>
       <body>
          <header>
@@ -147,5 +143,8 @@
 		</div>
 	</section>
    <%@ include file="../include/footer.jsp"%>
+   
+   
+   
 </body>
 </html>

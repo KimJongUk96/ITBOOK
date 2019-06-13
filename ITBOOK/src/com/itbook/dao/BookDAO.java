@@ -338,6 +338,8 @@ public boolean updateAdminTodayBook(BookBoardVO bVo) {
 			sql.append(" ,imgPath=?");
 			sql.append("where bookBrdNum=?");
 			
+			System.out.println(sql.toString());
+			
 			System.out.println("수정"+bVo);
 			//update할때 써주기.
 			pstmt = conn.prepareStatement(sql.toString());

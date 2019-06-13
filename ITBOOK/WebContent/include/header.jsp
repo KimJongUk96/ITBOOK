@@ -88,7 +88,7 @@
                <div class="d-flex align-items-center" id = "navbar">
                <c:if test = "${LoginUser.authority eq 1 or LoginUser.authority eq 2 or LoginUser.authority eq 3}">
                <span class = "loginfo"> 
-               <span class= "dept_of_top"></span> <b>${LoginUser.memName}</b>님 반갑습니다. 
+               <span class= "dept_of_top"></span> <b>${LoginUser.memName}</b>님 반갑습니다.
                </span>
                </c:if>
                   <!-- Top Account -->               

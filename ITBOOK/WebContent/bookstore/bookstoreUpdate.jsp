@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Wizixo | Creative Multipurpose Bootstrap Template</title>
+<title>대전 책방</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,11 +79,14 @@
 								name="bookstoreUrl" value = "${bookstoreList.bookstoreUrl}" placeholder="URL을 입력하세요.">
 						</div>
 
+						
 						<div class="form-group">
-							<label>책방주소</label> <input class="form-control" type="text"
-								name="bookstoreContent" value = "${bookstoreList.bookstoreContent}" placeholder="*책방주소를 입력하세요.">
-						</div>
-
+                  		<label>주소</label>
+                  		<textarea class="form-control" rows="10" name = "bookstoreContent"
+                     placeholder="*주소를 입력하세요.">${bookstoreList.bookstoreContent}</textarea>
+               			</div>
+						
+						
                   <input type="submit" class="btn btn-grad" value="수정" onclick="return bookstoreCheck()">
                   <button type="button" class="btn btn-grad" id="btn" onclick="location.href='bookstore?command=bookstoreDelete&bookstoreNum=${bookstoreList.bookstoreNum}'" >삭제</button>
 				<button type = "button" class="btn btn-grad" onclick="location.href='bookstore?command=adminBookstoreList'">취소</button>

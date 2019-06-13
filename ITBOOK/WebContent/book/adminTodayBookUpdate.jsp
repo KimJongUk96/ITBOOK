@@ -123,7 +123,7 @@
          		
          		 <!-- 업로드 시작-->
                <div class="form-group">
-					 <input type="file" class="form-control-file" name ="imgPath" value = "${todayBookList.imgPath}">                  
+					 <input type="file" class="form-control-file" name ="new_imgPath" value ="">                  
               	 </div>
                	<!--업로드 끝  -->
                

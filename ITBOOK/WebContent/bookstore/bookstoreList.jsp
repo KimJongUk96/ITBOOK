@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Wizixo | Creative Multipurpose Bootstrap Template</title>
+<title>대전 책방</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,11 +44,10 @@
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
 					<h1 class="innerpage-title">대전 책방</h1>
-					<h6 class="subtitle">I can find the answer in the book and the
-						book is the way to help me.</h6>
+					 <h6 class="subtitle">우리 동네 책방 찾기</h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="index.html"><i
+							<li class="breadcrumb-item active"><a href="index.jsp"><i
 									class="ti-home"></i>Home</a></li>
 						
 						</ol>
@@ -105,7 +104,7 @@
 
 	</section>
 	<!-- 페이징 처리 -->
-	<%-- <section class="pt-0">
+	 <section class="pt-0">
       <div class="container">
          <div class="row justify-content-center">
             <div class="col-md-8">
@@ -126,14 +125,14 @@
                        
                                           <c:otherwise>
                                              <li class="page-item"><a class ="page-link"
-                                                href="report?command=Report_List&pageNum=${idx}">${idx}</a></li>
+                                                href="bookstore?command=bookstoreList&pageNum=${idx}">${idx}</a></li>
                                           </c:otherwise>
                                           
                                        </c:choose>
                                     </c:forEach>
                   
                      <c:if test="${paging.numOfPage != paging.pageNum}">
-                                    <li class="page-item"><a class = "page-link" href="report?command=Report_List&pageNum=${paging.pageNum + 1}">Next</a></li>   
+                                    <li class="page-item"><a class = "page-link" href="bookstore?command=bookstoreList&pageNum=${paging.pageNum + 1}">Next</a></li>   
                                     </c:if>
                      
 
@@ -142,7 +141,7 @@
             </div>
          </div>
       </div>
-   </section>   --%>
+   </section>  
 
 	<%@ include file="../include/footer.jsp"%>
 </body>

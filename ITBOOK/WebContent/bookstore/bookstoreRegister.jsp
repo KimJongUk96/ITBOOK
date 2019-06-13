@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Wizixo | Creative Multipurpose Bootstrap Template</title>
+<title>대전 책방</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,8 +79,9 @@
                </div>
                
                <div class="form-group">
-                  <label>주소</label> <input class="form-control" type="text" name = "bookstoreContent"
-                     placeholder="*주소을 입력하세요.">
+                  <label>주소</label>
+                  <textarea class="form-control" rows="10" name = "bookstoreContent"
+                     placeholder="*주소를 입력하세요."></textarea>
                </div>
                
                <input type ="submit" class ="btn btn-grad" value="등록" onclick="return bookstoreCheck()">
