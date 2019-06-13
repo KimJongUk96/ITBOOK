@@ -71,7 +71,7 @@
 				<div class="col-md-10 col-lg-6 mx-md-auto align-self-center ">
 					<img class="rounded" src="https://i.ibb.co/hct7v9B/meeting.jpg" alt="">
 					<div class="position-absolute left-0 bottom-0 ml-4 ml-md-n2 mb-3">
-						<a class="btn btn-grad" data-fancybox href="/notice?command=donationWriteFormAction"> <i class="fa fa-play text-white"></i>후원하기 </a>
+						<a class="btn btn-grad" href="/notice?command=donationWriteFormAction"> <i class="fa fa-play text-white"></i>후원하기 </a>
 					</div>
 				</div>
 			</div>

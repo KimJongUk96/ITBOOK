@@ -88,8 +88,8 @@
 						
 						
                   <input type="submit" class="btn btn-grad" value="수정" onclick="return bookstoreCheck()">
-                  <button type="button" class="btn btn-grad" id="btn" onclick="location.href='bookstore?command=bookstoreDelete&bookstoreNum=${bookstoreList.bookstoreNum}'" >삭제</button>
-				<button type = "button" class="btn btn-grad" onclick="location.href='bookstore?command=adminBookstoreList'">취소</button>
+                  <button type="button" class="btn btn-grad" id="delete">삭제</button>
+				<button type = "button" class="btn btn-grad" id="cancel">취소</button>
 					</form>
                   </div>
 						
@@ -109,11 +109,29 @@ $(document).ready(function(){
 	})
 	})
 
-$("#btn").click(function(btn){
-    btn.preventDefault();
-    if(!confirm('정말로 삭제하시겠습니까?')) return;
-	   $('#frm')[0].submit();
-	}); 
+$(document).ready(
+ 		      function() {
+ 		         $('#cancel').on("click",function(event) {
+ 		                  self.location = "bookstore?command=adminBookstoreList";
+ 		               });
+ 		         $('#delete').on("click", function(evt) {
+ 		            
+ 		            var confirmStat = confirm("삭제하시겠습니까?");
+ 		            
+ 		            if(confirmStat == true){
+ 		               var bookstoreNum = $('#bookstoreNum').val();
+ 		               alert("삭제되었습니다.");
+ 		               self.location = "bookstore?command=bookstoreDelete&bookstoreNum=${bookstoreList.bookstoreNum}";   
+ 		            } else{
+ 		               return false;
+ 		            }
+ 		            
+ 		         });
+ 		         
+ 		         $('.Message').on("click", function(event){
+ 		            
+ 		         });
+ 		      });
 </script>
 
 	<%@ include file="../include/footer.jsp"%>

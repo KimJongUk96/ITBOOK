@@ -130,10 +130,11 @@
                
                  <input type="submit" class="btn btn-grad" onclick="return todayBookCheck()" value="수정">
                  
-                  <button type="button"  class="btn btn-grad" id="btn" onclick="location.href='book?command=adminTodayBookDelete&bookBrdNum=${todayBookList.bookBrdNum}'" >
+                 <%--  <button type="button"  class="btn btn-grad" id="delete" onclick="location.href='book?command=adminTodayBookDelete&bookBrdNum=${todayBookList.bookBrdNum}'" >
+                 삭제</button> --%>
+                  <button type="button"  class="btn btn-grad" id="delete">
                  삭제</button>
-                  
-                  	<button type = "button" class="btn btn-grad" onclick="location.href='book?command=adminTodayBookList'">취소</button>
+                  	<button type = "button" class="btn btn-grad" id="cancel">취소</button>
 					</form>
                   
             </div>
@@ -159,11 +160,31 @@
       window.open(url, title, status);
    }
    
-   $("#btn").click(function(btn){
-	    btn.preventDefault();
-	    if(!confirm('정말로 삭제하시겠습니까?')) return;
- 	   $('#frm')[0].submit();
- 	}); 
+ 	
+ 	$(document).ready(
+ 		      function() {
+ 		         $('#cancel').on("click",function(event) {
+ 		                  self.location = "book?command=adminTodayBookList";
+ 		               });
+ 		         $('#delete').on("click", function(evt) {
+ 		            
+ 		            var confirmStat = confirm("삭제하시겠습니까?");
+ 		            
+ 		            if(confirmStat == true){
+ 		               var bookBrdNum = $('#bookBrdNum').val();
+ 		               alert("삭제되었습니다.");
+ 		               self.location = "book?command=adminTodayBookDelete&bookBrdNum=${todayBookList.bookBrdNum}";   
+ 		            } else{
+ 		               return false;
+ 		            }
+ 		            
+ 		         });
+ 		         
+ 		         $('.Message').on("click", function(event){
+ 		            
+ 		         });
+ 		      });
+ 	
    
    $(document).ready(function(){
 		$('form').submit(function(){

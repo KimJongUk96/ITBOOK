@@ -133,12 +133,12 @@
             <li class="treeview">
 <%--             
 메뉴 별 매핑 필요 command명으로 처리하면 됨
-<c:if test = "${command eq 'senderEmailListFormAction'}">
+			<c:if test = "${command eq 'senderEmailListFormAction'}">
             <li class="treeview active">
              </c:if>
             <c:if test = "${LoginUser.menu eq 'sendmail'}">
             <li class="treeview">
-             </c:if>             
+             </c:if>
               --%>
               <a href="#">
                 <i class="fa fa-laptop"></i><!-- fa-files-o -->
