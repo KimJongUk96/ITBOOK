@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
 
+/**
+ * @author 수아
+ */
+
 public class ReportRegFormAction implements Action {
 
 	@Override

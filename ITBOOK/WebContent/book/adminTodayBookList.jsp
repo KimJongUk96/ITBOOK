@@ -12,25 +12,21 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="author" content="Webestica.com">
    <meta name="description" content="Creative Multipurpose Bootstrap Template">
+<!-- Favicon -->
+	<link rel="shortcut icon" href="../assets/images/favicon.ico">
 
-   <!-- Favicon -->
-   <link rel="shortcut icon" href="../assets/images/favicon.ico">
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
 
-   <!-- Google Font -->
-   <link
-   href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700"
-   rel="stylesheet">
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="../assets/vendor/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/vendor/themify-icons/css/themify-icons.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/vendor/animate/animate.min.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/vendor/fancybox/css/jquery.fancybox.min.css" />
 
-   <!-- Plugins CSS -->
-   <link rel="stylesheet" type="text/css"
-   href="../assets/vendor/font-awesome/css/font-awesome.min.css" />
-   <link rel="stylesheet" type="text/css"
-   href="../assets/vendor/themify-icons/css/themify-icons.css" />
-   <link rel="stylesheet" type="text/css"
-   href="../assets/vendor/animate/animate.min.css" />
-
-   <!-- Theme CSS -->
-   <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css"/>
+   
    </head>
       <body>
          <header>
@@ -43,13 +39,12 @@
       <div class="container">
          <div class="row all-text-white">
             <div class="col-md-12 align-self-center">
-               <h1 class="innerpage-title">관리자 이달의 책 조회</h1>
-               <h6 class="subtitle">희망의 책 대전본부</h6>
+              <h1 class="innerpage-title">이달의 책</h1>
+					<h6 class="subtitle">희망의 책에서 추천하는 이달의 책입니다.</h6>
                <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                     <li class="breadcrumb-item active"><a href="index.html"><i
-                           class="ti-home"></i>Main</a></li>
-                     <li class="breadcrumb-item">이달의 책 조회</li>
+                     <li class="breadcrumb-item active"><a href="index.jsp"><i
+                           class="ti-home"></i>Home</a></li>
                   </ol>
                </nav>
             </div>
@@ -99,7 +94,7 @@
                     
                   </table>
                   <div align="right">
-                     <a class="btn btn-primary" href="book?command=adminTodayBookRegFormAction">이달의 책 등록</a>
+                     <a class="btn btn-primary" href="book?command=adminTodayBookRegFormAction">등록</a>
                   </div>
                </div>
             </div>
@@ -148,5 +143,8 @@
 		</div>
 	</section>
    <%@ include file="../include/footer.jsp"%>
+   
+   
+   
 </body>
 </html>

@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.itbook.controller.action.Action;
 import com.itbook.dao.ReportDAO;
 
+/**
+ * @author 수아
+ */
+
 public class ReportDeleteFormAction implements Action {
 
 	@Override

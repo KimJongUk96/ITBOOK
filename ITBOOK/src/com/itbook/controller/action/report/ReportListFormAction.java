@@ -16,6 +16,10 @@ import com.itbook.vo.BookVO;
 import com.itbook.vo.Paging;
 import com.itbook.vo.Report.ReportBoardVO;
 
+/**
+ * @author 수아
+ */
+
 public class ReportListFormAction implements Action{
 
 	@Override

@@ -1,6 +1,7 @@
 package com.itbook.controller;
 
 import com.itbook.controller.action.Action;
+
 import com.itbook.controller.action.MainAction;
 import com.itbook.controller.action.library.AdminLibraryList;
 import com.itbook.controller.action.library.LibraryListAction;
@@ -8,6 +9,11 @@ import com.itbook.controller.action.library.LibraryRegAction;
 import com.itbook.controller.action.library.LibraryRegFormAction;
 import com.itbook.controller.action.library.LibraryUpdateAction;
 import com.itbook.controller.action.library.LibraryUpdateFormAction;
+
+
+/**
+ * @author 수아
+ */
 
 public class LibraryActionFactory {
 

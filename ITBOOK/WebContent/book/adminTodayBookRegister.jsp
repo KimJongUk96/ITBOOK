@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Wizixo | Creative Multipurpose Bootstrap Template</title>
+<title>이달의 책</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +32,8 @@
 
 <!-- Theme CSS -->
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-
+<script type="text/javascript" src ="/js/todayBook.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
 
@@ -46,14 +47,12 @@
       <div class="container">
          <div class="row all-text-white">
             <div class="col-md-12 align-self-center">
-               <h1 class="innerpage-title">이달의 책 등록</h1>
-               <h6 class="subtitle">I can find the answer in the book and the
-                  book is the way to help me.</h6>
+                <h1 class="innerpage-title">이달의 책</h1>
+					<h6 class="subtitle">희망의 책에서 추천하는 이달의 책입니다.</h6>
                <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                     <li class="breadcrumb-item active"><a href="index.html"><i
-                           class="ti-home"></i> Home</a></li>
-                     <li class="breadcrumb-item">Table</li>
+                     <li class="breadcrumb-item active"><a href="index.jsp"><i
+                           class="ti-home"></i>Home</a></li>
                   </ol>
                </nav>
             </div>
@@ -99,39 +98,44 @@
 
             <div class="form-group">
                   <label>책제목</label> <input class="form-control" type="text" name = "bookTitle"
-                     placeholder="책제목">
+                     placeholder="*책제목">
                </div> 
                
 			<div class="form-group">
                   <label>저자</label> <input class="form-control" type="text" name = "writer"
-                     placeholder="저자">
+                     placeholder="*저자">
                </div>
                <div class="form-group">
                   <label>출판사</label> <input class="form-control" type="text" name = "publisher"
-                     placeholder="출판사">
+                     placeholder="*출판사">
                </div>
                <div class="form-group">
                   <label>내용</label>
                   <textarea class="form-control" rows="10" name = "bookBrdContent"
-                     placeholder="내용을 입력하세요."></textarea>
+                     placeholder="*내용을 입력하세요."></textarea>
                </div>
                
-               
-               
-               <!-- 업로드 시작-->
+            
+                <!--   <label>파일 업로드</label>
                
                  <div class="custom-file">
-                  <label>Upload Book</label><input type="file" class="custom-file-input" name ="imgPath">
-								<label class="custom-file-label">Upload Book</label>
-								
-               </div> 
-               <!--업로드 끝  -->
+                  <label class="custom-file-label">Upload Book</label> ---
+                  <input type="file" class="custom-file-input" name ="imgPath">
+								 ------
+              	 </div>  -->
+              	 
+              	 
+              <!-- 업로드 시작-->
                
-               
+               <div class="form-group">
+                  <input type="file" class="form-control-file" name ="imgPath" >
+							
+              	 </div>
+               	<!--업로드 끝  -->
          
-               <button type ="submit" class ="btn btn-success" ><i class="fa fa-check-circle-o"></i>등록</button>
-               <button type = "button" class="btn btn-warning" onclick="location.href='book?command=adminTodayBookList'">
-               <i class="fa  fa-close"></i>취소</button>
+               <input type ="submit" class ="btn btn-grad" onclick="return todayBookCheck()" value="등록">
+               <button type = "button" class="btn btn-grad" onclick="location.href='book?command=adminTodayBookList'">
+              취소</button>
                
                 </form>
               
@@ -157,6 +161,13 @@
 
       window.open(url, title, status);
    }
+   $(document).ready(function(){
+		$('form').submit(function(){
+	 	  var result = alert("등록되었습니다.");
+	   
+		   return result;
+		})
+		})
 </script>
 
 

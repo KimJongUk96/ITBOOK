@@ -11,6 +11,9 @@ import com.itbook.controller.action.Action;
 import com.itbook.dao.LibraryDAO;
 import com.itbook.vo.library.LibraryVO;
 
+/**
+ * @author 수아
+ */
 
 public class LibraryUpdateFormAction implements Action {
 

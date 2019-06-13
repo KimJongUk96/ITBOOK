@@ -18,6 +18,8 @@ public class AdminTodayBookUpdateFormAction implements Action {
 		// TODO Auto-generated method stub
 		String url = "/book/adminTodayBookUpdate.jsp";
 		
+		
+		
 		String bookBrdNum = request.getParameter("bookBrdNum");
 		
 		

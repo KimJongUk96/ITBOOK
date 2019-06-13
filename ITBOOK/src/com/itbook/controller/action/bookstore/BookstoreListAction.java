@@ -1,7 +1,7 @@
 package com.itbook.controller.action.bookstore;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
 import com.itbook.dao.BookstoreDAO;
+import com.itbook.vo.Paging;
 import com.itbook.vo.Bookstore.BookstoreVO;
 
 public class BookstoreListAction implements Action {
@@ -21,10 +22,17 @@ public class BookstoreListAction implements Action {
 		
 		BookstoreDAO bsDao = BookstoreDAO.getInstance();
 		
-		List<BookstoreVO> bookstoreList = bsDao.selectBookstoreList();
+		//페이징 처리
+		Paging paging = new Paging(12, 1);
+		int pageNum = request.getParameter("pageNum") == null ? 1 : Integer.parseInt(request.getParameter("pageNum"));
+		paging.setPageNum(pageNum);
+		bsDao.selectBookstoreRowCount(paging);
+		 
+		ArrayList<BookstoreVO> bookstoreList = bsDao.selectBookstoreList(paging);
 		request.setAttribute("bookstoreList", bookstoreList);
+		request.setAttribute("paging", paging);
+		System.out.println(bookstoreList);
 		
-		System.out.println(bookstoreList + "출력완료.");
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 		

@@ -14,6 +14,10 @@ import com.itbook.vo.Report.ReportCommentVO;
 
 import util.DBManager;
 
+/**
+ * @author 수아
+ */
+
 public class ReportDAO {
 	private static ReportDAO instance;
 
@@ -120,7 +124,8 @@ public class ReportDAO {
 				rVo.setMemNum(rs.getString("memNum"));
 				rVo.setWriter(rs.getString("writer"));
 				rVo.setPublisher(rs.getString("publisher"));
-
+				rVo.setReportCategory(rs.getString("reportCategory"));
+			
 			}
 
 		} catch (Exception e) {
@@ -152,7 +157,7 @@ public class ReportDAO {
 
 	// 독후감 게시글 수정하기
 	public void updateReport(ReportBoardVO rVo) {
-		String sql = "UPDATE itbook.report_board SET ReportTitle=?, ReportContent=? WHERE ReportNum=?";
+		String sql = "UPDATE itbook.report_board SET ReportTitle=?, ReportContent=?, ReportCategory=? WHERE ReportNum=?";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -164,7 +169,8 @@ public class ReportDAO {
 
 			pstmt.setString(1, rVo.getReportTitle());
 			pstmt.setString(2, rVo.getReportContent());
-			pstmt.setString(3, rVo.getReportNum());
+			pstmt.setString(3, rVo.getReportCategory());
+			pstmt.setString(4, rVo.getReportNum());
 			
 			pstmt.executeUpdate();
 

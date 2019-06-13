@@ -338,6 +338,11 @@ public boolean updateAdminTodayBook(BookBoardVO bVo) {
 			sql.append(" ,imgPath=?");
 			sql.append("where bookBrdNum=?");
 			
+			System.out.println(sql.toString());
+			
+			System.out.println("수정"+bVo);
+			//update할때 써주기.
+			pstmt = conn.prepareStatement(sql.toString());
 			pstmt.setString(1, bVo.getBookBrdTitle());
 			pstmt.setString(2, bVo.getBookTitle());
 			pstmt.setString(3, bVo.getWriter());
@@ -403,7 +408,7 @@ public boolean updateAdminTodayBook(BookBoardVO bVo) {
 	//이달의 책 상세보기
 	public BookBoardVO selectOneBookBrdNum(String bookBrdNum) {
 
-		String sql = "select bookBrdNum,bookBrdTitle,bookBrdContent,writer,publisher,bookTitle from itbook.book_board where bookBrdNum = ?";
+		String sql = "select bookBrdNum,bookBrdTitle,bookBrdContent,writer,publisher,bookTitle,imgPath from itbook.book_board where bookBrdNum = ?";
 
 		BookBoardVO bVo = null;
 		Connection conn = null;
@@ -428,6 +433,7 @@ public boolean updateAdminTodayBook(BookBoardVO bVo) {
 				bVo.setWriter(rs.getString("writer"));
 				bVo.setPublisher(rs.getString("publisher"));
 				bVo.setBookTitle(rs.getString("bookTitle"));
+				bVo.setImgPath(rs.getString("imgPath"));
 			}
 
 		} catch (Exception e) {
@@ -470,6 +476,12 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 	                pstmt.setString(2, condition+"%");
 	                pstmt.setString(3, condition+"%");
 	                sql.delete(0, sql.toString().length());
+	            }else if(opt.equals("2")){ //isbn으로 검색
+	                sql.append("select * from itbook.book where isbn like ? ");
+	                System.out.println("=============" + opt);
+	                pstmt = conn.prepareStatement(sql.toString());
+	                pstmt.setString(1, condition+"%");
+	                sql.delete(0, sql.toString().length());
 	            }
 			
 			rs = pstmt.executeQuery();
@@ -481,6 +493,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 				
 				bVo.setBookNum(rs.getString("bookNum"));
 				bVo.setBookTitle(rs.getString("bookTitle"));
+				bVo.setIsbn(rs.getString("isbn"));
 				bVo.setBookKeyword1(rs.getString("bookKeyword1"));
 				bVo.setBookKeyword2(rs.getString("bookKeyword2"));
 				bVo.setBookKeyword3(rs.getString("bookKeyword3"));
@@ -554,7 +567,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 	// 책 등록
 	public void insertBookRegister(BookVO bVo) {
 
-		String sql = "insert into itbook.book(bookTitle,bookKeyword1,bookKeyword2,bookKeyword3,writer,publisher,memNum) values (?,?,?,?,?,?,?);";
+		String sql = "insert into itbook.book(bookTitle,isbn,bookKeyword1,bookKeyword2,bookKeyword3,writer,publisher,memNum) values (?,?,?,?,?,?,?,?);";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -564,12 +577,13 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setString(1, bVo.getBookTitle());
-			pstmt.setString(2, bVo.getBookKeyword1());
-			pstmt.setString(3, bVo.getBookKeyword2());
-			pstmt.setString(4, bVo.getBookKeyword3());
-			pstmt.setString(5, bVo.getWriter());
-			pstmt.setString(6, bVo.getPublisher());
-			pstmt.setString(7, bVo.getMemNum());
+			pstmt.setString(2, bVo.getIsbn());
+			pstmt.setString(3, bVo.getBookKeyword1());
+			pstmt.setString(4, bVo.getBookKeyword2());
+			pstmt.setString(5, bVo.getBookKeyword3());
+			pstmt.setString(6, bVo.getWriter());
+			pstmt.setString(7, bVo.getPublisher());
+			pstmt.setString(8, bVo.getMemNum());
 			
 			pstmt.executeUpdate();
 
@@ -580,10 +594,10 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 		}
 	}
 
-	// 모든 사용자가 책리스트화면에서 책번호를 클릭하면 수정 페이지로 이동.
+	// 사용자가 책번호를 클릭하면 수정 페이지로 이동.
 	public BookVO selectOneBookNum(String bookNum) {
 
-		String sql = "select bookNum,bookTitle,bookKeyword1,bookKeyword2,bookKeyword3,writer,publisher,memNum from itbook.book where bookNum = ?";
+		String sql = "select bookNum,bookTitle,isbn,bookKeyword1,bookKeyword2,bookKeyword3,writer,publisher,memNum from itbook.book where bookNum = ?";
 
 		BookVO bVo = null;
 		Connection conn = null;
@@ -604,6 +618,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 
 				bVo.setBookNum(rs.getString("bookNum"));
 				bVo.setBookTitle(rs.getString("bookTitle"));
+				bVo.setIsbn(rs.getString("isbn"));
 				bVo.setBookKeyword1(rs.getString("bookKeyword1"));
 				bVo.setBookKeyword2(rs.getString("bookKeyword2"));
 				bVo.setBookKeyword3(rs.getString("bookKeyword3"));
@@ -622,7 +637,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 
 	// 책 수정.
 	public void updateBook(BookVO bVo) {
-		String sql = "update itbook.book set bookTitle=?,bookKeyword1=?,bookKeyword2=?,bookKeyword3=?,writer=?,publisher=? where bookNum=?";
+		String sql = "update itbook.book set bookTitle=?,isbn=?,bookKeyword1=?,bookKeyword2=?,bookKeyword3=?,writer=?,publisher=? where bookNum=?";
 
 		
 		
@@ -634,12 +649,13 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setString(1, bVo.getBookTitle());
-			pstmt.setString(2, bVo.getBookKeyword1());
-			pstmt.setString(3, bVo.getBookKeyword2());
-			pstmt.setString(4, bVo.getBookKeyword3());
-			pstmt.setString(5, bVo.getWriter());
-			pstmt.setString(6, bVo.getPublisher());
-			pstmt.setString(7, bVo.getBookNum());
+			pstmt.setString(2, bVo.getIsbn());
+			pstmt.setString(3, bVo.getBookKeyword1());
+			pstmt.setString(4, bVo.getBookKeyword2());
+			pstmt.setString(5, bVo.getBookKeyword3());
+			pstmt.setString(6, bVo.getWriter());
+			pstmt.setString(7, bVo.getPublisher());
+			pstmt.setString(8, bVo.getBookNum());
 			
 			pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -734,7 +750,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 	//책 리스트 페이징 처리
 	public ArrayList<BookVO> selectBookPage(Paging paging) {
         
-        String sql = "select b.bookNum,b.bookTitle,b.bookKeyword1,b.bookKeyword2,b.bookKeyword3,b.writer,b.publisher,m.memName,m.memNum " + 
+        String sql = "select b.bookNum,b.bookTitle,b.isbn,b.bookKeyword1,b.bookKeyword2,b.bookKeyword3,b.writer,b.publisher,m.memName,m.memNum " + 
         		"from itbook.book b,itbook.member m " + 
         		"where b.memNum = m.memNum order by bookNum desc limit ?, 10";
 
@@ -761,6 +777,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
                
                	bVo.setBookNum(rs.getString("bookNum"));
                	bVo.setBookTitle(rs.getString("bookTitle"));
+               	bVo.setIsbn(rs.getString("isbn"));
 				bVo.setBookKeyword1(rs.getString("bookKeyword1"));
 				bVo.setBookKeyword2(rs.getString("bookKeyword2"));
 				bVo.setBookKeyword3(rs.getString("bookKeyword3"));

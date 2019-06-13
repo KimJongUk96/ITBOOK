@@ -31,6 +31,8 @@
 
 <!-- Theme CSS -->
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+<script type="text/javascript" src ="/js/todayBook.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 </head>
 <body>
@@ -44,14 +46,12 @@
       <div class="container">
          <div class="row all-text-white">
             <div class="col-md-12 align-self-center">
-               <h1 class="innerpage-title">희망의 책 독후감</h1>
-               <h6 class="subtitle">I can find the answer in the book and the
-                  book is the way to help me.</h6>
+              <h1 class="innerpage-title">이달의 책</h1>
+					<h6 class="subtitle">희망의 책에서 추천하는 이달의 책입니다.</h6>
                <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                     <li class="breadcrumb-item active"><a href="index.html"><i
-                           class="ti-home"></i> Home</a></li>
-                     <li class="breadcrumb-item">Table</li>
+                     <li class="breadcrumb-item active"><a href="index.jsp"><i
+                           class="ti-home"></i>Home</a></li>
                   </ol>
                </nav>
             </div>
@@ -69,6 +69,7 @@
                <div class="form-group">
                <input type="hidden" name="bookNum" value="${todayBookList.bookNum}">
                <input type="hidden" name="bookBrdNum" value="${todayBookList.bookBrdNum}">
+               
                   <label>이달의 책제목</label> <input class="form-control" type="text" value = "${todayBookList.bookBrdTitle}" name ="bookBrdTitle"
                      placeholder="* 이달의 책 제목을 입력하세요.">
                </div>
@@ -109,25 +110,30 @@
                
                <div class="form-group">
                   <label>내용</label>
-                  <textarea class="form-control" rows="10"  name ="bookBrdContent"
+                  <textarea class="form-control" rows="10"  name ="bookBrdContent" 
                      placeholder="내용을 입력하세요.">${todayBookList.bookBrdContent}</textarea>
                </div>
          		
          		
-                <div class="custom-file">
-                  <label>Upload Book</label><input type="file" class="custom-file-input" value = "${todayBookList.imgPath}" name = "imgPath">
-								<label class="custom-file-label" for="inputGroupFile01">Upload Book</label>
-               </div>
-               
          		
-         		 
-                 <button type="submit" class="btn btn-success"><i class="fa fa-check-circle-o"></i>수정</button>
+
+				<div class="form-group">
+                  <label>기존 파일</label> <input class="form-control" type="text" value = "${todayBookList.imgPath}" name ="imgPath" readonly="readonly">
+               	</div>
+         		
+         		 <!-- 업로드 시작-->
+               <div class="form-group">
+					 <input type="file" class="form-control-file" name ="new_imgPath" value ="">                  
+              	 </div>
+               	<!--업로드 끝  -->
+               
+               
+                 <input type="submit" class="btn btn-grad" onclick="return todayBookCheck()" value="수정">
+                 
+                  <button type="button"  class="btn btn-grad" id="btn" onclick="location.href='book?command=adminTodayBookDelete&bookBrdNum=${todayBookList.bookBrdNum}'" >
+                 삭제</button>
                   
-                  
-                  <button type="button" class="btn btn-warning" onclick="location.href='book?command=adminTodayBookDelete&bookBrdNum=${todayBookList.bookBrdNum}'" >
-                  <i class="fa fa-close"></i>삭제</button>
-                  
-                  	<button type = "button" class="btn btn-secondary" onclick="location.href='book?command=adminTodayBookList'"><i class="fa fa-arrow-circle-right"></i>목록</button>
+                  	<button type = "button" class="btn btn-grad" onclick="location.href='book?command=adminTodayBookList'">취소</button>
 					</form>
                   
             </div>
@@ -136,7 +142,7 @@
          
       </div>
    </section>
-<script>
+ <script>
    function openPopUp() {
       // window.name = "부모창 이름"; 
       window.name = "parentForm";
@@ -152,7 +158,21 @@
 
       window.open(url, title, status);
    }
-</script>
+   
+   $("#btn").click(function(btn){
+	    btn.preventDefault();
+	    if(!confirm('정말로 삭제하시겠습니까?')) return;
+ 	   $('#frm')[0].submit();
+ 	}); 
+   
+   $(document).ready(function(){
+		$('form').submit(function(){
+	 	  var result = alert("수정되었습니다.");
+	   
+		   return result;
+		})
+		})
+</script> 
 
    <%@ include file="../include/footer.jsp"%>
 </body>

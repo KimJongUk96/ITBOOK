@@ -349,7 +349,7 @@
 			</div>
 		</div>
 
-		<!-- =======================
+		<!-- ======================= 
 	call to action-->
 	</section>
 
@@ -362,7 +362,7 @@
 					<!-- Footer widget 1 -->
 					<div class="col-md-4">
 						<div class="widget">
-							<a href="index.html" class="footer-logo"> <!-- footer SVG logo Start -->
+							<a href="index.jsp" class="footer-logo"> <!-- footer SVG logo Start -->
 								<%-- <svg class="footer-logo-item" xmlns="http://www.w3.org/2000/svg"
 									xmlns:xlink="http://www.w3.org/1999/xlink"
 									preserveAspectRatio="xMinYMid" width="325.656" height="100"
@@ -383,7 +383,7 @@
 										d="M86.607,38.585 L55.868,69.317 C53.678,71.508 50.126,71.508 47.936,69.317 C45.745,67.127 45.745,63.577 47.936,61.387 L78.674,30.654 C80.865,28.464 84.416,28.464 86.607,30.654 C88.797,32.844 88.797,36.395 86.607,38.585 ZM26.806,69.317 C25.679,70.444 24.193,70.981 22.716,70.948 C22.636,70.953 22.560,70.972 22.478,70.972 L20.552,70.972 C18.108,70.972 16.128,68.992 16.128,66.548 L16.128,33.452 C16.128,31.008 18.108,29.028 20.552,29.028 L22.478,29.028 C24.922,29.028 26.902,31.008 26.902,33.452 L26.902,53.359 L49.612,30.654 C51.802,28.464 55.354,28.464 57.544,30.654 C59.735,32.844 59.735,36.395 57.544,38.585 L26.806,69.317 Z"
 										class="fill-white" />
 								  </g>
-								</svg>  --%> <img src="https://i.ibb.co/9473b6T/image.jpg"
+								</svg>  --%> <img src="https://i.ibb.co/5294fzR/Logo2.png"
 								width="170" height="150" alt="희망의 책 로고" /> <!-- footer SVG logo End -->
 							</a>
 							<p class="mt-3">
@@ -404,7 +404,7 @@
 									djbook21@hanmail.net</li>
 								<li class="media mb-3"><i class="mr-3 display-8 ti-time"></i>
 									<p>
-										Mon - Fri: <strong>09:00 - 21:00</strong> <br>Sat & Sun:
+										Mon - Fri: <strong>09:00 - 18:00</strong> <br>Sat & Sun:
 										<strong>Closed</strong>
 									</p></li>
 							</ul>
@@ -455,7 +455,7 @@
 					<!-- copyright text -->
 					<div class="copyright-text-center" >
 					
-					Â©2019 All Rights Reserved by <a href="#!"> 희망의책.</a>
+					Â©2019 All Rights Reserved by <a href="index.jsp"> 희망의책</a>
 			
 					</div>
 					<!-- copyright links-->
