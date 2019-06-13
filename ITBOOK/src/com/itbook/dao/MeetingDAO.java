@@ -229,7 +229,7 @@ public class MeetingDAO {
 		return list;
 	}
 	
-	 // 총게시글 수 보기
+	 	//총게시글 수 보기
 		public Paging meetingRowCount(Paging paging) {
 			int cnt = 0;
 			String sql = "SELECT COUNT(*) CNT"
@@ -262,6 +262,7 @@ public class MeetingDAO {
 		         return paging;
 		   }
 		
+		//독서모임 승인
 		public void acceptMeeting(MeetingVO mVO) {
 			String sql = "Update itbook.meeting set metDate = sysdate(), approval = 'T'  where metNum = ?";
 			
@@ -281,7 +282,8 @@ public class MeetingDAO {
 				DBManager.close(conn, pstmt);
 			}
 		}
-		//모임 거절 및 삭제
+		
+		//독서모임 거절 및 삭제
 		public void deleteMeeting(MeetingVO mVO) {
 			String sql = "Delete From itbook.meeting Where metNum = ?";
 			

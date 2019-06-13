@@ -19,7 +19,7 @@ public class MeetingServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MeetingServlet() {
+    public MeetingServlet() { 
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,7 +30,7 @@ public class MeetingServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8"); 
 		
 		String command = request.getParameter("command");
 		System.out.println("meetingServlet에서 요청을 받음을 확인 : " + command );

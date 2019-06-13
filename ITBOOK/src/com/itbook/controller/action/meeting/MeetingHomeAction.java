@@ -21,7 +21,7 @@ public class MeetingHomeAction implements Action {
 		
 		String url = "/meeting/meetingHome.jsp";
 		
-		String metNum = request.getParameter("metNum");
+		String metNum = request.getParameter("metNum"); 
 		
 		MeetingDAO mDao = MeetingDAO.getInstance();
 		
