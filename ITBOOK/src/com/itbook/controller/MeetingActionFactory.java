@@ -9,13 +9,14 @@ import com.itbook.controller.action.meeting.MeetingHomeAction;
 import com.itbook.controller.action.meeting.MeetingListAction;
 import com.itbook.controller.action.meeting.MeetingUpdateAction;
 import com.itbook.controller.action.meeting.MeetingUpdateFormAction;
-import com.itbook.controller.action.meeting.MetBoardDeleteAction;
-import com.itbook.controller.action.meeting.MetBoardListFormAction;
-import com.itbook.controller.action.meeting.MetBoardUpdateAction;
-import com.itbook.controller.action.meeting.MetBoardUpdateFormAction;
-import com.itbook.controller.action.meeting.MetBoardViewAction;
-import com.itbook.controller.action.meeting.MetBoardWriteAction;
-import com.itbook.controller.action.meeting.MetBoardWriteFormAction;
+import com.itbook.controller.action.meeting.MetPostDeleteAction;
+import com.itbook.controller.action.meeting.MetPostListFormAction;
+import com.itbook.controller.action.meeting.MetPostUpdateAction;
+import com.itbook.controller.action.meeting.MetPostUpdateFormAction;
+import com.itbook.controller.action.meeting.MetPostViewAction;
+import com.itbook.controller.action.meeting.MetPostWriteAction;
+import com.itbook.controller.action.meeting.MetPostWriteFormAction;
+import com.itbook.controller.action.meeting.metBoardListFormAction;
 
 public class MeetingActionFactory {
 
@@ -34,62 +35,84 @@ public class MeetingActionFactory {
 		Action action = null;
 		System.out.println("ActionFactory : " + command);
 		
+		//�������� ����Ʈ
 		if(command.equals("meetingList")) {
 			
 			action = new MeetingListAction();
 		
+		//�������� ��û������ �̵�
 		} else if(command.equals("meetingApplyFormAction")) {
 			
 			action = new MeetingApplyFormAction();
-			
+		
+		//�������� ��û
 		} else if(command.equals("meetingApply")) {
 			
 			action = new MeetingApplyAction();
-			
+		
+		//각각의 모임의 상세보기
 		} else if(command.equals("meetingHome")) {
 			
 			action = new MeetingHomeAction();
 			
+			
+		//모임에서 게시판보기를 클릭했을 때 전체 리스트 보여주기.
+		} else if(command.equals("metBoardListFormAction")) {
+						
+			action = new metBoardListFormAction();
+									
+			
+		//�������� ���� ������ �̵�
 		} else if(command.equals("meetingUpdateForm")) {
 			
 			action = new MeetingUpdateFormAction();
-			
+		
+		//�������� ����
 		} else if(command.equals("metUpdate")) {
 			
 			action = new MeetingUpdateAction();
+		
+		//�������ӰԽ������� �̵�
+		} else if(command.equals("metPostListFormAction")) {
 			
-		} else if(command.equals("metBoardListFormAction")) {
+			action = new MetPostListFormAction();
+		
+		//�������� �Խñ۾��������� �̵�
+		} else if(command.equals("metPostWriteFormAction")) {
 			
-			action = new MetBoardListFormAction();
+			action = new MetPostWriteFormAction();
+		
+		//�������� �Խñ۾���
+		} else if(command.equals("metPostWriteAction")) {
 			
-		} else if(command.equals("metBoardWriteFormAction")) {
+			action = new MetPostWriteAction();
+		
+		//�������� �Խñ� �󼼺���
+		} else if(command.equals("metPostViewAction")) {
 			
-			action = new MetBoardWriteFormAction();
+			action = new MetPostViewAction();
+		
+		//�������� �Խñۼ��������� �̵�
+		} else if(command.equals("metPostUpdateFormAction")) {
 			
-		} else if(command.equals("metBoardWriteAction")) {
+			action = new MetPostUpdateFormAction();
+		
+		//�������� �Խñ� ����
+		} else if(command.equals("metPostUpdateAction")) {
 			
-			action = new MetBoardWriteAction();
+			action = new MetPostUpdateAction();
+		
+		//�������� �Խñ� ����
+		} else if(command.equals("metPostDeleteAction")) {
 			
-		} else if(command.equals("metBoardViewAction")) {
-			
-			action = new MetBoardViewAction();
-			
-		} else if(command.equals("metBoardUpdateFormAction")) {
-			
-			action = new MetBoardUpdateFormAction();
-			
-		} else if(command.equals("metBoardUpdateAction")) {
-			
-			action = new MetBoardUpdateAction();
-			
-		} else if(command.equals("metBoardDeleteAction")) {
-			
-			action = new MetBoardDeleteAction();
-			 
+			action = new MetPostDeleteAction();
+		
+		//�������� �Խñ� ��� ����
 		} else if(command.equals("commentWriteAction")) {
 			
 			action = new CommentWriteAction();
-			
+		
+		//�������� �Խñ� ��� ����
 		} else if(command.equals("commentDeleteAction")) {
 			
 			action = new CommentDeleteAction();

@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Wizixo | Creative Multipurpose Bootstrap Template</title>
+<title>대전 책방</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,6 +32,8 @@
 
 <!-- Theme CSS -->
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+<script type="text/javascript" src ="/js/bookstore.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 </head>
 <body>
@@ -47,13 +49,12 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">우리동네책방</h1>
-					<h6 class="subtitle">희망의 책 대전본부</h6>
+					 <h1 class="innerpage-title">대전 책방</h1>
+               <h6 class="subtitle">우리 동네 책방 찾기</h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="index.html"><i
-									class="ti-home"></i>Main</a></li>
-							<li class="breadcrumb-item">책 수정</li>
+							<li class="breadcrumb-item active"><a href="index.jsp"><i
+									class="ti-home"></i>Home</a></li>
 						</ol>
 					</nav>
 				</div>
@@ -67,11 +68,10 @@
 					<!-- 책 수정 폼 -->
 					<form name="frm" method="post"
 						action="bookstore?command=bookstoreUpdate">
-					===${bookstoreList.bookstoreNum}-"${bookstoreList.bookstoreNum}"
 						<input type="hidden" name="bookstoreNum" value="${bookstoreList.bookstoreNum}">
 						<div class="form-group">
-							<label>책방</label> <input class="form-control" type="text"
-								name="bookstoreTitle" value = "${bookstoreList.bookstoreTitle}" placeholder="* 제목을 입력하세요.">
+							<label>책방이름</label> <input class="form-control" type="text"
+								name="bookstoreTitle" value = "${bookstoreList.bookstoreTitle}" placeholder="*책방이름을 입력하세요.">
 						</div>
 				
 						<div class="form-group">
@@ -79,15 +79,17 @@
 								name="bookstoreUrl" value = "${bookstoreList.bookstoreUrl}" placeholder="URL을 입력하세요.">
 						</div>
 
+						
 						<div class="form-group">
-							<label>책방주소</label> <input class="form-control" type="text"
-								name="bookstoreContent" value = "${bookstoreList.bookstoreContent}" placeholder="책방주소를 입력하세요.">
-						</div>
-
-                  <button type="submit" class="btn btn-success"><i class="fa fa-check-circle-o"></i>수정</button>
-                  <button type="button" class="btn btn-warning" onclick="location.href='bookstore?command=bookstoreDelete&bookstoreNum=${bookstoreList.bookstoreNum}'" >
-                  <i class="fa fa-close"></i>삭제</button>
-				<button type = "button" class="btn btn-secondary" onclick="location.href='bookstore?command=adminBookstoreList'"><i class="fa fa-arrow-circle-right"></i>목록</button>
+                  		<label>주소</label>
+                  		<textarea class="form-control" rows="10" name = "bookstoreContent"
+                     placeholder="*주소를 입력하세요.">${bookstoreList.bookstoreContent}</textarea>
+               			</div>
+						
+						
+                  <input type="submit" class="btn btn-grad" value="수정" onclick="return bookstoreCheck()">
+                  <button type="button" class="btn btn-grad" id="delete">삭제</button>
+				<button type = "button" class="btn btn-grad" id="cancel">취소</button>
 					</form>
                   </div>
 						
@@ -98,7 +100,39 @@
 			</div>
 
 	</section>
+<script>
+$(document).ready(function(){
+	$('form').submit(function(){
+ 	  var result = alert("수정되었습니다.");
+   
+	   return result;
+	})
+	})
 
+$(document).ready(
+ 		      function() {
+ 		         $('#cancel').on("click",function(event) {
+ 		                  self.location = "bookstore?command=adminBookstoreList";
+ 		               });
+ 		         $('#delete').on("click", function(evt) {
+ 		            
+ 		            var confirmStat = confirm("삭제하시겠습니까?");
+ 		            
+ 		            if(confirmStat == true){
+ 		               var bookstoreNum = $('#bookstoreNum').val();
+ 		               alert("삭제되었습니다.");
+ 		               self.location = "bookstore?command=bookstoreDelete&bookstoreNum=${bookstoreList.bookstoreNum}";   
+ 		            } else{
+ 		               return false;
+ 		            }
+ 		            
+ 		         });
+ 		         
+ 		         $('.Message').on("click", function(event){
+ 		            
+ 		         });
+ 		      });
+</script>
 
 	<%@ include file="../include/footer.jsp"%>
 </body>

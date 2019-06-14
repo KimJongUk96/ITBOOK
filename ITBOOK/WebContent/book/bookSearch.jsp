@@ -65,7 +65,9 @@
             
             <select name="opt">
                 <option value="0">제목</option>
+                <option value="2">ISBN</option>
                 <option value="1">키워드</option>
+                
             </select>
             
             <input type="text" size="20" name="condition"/>
@@ -75,6 +77,7 @@
                      <thead>
                         <tr>
                            <th scope="col">제목</th>
+                           <th scope="col">ISBN</th>
                          <th scope="col">키워드</th>
                          <th scope="col">저자</th>
                           <th scope="col">출판사</th>
@@ -99,7 +102,7 @@
                         
                             <th scope = "row" onclick="sendToParent('${bookList.bookNum}', '${bookList.bookTitle}','${bookList.writer}','${bookList.publisher}')"><a href ="">${bookList.bookTitle}</a></th>
 
-
+						   <td>${bookList.isbn}</td>
                            <td>${bookList.bookKeyword1}, ${bookList.bookKeyword2}, ${bookList.bookKeyword3}</td>
                            <td>${bookList.writer}</td>
                            <td>${bookList.publisher}</td>
@@ -112,9 +115,15 @@
                </div>
             </div>
          </div>
-   <div align="right">
-                     원하는 책이 없으면 --> <a class="btn btn-primary" onclick="javascript:opener.location.href='/book?command=bookRegFormAction';self.close();">책 등록</a>
+         
+   		<!-- 			<div align="right">
+                  <a class="btn btn-primary" onclick="javascript:opener.location.href='/book?command=bookRegFormAction';self.close();"></a>
+                  </div> -->
+                  
+                  <div align="right">
+                  <button class="btn btn-primary" onclick="javascript:opener.location.href='/book?command=bookRegFormAction';self.close();">등록</button>
                   </div>
+                  
       </div>
    </section>
    

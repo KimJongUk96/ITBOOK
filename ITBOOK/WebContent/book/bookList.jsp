@@ -45,13 +45,13 @@
       <div class="container">
          <div class="row all-text-white">
             <div class="col-md-12 align-self-center">
-               <h1 class="innerpage-title">책 조회</h1>
+               <h1 class="innerpage-title">책 등록</h1>
                <h6 class="subtitle">희망의 책 대전본부</h6>
                <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
                      <li class="breadcrumb-item active"><a href="index.html"><i
                            class="ti-home"></i>Main</a></li>
-                     <li class="breadcrumb-item">책 조회</li>
+                     <li class="breadcrumb-item">책 등록</li>
                   </ol>
                </nav>
             </div>
@@ -73,6 +73,7 @@
                         <tr>
                            <th scope="col">번호</th>
                            <th scope="col">제목</th>
+                           <th scope="col">ISBN</th>
                          <th scope="col">키워드</th>
                          <th scope="col">저자</th>
                           <th scope="col">출판사</th>
@@ -88,6 +89,7 @@
                            <!-- 전체 페이지 데이터 값 : numOfRow , 현재 페이지 수 : pageNum -->
                            <td>${(paging.numOfRow - status.index) - (paging.pageNum -1) * 10}</td>
                            <th scope = "row"><a href="book?command=bookUpdateFormAction&bookNum=${bookList.bookNum}">${bookList.bookTitle}</a></th>
+                           <td>${bookList.isbn}</td>
                            <td>${bookList.bookKeyword1}, ${bookList.bookKeyword2}, ${bookList.bookKeyword3}</td>
                            <td>${bookList.writer}</td>
                            <td>${bookList.publisher}</td>

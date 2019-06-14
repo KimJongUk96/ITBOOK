@@ -19,7 +19,7 @@ public class MeetingApplyAction implements Action{
 		@Override
 		public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
-			MeetingVO mVo = new MeetingVO();
+			MeetingVO mVo = new MeetingVO(); 
 			
 			mVo.setMetName(request.getParameter("metName"));
 			mVo.setMetGreeting(request.getParameter("metGreeting"));

@@ -11,7 +11,9 @@ import com.itbook.controller.action.Action;
 
 /**
  * Servlet implementation class ReportServlet
+ * @author 수아
  */
+
 @WebServlet("/report")
 public class ReportServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

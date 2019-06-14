@@ -17,9 +17,9 @@ public class CommentDeleteAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String metComtNum = request.getParameter("metComtNum");
-		String metBrdNum = request.getParameter("metBrdNum");
+		String metPostNum = request.getParameter("metPostNum");
 		
-		System.out.println("metBrdNum : " + metBrdNum );
+		System.out.println("metPostNum : " + metPostNum );
 		
 		MetCommentDAO dao = MetCommentDAO.getInstance();
 		boolean result = dao.deleteComment(metComtNum);
@@ -28,7 +28,7 @@ public class CommentDeleteAction implements Action {
 		PrintWriter out = response.getWriter();
 		
 		
-		new MetBoardViewAction().execute(request, response);
+		new MetPostViewAction().execute(request, response);
 		// 정상적으로 댓글을 삭제했을경우 1을 전달한다.
 		if(result) out.print("1");
 		

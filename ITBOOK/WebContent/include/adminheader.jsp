@@ -131,13 +131,23 @@
           <ul class="sidebar-menu">
             <li class="header">관리자 메뉴</li>
             <li class="treeview">
+<%--             
+메뉴 별 매핑 필요 command명으로 처리하면 됨
+			<c:if test = "${command eq 'senderEmailListFormAction'}">
+            <li class="treeview active">
+             </c:if>
+            <c:if test = "${LoginUser.menu eq 'sendmail'}">
+            <li class="treeview">
+             </c:if>
+              --%>
               <a href="#">
                 <i class="fa fa-laptop"></i><!-- fa-files-o -->
                <span>회원관리</span> <i class="fa fa-angle-left pull-right"></i>
                <!--  <span class="label label-primary pull-right">4</span> -->
               </a>
               <ul class="treeview-menu">
-                <li><a href="admin?command=senderEmailListFormAction"><i class="fa fa-magic"></i> 메일전송</a></li>
+               <!--  <li class="treeview active"><a href="admin?command=senderEmailListFormAction"><i class="fa fa-magic"></i> 메일전송</a></li> -->
+                 <li class="treeview active"><a href="admin?command=senderEmailListFormAction"><i class="fa fa-magic"></i> 메일전송</a></li>
                 <li><a href="admin?command=memberListForm"><i class="fa fa-magic"></i> 회원정보 삭제</a></li>
               </ul>
             </li>

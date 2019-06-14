@@ -30,7 +30,7 @@ public class BookstoreRegister implements Action {
 		
 		bsDao.insertBookstore(bsVo);
 		
-		new BookstoreListAction().execute(request, response);
+		new AdminBookstoreList().execute(request, response);
 		
 	}
 

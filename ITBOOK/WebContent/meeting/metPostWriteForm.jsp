@@ -62,7 +62,7 @@
 	공지사항 글쓰기 폼 시작 -->
 	<section>
 		<div class="container">
-		 <form name="frm" action="/meeting?command=metBoardWriteAction" method="post" onsubmit="return validateGalBoard()" enctype="multipart/form-data">
+		 <form name="frm" action="/meeting?command=metPostWriteAction" method="post" onsubmit="return validateGalBoard()" enctype="multipart/form-data">
 		<input type="hidden" name="memNum" value="${list.memNum}">
 		<!-- Comment-respond -->
 							<div class="row mt-5">
@@ -70,23 +70,23 @@
 									<h2 class="mb-2">글쓰기</h2>
 								</div>
 								<div class="col-md-2">
-								<select class="custom-select select-big mb-3" name="metBrdCategory">
+								<select class="custom-select select-big mb-3" name="metPostCategory">
 									<option value="공지">공지</option>
 									<option value="일반">일반</option>
 									<option value="행사 및 세미나">행사 및 세미나</option>
 									<option value="자료">자료</option>
 								</select>
 								</div>
-								<div class="col-md-7"><span class="form-group"><input type="text" class="form-control" placeholder="제목" name="metBrdName"></span></div>
+								<div class="col-md-7"><span class="form-group"><input type="text" class="form-control" placeholder="제목" name="metPostTitle"></span></div>
 								<!-- <div class="col-md-6"><span class="form-group"><input type="email" class="form-control" placeholder="E-mail"></span></div> -->
 								
 								<div class="col-md-3">
 									<div class="form-group">
-										<input type="file" name="metBrdFile" class="form-control-file" id="exampleFormControlFile1">
+										<input type="file" name="metPostFile" class="form-control-file" id="exampleFormControlFile1">
 									</div>
 								</div>
 								
-								<div class="col-md-12" style="min-height:480px;"><span class="form-group"><textarea cols="40" rows="20"  name="metBrdContent"
+								<div class="col-md-12" style="min-height:480px;"><span class="form-group"><textarea cols="40" rows="20"  name="metPostContent"
 								class="form-control" placeholder="Message"></textarea></span></div>
 								
 								<!-- 첨부파일 시작 -->
@@ -105,7 +105,7 @@
 								<div class="col-md-2 text-center">
 								<input type="submit" value="등록" class="btn-block btn btn-dark" onclick="return noticeCheck()"/> </div>
 								<div class="col-md-2 text-center">
-								<input type="button" value="돌아가기 " class="btn-block btn btn-dark" onclick="location.href='/meeting?command=metBoardListFormAction'"/></div>
+								<input type="button" value="돌아가기 " class="btn-block btn btn-dark" onclick="location.href='/meeting?command=metPostListFormAction'"/></div>
 								
 							</div>
 		<%-- <table class="table table-bordered">

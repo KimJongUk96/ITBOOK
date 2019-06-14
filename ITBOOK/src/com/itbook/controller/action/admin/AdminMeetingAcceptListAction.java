@@ -25,7 +25,7 @@ public class AdminMeetingAcceptListAction implements Action{
 	    int pageNum = request.getParameter("pageNum") == null ? 1 : Integer.parseInt(request.getParameter("pageNum"));
 
 	    paging.setPageNum(pageNum);
-	    mDao.meetingRowCount(paging);
+	    mDao.adminMeetingRowCount(paging);
 	    ArrayList<MeetingVO> metList = mDao.meetingList(paging);
 
 	      

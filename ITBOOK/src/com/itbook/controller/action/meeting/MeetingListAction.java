@@ -20,7 +20,7 @@ public class MeetingListAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String url = "/meeting/meetingList.jsp";
-
+ 
 		MeetingDAO mDao = MeetingDAO.getInstance();
 		
 		List<MeetingVO> meetingList = mDao.selectAllMeetings();

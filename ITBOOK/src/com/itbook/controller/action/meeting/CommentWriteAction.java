@@ -20,11 +20,11 @@ public class CommentWriteAction implements Action {
 		MetCommentVO comment = new MetCommentVO();
 		
 		// 파리미터 값을 가져온다.
-        String metBrdNum = request.getParameter("metBrdNum");
+        String metPostNum = request.getParameter("metPostNum");
         String memNum = request.getParameter("memNum");
         String metComtContent = request.getParameter("metComtContent");
         
-        comment.setMetBrdNum(metBrdNum);
+        comment.setMetPostNum(metPostNum);
         comment.setMemNum(memNum);
         comment.setMetComtContent(metComtContent);
         
@@ -33,7 +33,7 @@ public class CommentWriteAction implements Action {
         if(result){
             response.setContentType("text/html;charset=UTF-8");
             PrintWriter out = response.getWriter();
-            new MetBoardViewAction().execute(request, response);
+            new MetPostViewAction().execute(request, response);
             out.close();
         }
             

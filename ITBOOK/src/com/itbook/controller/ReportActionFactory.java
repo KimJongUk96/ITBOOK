@@ -2,13 +2,16 @@ package com.itbook.controller;
 
 import com.itbook.controller.action.Action;
 import com.itbook.controller.action.report.ReportDetailFormAction;
-import com.itbook.controller.action.report.ReportCommentAction;
 import com.itbook.controller.action.report.ReportDeleteFormAction;
 import com.itbook.controller.action.report.ReportListFormAction;
 import com.itbook.controller.action.report.ReportRegAction;
 import com.itbook.controller.action.report.ReportRegFormAction;
 import com.itbook.controller.action.report.ReportUpdateAction;
 import com.itbook.controller.action.report.ReportUpdateFormAction;
+
+/**
+ * @author 수아
+ */
 
 public class ReportActionFactory {
 
@@ -54,10 +57,7 @@ public class ReportActionFactory {
 			// 독후감 삭제
 		} else if (command.equals("Report_Delete")) {
 			action = new ReportDeleteFormAction();
-			
-			// 댓글 등록
-		} else if (command.equals("Report_Comment")) {
-			action = new ReportCommentAction();
+
 		
 		}
 		

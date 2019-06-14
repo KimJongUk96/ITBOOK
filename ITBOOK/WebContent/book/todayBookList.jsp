@@ -50,8 +50,7 @@
 					<h6 class="subtitle">희망의 책에서 추천하는 이달의 책입니다.</h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="index.html"><i class="ti-home"></i> Home</a></li>
-							<li class="breadcrumb-item">Blog Grid</li>
+							<li class="breadcrumb-item active"><a href="index.jsp"><i class="ti-home"></i>Home</a></li>
 						</ol>
 					</nav>
 				</div>
@@ -70,33 +69,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 blog-grid blog-grid-3 portfolio-wrap" data-isotope='{ "itemSelector": ".post-item", "layoutMode": "fitRows" }'>
+			
 					<!-- 이달의 책 게시판 글 / 첨부파일 -->
-
-<!-- 예시 -->				
-<!-- 				  <section class="blog-page pb-0">
-      <div class="container">
-         <div class="row">
-            <div class="col-md-12 blog-grid blog-grid-3 portfolio-wrap" data-isotope='{ "itemSelector": ".post-item", "layoutMode": "fitRows" }'>
-               Post item  with image
-               <div class="post-item">
-                  <div class="post-item-wrap">
-                     <div class="post-image">
-                        <a href="#"> <img src="assets/images/blog/grid/01.jpg" alt=""> </a>
-                        <span class="post-meta-category bg-grad"><a href="#">Blog Image</a></span>
-                     </div>
-                     <div class="post-item-desc">
-                        <span class="post-meta">Jan 21,</span>
-                        <span class="post-meta"><a href="#">Admin,</a></span>
-                        <span class="post-meta"><a href=""><i class="ti-comment-alt"></i>06 Comments</a></span>
-                        <h4><a href="#">The Stories Behind those Iconic Blogs</a></h4>
-                        <p>Six started far placing saw respect females old. <strong>Civilly why how end viewing</strong> attempt related enquire visitor. Man particular insensible celebrated conviction stimulated principles day.</p>
-                        <a href="#" class="item-link">Continue reading<i class="ti-minus"></i></a>
-                     </div>
-                  </div>
-               </div>
-   -->
-<!-- 끝 -->					
-					
 			<c:forEach var="todayBookList" items="${todayBookList}" varStatus="status">
 					<div class="post-item">
 						<div class="post-item-wrap">
@@ -126,9 +100,10 @@
 			
 			 <c:if test = "${LoginUser.authority eq '3'}">
 			<div align="right">
-                     <a class="btn btn-primary" href="book?command=adminTodayBookRegFormAction">이달의 책 등록</a>
+                     <a class="btn btn-success" href="book?command=adminTodayBookRegFormAction">등록</a>
                   </div>
                   </c:if> 
+                  
 		</div>
 	</section>
 

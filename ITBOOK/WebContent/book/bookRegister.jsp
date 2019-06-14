@@ -31,7 +31,8 @@
 
 <!-- Theme CSS -->
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-
+<script type="text/javascript" src ="/js/book.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
   
@@ -46,13 +47,12 @@
       <div class="container">
          <div class="row all-text-white">
             <div class="col-md-12 align-self-center">
-               <h1 class="innerpage-title">책 등록</h1>
-               <h6 class="subtitle">희망의 책 대전본부</h6>
+              <h1 class="innerpage-title">책 등록</h1>
+					<h6 class="subtitle">회원들이 원하는 책이 없으면 책을 등록하세요.</h6>
                <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                     <li class="breadcrumb-item active"><a href="index.html"><i
-                           class="ti-home"></i>Main</a></li>
-                     <li class="breadcrumb-item">책 등록</li>
+                     <li class="breadcrumb-item active"><a href="index.jsp"><i
+                           class="ti-home"></i>Home</a></li>
                   </ol>
                </nav>
             </div>
@@ -74,6 +74,12 @@
                </div>
                
                <div class="form-group">
+                  <label>ISBN</label> <input class="form-control" type="text" name = "isbn"
+                     placeholder="* ISBN번호를 입력하세요.">
+               </div>
+               
+               
+               <div class="form-group">
                   <label>저자</label> <input class="form-control" type="text" name = "writer"
                      placeholder="* 저자를 입력하세요.">
                </div>
@@ -82,9 +88,9 @@
                   <label>키워드</label> <input class="form-control" type="text" name = "bookKeyword1"
                      placeholder="* 키워드를 입력하세요.">
                      <input class="form-control" type="text" name = "bookKeyword2"
-                     placeholder="* 키워드를 입력하세요.">
+                     placeholder=" 키워드를 입력하세요.">
                      <input class="form-control" type="text" name = "bookKeyword3"
-                     placeholder="* 키워드를 입력하세요.">
+                     placeholder=" 키워드를 입력하세요.">
                </div>
                
                <div class="form-group">
@@ -92,9 +98,8 @@
                      placeholder="* 출판사를 입력하세요.">
                </div>
                
-               <button type ="submit" class ="btn btn-success" ><i class="fa fa-check-circle-o"></i>등록하기</button>
-               <button type = "button" class="btn btn-warning" onclick="location.href='book?command=bookList'">
-               <i class="fa  fa-close"></i>취소하기</button>
+               <input type ="submit" class ="btn btn-grad" onclick="return bookCheck()" value="등록">
+               <button type = "button" class="btn btn-grad" onclick="location.href='book?command=bookList'">취소</button>
          </form>
             </div>
          
@@ -102,7 +107,15 @@
          
       </div>
    </section>
-
+<script>
+$(document).ready(function(){
+	$('form').submit(function(){
+ 	  var result = alert("등록되었습니다.");
+   
+	   return result;
+	})
+	})
+</script>
 
    <%@ include file="../include/footer.jsp"%>
 </body>

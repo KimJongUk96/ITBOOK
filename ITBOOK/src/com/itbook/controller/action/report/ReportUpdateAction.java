@@ -10,6 +10,10 @@ import com.itbook.controller.action.Action;
 import com.itbook.dao.ReportDAO;
 import com.itbook.vo.Report.ReportBoardVO;
 
+/**
+ * @author 수아
+ */
+
 public class ReportUpdateAction implements Action {
 
 	@Override
@@ -20,6 +24,7 @@ public class ReportUpdateAction implements Action {
 
 		rVo.setReportTitle(request.getParameter("reportTitle"));
 		rVo.setReportContent(request.getParameter("reportContent"));
+		rVo.setReportCategory(request.getParameter("reportCategory"));
 		rVo.setReportNum(request.getParameter("reportNum"));
 
 		ReportDAO rDao = ReportDAO.getInstance();

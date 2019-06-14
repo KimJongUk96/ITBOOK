@@ -77,7 +77,7 @@
 
 					<!-- 검색 폼 스타트 -->
 					<div id="searchForm">
-						<form name="frm" action="/meeting?command=metBoardListFormAction" method="post" onsubmit="return validateGalBoard()">
+						<form name="frm" action="/meeting?command=metPostListFormAction" method="post" onsubmit="return validateGalBoard()">
 							<select name="opt">
 								<option value="0">제목</option>
 							</select> <input type="text" size="20" name="condition" />&nbsp; 
@@ -100,14 +100,14 @@
 							</thead>
 
 							<tbody>
-								<c:forEach var="metbrd" items="${metboardList}">
+								<c:forEach var="metpost" items="${metpostList}">
 									<tr>
-										<th scope="row">${metbrd.metBrdNum}</th>
-										<th>${metbrd.metBrdCategory}</th>
-										<td><a href="/meeting?command=metBoardViewAction&metBrdNum=${metbrd.metBrdNum}">${metbrd.metBrdName }</a></td>
+										<th scope="row">${metpost.metPostNum}</th>
+										<th>${metpost.metPostCategory}</th>
+										<td><a href="/meeting?command=metPostViewAction&metPostNum=${metpost.metPostNum}">${metpost.metPostTitle}</a></td>
 										<td>관리자</td>
-										<td><fmt:formatDate value="${metbrd.metBrdDate }" /></td>
-										<td>${metbrd.metBrdCount }</td>
+										<td><fmt:formatDate value="${metpost.metPostDate }" /></td>
+										<td>${metpost.metPostCount }</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -115,7 +115,7 @@
 						</table>
 						<%-- <c:if test = ${LoginUser.authority eq '1' or LoginUser.authority eq '2' or LoginUser.authority eq '3'}> --%>
 						<div align="right">
-							<a class="btn btn-primary" href="/meeting?command=metBoardWriteFormAction">글쓰기</a>
+							<a class="btn btn-primary" href="/meeting?command=metPostWriteFormAction">글쓰기</a>
 						</div>
 						<%-- </c:if> --%>
 					</div>
@@ -135,7 +135,7 @@
 
 							<c:if test="${startPage != 1}">
 								<li class="page-item">
-								<a class="page-link" href="/meeting?command=metBoardListFormAction&page=${startPage-1}">Prev</a></li>
+								<a class="page-link" href="/meeting?command=metPostListFormAction&page=${startPage-1}">Prev</a></li>
 							</c:if>
 
 							<c:forEach var="pageNum" begin="${startPage}" end="${endPage}">
@@ -143,12 +143,12 @@
 									<li class="page-item active"><span class="page-link bg-grad">${pageNum}&nbsp;</span></li>
 								</c:if>
 								<c:if test="${pageNum != spage}">
-									<a class="page-link" href='/meeting?command=metBoardListFormAction&page=${pageNum}'>${pageNum}&nbsp;</a>
+									<a class="page-link" href='/meeting?command=metPostListFormAction&page=${pageNum}'>${pageNum}&nbsp;</a>
 								</c:if>
 							</c:forEach>
 
 							<c:if test="${endPage != maxPage }">
-								<li class="page-item"><a class="page-link" href="/meeting?command=metBoardListFormAction&page=${endPage+1 }">Next</a></li>
+								<li class="page-item"><a class="page-link" href="/meeting?command=metPostListFormAction&page=${endPage+1 }">Next</a></li>
 							</c:if>
 
 						</ul>
