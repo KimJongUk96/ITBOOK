@@ -67,7 +67,7 @@
 	<tr style ="text-align:center;">
 		<td><input type ="checkbox" value="${NoticeVO.noticeNum}" name="noticeNum" ></td>
 		<td>${NoticeVO.noticeNum}</td>
-		<td>${NoticeVO.noticeTitle}</td>
+		<td><a href="/notice?command=noticeViewAction&noticeNum=${NoticeVO.noticeNum}" target="_blank">${NoticeVO.noticeTitle}</a></td>
 		<td><%-- ${NoticeVO.notice} --%>관리자</td>
 		<td>${NoticeVO.noticeDate}</td>
 		
