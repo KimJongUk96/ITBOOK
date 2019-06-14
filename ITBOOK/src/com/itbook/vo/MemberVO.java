@@ -27,6 +27,7 @@ public class MemberVO {
 	private String email;
 	private String authority;
 	private Timestamp signDate;
+	private String metNum;
 	
 	
 	
@@ -35,9 +36,17 @@ public class MemberVO {
 	}
 
 
-
 	public void setMemNum(String memNum) {
 		this.memNum = memNum;
+	}
+	
+	public String getMetNum() {
+		return metNum;
+	}
+
+
+	public void setMetNum(String metNum) {
+		this.metNum = metNum;
 	}
 
 
@@ -153,7 +162,7 @@ public class MemberVO {
 	public String toString() {
 		return "MemberVO [memNum=" + memNum + ", memId=" + memId + ", memPw=" + memPw + ", jumin=" + jumin
 				+ ", memName=" + memName + ", adr=" + adr + ", phone=" + phone + ", email=" + email + ", authority="
-				+ authority + ", signDate=" + signDate + "]";
+				+ authority + ", signDate=" + signDate + ", metNum="+ metNum+"]";
 	}
 
 

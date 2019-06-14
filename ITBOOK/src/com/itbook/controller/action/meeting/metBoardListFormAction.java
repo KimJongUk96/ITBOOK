@@ -16,35 +16,35 @@ import com.itbook.vo.Meeting.MetBoardVO;
 
 public class metBoardListFormAction implements Action {
 
-	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+   @Override
+   public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      // TODO Auto-generated method stub
 
-		String url = "/meeting/meetingBoardList.jsp";
+      String url = "/meeting/meetingBoardList.jsp";
 
-		MeetingDAO mDao = MeetingDAO.getInstance();
-		
-		//독서 모임 번호
-		String metNum = request.getParameter("metNum"); 
-		
-		//독서 모임 기본 정보
-		MeetingVO meetingVo = mDao.selectOneMeetingByNum(metNum);
-		request.setAttribute("meetingVo", meetingVo);
+      MeetingDAO mDao = MeetingDAO.getInstance();
+      
+      //독서 모임 번호
+      String metNum = request.getParameter("metNum"); 
+      
+      //독서 모임 기본 정보
+      MeetingVO meetingVo = mDao.selectOneMeetingByNum(metNum);
+      request.setAttribute("meetingVo", meetingVo);
 
-		// 페이징 처리
-		Paging paging = new Paging(10, 1);
-		int pageNum = request.getParameter("pageNum") == null ? 1 : Integer.parseInt(request.getParameter("pageNum"));
-		paging.setPageNum(pageNum);
-		mDao.meetingRowCount(paging, metNum);
+      // 페이징 처리
+      Paging paging = new Paging(10, 1);
+      int pageNum = request.getParameter("pageNum") == null ? 1 : Integer.parseInt(request.getParameter("pageNum"));
+      paging.setPageNum(pageNum);
+      mDao.meetingRowCount(paging, metNum);
 
-		ArrayList<MetBoardVO> metboardList = mDao.selectAllMetBoard(metNum, paging);
-		request.setAttribute("metboardList", metboardList);
-		request.setAttribute("paging", paging);
-		System.out.println(metboardList);
+      ArrayList<MetBoardVO> metboardList = mDao.selectAllMetBoard(metNum, paging);
+      request.setAttribute("metboardList", metboardList);
+      request.setAttribute("paging", paging);
+      System.out.println(metboardList);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		dispatcher.forward(request, response);
+      RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+      dispatcher.forward(request, response);
 
-	}
+   }
 
 }
