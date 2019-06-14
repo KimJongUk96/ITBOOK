@@ -16,6 +16,7 @@ import com.itbook.controller.action.meeting.MetPostUpdateFormAction;
 import com.itbook.controller.action.meeting.MetPostViewAction;
 import com.itbook.controller.action.meeting.MetPostWriteAction;
 import com.itbook.controller.action.meeting.MetPostWriteFormAction;
+import com.itbook.controller.action.meeting.metBoardListFormAction;
 
 public class MeetingActionFactory {
 
@@ -34,77 +35,84 @@ public class MeetingActionFactory {
 		Action action = null;
 		System.out.println("ActionFactory : " + command);
 		
-		//µ¶¼­¸ğÀÓ ¸®½ºÆ®
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 		if(command.equals("meetingList")) {
 			
 			action = new MeetingListAction();
 		
-		//µ¶¼­¸ğÀÓ ½ÅÃ»ÆûÀ¸·Î ÀÌµ¿
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 		} else if(command.equals("meetingApplyFormAction")) {
 			
 			action = new MeetingApplyFormAction();
 		
-		//µ¶¼­¸ğÀÓ ½ÅÃ»
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 		} else if(command.equals("meetingApply")) {
 			
 			action = new MeetingApplyAction();
 		
-		//µ¶¼­¸ğÀÓ º° ¸ŞÀÎ È¨À¸·Î ÀÌµ¿
+		//ê°ê°ì˜ ëª¨ì„ì˜ ìƒì„¸ë³´ê¸°
 		} else if(command.equals("meetingHome")) {
 			
 			action = new MeetingHomeAction();
-		
-		//µ¶¼­¸ğÀÓ ¼öÁ¤ ÆûÀ¸·Î ÀÌµ¿
+			
+			
+		//ëª¨ì„ì—ì„œ ê²Œì‹œíŒë³´ê¸°ë¥¼ í´ë¦­í–ˆì„ ë•Œ ì „ì²´ ë¦¬ìŠ¤íŠ¸ ë³´ì—¬ì£¼ê¸°.
+		} else if(command.equals("metBoardListFormAction")) {
+						
+			action = new metBoardListFormAction();
+									
+			
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 		} else if(command.equals("meetingUpdateForm")) {
 			
 			action = new MeetingUpdateFormAction();
 		
-		//µ¶¼­¸ğÀÓ ¼öÁ¤
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		} else if(command.equals("metUpdate")) {
 			
 			action = new MeetingUpdateAction();
 		
-		//µ¶¼­¸ğÀÓ°Ô½ÃÆÇÀ¸·Î ÀÌµ¿
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó°Ô½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 		} else if(command.equals("metPostListFormAction")) {
 			
 			action = new MetPostListFormAction();
 		
-		//µ¶¼­¸ğÀÓ °Ô½Ã±Û¾²±âÆûÀ¸·Î ÀÌµ¿
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã±Û¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 		} else if(command.equals("metPostWriteFormAction")) {
 			
 			action = new MetPostWriteFormAction();
 		
-		//µ¶¼­¸ğÀÓ °Ô½Ã±Û¾²±â
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã±Û¾ï¿½ï¿½ï¿½
 		} else if(command.equals("metPostWriteAction")) {
 			
 			action = new MetPostWriteAction();
 		
-		//µ¶¼­¸ğÀÓ °Ô½Ã±Û »ó¼¼º¸±â
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã±ï¿½ ï¿½ó¼¼ºï¿½ï¿½ï¿½
 		} else if(command.equals("metPostViewAction")) {
 			
 			action = new MetPostViewAction();
 		
-		//µ¶¼­¸ğÀÓ °Ô½Ã±Û¼öÁ¤ÆûÀ¸·Î ÀÌµ¿
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã±Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 		} else if(command.equals("metPostUpdateFormAction")) {
 			
 			action = new MetPostUpdateFormAction();
 		
-		//µ¶¼­¸ğÀÓ °Ô½Ã±Û ¼öÁ¤
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½
 		} else if(command.equals("metPostUpdateAction")) {
 			
 			action = new MetPostUpdateAction();
 		
-		//µ¶¼­¸ğÀÓ °Ô½Ã±Û »èÁ¦
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½
 		} else if(command.equals("metPostDeleteAction")) {
 			
 			action = new MetPostDeleteAction();
 		
-		//µ¶¼­¸ğÀÓ °Ô½Ã±Û ´ñ±Û ¾²±â
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		} else if(command.equals("commentWriteAction")) {
 			
 			action = new CommentWriteAction();
 		
-		//µ¶¼­¸ğÀÓ °Ô½Ã±Û ´ñ±Û »èÁ¦
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		} else if(command.equals("commentDeleteAction")) {
 			
 			action = new CommentDeleteAction();

@@ -30,7 +30,6 @@ public class AdminBookListFormAction implements Action{
 	      bDao.selectBookRowCount(paging);
 	      ArrayList<BookVO> bookList = bDao.selectBookPage(paging);
 
-	      
 	      request.setAttribute("bookList", bookList);
 	      request.setAttribute("paging", paging);
 	      

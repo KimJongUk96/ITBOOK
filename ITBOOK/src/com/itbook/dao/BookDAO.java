@@ -713,6 +713,7 @@ public ArrayList<BookVO> getBookList(HashMap<String, Object> listOpt) {
 
 	//책 리스트 총 게시글 수 보기
 	public Paging selectBookRowCount(Paging paging) {
+		
 		int cnt = 0;
 		String sql = "SELECT COUNT(*) CNT"
 	            + "     FROM itbook.book";
