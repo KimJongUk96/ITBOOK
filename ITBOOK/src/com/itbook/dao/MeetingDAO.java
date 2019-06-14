@@ -277,10 +277,32 @@ public class MeetingDAO {
 	}
 
 	// 독서모임 수정
-	public void updateMeeting(String metNum) {
+	public void updateMeeting(MeetingVO mVo) {
 
-		String sql = "UPDATE itbook.meeting" + " SET metIntro= ?" + ",	metGreeting= ?" + ",	metPlace=?"
-				+ ",	keyword=?" + " WHERE metNum = ?";
+		String sql = "update meeting set metName=?, metIntro = ?, metGreeting=?, metPlace=?, keyword=? where metNum=? ";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, mVo.getMetName());
+			pstmt.setString(2, mVo.getMetIntro());
+			pstmt.setString(3, mVo.getMetGreeting());
+			pstmt.setString(4, mVo.getMetPlace());
+			pstmt.setString(5, mVo.getKeyword());
+			pstmt.setString(6, mVo.getMetNum());
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
 	}
 
 	// 모임신청 리스트(관리자 화면)

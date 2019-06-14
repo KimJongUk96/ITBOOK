@@ -2,6 +2,7 @@ package com.itbook.controller.action.meeting;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,30 +13,33 @@ import com.itbook.dao.MeetingDAO;
 //import com.itbook.dao.MemberDAO;
 import com.itbook.vo.Meeting.MeetingVO;
 
-public class MeetingUpdateFormAction implements Action {
+public class MetUpdateFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String url = "/meeting/meetingUpdateForm.jsp";
 		
-		//·Î±×ÀÎ ¼¼¼Ç°ªÀ» ¹Þ¾Æ¿Â´Ù.
+		//ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¿Â´ï¿½.
 		// session = request.getSession();
 		
-		//µ¶¼­¸ðÀÓ¹øÈ£¸¦ °¡Á®¿Â´Ù.
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 		String metNum = request.getParameter("metNum");
 		
-		//È¸¿ø¸íÀ» °¡Á®¿Â´Ù.
+		//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 		//String memName = request.getParameter("metName");
 		
 		MeetingDAO mDao = MeetingDAO.getInstance();
 		
-		//metNumÀ» ±âÁØÀ¸·Î µ¶¼­¸ðÀÓÀ» ¼öÁ¤ÇÏ´Â DAOÀÇ sql¹® ->MeetingUpdateActionÀ¸·Î ¿Å±â±â
+		//metNumï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ DAOï¿½ï¿½ sqlï¿½ï¿½ ->MeetingUpdateActionï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½ï¿½
 		//mDao.updateMeeting(metNum);
 		
 		MeetingVO metVo = mDao.selectOneMeetingByNum(metNum);
 		
 		request.setAttribute("meeting", metVo);
 		//request.setAttribute("LoginUser", memVo);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+		dispatcher.forward(request, response);
 	}
 }

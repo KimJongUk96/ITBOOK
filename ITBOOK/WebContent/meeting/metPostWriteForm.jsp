@@ -36,22 +36,18 @@
 	
 	<!-- =======================
 	Banner innerpage -->
-	<div class="innerpage-banner center bg-overlay-dark-7 py-7"
-		style="background: url(assets/images/bg/04.jpg) no-repeat; background-size: cover; background-position: center center;">
+	<div class="innerpage-banner center bg-overlay-dark-7 py-7" style="background:url(../assets/images/bg/04.jpg) no-repeat; background-size:cover; background-position: center center;">
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">희망의 책 모임게시판</h1>
-					<h6 class="subtitle">We transform your perception into an
-						excellent website</h6>
+					<h1 class="innerpage-title">${meetingVo.metName}</h1>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="index.html"><i
-									class="ti-home"></i> Home</a></li>
-							<li class="breadcrumb-item">Table</li>
+							<li class="breadcrumb-item active"><a href="/index.jsp"><i class="ti-home"></i>Home</a></li>
+							<li class="breadcrumb-item">독서모임</li>
 						</ol>
 					</nav>
-				</div>
+				</div>	
 			</div>
 		</div>
 	</div>
@@ -62,8 +58,9 @@
 	공지사항 글쓰기 폼 시작 -->
 	<section>
 		<div class="container">
-		 <form name="frm" action="/meeting?command=metPostWriteAction" method="post" onsubmit="return validateGalBoard()" enctype="multipart/form-data">
+		 <form name="frm" action="/meeting?command=metPostWriteAction&metNum=${meetingVo.metNum}" method="post" onsubmit="return validateGalBoard()" enctype="multipart/form-data">
 		<input type="hidden" name="memNum" value="${list.memNum}">
+		<input type="hidden" name="metNum" value="${meetingVo.metNum}">
 		<!-- Comment-respond -->
 							<div class="row mt-5">
 								<div class="col-md-12">

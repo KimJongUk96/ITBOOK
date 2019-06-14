@@ -35,16 +35,15 @@ public class MetBoardDAO {
 			
 			StringBuffer sql = new StringBuffer();
 			
-			sql.append("insert into met_board(metBrdName, metBrdContent, metBrdFile, metBrdCount, metBrdDate, metBrdCategory)");
-			sql.append("values( ?, ?, ?, ?, sysdate(), ?)");
+			sql.append("insert into met_board(metBrdName, metBrdContent, regDate, metBrdCategory, metNum)");
+			sql.append("values( ?, ?, sysdate(), ?, ?)");
 			
 			pstmt = conn.prepareStatement(sql.toString());
 			
 			pstmt.setString(1, mVo.getMetBrdName());
 			pstmt.setString(2, mVo.getMetBrdContent());
-			pstmt.setString(3, mVo.getMetBrdFile());
-			pstmt.setInt(4, mVo.getMetBrdCount());
-			pstmt.setString(5, mVo.getMetBrdCategory());
+			pstmt.setString(3, mVo.getMetBrdCategory());
+			pstmt.setString(4, mVo.getMetNum());
 			
 			int flag = pstmt.executeUpdate();
 			

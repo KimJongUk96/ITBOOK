@@ -24,7 +24,9 @@ public class MetPostWriteAction implements Action{
         int fileSize= 5*1024*1024;
         // 업로드될 폴더 경로
         String uploadPath = request.getServletContext().getRealPath("/META-INF/UploadFolder");
+        String metNum = request.getParameter("metNum");
         
+        System.out.println("metNum: " + metNum);
         
         try {
             
@@ -41,15 +43,15 @@ public class MetPostWriteAction implements Action{
                 fileName = multi.getFilesystemName(name);
             }
             
-            MetPostDAO mDao = MetPostDAO.getInstance();
-            MetPostVO mVo = new MetPostVO();
+            MetBoardDAO mDao = MetBoardDAO.getInstance();
+            MetBoardVO mVo = new MetBoardVO();
             
-            mVo.setMetPostTitle(multi.getParameter("metPostTitle"));
-            mVo.setMetPostContent(multi.getParameter("metPostContent"));
-            mVo.setMetPostCategory(multi.getParameter("metPostCategory"));
-            mVo.setMetPostFile(multi.getFilesystemName("metPostFile"));
+            mVo.setMetNum(multi.getParameter("metNum"));
+            mVo.setMetBrdName(multi.getParameter("metPostTitle"));
+            mVo.setMetBrdContent(multi.getParameter("metPostContent"));
+            mVo.setMetBrdCategory(multi.getParameter("metPostCategory"));
             
-            boolean result = mDao.insertMetPost(mVo);
+            boolean result = mDao.insertMetBoard(mVo);
             
             
             if(result) {

@@ -7,8 +7,8 @@ import com.itbook.controller.action.meeting.MeetingApplyAction;
 import com.itbook.controller.action.meeting.MeetingApplyFormAction;
 import com.itbook.controller.action.meeting.MeetingHomeAction;
 import com.itbook.controller.action.meeting.MeetingListAction;
-import com.itbook.controller.action.meeting.MeetingUpdateAction;
-import com.itbook.controller.action.meeting.MeetingUpdateFormAction;
+import com.itbook.controller.action.meeting.MetUpdateAction;
+import com.itbook.controller.action.meeting.MetUpdateFormAction;
 import com.itbook.controller.action.meeting.MetPostDeleteAction;
 import com.itbook.controller.action.meeting.MetPostListFormAction;
 import com.itbook.controller.action.meeting.MetPostUpdateAction;
@@ -62,15 +62,15 @@ public class MeetingActionFactory {
 			action = new metBoardListFormAction();
 									
 			
-		//�������� ���� ������ �̵�
-		} else if(command.equals("meetingUpdateForm")) {
+		//독서모임 수정 폼으로 이동
+		} else if(command.equals("metUpdateFormAction")) {
 			
-			action = new MeetingUpdateFormAction();
+			action = new MetUpdateFormAction();
 		
-		//�������� ����
-		} else if(command.equals("metUpdate")) {
+		//독서모임 수정
+		} else if(command.equals("metUpdateAction")) {
 			
-			action = new MeetingUpdateAction();
+			action = new MetUpdateAction();
 		
 		//�������ӰԽ������� �̵�
 		} else if(command.equals("metPostListFormAction")) {

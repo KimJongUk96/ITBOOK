@@ -95,7 +95,7 @@
                   </table>
              	 <div align="right">
              	 
-                  <a class="btn btn-grad" href="bookstore?command=bookstoreRegisterForm">등록</a>
+                  <a class="btn btn-grad" href="meeting?command=metPostWriteFormAction&metNum=${meetingVo.metNum }">등록</a>
 
                   </div>
                </div>
