@@ -207,6 +207,7 @@ public class MemberDAO {
 				memVO.setPhone(rs.getString("phone"));
 				memVO.setSignDate(rs.getTimestamp("signDate"));
 				memVO.setJumin(rs.getString("jumin"));
+				memVO.setMetNum(rs.getString("metNum"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
