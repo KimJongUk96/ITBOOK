@@ -148,5 +148,12 @@
 	});   
     
     </script>
+    
+        <script type="text/javascript">
+   $(document).ready(function(){
+	   if($('.notice').trigger('click'))
+		$('.tree ').addClass("active");
+	}); 
+</script>
 
 <%@include file="../include/adminfooter.jsp"%>

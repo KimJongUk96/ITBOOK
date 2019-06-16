@@ -3,6 +3,8 @@ package com.itbook.controller;
 import com.itbook.controller.action.Action;
 import com.itbook.controller.action.MainAction;
 import com.itbook.controller.action.admin.SendEmailAction;
+import com.itbook.controller.action.meeting.RefuseMemberShipAction;
+import com.itbook.controller.action.meeting.joinApprovalAction;
 import com.itbook.controller.action.member.InsertMemberAction;
 import com.itbook.controller.action.member.LoginAction;
 import com.itbook.controller.action.member.LogoutAction;
@@ -57,6 +59,10 @@ public class MemberActionFactory {
 			action = new MemberPwModifyAction();
 		}else if(command.equals("memberPwModifyForm")) {
 			action = new MemberPwModifyFormAction();
+		}else if(command.equals("approvalMeeting")) {
+			action = new joinApprovalAction();
+		}else if(command.equals("refuseMemberShip")) {
+			action = new RefuseMemberShipAction();
 		}
 		return action;
 	}

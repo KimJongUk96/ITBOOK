@@ -147,10 +147,7 @@
 	}
 });
 function sendEmailForm(){
-/* 	 var email = [];
-	 $("#email:checked").each(function(){
-		email.push($(this).val()); 
-	 }); */
+
 	 var total_cnt=0;
 	 var email = new Array();
 	 $('input:checkbox[name = "email"]').each(function(){
@@ -161,10 +158,6 @@ function sendEmailForm(){
 	 });
 	 
 	 
-	 /* 	 $("input:checkbox:checked").each(function(index){
-		email += $(this).val()+","; 
-	 });  */
- 	 
      var popUrl ="/admin?command=mailPopupForm&email="+email;
      var popOption = "width=650px, height=550px, resizable=no, location=no, top=300px, left=300px;"
         
@@ -172,5 +165,11 @@ function sendEmailForm(){
  }
 
     </script>
+<script type="text/javascript">
+   $(document).ready(function(){
+	   if($('.send').trigger('click'))
+		$('.treevie ').addClass("active");
+	}); 
+</script>
 
 <%@include file="../include/adminfooter.jsp"%>

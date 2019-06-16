@@ -7,6 +7,7 @@
   <head>
     <meta charset="UTF-8">
     <title>희망의책 대전본부 관리자모드</title>
+
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.4 -->
     <link href="../resources/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -32,6 +33,7 @@
     <![endif]-->
     
   </head>
+
      <!-- jQuery 2.1.4 -->
     <script src="../resources/admin/plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <script src="../resources/js/jquery-ui.min.js"></script>
@@ -130,48 +132,38 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">관리자 메뉴</li>
-            <li class="treeview">
-<%--             
-메뉴 별 매핑 필요 command명으로 처리하면 됨
-			<c:if test = "${command eq 'senderEmailListFormAction'}">
-            <li class="treeview active">
-             </c:if>
-            <c:if test = "${LoginUser.menu eq 'sendmail'}">
-            <li class="treeview">
-             </c:if>
-              --%>
+            <li class="treevie" id="active">
               <a href="#">
                 <i class="fa fa-laptop"></i><!-- fa-files-o -->
-               <span>회원관리</span> <i class="fa fa-angle-left pull-right"></i>
-               <!--  <span class="label label-primary pull-right">4</span> -->
+               <span>회원관리</span> 
+               <i class="fa fa-angle-left pull-right"></i>
               </a>
-              <ul class="treeview-menu">
-               <!--  <li class="treeview active"><a href="admin?command=senderEmailListFormAction"><i class="fa fa-magic"></i> 메일전송</a></li> -->
-                 <li class="treeview active"><a href="admin?command=senderEmailListFormAction"><i class="fa fa-magic"></i> 메일전송</a></li>
-                <li><a href="admin?command=memberListForm"><i class="fa fa-magic"></i> 회원정보 삭제</a></li>
+              <ul class="treeview-menu" id="menu">
+                 <li class ="send"><a href="admin?command=senderEmailListFormAction"><i class="fa fa-magic" id="send">  메일전송</i></a></li>
+                <li class ="send"><a href="admin?command=memberListForm"><i class="fa fa-magic"></i> 회원정보 삭제</a></li>
               </ul>
             </li>
-            <li class="treeview">
+            <li class="treevi">
               <a href="#">
                 <i class="fa fa-table"></i>
                 <span>모임관리</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="admin?command=meetingAcceptListForm"><i class="fa fa-magic"></i> 모임 승인·거절</a></li>
-                <li><a href="admin?command=meetingListForm"><i class="fa fa-magic"></i> 모임 삭제</a></li>
+                <li class="meeting"><a href="admin?command=meetingAcceptListForm"><i class="fa fa-magic"></i> 모임 승인·거절</a></li>
+                <li class="meeting"><a href="admin?command=meetingListForm"><i class="fa fa-magic"></i> 모임 삭제</a></li>
               </ul>
             </li>
-            <li class="treeview">
+            <li class="tree">
               <a href="#">
                 <i class="fa fa-table"></i>
                 <span>독서 생태계 관리</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="admin?command=noticeListForm"><i class="fa fa-magic"></i> 공지사항 등록·수정·삭제</a></li>
-                <li><a href="admin?command=todayBookList"><i class="fa fa-magic"></i> 이달의책 등록·수정·삭제</a></li>
-                <li><a href="admin?command=reportListForm"><i class="fa fa-magic"></i> 독후감 삭제</a></li>
+                <li class ="notice"><a href="admin?command=noticeListForm"><i class="fa fa-magic"></i> 공지사항 등록·수정·삭제</a></li>
+                <li class ="notice"><a href="admin?command=todayBookList"><i class="fa fa-magic"></i> 이달의책 등록·수정·삭제</a></li>
+                <li class ="notice"><a href="admin?command=reportListForm"><i class="fa fa-magic"></i> 독후감 삭제</a></li>
               </ul>
             </li>
             <li class="treeview">
@@ -211,4 +203,5 @@
         			  
         		});
         	});
+        		
         </script>

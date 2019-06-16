@@ -156,5 +156,12 @@ $("#btn").click(function(btn){
 	$('#frm')[0].submit();
 });    
     </script>
+    
+    <script type="text/javascript">
+   $(document).ready(function(){
+	   if($('.meeting').trigger('click'))
+		$('.treevi ').addClass("active");
+	}); 
+</script>
 
 <%@include file="../include/adminfooter.jsp"%>

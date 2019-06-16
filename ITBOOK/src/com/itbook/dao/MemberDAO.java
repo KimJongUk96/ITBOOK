@@ -6,7 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import javax.print.attribute.standard.PresentationDirection;
 
+import com.itbook.vo.MemListVO;
 import com.itbook.vo.MemberVO;
 import com.itbook.vo.Paging;
 
@@ -376,6 +378,103 @@ public class MemberDAO {
 		 return list;
 		 
 	 }
-	 
+	 //독서모임 회원가입! (회원등록)
+	 public void joinMember(MemListVO mVo) {
+		 String sql = "insert into itbook.mem_list(memNum, metNum, memName, memId) values(?,?,?,?);";
+		 
+		 Connection conn = null;
+		 PreparedStatement pstmt = null;
+		 try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, mVo.getMemNum());
+			pstmt.setString(2, mVo.getMetNum());
+			pstmt.setString(3, mVo.getMemName());
+			pstmt.setString(4, mVo.getMemId());
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt);
+		}
+	 }
+	 //멤버쉽 승인 
+	 public void approvalMeeting(MemListVO mVo) {
+		 String sql = "update itbook.mem_list set joinDate = sysdate(), approval = 'T' where memNum =?";
+		 
+		 Connection conn = null;
+		 PreparedStatement pstmt = null;
+		 try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, mVo.getMemNum());
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+		 e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt);
+		}
+	 }
+	 //멤버쉽 승인/거절 리스트
+	 public ArrayList<MemListVO> meetingMemList(){
+		 String sql = "SELECT * FROM ITBOOK.MEM_LIST";
+		 
+		 ArrayList<MemListVO> list = new ArrayList<MemListVO>();
+		 Connection conn = null;
+		 PreparedStatement pstmt = null;
+		 ResultSet rs = null;
+		 
+		 try {
+			 conn = DBManager.getConnection();
+			 pstmt = conn.prepareStatement(sql);
+			 rs = pstmt.executeQuery();
+			 
+			   while (rs.next()) {
+				   
+				   MemListVO mVo = new MemListVO();
+				   
+				   mVo.setMemNum(rs.getString("memNum"));
+				   mVo.setMetNum(rs.getString("metNum"));
+				   mVo.setMemId(rs.getString("memId"));
+				   mVo.setMemName(rs.getString("memName"));
+				   mVo.setJoinDate(rs.getTimestamp("joinDate"));
+				   mVo.setApproval(rs.getString("approval"));
+				   
+	 			   list.add(mVo);
+			   }
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		 return list;
+		 
+	 }
+	 public void refuseMemberShip(MemListVO mVo) {
+		 String sql = "update itbook.mem_list set metNum = 1 where memNum =?";
+		 
+		 Connection conn = null;
+		 PreparedStatement pstmt = null;
+		 try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, mVo.getMemNum());
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+		 e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt);
+		}
+	 } 
 
 }

@@ -18,7 +18,7 @@ public class AdminMeetingListAction implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "/admin/meetingListForm.jsp";
 		MeetingDAO mDao = MeetingDAO.getInstance();
-	
+		
 		
 		//책 페이징
 		Paging paging = new Paging(10,1);
