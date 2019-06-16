@@ -20,7 +20,7 @@ public class metBoardListFormAction implements Action {
    public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       // TODO Auto-generated method stub
 
-      String url = "/meeting/meetingBoardList.jsp";
+      String url = "/meeting/metBoardList.jsp";
 
       MeetingDAO mDao = MeetingDAO.getInstance();
       

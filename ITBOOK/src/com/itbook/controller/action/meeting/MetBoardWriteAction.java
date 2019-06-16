@@ -15,7 +15,7 @@ import com.itbook.vo.Meeting.MetPostVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class MetPostWriteAction implements Action{
+public class MetBoardWriteAction implements Action{
 	
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,8 +25,11 @@ public class MetPostWriteAction implements Action{
         // 업로드될 폴더 경로
         String uploadPath = request.getServletContext().getRealPath("/META-INF/UploadFolder");
         String metNum = request.getParameter("metNum");
+        String memNum = request.getParameter("memNum");
+        
         
         System.out.println("metNum: " + metNum);
+        System.out.println("memNum: " + memNum);
         
         try {
             
@@ -47,16 +50,17 @@ public class MetPostWriteAction implements Action{
             MetBoardVO mVo = new MetBoardVO();
             
             mVo.setMetNum(multi.getParameter("metNum"));
-            mVo.setMetBrdName(multi.getParameter("metPostTitle"));
-            mVo.setMetBrdContent(multi.getParameter("metPostContent"));
-            mVo.setMetBrdCategory(multi.getParameter("metPostCategory"));
+            mVo.setMetBrdName(multi.getParameter("metBrdName"));
+            mVo.setMetBrdContent(multi.getParameter("metBrdContent"));
+            mVo.setMetBrdCategory(multi.getParameter("metBrdCategory"));
+            mVo.setMemNum(multi.getParameter("memNum"));
             
             boolean result = mDao.insertMetBoard(mVo);
             
             
             if(result) {
             	
-            	new MetPostListFormAction().execute(request, response);
+            	new metBoardListFormAction().execute(request, response);
             }
             	
             } catch (Exception e) {

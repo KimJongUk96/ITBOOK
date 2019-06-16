@@ -1,6 +1,5 @@
 package com.itbook.controller.action.meeting;
 
-
 import java.io.IOException;
 import java.util.List;
 
@@ -12,24 +11,32 @@ import javax.servlet.http.HttpServletResponse;
 import com.itbook.controller.action.Action;
 import com.itbook.dao.MeetingDAO;
 import com.itbook.vo.Meeting.MeetingVO;
+import com.itbook.vo.Meeting.MetBoardVO;
 
-public class MeetingListAction implements Action {
-	
+public class MetBoardWriteFormAction implements Action {
+
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		String url = "meeting/metBoardWriteForm.jsp";
 		
-		String url = "/meeting/meetingList.jsp";
- 
+		// metNum 가져오기
+		String metNum = request.getParameter("metNum");
+		System.out.println("metNum : " + metNum);
+
 		MeetingDAO mDao = MeetingDAO.getInstance();
 		
-		List<MeetingVO> meetingList = mDao.selectAllMeetings();
+		MeetingVO meetingVo = mDao.selectOneMeetingByNum(metNum);
+		List<MetBoardVO> metboardList = mDao.selectFiveMetBoard(metNum);
+
 		
-		request.setAttribute("meetingList", meetingList);
-		
-		System.out.println(meetingList);
+		request.setAttribute("meetingVo", meetingVo);
+		request.setAttribute("metboardList", metboardList);
+		// End metNum
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
+
 	}
 
 }

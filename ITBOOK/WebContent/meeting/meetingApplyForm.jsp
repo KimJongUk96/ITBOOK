@@ -87,7 +87,7 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				<form name="frm" method="post" action="/meeting?command=meetingApply" class="col-md-7">
+				<form name="frm" method="post" action="/meeting?command=meetingApply" class="col-md-7" enctype="multipart/form-data">
 
 					<!-- 독서모임명 -->
 					<div class="form-group">
@@ -216,6 +216,13 @@
 						<label class="custom-control-label" for="computer&internet">컴퓨터/인터넷</label>
 					</div>
 					
+					<label class="mt-3">대표이미지 설정</label>
+					
+					<div class="form-group">
+                  	<input type="file" class="form-control-file" name ="metImg">
+							
+              	 	</div>
+              	 
 					<br><br>
 					<!-- post way -->
 					<div class="text-center text-md-left align-self-center">

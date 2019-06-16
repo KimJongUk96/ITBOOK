@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>대전책방</title>
+   <title>독서모임 게시판</title>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
    <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -62,7 +62,7 @@
       <div class="container">
          <div class="row">
             <div class="col-sm-12 mb-5">
-               <h5 class="text-center mb-4">박동준</h5> 
+               <h5 class="text-center mb-4">${meetingVo.metName} 게시판</h5> 
                <div class="table-responsive-sm">
                   <table class="table table-hover">
                   
@@ -70,10 +70,11 @@
                      
                         <tr>
                            			<th scope="col">번호</th>
-									<!-- <th scope="col">분류</th> -->
+								 	<th scope="col">분류</th>
 									<th scope="col">제목</th>
 									<th scope="col">작성자</th>
 									<th scope="col">날짜</th>
+									<th scope="col">조회수</th>
                           
                         </tr>
                      </thead>
@@ -84,9 +85,11 @@
                         <tr>
                            <!-- 전체 페이지 데이터 값 : numOfRow , 현재 페이지 수 : pageNum -->
                            <th scope = "row">${(paging.numOfRow - status.index) -  (paging.pageNum-1) * 10 }</th>
-                           <th scope = "row"><a href="meeting?command=bookstoreUpdateForm&bookstoreNum=${metboardList.metBrdNum}">${metboardList.metBrdName}</a></th>
-                           
-                           <td><fmt:formatDate value="${metbrd.metBrdDate}"/></td>
+                           <th scope = "row">${metboardList.metBrdCategory}</th>
+                           <td scope = "row"><a href="meeting?command=metBoardViewAction&metBrdNum=${metboardList.metBrdNum}&metNum=${meetingVo.metNum}">${metboardList.metBrdName}</a></td>
+                           <td scope = "row">${metboardList.memName}</td>
+                           <td><fmt:formatDate value="${metboardList.regDate}"/></td>
+                           <td>${metboardList.metBrdCount}</td>
                         </tr>
      				</c:forEach>
 					
@@ -95,7 +98,7 @@
                   </table>
              	 <div align="right">
              	 
-                  <a class="btn btn-grad" href="meeting?command=metPostWriteFormAction&metNum=${meetingVo.metNum }">등록</a>
+                  <a class="btn btn-grad" href="meeting?command=metBoardWriteFormAction&metNum=${meetingVo.metNum }">등록</a>
 
                   </div>
                </div>

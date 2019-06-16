@@ -3,6 +3,7 @@ package com.itbook.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,80 +34,92 @@ public class MeetingDAO {
 	 */
 	public List<MeetingVO> selectAllMeetings() {
 
-		String sql = "SELECT metNum" + "         ,metName"
-		/* + "         ,metGreeting" */
-				+ "         ,metIntro" + "         ,represent"
-				/* + "         ,keword" */
-				+ "         ,metDate" + "         ,headCount" + "	  FROM itbook.meeting" + "	  WHERE approval = 'T'"
-				+ "   ORDER BY metDate DESC";
+	      String sql = "SELECT metNum" + "         ,metName"
+	            + "         ,metIntro" + "         ,represent"
+	            + "         ,metDate" + "         ,headCount" + "         ,metImg" + "     FROM itbook.meeting" + "     WHERE approval = 'T'" 
+	            + "   ORDER BY metDate DESC";
 
-		List<MeetingVO> list = new ArrayList<MeetingVO>();
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+	      List<MeetingVO> list = new ArrayList<MeetingVO>();
+	      Connection conn = null;
+	      PreparedStatement pstmt = null;
+	      ResultSet rs = null;
 
-		try {
-			conn = DBManager.getConnection();
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
+	      try {
+	         conn = DBManager.getConnection();
+	         pstmt = conn.prepareStatement(sql);
+	         rs = pstmt.executeQuery();
 
-			while (rs.next()) {
-				MeetingVO mVo = new MeetingVO();
+	         while (rs.next()) {
+	            MeetingVO mVo = new MeetingVO();
 
-				mVo.setMetNum(rs.getString("metNum"));
-				mVo.setMetName(rs.getString("metName"));
-				/* mVo.setMetGreeting(rs.getString("metGreeting")); */
-				mVo.setMetIntro(rs.getString("metIntro"));
-				mVo.setRepresent(rs.getString("represent"));
-				/* mVo.setKeyword(rs.getString("keyword")); */
-				mVo.setMetDate(rs.getDate("metDate"));
-				mVo.setHeadCount(rs.getInt("headCount"));
+	            mVo.setMetNum(rs.getString("metNum"));
+	            mVo.setMetName(rs.getString("metName"));
+	            mVo.setMetIntro(rs.getString("metIntro"));
+	            mVo.setRepresent(rs.getString("represent"));
+	            mVo.setMetDate(rs.getDate("metDate"));
+	            mVo.setMetImg(rs.getString("metImg"));
+	            mVo.setHeadCount(rs.getInt("headCount"));
 
-				// MeetingVO에 저장된 데이터 리스트에 추가
-				list.add(mVo);
-			}
+	            // MeetingVO에 저장된 데이터 리스트에 추가
+	            list.add(mVo);
+	         }
 
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		} finally {
-			DBManager.close(conn, pstmt, rs);
-		}
-		return list;
-	}
+	      } catch (Exception e) {
+	         // TODO: handle exception
+	         e.printStackTrace();
+	      } finally {
+	         DBManager.close(conn, pstmt, rs);
+	      }
+	      return list;
+	   }
 
 	// 독서모임 신청하기 : 독서모임명, 독서모임소개, 대표자명 입력!
-	public List<MeetingVO> insertMeeting(MeetingVO mVo) {
+	   public boolean insertMeeting(MeetingVO mVo) {
+	      
+	      
+	      boolean result = false;
+	      
+	            
+	      Connection conn = null;
+	      PreparedStatement pstmt = null;
+	      
+	      try {
+	         
+	         conn = DBManager.getConnection();
+	         conn.setAutoCommit( false );
+	         
+	         StringBuffer sql = new StringBuffer();
+	         
+	         sql.append("insert into itbook.meeting(metName,metGreeting,metIntro,represent,metPlace,keyword,metImg)");
+	         sql.append("values (?,?,?,?,?,?,?)");
+	         
 
-		String sql = "INSERT INTO itbook.meeting (" + "    metName" + "   ,metGreeting" + "   ,metIntro"
-				+ "   ,represent" + "	  ,metPlace" + "	  ,keyword)" + "values (?" + "       , ?" + "       , ?"
-				+ "       , ?" + "		  , ?" + "       , ?)";
+	         pstmt = conn.prepareStatement(sql.toString());
+	         
+	         pstmt.setString(1, mVo.getMetName());
+	         pstmt.setString(2, mVo.getMetGreeting());
+	         pstmt.setString(3, mVo.getMetIntro());
+	         pstmt.setString(4, mVo.getRepresent());
+	         pstmt.setString(5, mVo.getMetPlace());
+	         pstmt.setString(6, mVo.getKeyword());
+	         pstmt.setString(7, mVo.getMetImg());
+	         
+	         int flag = pstmt.executeUpdate();
+	         
+	            if(flag > 0){
+	               result = true;
+	               conn.commit(); 
+	            }
 
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-
-		try {
-			conn = DBManager.getConnection();
-			pstmt = conn.prepareStatement(sql);
-
-			pstmt.setString(1, mVo.getMetName());
-			pstmt.setString(2, mVo.getMetGreeting());
-			pstmt.setString(3, mVo.getMetIntro());
-			pstmt.setString(4, mVo.getRepresent());
-			pstmt.setString(5, mVo.getMetPlace());
-			pstmt.setString(6, mVo.getKeyword());
-
-			// sql문 update 실행
-			pstmt.executeUpdate();
-
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		} finally {
-			DBManager.close(conn, pstmt);
-		}
-		return null;
-	}
+	        } catch (Exception e) {
+	            
+	           throw new RuntimeException(e.getMessage());
+	        }
+	         
+	         DBManager.close(conn, pstmt);
+	         return result;
+	   
+	   }
 	
 	
 	//관리자 모임페이징 총게시글 수 보기
@@ -146,91 +159,97 @@ public class MeetingDAO {
 	
 	
 	// 독서모임 별 게시판 가져오기
-	// +최근 게시물 5개포함된 게시판 띄우기
-	public List<MetBoardVO> selectFiveMetBoard(String metNum) {
-		
-		List<MetBoardVO> list = new ArrayList<MetBoardVO>();
+	   // +최근 게시물 5개포함된 게시판 띄우기
+	   public List<MetBoardVO> selectFiveMetBoard(String metNum) {
+	      
+	      List<MetBoardVO> list = new ArrayList<MetBoardVO>();
 
-		String sql = "select * from itbook.met_board where metNum=? order by regDate desc limit 5";
+	      String sql = "select * from itbook.met_board where metNum=? order by regDate desc limit 5";
 
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+	      Connection conn = null;
+	      PreparedStatement pstmt = null;
+	      ResultSet rs = null;
 
-		try {
-			conn = DBManager.getConnection();
+	      try {
+	         conn = DBManager.getConnection();
 
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, metNum);
+	         pstmt = conn.prepareStatement(sql);
+	         pstmt.setString(1, metNum);
 
-			rs = pstmt.executeQuery();
+	         rs = pstmt.executeQuery();
 
-			while (rs.next()) {
-				
-				MetBoardVO mbVo = new MetBoardVO();
+	         while (rs.next()) {
+	            
+	            MetBoardVO mbVo = new MetBoardVO();
 
-				mbVo.setMetBrdNum(rs.getString("metBrdNum"));
-				mbVo.setMetBrdName(rs.getString("metBrdName"));
-				mbVo.setMetBrdContent(rs.getString("metBrdContent"));
-				mbVo.setMetNum(rs.getString("metNum"));
-				mbVo.setMetBrdDate(rs.getDate("regDate"));
-				
-				list.add(mbVo);
+	            mbVo.setMetBrdNum(rs.getString("metBrdNum"));
+	            mbVo.setMetBrdName(rs.getString("metBrdName"));
+	            mbVo.setMetBrdContent(rs.getString("metBrdContent"));
+	            mbVo.setMetNum(rs.getString("metNum"));
+	            mbVo.setRegDate(rs.getDate("regDate"));
+	            
+	            list.add(mbVo);
 
-			}
+	         }
 
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		} finally {
-			DBManager.close(conn, pstmt, rs);
-		}
+	      } catch (Exception e) {
+	         // TODO: handle exception
+	         e.printStackTrace();
+	      } finally {
+	         DBManager.close(conn, pstmt, rs);
+	      }
 
-		return list;
-	}
+	      return list;
+	   }
 	
 	//페이징처리한 전체모임게시글
-	public ArrayList<MetBoardVO> selectAllMetBoard(String metNum,Paging paging) {
-		
-		ArrayList<MetBoardVO> list = new ArrayList<MetBoardVO>();
+	   public ArrayList<MetBoardVO> selectAllMetBoard(String metNum,Paging paging) {
+	      
+	      ArrayList<MetBoardVO> list = new ArrayList<MetBoardVO>();
 
-		String sql = "select * from itbook.met_board where metNum=? order by regDate desc limit ?, 10";
+	      String sql = "select m.metBrdNum, m.metBrdName, m.regDate, m.metBrdCategory, m.metBrdCount, m.metBrdContent, m.memNum, m.metNum, b.memName "
+	            + "from met_board m, member b where m.memNum = b.memNum and m.metNum = ? order by m.regDate desc limit ?, 10";
+	      
+	      
+	      Connection conn = null;
+	      PreparedStatement pstmt = null;
+	      ResultSet rs = null;
 
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+	      try {
+	         conn = DBManager.getConnection();
 
-		try {
-			conn = DBManager.getConnection();
+	         pstmt = conn.prepareStatement(sql);
+	         pstmt.setString(1, metNum);
+	         pstmt.setInt(2, ((paging.getPageNum() - 1) * paging.getPerPage()));
+	         rs = pstmt.executeQuery();
 
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, metNum);
-			pstmt.setInt(2, ((paging.getPageNum() - 1) * paging.getPerPage()));
-			rs = pstmt.executeQuery();
+	         while (rs.next()) {
+	            
+	            MetBoardVO mbVo = new MetBoardVO();
 
-			while (rs.next()) {
-				
-				MetBoardVO mbVo = new MetBoardVO();
+	            mbVo.setMetBrdNum(rs.getString("metBrdNum"));
+	            mbVo.setMetBrdName(rs.getString("metBrdName"));
+	            mbVo.setMetBrdContent(rs.getString("metBrdContent"));
+	            mbVo.setMetNum(rs.getString("metNum"));
+	            mbVo.setRegDate(rs.getDate("regDate"));
+	            mbVo.setMetBrdCategory(rs.getString("metBrdCategory"));
+	            mbVo.setMemNum(rs.getString("memNum"));
+	            mbVo.setMetBrdCount(rs.getInt("metBrdCount"));
+	            mbVo.setMemName(rs.getString("memName"));
+	            
+	            list.add(mbVo);
 
-				mbVo.setMetBrdNum(rs.getString("metBrdNum"));
-				mbVo.setMetBrdName(rs.getString("metBrdName"));
-				mbVo.setMetBrdContent(rs.getString("metBrdContent"));
-				mbVo.setMetNum(rs.getString("metNum"));
-				mbVo.setMetBrdDate(rs.getDate("regDate"));
-				
-				list.add(mbVo);
+	         }
 
-			}
+	      } catch (Exception e) {
+	         // TODO: handle exception
+	         e.printStackTrace();
+	      } finally {
+	         DBManager.close(conn, pstmt, rs);
+	      }
 
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		} finally {
-			DBManager.close(conn, pstmt, rs);
-		}
-
-		return list;
-	}
+	      return list;
+	   }
 	// 독서모임 홈으로 연결
 	// 독서모임 메인 홈 상세내용 보기 : 글번호로 찾아온다. 실패하면 return null
 	public MeetingVO selectOneMeetingByNum(String metNum) {
@@ -277,33 +296,60 @@ public class MeetingDAO {
 	}
 
 	// 독서모임 수정
-	public void updateMeeting(MeetingVO mVo) {
-
-		String sql = "update meeting set metName=?, metIntro = ?, metGreeting=?, metPlace=?, keyword=? where metNum=? ";
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		
-		try {
-			
-			conn = DBManager.getConnection();
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, mVo.getMetName());
-			pstmt.setString(2, mVo.getMetIntro());
-			pstmt.setString(3, mVo.getMetGreeting());
-			pstmt.setString(4, mVo.getMetPlace());
-			pstmt.setString(5, mVo.getKeyword());
-			pstmt.setString(6, mVo.getMetNum());
-			
-			pstmt.executeUpdate();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			DBManager.close(conn, pstmt);
-		}
-	}
+	public boolean updateMeeting(MeetingVO mVo) {
+	      
+	      boolean result = false;
+	      
+	      Connection conn = null;
+	      PreparedStatement pstmt = null;
+	      
+	      try {
+	         
+	         conn = DBManager.getConnection();
+	         conn.setAutoCommit( false ); // 자동 커밋을 false로 한다.
+	         
+	         StringBuffer sql = new StringBuffer();
+	         sql.append("update itbook.meeting set");
+	         sql.append(" metName=?");
+	         sql.append(" ,metIntro=?");
+	         sql.append(" ,metGreeting=?");
+	         sql.append(" ,metPlace=?");
+	         sql.append(" ,keyword=?");
+	         sql.append(" ,metImg=?");
+	         sql.append("where metNum=?");
+	         
+	         System.out.println(sql.toString());
+	         
+	         System.out.println("수정 : "+mVo);
+	         //update할때 써주기.
+	         pstmt = conn.prepareStatement(sql.toString());
+	         pstmt.setString(1, mVo.getMetName());
+	         pstmt.setString(2, mVo.getMetIntro());
+	         pstmt.setString(3, mVo.getMetGreeting());
+	         pstmt.setString(4, mVo.getMetPlace());
+	         pstmt.setString(5, mVo.getKeyword());
+	         pstmt.setString(6, mVo.getMetImg());
+	         pstmt.setString(7, mVo.getMetNum());
+	         
+	         
+	         int flag = pstmt.executeUpdate();
+	            if(flag > 0){
+	                result = true;
+	                conn.commit(); // 완료시 커밋
+	            }
+	         
+	      } catch (Exception e) {
+	         try {
+	                conn.rollback(); // 오류시 롤백
+	            } catch (SQLException sqle) {
+	                sqle.printStackTrace();
+	            }
+	            throw new RuntimeException(e.getMessage());
+	        }
+	      
+	      DBManager.close(conn, pstmt);
+	      return result;
+	   }
 
 	// 모임신청 리스트(관리자 화면)
 	public ArrayList<MeetingVO> meetingList(Paging paging) {

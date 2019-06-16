@@ -7,15 +7,14 @@ import com.itbook.controller.action.meeting.MeetingApplyAction;
 import com.itbook.controller.action.meeting.MeetingApplyFormAction;
 import com.itbook.controller.action.meeting.MeetingHomeAction;
 import com.itbook.controller.action.meeting.MeetingListAction;
+import com.itbook.controller.action.meeting.MetBoardDeleteAction;
+import com.itbook.controller.action.meeting.MetBoardUpdateAction;
+import com.itbook.controller.action.meeting.MetBoardUpdateFormAction;
+import com.itbook.controller.action.meeting.MetBoardViewAction;
+import com.itbook.controller.action.meeting.MetBoardWriteAction;
+import com.itbook.controller.action.meeting.MetBoardWriteFormAction;
 import com.itbook.controller.action.meeting.MetUpdateAction;
 import com.itbook.controller.action.meeting.MetUpdateFormAction;
-import com.itbook.controller.action.meeting.MetPostDeleteAction;
-import com.itbook.controller.action.meeting.MetPostListFormAction;
-import com.itbook.controller.action.meeting.MetPostUpdateAction;
-import com.itbook.controller.action.meeting.MetPostUpdateFormAction;
-import com.itbook.controller.action.meeting.MetPostViewAction;
-import com.itbook.controller.action.meeting.MetPostWriteAction;
-import com.itbook.controller.action.meeting.MetPostWriteFormAction;
 import com.itbook.controller.action.meeting.metBoardListFormAction;
 
 public class MeetingActionFactory {
@@ -73,39 +72,39 @@ public class MeetingActionFactory {
 			action = new MetUpdateAction();
 		
 		//�������ӰԽ������� �̵�
-		} else if(command.equals("metPostListFormAction")) {
+		} else if(command.equals("metBoardListFormAction")) {
 			
-			action = new MetPostListFormAction();
+			action = new metBoardListFormAction();
 		
 		//�������� �Խñ۾��������� �̵�
-		} else if(command.equals("metPostWriteFormAction")) {
+		} else if(command.equals("metBoardWriteFormAction")) {
 			
-			action = new MetPostWriteFormAction();
+			action = new MetBoardWriteFormAction();
 		
 		//�������� �Խñ۾���
-		} else if(command.equals("metPostWriteAction")) {
+		} else if(command.equals("metBoardWriteAction")) {
 			
-			action = new MetPostWriteAction();
+			action = new MetBoardWriteAction();
 		
 		//�������� �Խñ� �󼼺���
-		} else if(command.equals("metPostViewAction")) {
+		} else if(command.equals("metBoardViewAction")) {
 			
-			action = new MetPostViewAction();
+			action = new MetBoardViewAction();
 		
 		//�������� �Խñۼ��������� �̵�
-		} else if(command.equals("metPostUpdateFormAction")) {
+		} else if(command.equals("metBoardUpdateFormAction")) {
 			
-			action = new MetPostUpdateFormAction();
+			action = new MetBoardUpdateFormAction();
 		
 		//�������� �Խñ� ����
-		} else if(command.equals("metPostUpdateAction")) {
+		} else if(command.equals("metBoardUpdateAction")) {
 			
-			action = new MetPostUpdateAction();
+			action = new MetBoardUpdateAction();
 		
 		//�������� �Խñ� ����
-		} else if(command.equals("metPostDeleteAction")) {
+		} else if(command.equals("metBoardDeleteAction")) {
 			
-			action = new MetPostDeleteAction();
+			action = new MetBoardDeleteAction();
 		
 		//�������� �Խñ� ��� ����
 		} else if(command.equals("commentWriteAction")) {

@@ -1,8 +1,7 @@
 package com.itbook.controller.action.meeting;
 
 import java.io.IOException;
-
-
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -11,29 +10,65 @@ import javax.servlet.http.HttpServletResponse;
 import com.itbook.controller.action.Action;
 import com.itbook.dao.MeetingDAO;
 import com.itbook.vo.Meeting.MeetingVO;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class MeetingApplyAction implements Action{
 	
-	
-		// MeetingApplyAction?command=meetingApply ø‰√ª¿ª πﬁ¿∏∏È µ∂º≠∏¿” ∏ÆΩ∫∆Æ »≠∏È¿ª «•Ω√«—¥Ÿ.
 		@Override
 		public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
-			MeetingVO mVo = new MeetingVO(); 
-			
-			mVo.setMetName(request.getParameter("metName"));
-			mVo.setMetGreeting(request.getParameter("metGreeting"));
-			mVo.setMetIntro(request.getParameter("metIntro"));
-			mVo.setRepresent(request.getParameter("represent"));
-			mVo.setMetPlace(request.getParameter("metPlace"));
-			mVo.setKeyword(request.getParameter("keyword"));
-			
-			MeetingDAO mDao = MeetingDAO.getInstance();
-			mDao.insertMeeting(mVo);
-			
-			// ∏ÆΩ∫∆Æ »≠∏È
-			new MeetingListAction().execute(request, response);
-			
-		}
+	
+		// ÏóÖÎ°úÎìú ÌååÏùº ÏÇ¨Ïù¥Ï¶à
+        int fileSize= 5*1024*1024;
+        // ÏóÖÎ°úÎìúÎê† Ìè¥Îçî Í≤ΩÎ°ú
+        String uploadPath = request.getServletContext().getRealPath("/META-INF/UploadFolder");
+        
+        System.out.println("============ MeetingImg = " + uploadPath);
+        
+        try {
+            
+            // ÌååÏùºÏóÖÎ°úÎìú 
+            MultipartRequest multi = new MultipartRequest
+                    (request, uploadPath, fileSize, "UTF-8", new DefaultFileRenamePolicy());
+ 
+            // ÌååÏùºÏù¥Î¶Ñ Í∞ÄÏ†∏Ïò§Í∏∞
+            String fileName = "";
+            Enumeration<String> names = multi.getFileNames();
+            
+            
+            if(names.hasMoreElements())
+            {
+                String name = names.nextElement();
+                fileName = multi.getFilesystemName(name);
+            }
+            
+            System.out.println("fileName : " + fileName);
 
+            MeetingDAO mDao = MeetingDAO.getInstance();
+            MeetingVO mVo = new MeetingVO();
+            
+            mVo.setMetName(multi.getParameter("metName"));
+			mVo.setMetGreeting(multi.getParameter("metGreeting"));
+			mVo.setMetIntro(multi.getParameter("metIntro"));
+			mVo.setRepresent(multi.getParameter("represent"));
+			mVo.setMetPlace(multi.getParameter("metPlace"));
+			mVo.setKeyword(multi.getParameter("keyword"));
+			mVo.setMetImg(multi.getFilesystemName("metImg"));
+			
+            boolean result = mDao.insertMeeting(mVo);
+            
+            if(result) {
+            	
+            	new MeetingListAction().execute(request, response);
+            }
+            	
+            } catch (Exception e) {
+                
+            	e.printStackTrace();
+                System.out.println("Í∏Ä ÏûëÏÑ± Ïò§Î•ò : " + e.getMessage());
+            }
+        	
+        
+        }  
 	}

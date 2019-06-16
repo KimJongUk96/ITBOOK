@@ -37,6 +37,26 @@
 <header>
 				<%@ include file="../include/header.jsp"%>
 			</header>
+			<!-- =======================
+	Banner innerpage -->
+	<div class="innerpage-banner center bg-overlay-dark-7 py-7" style="background:url(../assets/images/bg/04.jpg) no-repeat; background-size:cover; background-position: center center;">
+		<div class="container">
+			<div class="row all-text-white">
+				<div class="col-md-12 align-self-center">
+					<h1 class="innerpage-title">${meetingVo.metName}</h1>
+					<nav aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item active"><a href="/index.jsp"><i class="ti-home"></i>Home</a></li>
+							<li class="breadcrumb-item">독서모임</li>
+						</ol>
+					</nav>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<!-- =======================
+	Banner innerpage -->
+	
 		<!-- =======================
 	Banner innerpage -->
 	<section>
@@ -44,37 +64,37 @@
 			<div class="row">
 				<div class="col-sm-12 mb-5">
 					<h5 class="text-center mb-4">모임게시판 수정</h5>
-					<form name="frm" method="post" action="/meeting?command=metPostUpdateAction<%-- &page=${pageNum} For input string: "" 오류원인--%>" enctype="multipart/form-data">
-					<input type="hidden" name="metPostNum" value="${metpost.metPostNum}">
-					<input type="hidden" name="existing_file" value="${metpost.metPostFile}"/>
+					<form name="frm" method="post" action="/meeting?command=metBoardUpdateAction&metNum=${meetingVo.metNum}<%-- &page=${pageNum} For input string: "" 오류원인--%>" enctype="multipart/form-data">
+					<input type="hidden" name="metBrdNum" value="${metbrd.metBrdNum}">
+					<input type="hidden" name="existing_file" value="${metbrd.metBrdFile}"/>
 
 					<div class="table-responsive-sm">
 						<table class="table table-hover">
 							
 								<tr>
 									<th scope="col">작성자</th>
-									<td>관리자</td>
+									<td>${metbrd.memName }</td>
 									<th>작성일</th>
-									<td>${metpost.metPostDate }</td>
+									<td>${metbrd.regDate }</td>
 									
 								</tr>
 								<tr>
 									<th scope="col">제목</th>
-									<td><input name="metPostTitle" type="text" size="70" maxlength="100" value="${metpost.metPostTitle}"/></td>
+									<td><input name="metBrdName" type="text" size="70" maxlength="100" value="${metbrd.metBrdName}"/></td>
 									<th>조회수</th>
-									<td>${metpost.metPostCount}</td>
+									<td>${metbrd.metBrdCount}</td>
 									
 								</tr>
 								<tr>
 									<th scope="col">기존파일</th>
-									<td> &nbsp;&nbsp; ${metpost.metPostFile}</td>
+									<td> &nbsp;&nbsp; ${metbrd.metBrdFile}</td>
 									<th scope="col">첨부파일</th>
-									<td><input type="file" name="metPostFile"/></td>
+									<td><input type="file" name="metBrdFile"/></td>
 								</tr>
 								 <tr>
 								
 									<th scope="col">내용</th>
-									<td><textarea name="metPostContent" class="form-control" rows="10" style="width:100%;">${metpost.metPostContent}</textarea></td> 
+									<td><textarea name="metBrdContent" class="form-control" rows="10" style="width:100%;">${metbrd.metBrdContent}</textarea></td> 
 									<th></th>
 									<td></td>
 								</tr> 

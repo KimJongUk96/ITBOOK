@@ -21,46 +21,48 @@ public class MetBoardDAO {
 	}
 
 	// 모임게시판 게시물 등록
-	public boolean insertMetBoard(MetBoardVO mVo) {
-		
-		boolean result = false;
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		
-		try {
-			
-			conn = DBManager.getConnection();
-			conn.setAutoCommit( false );
-			
-			StringBuffer sql = new StringBuffer();
-			
-			sql.append("insert into met_board(metBrdName, metBrdContent, regDate, metBrdCategory, metNum)");
-			sql.append("values( ?, ?, sysdate(), ?, ?)");
-			
-			pstmt = conn.prepareStatement(sql.toString());
-			
-			pstmt.setString(1, mVo.getMetBrdName());
-			pstmt.setString(2, mVo.getMetBrdContent());
-			pstmt.setString(3, mVo.getMetBrdCategory());
-			pstmt.setString(4, mVo.getMetNum());
-			
-			int flag = pstmt.executeUpdate();
-			
-            if(flag > 0){
-               result = true;
-               conn.commit();
-            }
-		
-		} catch (Exception e) {
-            
-        	throw new RuntimeException(e.getMessage());
-        }
-			
-			DBManager.close(conn, pstmt);
-			return result;
-	
-		} // end noticeInsert();
+	   public boolean insertMetBoard(MetBoardVO mVo) {
+	      
+	      boolean result = false;
+	      
+	      Connection conn = null;
+	      PreparedStatement pstmt = null;
+	      
+	      try {
+	         
+	         conn = DBManager.getConnection();
+	         conn.setAutoCommit( false );
+	         
+	         StringBuffer sql = new StringBuffer();
+	         
+	         sql.append("insert into met_board(metBrdName, metBrdContent, regDate, metBrdCategory, metNum, memNum, metBrdCount)");
+	         sql.append("values( ?, ?, sysdate(), ?, ?, ?, ?)");
+	         
+	         pstmt = conn.prepareStatement(sql.toString());
+	         
+	         pstmt.setString(1, mVo.getMetBrdName());
+	         pstmt.setString(2, mVo.getMetBrdContent());
+	         pstmt.setString(3, mVo.getMetBrdCategory());
+	         pstmt.setString(4, mVo.getMetNum());
+	         pstmt.setString(5, mVo.getMemNum());
+	         pstmt.setInt(6, mVo.getMetBrdCount());
+	         
+	         int flag = pstmt.executeUpdate();
+	         
+	            if(flag > 0){
+	               result = true;
+	               conn.commit();
+	            }
+	      
+	      } catch (Exception e) {
+	            
+	           throw new RuntimeException(e.getMessage());
+	        }
+	         
+	         DBManager.close(conn, pstmt);
+	         return result;
+	   
+	      } // end noticeInsert();
 	
 		
 	//게시글 리스트(검색, 페이징 기능)
@@ -118,7 +120,7 @@ public class MetBoardDAO {
 				mVo.setMetBrdNum(rs.getString("metBrdNum"));
 				mVo.setMetBrdName(rs.getString("metBrdName"));
 				mVo.setMetBrdContent(rs.getString("metBrdContent"));
-				mVo.setMetBrdDate(rs.getDate("metBrdDate"));
+				mVo.setRegDate(rs.getDate("regDate"));
 				mVo.setMetBrdFile(rs.getString("metBrdFile"));
 				mVo.setMetBrdCount(rs.getInt("metBrdCount"));
 				mVo.setMetBrdCategory(rs.getString("metBrdCategory"));
@@ -201,42 +203,46 @@ public class MetBoardDAO {
 		}
 		
 		//모임게시판 게시글 상세보기
-		public MetBoardVO selectOneMetBoardByNum(String metBrdNum) {
-			String sql = "select * from met_board where metBrdNum=? order by metBrdNum asc";
-			
-			MetBoardVO mVo = null;
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			
-			try {
-				conn = DBManager.getConnection();
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, metBrdNum);
-				
-				rs = pstmt.executeQuery();
-				
-				if(rs.next()) {
-					
-					mVo = new MetBoardVO();
-					mVo.setMetBrdNum(rs.getString("metBrdNum"));
-					mVo.setMetBrdName(rs.getString("metBrdName"));
-					mVo.setMetBrdContent(rs.getString("metBrdContent"));
-					mVo.setMetBrdDate(rs.getDate("metBrdDate"));
-					mVo.setMetBrdCount(rs.getInt("metBrdCount"));
-					mVo.setMetBrdFile(rs.getString("metBrdFile"));
-					mVo.setMetBrdCategory(rs.getString("metBrdCategory"));
-					
-				}
-				
-			} catch (Exception e) {
-					e.printStackTrace();
-			} finally {
-					DBManager.close(conn, pstmt, rs);
-			}
-			
-			return mVo;
-		}
+	      public MetBoardVO selectOneMetBoardByNum(String metBrdNum) {
+	         String sql = "select m.metBrdNum, m.metBrdName, m.metBrdContent, m.regDate, m.metBrdCount, m.metBrdCategory,"
+	               + "m.memNum, b.memName from met_board m, member b "
+	               + "where m.memNum = b.memNum and metBrdNum = ? ";
+	         
+	         MetBoardVO mVo = null;
+	         Connection conn = null;
+	         PreparedStatement pstmt = null;
+	         ResultSet rs = null;
+	         
+	         try {
+	            conn = DBManager.getConnection();
+	            pstmt = conn.prepareStatement(sql);
+	            pstmt.setString(1, metBrdNum);
+	            
+	            rs = pstmt.executeQuery();
+	            
+	            if(rs.next()) {
+	               
+	               mVo = new MetBoardVO();
+	               
+	               mVo.setMetBrdNum(rs.getString("metBrdNum"));
+	               mVo.setMetBrdName(rs.getString("metBrdName"));
+	               mVo.setMetBrdContent(rs.getString("metBrdContent"));
+	               mVo.setRegDate(rs.getDate("regDate"));
+	               mVo.setMetBrdCount(rs.getInt("metBrdCount"));
+	            /* mVo.setMetBrdFile(rs.getString("metBrdFile")); */
+	               mVo.setMetBrdCategory(rs.getString("metBrdCategory"));
+	               mVo.setMemName(rs.getString("memName"));
+	               
+	            }
+	            
+	         } catch (Exception e) {
+	               e.printStackTrace();
+	         } finally {
+	               DBManager.close(conn, pstmt, rs);
+	         }
+	         
+	         return mVo;
+	      }
 		
 		//모임게시판 게시물 수정
 		public boolean updateMetBoard(MetBoardVO mVo) {

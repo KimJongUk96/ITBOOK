@@ -61,7 +61,7 @@
 					<h6 class="subtitle">함께 만드는 아름다운 소통과 교류의 장</h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="../index.jsp"><i class="ti-home"></i> Home</a></li>
+							<li class="breadcrumb-item active"><a href="../index.jsp"><i class="ti-home"></i>Home</a></li>
 						<!-- 	<li class="breadcrumb-item">독서모임</li> -->
 						</ol>
 					</nav>
@@ -112,10 +112,12 @@
 						<div class="portfolio-card isotope-item ${meetingList.keyword}">
 							<div class="portfolio-card-body">
 								<div class="portfolio-card-header">
-									<a href="#"><img src="../assets/images/portfolio/01.jpg" alt=""></a>
+								<!-- 이미지 -->
+									 <a href="#"><img src="/displayFile?fileName=${meetingList.metImg}" alt=""></a>
+									 
 								</div>
 								<div class="portfolio-card-footer">
-									<a class="full-screen" href="../assets/images/portfolio/01.jpg" data-fancybox="portfolio" data-caption="${meetingList.metName}"><i class="ti-fullscreen"></i></a>
+									<a class="full-screen" href="/displayFile?fileName=${meetingList.metImg}" data-fancybox="portfolio" data-caption="${meetingList.metName}"><i class="ti-fullscreen"></i></a>
 									<div class="post-author">${meetingList.represent}, 
 									<fmt:formatDate value="${meetingList.metDate}"/>, 
 									회원수 : ${meetingList.headCount}
@@ -156,21 +158,5 @@
 	<!-- =======================
 	footer  -->
 	<%@ include file="../include/footer.jsp"%>
-
-	<div> <a href="#" class="back-top btn btn-grad"><i class="ti-angle-up"></i></a> </div>
-
-	<!--Global JS-->
-	<script src="../assets/vendor/jquery/jquery.min.js"></script>
-	<script src="../assets/vendor/popper.js/umd/popper.min.js"></script>
-	<script src="../assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-	<!--Vendors-->
-	<script src="../assets/vendor/fancybox/js/jquery.fancybox.min.js"></script>
-	<script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-	<script src="../assets/vendor/isotope/isotope.pkgd.min.js"></script>
-
-	<!--Template Functions-->
-	<script src="../assets/js/functions.js"></script>
 </body>
 </html>

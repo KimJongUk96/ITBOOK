@@ -83,7 +83,7 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				<form name="frm" method="post" action="/meeting?command=metUpdateAction" class="col-md-7">
+				<form name="frm" method="post" action="/meeting?command=metUpdateAction&metNum=${meeting.metNum}" class="col-md-7" enctype="multipart/form-data">
 				<input type="hidden" name="metNum" value="${meeting.metNum }">
 					<!-- 독서모임명 -->
 					<div class="form-group">
@@ -212,7 +212,15 @@
 						<input type="checkbox" name="keyword" value="computer&internet" class="custom-control-input" id="computer&internet">
 						<label class="custom-control-label" for="computer&internet">컴퓨터/인터넷</label>
 					</div>
-					
+					<div class="form-group">
+                  	<label>기존 파일</label> <input class="form-control" type="text" value = "${meeting.metImg}" name ="imgPath" readonly="readonly">
+               		</div>
+         		
+         			    <!-- 업로드 시작-->
+               		<div class="form-group">
+					 <input type="file" class="form-control-file" name ="new_imgPath" value ="">                  
+              	 	</div>
+               			<!--업로드 끝  -->
 					<br><br>
 					<!-- post way -->
 					<div class="text-center text-md-left align-self-center">

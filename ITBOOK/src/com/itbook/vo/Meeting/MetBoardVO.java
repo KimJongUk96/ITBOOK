@@ -17,10 +17,24 @@ public class MetBoardVO {
 	private String metBrdContent;
 	private String metBrdFile;
 	private int metBrdCount;
-	private Date metBrdDate; 
+	private Date regDate;
 	private String metNum;
 	private String metBrdCategory;
+	private String memName;
+	private String memNum;
 	
+	public String getMemNum() {
+		return memNum;
+	}
+	public void setMemNum(String memNum) {
+		this.memNum = memNum;
+	}
+	public String getMemName() {
+		return memName;
+	}
+	public void setMemName(String memName) {
+		this.memName = memName;
+	}
 	public String getMetBrdCategory() {
 		return metBrdCategory;
 	}
@@ -57,11 +71,11 @@ public class MetBoardVO {
 	public void setMetBrdCount(int metBrdCount) {
 		this.metBrdCount = metBrdCount;
 	}
-	public Date getMetBrdDate() {
-		return metBrdDate;
+	public Date getRegDate() {
+		return regDate;
 	}
-	public void setMetBrdDate(Date metBrdDate) {
-		this.metBrdDate = metBrdDate;
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
 	}
 	public String getMetNum() {
 		return metNum;
@@ -72,9 +86,12 @@ public class MetBoardVO {
 	@Override
 	public String toString() {
 		return "MetBoardVO [metBrdNum=" + metBrdNum + ", metBrdName=" + metBrdName + ", metBrdContent=" + metBrdContent
-				+ ", metBrdFile=" + metBrdFile + ", metBrdCount=" + metBrdCount + ", metBrdDate=" + metBrdDate
-				+ ", metNum=" + metNum + ", metBrdCategory=" + metBrdCategory + "]";
+				+ ", metBrdFile=" + metBrdFile + ", metBrdCount=" + metBrdCount + ", regDate=" + regDate
+				+ ", metNum=" + metNum + ", metBrdCategory=" + metBrdCategory + ", memName=" + memName + ", memNum="
+				+ memNum + "]";
 	}
+
+	
 	
 	
 	

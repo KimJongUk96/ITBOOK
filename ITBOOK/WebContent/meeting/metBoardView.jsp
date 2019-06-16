@@ -107,55 +107,76 @@ function cmUpdateOpen(metComtNum){
 	</header>
 	<!-- =======================
 	Banner innerpage -->
+	<div class="innerpage-banner center bg-overlay-dark-7 py-7" style="background:url(../assets/images/bg/04.jpg) no-repeat; background-size:cover; background-position: center center;">
+		<div class="container">
+			<div class="row all-text-white">
+				<div class="col-md-12 align-self-center">
+					<h1 class="innerpage-title">${meetingVo.metName}</h1>
+					<nav aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item active"><a href="/index.jsp"><i class="ti-home"></i>Home</a></li>
+							<li class="breadcrumb-item">독서모임</li>
+						</ol>
+					</nav>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<!-- =======================
+	Banner innerpage -->
+	
+	<!-- =======================
+	Banner innerpage -->
 	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 mb-5">
 					<h5 class="text-center mb-4">독서모임 게시판 상세보기</h5>
 					<form name="frm" method="post"
-						action="/meeting?command=metPostUpdateFormAction">
-						<input type="hidden" name="metPostNum" value="${metpost.metPostNum}">
+						action="/meeting?command=metBoardUpdateFormAction&metNum=${meetingVo.metNum }">
+						<input type="hidden" name="metBrdNum" value="${metbrd.metBrdNum}">
 						<div class="table-responsive-sm">
 							<table class="table table-hover">
 
 								<tr>
-									<th scope="col">작성자</th>
-									<td>관리자</td>
+									<th scope="col">제목</th>
+									<td>${metbrd.metBrdName}</td>
 									<th>작성일</th>
-									<td>${metpost.metPostDate }</td>
+									<td>${metbrd.regDate }</td>
 
 								</tr>
 								<tr>
-									<th scope="col">제목</th>
-									<td>${metpost.metPostTitle}</td>
+									<th scope="col">작성자</th>
+									<td>${metbrd.memName }</td>
 									<th>조회수</th>
-									<td>${metpost.metPostCount}</td>
+									<td>${metbrd.metBrdCount}</td>
 
 								</tr>
 								<tr>
 									<th scope="col">첨부파일</th>
 									<td><a
-										href='/notice?command=fileDownloadAction&file_name=${metpost.metPostFile}'>${metpost.metPostFile}</a></td>
+										href='/notice?command=fileDownloadAction&file_name=${metbrd.metBrdFile}'>${metbrd.metBrdFile}</a></td>
 									<th></th>
 									<td></td>
 								</tr>
-								<tr>
+								<%-- <tr>
 
 									<th scope="col">내용</th>
 									<td><textarea name="metPostContent" class="form-control"
-											rows="10" style="width: 100%;" disabled="disabled">${metpost.metPostContent}</textarea></td>
+											rows="10" style="width: 100%;" disabled="disabled">${metbrd.metBrdContent}</textarea></td>
 									<th></th>
 									<td></td>
-								</tr>
+								</tr> --%>
 
 							</table>
-
+								<div class="col-md-12"><span class="form-group"><textarea cols="40" rows="10"  name="metbrdContent" class="form-control" >${metbrd.metBrdContent}</textarea></span></div>
+								
 							<div align="right">
 								<input type="submit" value="수정" class="btn btn-primary">
 								<input type="button" value="삭제" class="btn btn-primary"
-									onclick="location.href='/meeting?command=metPostDeleteAction&metPostNum=${metpost.metPostNum}'">
+									onclick="location.href='/meeting?command=metBoardDeleteAction&metBrdNum=${metbrd.metBrdNum}&metNum=${meetingVo.metNum }'">
 								<input type="button" value="돌아가기" class="btn btn-primary"
-									onclick="location.href='/meeting?command=metPostListFormAction'">
+									onclick="location.href='/meeting?command=metBoardListFormAction&metNum=${meetingVo.metNum }'">
 							</div>
 						</div>
 					</form>
@@ -169,7 +190,7 @@ function cmUpdateOpen(metComtNum){
 								<c:forEach var="comment" items="${requestScope.commentList}">
 									<div class="comment">
 										<form name="frm" method="post"	action="/meeting?command=commentDeleteAction">
-											<input type="hidden" name="metPostNum" value="${metpost.metPostNum }">
+											<input type="hidden" name="metPostNum" value="${metbrd.metBrdNum }">
 											<input type="hidden" name="metComtNum" value="${comment.metComtNum}">
 										<div class="comment-author">
 											<img class="avatar"
