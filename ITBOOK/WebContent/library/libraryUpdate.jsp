@@ -66,16 +66,15 @@
 				<div class="col-md-4">
 					<!-- 책 수정 폼 -->
 					<form name="frm" method="post"
-						action="library?command=libraryUpdate">
-						===${libraryList.libraryNum}-"${libraryList.libraryNum}" <input
-							type="hidden" name="libraryNum"
-							value="${libraryList.libraryNum}">
+						action="library?command=libraryUpdate&libraryNum=${libraryList.libraryNum}">
+						<input type="hidden" name="libraryNum" value="${libraryList.libraryNum}">
+						
 						<div class="form-group">
 							<label>도서관 명</label> <input class="form-control" type="text"
 								name="libraryTitle" value="${libraryList.libraryTitle}"
 								placeholder="* 제목을 입력하세요.">
 						</div>
-
+					
 						<div class="form-group">
 							<label>URL</label> <input class="form-control" type="text"
 								name="libraryUrl" value="${libraryList.libraryUrl}"
@@ -89,16 +88,15 @@
 								placeholder="책방주소를 입력하세요.">
 						</div>
 
-						<button type="submit" class="btn btn-success">
-							<i class="fa fa-check-circle-o"></i>수정
-						</button>
-						<button type="button" class="btn btn-warning"
+						<button type="submit" class="btn btn-grad border-radius-left-0 mb-0">수정하기</button>
+						
+						<button type="button" class="btn btn-grad border-radius-left-0 mb-0"
 							onclick="location.href='library?command=libraryDelete&libraryNum=${libraryList.libraryNum}'">
-							<i class="fa fa-close"></i>삭제
+							삭제하기
 						</button>
-						<button type="button" class="btn btn-secondary"
-							onclick="location.href='library?command=libraryList'">
-							<i class="fa fa-arrow-circle-right"></i>목록
+						<button type="button" class="btn btn-grad border-radius-left-0 mb-0"
+							onclick="location.href='library?command=adminLibraryList'">
+							목록보기
 						</button>
 					</form>
 				</div>

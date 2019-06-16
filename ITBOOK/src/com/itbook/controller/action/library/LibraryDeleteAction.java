@@ -23,7 +23,7 @@ public class LibraryDeleteAction implements Action {
 		LibraryDAO lDao = LibraryDAO.getInstance();
 		
 		lDao.deleteLibrary(libraryNum);
-		new LibraryListAction().execute(request, response);
+		new AdminLibraryList().execute(request, response);
 	}
 
 }

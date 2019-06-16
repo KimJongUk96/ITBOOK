@@ -46,8 +46,8 @@
                <h6 class="subtitle">희망의 책 대전본부</h6>
                <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                     <li class="breadcrumb-item active"><a href="index.html"><i
-                           class="ti-home"></i>Main</a></li>
+                     <li class="breadcrumb-item active"><a href="index.jsp"><i
+                           class="ti-home"></i>Home</a></li>
                      <li class="breadcrumb-item">도서관 조회</li>
                   </ol>
                </nav>
@@ -79,10 +79,10 @@
                      
                      <tbody>
                      <!-- varStatus를 통해서 책번호를 만든다. -->
-                     <c:forEach var="libraryList" items="${libraryList}" > <!-- varStatus="status" -->
+                     <c:forEach var="libraryList" items="${libraryList}" > 
                         <tr>                
                            <td>${libraryList.libraryNum}</td>
-                           <th scope = "row"><a href="library?command=libraryUpdateForm&libraryNum=${libraryList.libraryeNum}">${libraryList.libraryTitle}</a></th>
+                           <th scope = "row"><a href="library?command=libraryUpdateForm&libraryNum=${libraryList.libraryNum}">${libraryList.libraryTitle}</a></th>
                            <td>${libraryList.libraryUrl}</td>
                            <td>${libraryList.libraryContent}</td>
                         </tr>
@@ -104,14 +104,14 @@
    
    
 <!-- 페이징 처리 -->  
-<%-- <section class="pt-0">
+ <section class="pt-0">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-8">
 					<nav>
 						<ul class="pagination justify-content-center">
 						<c:if test="${paging.pageNum > 1}">
-							<li class="page-item"><a class ="page-link" href="book?command=bookList&pageNum=${paging.pageNum - 1}">Prev</a></li>
+							<li class="page-item"><a class ="page-link" href="library?command=libraryList&pageNum=${paging.pageNum - 1}">Prev</a></li>
 						
 							
 						</c:if>	
@@ -125,14 +125,14 @@
                        
                                           <c:otherwise>
                                              <li class="page-item"><a class ="page-link"
-                                                href="book?command=bookList&pageNum=${idx}">${idx}</a></li>
+                                                href="library?command=libraryList&pageNum=${idx}">${idx}</a></li>
                                           </c:otherwise>
                                           
                                        </c:choose>
                                     </c:forEach>
 						
 							<c:if test="${paging.numOfPage != paging.pageNum}">
-                                    <li class="page-item"><a class = "page-link" href="book?command=bookList&pageNum=${paging.pageNum + 1}">Next</a></li>   
+                                    <li class="page-item"><a class = "page-link" href="library?command=libraryList&pageNum=${paging.pageNum + 1}">Next</a></li>   
                                     </c:if>
 							
 
@@ -141,7 +141,7 @@
 				</div>
 			</div>
 		</div>
-	</section> --%>
+	</section>
 	
 	
    <%@ include file="../include/footer.jsp"%>

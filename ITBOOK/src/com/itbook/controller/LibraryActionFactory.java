@@ -3,7 +3,9 @@ package com.itbook.controller;
 import com.itbook.controller.action.Action;
 
 import com.itbook.controller.action.MainAction;
+import com.itbook.controller.action.bookstore.BookstoreDelete;
 import com.itbook.controller.action.library.AdminLibraryList;
+import com.itbook.controller.action.library.LibraryDeleteAction;
 import com.itbook.controller.action.library.LibraryListAction;
 import com.itbook.controller.action.library.LibraryRegAction;
 import com.itbook.controller.action.library.LibraryRegFormAction;
@@ -59,6 +61,9 @@ public class LibraryActionFactory {
 		} else if (command.equals("libraryUpdateForm")) {
 			action = new LibraryUpdateFormAction();
 
+			// 도서관 삭제
+		}else if(command.equals("libraryDelete")) {
+			action = new LibraryDeleteAction();
 		}
 		return action;
 	}

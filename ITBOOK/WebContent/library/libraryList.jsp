@@ -44,8 +44,7 @@
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
 					<h1 class="innerpage-title">우리동네 도서관</h1>
-					<h6 class="subtitle">I can find the answer in the book and the
-						book is the way to help me.</h6>
+					<h6 class="subtitle"></h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="index.jsp"><i
@@ -64,14 +63,8 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12 text-md-center mt-5 mb-4">
-					<div class="col-md-6 mb-4">
-						<h5 class="mb-4"></h5>
-					</div>			
-				</div>
-				<!-- <button type="submit" class="btn btn-success"
-							onclick="location.href='library?command=libraryRegForm'">
-							<i class="fa fa-check-circle-o"></i>등록하기 </button> -->
+				
+				
 				<div class="divider">
 					<i class="ti-book"></i>
 				</div>
@@ -87,9 +80,9 @@
 
 
 							<h3 class="feature-box-title">${libraryList.libraryTitle}</h3>
-							<p class="feature-box-desc">${libraryList.libraryUrl}</p>
+							<a href="${libraryList.libraryUrl}" target="_blank">${libraryList.libraryUrl}</a>
 							<p class="feature-box-desc">${libraryList.libraryContent}</p>
-							<p class="feature-box-desc">${libraryList.memNum}</p>
+							
 						</div>
 					</div>
 				</c:forEach>
@@ -98,14 +91,14 @@
 
 	</section>
 	<!-- 페이징 처리 -->
-	<%-- <section class="pt-0">
+	<section class="pt-0">
       <div class="container">
          <div class="row justify-content-center">
             <div class="col-md-8">
                <nav>
                   <ul class="pagination justify-content-center">
                   <c:if test="${paging.pageNum > 1}">
-                     <li class="page-item"><a class ="page-link" href="report?command=Report_List&pageNum=${paging.pageNum - 1}">Prev</a></li>
+                     <li class="page-item"><a class ="page-link" href="library?command=libraryList&pageNum=${paging.pageNum - 1}">Prev</a></li>
                   
                      
                   </c:if>   
@@ -119,14 +112,14 @@
                        
                                           <c:otherwise>
                                              <li class="page-item"><a class ="page-link"
-                                                href="report?command=Report_List&pageNum=${idx}">${idx}</a></li>
+                                                href="library?command=libraryList&pageNum=${idx}">${idx}</a></li>
                                           </c:otherwise>
                                           
                                        </c:choose>
                                     </c:forEach>
                   
                      <c:if test="${paging.numOfPage != paging.pageNum}">
-                                    <li class="page-item"><a class = "page-link" href="report?command=Report_List&pageNum=${paging.pageNum + 1}">Next</a></li>   
+                                    <li class="page-item"><a class = "page-link" href="library?command=libraryList&pageNum=${paging.pageNum + 1}">Next</a></li>   
                                     </c:if>
                      
 
@@ -135,7 +128,7 @@
             </div>
          </div>
       </div>
-   </section>   --%>
+   </section> 
 
 	<%@ include file="../include/footer.jsp"%>
 </body>

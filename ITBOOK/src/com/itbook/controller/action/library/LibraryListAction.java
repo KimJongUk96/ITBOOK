@@ -1,7 +1,7 @@
 package com.itbook.controller.action.library;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.itbook.controller.action.Action;
 
 import com.itbook.dao.LibraryDAO;
+import com.itbook.vo.Paging;
 import com.itbook.vo.library.LibraryVO;
 
 /**
@@ -25,11 +26,19 @@ public class LibraryListAction implements Action {
 		String url = "/library/libraryList.jsp";
 
 		LibraryDAO lDao = LibraryDAO.getInstance();
-
-		List<LibraryVO> libraryList = lDao.selectLibraryList();
+		
+		//페이징
+		Paging paging = new Paging(9,1);
+	    int pageNum = request.getParameter("pageNum") == null ? 1 : Integer.parseInt(request.getParameter("pageNum"));
+	    
+	    paging.setPageNum(pageNum);
+	    lDao.selectLibraryRowCount(paging);
+	   
+	    
+		ArrayList<LibraryVO> libraryList = lDao.selectLibraryList(paging);
 		request.setAttribute("libraryList", libraryList);
 
-		System.out.println(libraryList + "출력완료.");
+		System.out.println(libraryList + "libraryList 출력완료.");
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 

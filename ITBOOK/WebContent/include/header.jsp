@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 <script type="text/javascript" src="js/logout.js"></script>
 <!doctype html>
 <html>
 <head>
-   <!-- <title>Wizixo | Creative Multipurpose Bootstrap Template</title> -->
-   <!-- <meta charset="utf-8">
+<!-- <title>Wizixo | Creative Multipurpose Bootstrap Template</title> -->
+<!-- <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="author" content="Webestica.com">
@@ -34,123 +34,148 @@
 </head>
 
 <body>
-   <!-- =======================
+	<!-- =======================
    header Start-->
-   <header class="header-static navbar-sticky navbar-light">
-      <!-- Search -->
-      <div class="top-search collapse bg-light" id="search-open" data-parent="#search">
-         <div class="container">
-            <div class="row position-relative">
-               <div class="col-md-8 mx-auto py-5">
-                  <form>
-                     <div class="input-group">
-                        <input class="form-control border-radius-right-0 border-right-0" type="text" name="search" autofocus placeholder="What are you looking for?">
-                        <button type="button" class="btn btn-grad border-radius-left-0 mb-0">Search</button>
-                     </div>
-                  </form>
-                  <p class="small mt-2 mb-0"><strong>e.g.</strong>희망의 책 대전본부 홈페이지 </p>
-               </div>
-               <a class="position-absolute top-0 right-0 mt-3 mr-3" data-toggle="collapse" href="#search-open"><i class="fa fa-window-close"></i></a>
-            </div>
-         </div>
-      </div>
-      <!-- End Search -->
- 
-      <!-- Navbar top start-->
-      <div class="navbar-top d-none d-lg-block">
-         <div class="container">
-            <div class="d-flex justify-content-between align-items-center">
-               <!-- navbar top Left-->
-               <div class="d-flex align-items-center">
-                  <!-- Language -->
-                  <div class="dropdown">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="dropdown-item-icon" src="assets/images/flags/uk.svg" alt=""> English </a>
-                    <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownLanguage">
-                       <span class="dropdown-item-text">Select language</span>
-                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#"><img class="dropdown-item-icon" src="../assets/images/flags/sp.svg" alt=""> Español</a>
-                      <a class="dropdown-item" href="#"><img class="dropdown-item-icon" src="../assets/images/flags/fr.svg" alt=""> Français</a>
-                      <a class="dropdown-item" href="#"><img class="dropdown-item-icon" src="../assets/images/flags/gr.svg" alt=""> Deutsch</a>
-                    </div>
-                  </div> 
-                  <!-- Top info -->
-                  <ul class="nav list-unstyled ml-3">
-                     <li class="nav-item mr-3">
-                        <a class="navbar-link" href="#"><strong>전화:</strong> (042) 252-9540</a>
-                     </li>
-                     <li class="nav-item mr-3">
-                        <a class="navbar-link" href="#"><strong>이메일:</strong> help@wizixo.com</a>
-                     </li>
-                  </ul>
-               </div>
-               
-               <!-- navbar top Right-->
-               <div class="d-flex align-items-center" id = "navbar">
-               <c:if test = "${LoginUser.authority eq 1 or LoginUser.authority eq 2 or LoginUser.authority eq 3}">
-               <span class = "loginfo"> 
-               <span class= "dept_of_top"></span> <b>${LoginUser.memName}</b>님 반갑습니다.
-               </span>
-               </c:if>
-                  <!-- Top Account -->               
-                  <div class="dropdown">
-               <c:if test = "${LoginUser.authority eq 1 or LoginUser.authority eq 2}">
-                    <a class="dropdown-toggle" href="" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-user mr-2"></i>내정보 </a>
-                    <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownAccount">
-                      <a class="dropdown-item" href="member/myPage.jsp">내 정보</a>
-                    </div>
-                  </c:if>
-                  
-                  <c:if test = "${LoginUser.authority eq 3}">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-user mr-2"></i>내정보 </a>
-                    <div class="dropdown-menu mt-2 shadow" aria-labelledby="dropdownAccount">
-                      <a class="dropdown-item" href="member/myPage.jsp">내 정보</a>
-                      <a class="dropdown-item" onclick="logout();">로그아웃</a>
-                    </div>
-                  </c:if>
-                  </div> 
-                  
-                  <div class="dropdown">
-               <c:if test = "${LoginUser.authority eq null}">                  
-                    <a class="nav-link" href="login.jsp">로그인</a>
-                  </c:if>
-                  </div>
-                  
-                  <!-- top link -->
-                  <ul class="nav">
-              <li class="nav-item">
-                 <c:if test = "${LoginUser.authority eq '1' or LoginUser.authority eq '2'}">
-                 <a class="nav-link" onclick="logout();">로그아웃</a>
-                 </c:if>
-                 <c:if test = "${LoginUser.authority eq 3}">
-                  <a class="nav-link" href="admin?command=memberListForm">관리자 화면</a>
-                  </c:if>
-              </li>
-            </ul>
-                  <!-- top social -->
-                  <ul class="social-icons">
-                     <li class="social-icons-item social-facebook m-0">
-                        <a class="social-icons-link w-auto px-2" href="#"><i class="fa fa-facebook"></i></a>
-                     </li>
-                     <li class="social-icons-item social-instagram m-0">
-                        <a class="social-icons-link w-auto px-2" href="#"><i class="fa fa-instagram"></i></a>
-                     </li>
-                     <li class="social-icons-item social-twitter m-0">
-                        <a class="social-icons-link w-auto pl-2" href="#"><i class="fa fa-twitter"></i></a>
-                     </li>
-                  </ul>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- Navbar top End-->
+	<header class="header-static navbar-sticky navbar-light">
+		<!-- Search -->
+		<div class="top-search collapse bg-light" id="search-open"
+			data-parent="#search">
+			<div class="container">
+				<div class="row position-relative">
+					<div class="col-md-8 mx-auto py-5">
+						<form>
+							<div class="input-group">
+								<input class="form-control border-radius-right-0 border-right-0"
+									type="text" name="search" autofocus
+									placeholder="What are you looking for?">
+								<button type="button"
+									class="btn btn-grad border-radius-left-0 mb-0">Search</button>
+							</div>
+						</form>
+						<p class="small mt-2 mb-0">
+							<strong>e.g.</strong>희망의 책 대전본부 홈페이지
+						</p>
+					</div>
+					<a class="position-absolute top-0 right-0 mt-3 mr-3"
+						data-toggle="collapse" href="#search-open"><i
+						class="fa fa-window-close"></i></a>
+				</div>
+			</div>
+		</div>
+		<!-- End Search -->
 
-      <!-- Logo Nav Start -->
-      <nav class="navbar navbar-expand-lg">
-         <div class="container">
-            <!-- Logo -->
-            <a class="navbar-brand" href="main?command=loginForm">
-               <!-- SVG Logo Start -->
-               <%-- <svg class="navbar-brand-item" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMid" width="325.656" height="100" viewBox="0 0 325.656 100">
+		<!-- Navbar top start-->
+		<div class="navbar-top d-none d-lg-block">
+			<div class="container">
+				<div class="d-flex justify-content-between align-items-center">
+					<!-- navbar top Left-->
+					<div class="d-flex align-items-center">
+						<!-- Language -->
+						<!-- <div class="dropdown">
+							<a class="dropdown-toggle" href="#" role="button"
+								id="dropdownLanguage" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false"> <img
+								class="dropdown-item-icon" src="assets/images/flags/uk.svg"
+								alt=""> English
+							</a>
+							<div class="dropdown-menu mt-2 shadow"
+								aria-labelledby="dropdownLanguage">
+								<span class="dropdown-item-text">Select language</span>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#"><img
+									class="dropdown-item-icon" src="../assets/images/flags/sp.svg"
+									alt=""> Español</a> <a class="dropdown-item" href="#"><img
+									class="dropdown-item-icon" src="../assets/images/flags/fr.svg"
+									alt=""> Français</a> <a class="dropdown-item" href="#"><img
+									class="dropdown-item-icon" src="../assets/images/flags/gr.svg"
+									alt=""> Deutsch</a>
+							</div> 
+						</div> -->
+						<!-- Top info -->
+						<ul class="nav list-unstyled ml-3">
+							<li class="nav-item mr-3"><a class="navbar-link" href="#"><strong>전화:</strong>
+									(042) 252-9540</a></li>
+							<li class="nav-item mr-3"><a class="navbar-link" href="#"><strong>이메일:</strong>
+									djbook21@hanmail.net</a></li>
+						</ul>
+					</div>
+
+					<!-- navbar top Right-->
+					<div class="d-flex align-items-center" id="navbar">
+						<c:if
+							test="${LoginUser.authority eq 1 or LoginUser.authority eq 2 or LoginUser.authority eq 3}">
+							<span class="loginfo"> <span class="dept_of_top"></span> <b>${LoginUser.memName}</b>님
+								반갑습니다.
+							</span>
+						</c:if>
+						<!-- Top Account -->
+						<div class="dropdown">
+							<c:if
+								test="${LoginUser.authority eq 1 or LoginUser.authority eq 2}">
+								<a class="dropdown-toggle" href="" role="button"
+									id="dropdownAccount" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false"><i
+									class="ti-user mr-2"></i>내정보 </a>
+								<div class="dropdown-menu mt-2 shadow"
+									aria-labelledby="dropdownAccount">
+									<a class="dropdown-item" href="member/myPage.jsp">내 정보</a>
+								</div>
+							</c:if>
+
+							<c:if test="${LoginUser.authority eq 3}">
+								<a class="dropdown-toggle" href="#" role="button"
+									id="dropdownAccount" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false"><i
+									class="ti-user mr-2"></i>내정보 </a>
+								<div class="dropdown-menu mt-2 shadow"
+									aria-labelledby="dropdownAccount">
+									<a class="dropdown-item" href="member/myPage.jsp">내 정보</a> <a
+										class="dropdown-item" onclick="logout();">로그아웃</a>
+								</div>
+							</c:if>
+						</div>
+
+						<div class="dropdown">
+							<c:if test="${LoginUser.authority eq null}">
+								<a class="nav-link" href="login.jsp">로그인</a>
+							</c:if>
+						</div>
+
+						<!-- top link -->
+						<ul class="nav">
+							<li class="nav-item"><c:if
+									test="${LoginUser.authority eq '1' or LoginUser.authority eq '2'}">
+									<a class="nav-link" onclick="logout();">로그아웃</a>
+								</c:if> <c:if test="${LoginUser.authority eq 3}">
+									<a class="nav-link" href="admin?command=memberListForm">관리자
+										화면</a>
+								</c:if></li>
+						</ul>
+						<!-- top social -->
+						<ul class="social-icons">
+							<li class="social-icons-item social-facebook m-0"><a
+								class="social-icons-link w-auto px-2"
+								href="https://www.facebook.com/pages/category/Nonprofit-Organization/%ED%9D%AC%EB%A7%9D%EC%9D%98-%EC%B1%85-%EB%8C%80%EC%A0%84%EB%B3%B8%EB%B6%80-1913139302044535/"><i
+									class="fa fa-facebook"></i></a></li>
+							<!-- <li class="social-icons-item social-instagram m-0"><a
+								class="social-icons-link w-auto px-2" href="#"><i
+									class="fa fa-instagram"></i></a></li>
+							<li class="social-icons-item social-twitter m-0"><a
+								class="social-icons-link w-auto pl-2" href="#"><i
+									class="fa fa-twitter"></i></a></li> -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Navbar top End-->
+
+		<!-- Logo Nav Start -->
+		<nav class="navbar navbar-expand-lg">
+			<div class="container">
+				<!-- Logo -->
+				<a class="navbar-brand" href="main?command=loginForm"> <!-- SVG Logo Start -->
+					<%-- <svg class="navbar-brand-item" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMid" width="325.656" height="100" viewBox="0 0 325.656 100">
                  <defs>
                     <linearGradient id="LogoGradient">
                         <stop class="fill-grad-start" offset="0%"/>
@@ -162,29 +187,31 @@
                    <circle cx="50.047" cy="50" r="50.047" fill="url(#LogoGradient)"/>
                    <path d="M86.607,38.585 L55.868,69.317 C53.678,71.508 50.126,71.508 47.936,69.317 C45.745,67.127 45.745,63.577 47.936,61.387 L78.674,30.654 C80.865,28.464 84.416,28.464 86.607,30.654 C88.797,32.844 88.797,36.395 86.607,38.585 ZM26.806,69.317 C25.679,70.444 24.193,70.981 22.716,70.948 C22.636,70.953 22.560,70.972 22.478,70.972 L20.552,70.972 C18.108,70.972 16.128,68.992 16.128,66.548 L16.128,33.452 C16.128,31.008 18.108,29.028 20.552,29.028 L22.478,29.028 C24.922,29.028 26.902,31.008 26.902,33.452 L26.902,53.359 L49.612,30.654 C51.802,28.464 55.354,28.464 57.544,30.654 C59.735,32.844 59.735,36.395 57.544,38.585 L26.806,69.317 Z" class="fill-white"/>
                  </g>
-               </svg> --%>
-               <img src="https://i.ibb.co/9473b6T/image.jpg" width="170" height="150" alt="희망의 책 로고"/>
-               <!-- SVG Logo End -->
-            </a>
-            <!-- Menu opener button -->
-            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"> </span>
-           </button>
-            <!-- Main Menu Start -->
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-               <ul class="navbar-nav ml-auto">
-                <!-- Menu item 1 Pages-->
-                  <li class="nav-item dropdown">
-                     <a class="nav-link" href="/notice?command=introAction" id="pagesMenu" aria-haspopup="true" aria-expanded="false">희망의 책 알아보기</a>
-                     <!-- <ul class="dropdown-menu" aria-labelledby="pagesMenu"> -->
-                       <!--  <li> <a class="dropdown-item" href="/meeting?command=meetingList">독서모임</a></li> -->
-                       <!--  <li> <a class="dropdown-item" href="about-advance.html">About Advance</a> </li>
+               </svg> --%> <img src="https://i.ibb.co/9473b6T/image.jpg"
+					width="170" height="150" alt="희망의 책 로고" /> <!-- SVG Logo End -->
+				</a>
+				<!-- Menu opener button -->
+				<button class="navbar-toggler ml-auto" type="button"
+					data-toggle="collapse" data-target="#navbarCollapse"
+					aria-controls="navbarCollapse" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"> </span>
+				</button>
+				<!-- Main Menu Start -->
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<ul class="navbar-nav ml-auto">
+						<!-- Menu item 1 Pages-->
+						<li class="nav-item dropdown"><a class="nav-link"
+							href="/notice?command=introAction" id="pagesMenu"
+							aria-haspopup="true" aria-expanded="false">희망의 책 알아보기</a> <!-- <ul class="dropdown-menu" aria-labelledby="pagesMenu"> -->
+							<!--  <li> <a class="dropdown-item" href="/meeting?command=meetingList">독서모임</a></li> -->
+							<!--  <li> <a class="dropdown-item" href="about-advance.html">About Advance</a> </li>
                         <li> <a class="dropdown-item" href="service.html">Service</a> </li>
                         <li> <a class="dropdown-item" href="contact.html">Contact</a> </li>
                         <li> <a class="dropdown-item" href="team.html">Team</a> </li>
                         <li> <a class="dropdown-item" href="careers.html">Careers</a> </li>
                         <li> <a class="dropdown-item" href="careers-single.html">Careers single</a> </li> -->
-                        <!-- <li class="dropdown-submenu">
+							<!-- <li class="dropdown-submenu">
                            <a class="dropdown-item dropdown-toggle" href="#">Login & Signup</a>
                            <ul class="dropdown-menu">
                               <li> <a class="dropdown-item" href="sign-in.html">Sign in</a> </li>
@@ -197,10 +224,9 @@
                         <li> <a class="dropdown-item" href="faq.html">FAQs</a> </li>
                         <li> <a class="dropdown-item" href="maintenance-mode.html">Maintenance mode</a> </li>
                         <li> <a class="dropdown-item" href="error-404.html">Error 404</a> </li> -->
-                    <!--  </ul> -->
-                  </li>
-                  <!-- Menu item 1 Demos-->
-                 <!--  <li class="nav-item dropdown active">
+							<!--  </ul> --></li>
+						<!-- Menu item 1 Demos-->
+						<!--  <li class="nav-item dropdown active">
                      <a class="nav-link dropdown-toggle" href="#" id="demosMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">희망의 책 알아보기</a>
                      <div class="dropdown-menu pb-3 pb-lg-0" aria-labelledby="demosMenu" >
                         <div class="d-block d-sm-flex">
@@ -231,21 +257,21 @@
                         </div>
                      </div>
                   </li> -->
-                  
-                  <!-- Menu item 4 Portfolio-->
-                  
-                  <li class="nav-item dropdown">
-                  <!-- 관리자로 로그인을 했을 시 이달의 책 등록-->
-                        <c:if test = "${LoginUser.authority eq 3}">
-                   			<li><a class="nav-link" href="/book?command=adminTodayBookList" id="portfolioMenu"  aria-haspopup="true" aria-expanded="false">이달의 책</a></li>
-                     	</c:if>
-                     
-                  <!-- 사용자로 로그인을 했을 시 이달의 책 등록-->
-                        <c:if test = "${LoginUser.authority ne 3}">
-                 			 <li><a class="nav-link" href="/book?command=todayBookList"  id="portfolioMenu"  aria-haspopup="true" aria-expanded="false">이달의 책</a></li>
-                  		</c:if>
-                     
-                     <%-- <ul class="dropdown-menu" aria-labelledby="portfolioMenu">
+
+						<!-- Menu item 4 Portfolio-->
+
+						<li class="nav-item dropdown">
+							<!-- 관리자로 로그인을 했을 시 이달의 책 등록--> <c:if
+								test="${LoginUser.authority eq 3}">
+								<li><a class="nav-link"
+									href="/book?command=adminTodayBookList" id="portfolioMenu"
+									aria-haspopup="true" aria-expanded="false">이달의 책</a></li>
+							</c:if> <!-- 사용자로 로그인을 했을 시 이달의 책 등록--> <c:if
+								test="${LoginUser.authority ne 3}">
+								<li><a class="nav-link" href="/book?command=todayBookList"
+									id="portfolioMenu" aria-haspopup="true" aria-expanded="false">이달의
+										책</a></li>
+							</c:if> <%-- <ul class="dropdown-menu" aria-labelledby="portfolioMenu">
                         <li> <a class="dropdown-item" href="/notice?command=noticeListFormAction">운영 게시판</a> </li>
                        <!--  <li> <a class="dropdown-item" href="/report?command=Report_List">독후감</a> </li> -->
                         
@@ -264,20 +290,20 @@
                         <li> <a class="dropdown-item" href="portfolio-single-02.html">Portfolio Single 2</a> </li>
                         <li> <a class="dropdown-item" href="portfolio-case-studies.html">Portfolio case studies <span class="badge badge-success ml-2">Hot</span></a> </li>
                      </ul> --%>
-                  </li>
-                  
-                  <!-- Menu item 3 Pages-->
-                  <li class="nav-item dropdown">
-                     <a class="nav-link" href="/meeting?command=meetingList" id="pagesMenu" aria-haspopup="true" aria-expanded="false">독서모임</a>
-                     <!-- <ul class="dropdown-menu" aria-labelledby="pagesMenu"> -->
-                       <!--  <li> <a class="dropdown-item" href="/meeting?command=meetingList">독서모임</a></li> -->
-                       <!--  <li> <a class="dropdown-item" href="about-advance.html">About Advance</a> </li>
+						</li>
+
+						<!-- Menu item 3 Pages-->
+						<li class="nav-item dropdown"><a class="nav-link"
+							href="/meeting?command=meetingList" id="pagesMenu"
+							aria-haspopup="true" aria-expanded="false">독서모임</a> <!-- <ul class="dropdown-menu" aria-labelledby="pagesMenu"> -->
+							<!--  <li> <a class="dropdown-item" href="/meeting?command=meetingList">독서모임</a></li> -->
+							<!--  <li> <a class="dropdown-item" href="about-advance.html">About Advance</a> </li>
                         <li> <a class="dropdown-item" href="service.html">Service</a> </li>
                         <li> <a class="dropdown-item" href="contact.html">Contact</a> </li>
                         <li> <a class="dropdown-item" href="team.html">Team</a> </li>
                         <li> <a class="dropdown-item" href="careers.html">Careers</a> </li>
                         <li> <a class="dropdown-item" href="careers-single.html">Careers single</a> </li> -->
-                        <!-- <li class="dropdown-submenu">
+							<!-- <li class="dropdown-submenu">
                            <a class="dropdown-item dropdown-toggle" href="#">Login & Signup</a>
                            <ul class="dropdown-menu">
                               <li> <a class="dropdown-item" href="sign-in.html">Sign in</a> </li>
@@ -290,83 +316,80 @@
                         <li> <a class="dropdown-item" href="faq.html">FAQs</a> </li>
                         <li> <a class="dropdown-item" href="maintenance-mode.html">Maintenance mode</a> </li>
                         <li> <a class="dropdown-item" href="error-404.html">Error 404</a> </li> -->
-                    <!--  </ul> -->
-                  </li>
-                  
-                  <!-- Menu item 2 Blog-->
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="blogMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">독서 생태계</a>
-                     <ul class="dropdown-menu" aria-labelledby="blogMenu">
-                        <li class="dropdown-submenu">
-                           <a class="dropdown-item" href="/notice?command=noticeListFormAction">운영게시판</a>
-                         <!--   <ul class="dropdown-menu">
+							<!--  </ul> --></li>
+
+						<!-- Menu item 2 Blog-->
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="blogMenu"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">독서
+								생태계</a>
+							<ul class="dropdown-menu" aria-labelledby="blogMenu">
+								<li class="dropdown-submenu"><a class="dropdown-item"
+									href="/notice?command=noticeListFormAction">운영게시판</a> <!--   <ul class="dropdown-menu">
                               <li> <a class="dropdown-item" href="blog-classic.html">Full Width</a> </li>
                               <li> <a class="dropdown-item" href="blog-classic-left-sidebar.html">Left Sidebar</a> </li>
                               <li> <a class="dropdown-item" href="blog-classic-right-sidebar.html">Right Sidebar</a> </li>
-                           </ul> -->
-                        </li>
-                        <li class="dropdown-submenu">
-                           <a class="dropdown-item" href="/report?command=Report_List">독후감</a>
-                          <!--  <ul class="dropdown-menu">
+                           </ul> --></li>
+								<li class="dropdown-submenu"><a class="dropdown-item"
+									href="/report?command=Report_List">독후감</a> <!--  <ul class="dropdown-menu">
                               <li> <a class="dropdown-item" href="/book?command=bookList">Three column</a> </li>
                               <li> <a class="dropdown-item" href="blog-grid-column-4.html">Four column</a> </li>
                               <li> <a class="dropdown-item" href="blog-grid-left-sidebar.html">Left Sidebar</a> </li>
                               <li> <a class="dropdown-item" href="blog-grid-right-sidebar.html">Right Sidebar</a> </li>
-                           </ul> -->
-                        </li>
-                        <!-- <li><a class="dropdown-item" href="blog-minimal.html">우리지역 책방</a></li> -->
-                        <li class="dropdown-submenu">
-                           <a class="dropdown-item dropdown-toggle" href="#">우리지역 책방</a>
-                           <ul class="dropdown-menu">
-                              <li> <a class="dropdown-item" href="/library?command=libraryList">대전 도서관</a> </li>
-                              
-                               <!-- 관리자로 로그인을 했을 시 이달의 책 등록-->
-                        <c:if test = "${LoginUser.authority eq 3}">
-                   			<li><a class="dropdown-item" href="/bookstore?command=adminBookstoreList">대전 책방</a></li>
-                     	</c:if>
-                     
-                  <!-- 사용자로 로그인을 했을 시 이달의 책 등록-->
-                        <c:if test = "${LoginUser.authority ne 3}">
-                 			 <li><a class="dropdown-item" href="/bookstore?command=bookstoreList">대전 책방</a></li>
-                  		</c:if>
-                           </ul>
-                        </li> 
-                     </ul>
-                  </li>
-                   <!-- Menu item 5 Blog-->
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="blogMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">후원하기</a>
-                     <ul class="dropdown-menu" aria-labelledby="blogMenu">
-                        <li class="dropdown-submenu">
-                           <a class="dropdown-item" href="/notice?command=introBusinessFormAction">사업소개</a>
-                         <!--   <ul class="dropdown-menu">
+                           </ul> --></li>
+								<!-- <li><a class="dropdown-item" href="blog-minimal.html">우리지역 책방</a></li> -->
+								<li class="dropdown-submenu"><a
+									class="dropdown-item dropdown-toggle" href="#">우리지역 책방</a>
+									<ul class="dropdown-menu">
+
+										<c:if test="${LoginUser.authority eq 3}">
+											<li><a class="dropdown-item"
+												href="/library?command=adminLibraryList">대전 도서관</a></li>
+										</c:if>
+										<c:if test="${LoginUser.authority ne 3}">
+											<li><a class="dropdown-item"
+												href="/library?command=libraryList">대전 도서관</a></li>
+										</c:if>
+
+										<!-- 관리자로 로그인을 했을 시 이달의 책 등록-->
+										<c:if test="${LoginUser.authority eq 3}">
+											<li><a class="dropdown-item"
+												href="/bookstore?command=adminBookstoreList">대전 책방</a></li>
+										</c:if>
+
+										<!-- 사용자로 로그인을 했을 시 이달의 책 등록-->
+										<c:if test="${LoginUser.authority ne 3}">
+											<li><a class="dropdown-item"
+												href="/bookstore?command=bookstoreList">대전 책방</a></li>
+										</c:if>
+									</ul></li>
+							</ul></li>
+						<!-- Menu item 5 Blog-->
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="blogMenu"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">후원하기</a>
+							<ul class="dropdown-menu" aria-labelledby="blogMenu">
+								<li class="dropdown-submenu"><a class="dropdown-item"
+									href="/notice?command=introBusinessFormAction">사업소개</a> <!--   <ul class="dropdown-menu">
                               <li> <a class="dropdown-item" href="blog-classic.html">Full Width</a> </li>
                               <li> <a class="dropdown-item" href="blog-classic-left-sidebar.html">Left Sidebar</a> </li>
                               <li> <a class="dropdown-item" href="blog-classic-right-sidebar.html">Right Sidebar</a> </li>
-                           </ul> -->
-                        </li>
-                        <li class="dropdown-submenu">
-                           <a class="dropdown-item" href="/notice?command=donationListFormAction">개인후원</a>
-                          <!--  <ul class="dropdown-menu">
+                           </ul> --></li>
+								<li class="dropdown-submenu"><a class="dropdown-item"
+									href="/notice?command=donationListFormAction">개인후원</a> <!--  <ul class="dropdown-menu">
                               <li> <a class="dropdown-item" href="/book?command=bookList">Three column</a> </li>
                               <li> <a class="dropdown-item" href="blog-grid-column-4.html">Four column</a> </li>
                               <li> <a class="dropdown-item" href="blog-grid-left-sidebar.html">Left Sidebar</a> </li>
                               <li> <a class="dropdown-item" href="blog-grid-right-sidebar.html">Right Sidebar</a> </li>
-                           </ul> -->
-                        </li>
-                       <li class="dropdown-submenu">
-                           <a class="dropdown-item" href="#">법인후원</a>
-                         
-                        </li>
-                        <li class="dropdown-submenu">
-                           <a class="dropdown-item" href="#">연말정산 영수증 신청</a>
-                         
-                        </li>
-                     </ul>
-                  </li>
-                  
-                  <!-- Menu item 6 Docs-->
-                  <!-- <li class="nav-item dropdown">
+                           </ul> --></li>
+								<li class="dropdown-submenu"><a class="dropdown-item"
+									href="#">법인후원</a></li>
+								<li class="dropdown-submenu"><a class="dropdown-item"
+									href="#">연말정산 영수증 신청</a></li>
+							</ul></li>
+
+						<!-- Menu item 6 Docs-->
+						<!-- <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" id="docMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Docs</a>
                      <ul class="dropdown-menu" aria-labelledby="docMenu">
                         <li> <a class="dropdown-item" href="https://wizixo.webestica.com/documentation/">Introduction</a> </li>
@@ -378,26 +401,27 @@
                         <li> <a class="dropdown-item" href="http://support.webestica.com/" target="_blank">Support</a> </li>
                      </ul>
                   </li> -->
-               </ul>
-            </div>
-            <!-- Main Menu End -->
-            <!-- Header Extras Start-->
-            <div class="navbar-nav">
-               <!-- extra item Search-->
-               <div class="nav-item search border-0 pl-3 pr-0 px-lg-2" id="search">
-                  <a class="nav-link" data-toggle="collapse" href="#search-open"><i class="ti-search"> </i></a>
-               </div>
-               <!-- extra item Btn-->
-               <!-- <div class="nav-item border-0 d-none d-lg-inline-block align-self-center">
+					</ul>
+				</div>
+				<!-- Main Menu End -->
+				<!-- Header Extras Start-->
+				<div class="navbar-nav">
+					<!-- extra item Search-->
+					<div class="nav-item search border-0 pl-3 pr-0 px-lg-2" id="search">
+						<a class="nav-link" data-toggle="collapse" href="#search-open"><i
+							class="ti-search"> </i></a>
+					</div>
+					<!-- extra item Btn-->
+					<!-- <div class="nav-item border-0 d-none d-lg-inline-block align-self-center">
                   <a href="#" class=" btn btn-sm btn-grad text-white mb-0">Buy Now!</a>
                </div> -->
-            </div>
-            <!-- Header Extras End-->
-         </div>
-      </nav>
-      <!-- Logo Nav End -->
-   </header>
-   <!-- =======================
+				</div>
+				<!-- Header Extras End-->
+			</div>
+		</nav>
+		<!-- Logo Nav End -->
+	</header>
+	<!-- =======================
    header End-->
-   </body>
-   </html>
+</body>
+</html>

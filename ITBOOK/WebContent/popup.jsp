@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"
 	charset="UTF-8">
 
-<title> 아아디 중복체크 </title>
+<title>아아디 중복확인</title>
 
 <!-- css include -->
 <link rel="stylesheet" type="text/css" href="css/materialize.css">
@@ -27,30 +27,38 @@
 <body>
 	<h3>아이디 중복체크</h3>
 	<section id="error-section" class="error-section w100dt mb-50">
+
 		<div class="container">
-		<form name="frm" method="post" action="member?command=memberIdCheck">
-				<table class="bordered">
-					<tr>
+			<form name="frm" method="post" action="member?command=memberIdCheck">
+				 <table class="bordered">
+					<%-- <tr>
 							<th>아이디 </th>
 							<td><input type="text" name="memId" value="${memId}"></td>
 							<td><button type="submit" class="btn">중복체크</button></td>
-					</tr>
+					</tr> --%>
+					<div>
+						<span class="form-group"><input type="text" name="memId"
+							value="${memId}" class="form-control" placeholder="아이디를 입력해주세요."
+							style="height: 30px"></span>
+						<button type="submit" class="btn btn-dark" style="height: 30px">중복확인</button>
+					</div>
 					<c:if test="${result == 1}">
 						<tr>
 							<td></td>
 							<td colspan="3" align="center">중복된 아이디입니다.</td>
 							<td></td>
-						</tr>			
+						</tr>
 					</c:if>
 					<c:if test="${result == -1}">
 						<tr>
 							<td></td>
 							<td>사용 가능한 아이디입니다.</td>
-							<td><input type="button" class="btn" value="확인" onclick="sendToParent()"></td>
-						</tr>			
+							<td><input type="button" class="btn" value="확인"
+								onclick="sendToParent()"></td>
+						</tr>
 					</c:if>
-				</table>
-		</form>
+			</table>
+			</form>
 		</div>
 		<!-- container -->
 	</section>

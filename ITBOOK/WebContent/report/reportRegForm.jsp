@@ -31,7 +31,8 @@
 
 <!-- Theme CSS -->
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-
+<script type="text/javascript" src ="/js/report.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
 	<header>
@@ -56,22 +57,16 @@
 			</div>
 		</div>
 	</div>
+
 	<section>
 		<div class="container">
-			<div class="row">
-				<div class="col-md-4">
-					<form name="frm" method="post" action="report?command=Report_Reg">
-						<input type="hidden" name="bookNum">
-						<!-- <input type="hidden" name="memNum" > -->
-						<%-- <input type ="hidden" name = "memNum" value = "${LoginUser.memNum}"> --%>
-						<div class="form-group">
-							<div class="col-md-4 col-xs-4">
-								<button type="button" class="form-control" onclick="openPopUp()">책
-									검색</button>
-							</div>
-						</div>
-
-
+			<form name="frm" method="post" action="/report?command=Report_Reg">
+				<input type="hidden" name="bookNum">
+				 <input type="hidden" name="memNum" value="${LoginUser.memNum}">
+				<div class="form-group">
+					<div class="col-md-4 col-xs-4">
+						<button type="button" class="form-control" onclick="openPopUp()">책
+							검색</button>
 						<div class="form-group">
 							<label>분류</label> <select class="custom-select select-big mb-3"
 								name="reportCategory">
@@ -81,40 +76,55 @@
 								<option value="인문사회">인문사회</option>
 							</select>
 						</div>
-
-						<div class="form-group">
-							<label>책 제목</label> <input class="form-control" name="bookTitle"
-								placeholder="책 제목을 입력하세요.">
-						</div>
-						<div class="form-group">
-							<label>저자</label> <input class="form-control" type="text"
-								name="writer" placeholder="저자를 입력하세요.">
-						</div>
-						<div class="form-group">
-							<label>출판사</label> <input class="form-control" type="text"
-								name="publisher" placeholder="출판사를 입력하세요.">
-						</div>
-
-						<div class="form-group">
-							<label>제목</label> <input class="form-control" name="reportTitle"
-								placeholder="제목을 입력하세요.">
-						</div>
-
-						<div class="form-group">
-							<label>내용</label>
-							<textarea class="form-control" rows="10" name="reportContent"
-								placeholder="내용을 입력하세요."></textarea>
-						</div>
-
-						<button type="submit" class="btn btn-success">
-							<i class="fa fa-check-circle-o"></i>등록하기
-						</button>
-						<a class="btn btn-warning" href="report?command=Report_List"><i
-							class="fa fa-close"></i>취소하기</a>
-					</form>
+					</div>
 				</div>
-			</div>
+
+				<!-- Comment-respond -->
+				<div class="row mt-5">
+					<div class="col-md-12">
+						<h2 class="mb-2">글쓰기</h2>
+					</div>
+
+					<div class="col-md-3">
+						<div class="form-group">
+							<span class="form-group"><input type="text"
+								class="form-control" placeholder="책 제목" name="bookTitle"></span>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<span class="form-group"><input type="text"
+								class="form-control" placeholder="저자" name="writer"></span>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<span class="form-group"><input type="text"
+								class="form-control" placeholder="출판사" name="publisher"></span>
+						</div>
+					</div>
+					<div class="col-md-7">
+						<span class="form-group"><input type="text"
+							class="form-control" placeholder="제목" name="reportTitle"></span>
+					</div>
+					<div class="col-md-12" style="min-height: 480px;">
+						<span class="form-group"><textarea cols="40" rows="20"
+								name="reportContent" class="form-control"
+								placeholder="내용을 입력하세요."></textarea></span>
+					</div>
+
+					<div class="col-md-12 text-right">
+						<button type="submit"
+							class="btn btn-grad border-radius-left-0 mb-0" onclick="return reportCheck()">등록하기</button>
+						<a href="report?command=Report_List">
+							<button type="button"
+								class="btn btn-grad border-radius-left-0 mb-0">취소하기</button>
+						</a>
+					</div>
+				</div>
+			</form>
 		</div>
+
 	</section>
 	<script>
 		function openPopUp() {
@@ -138,6 +148,13 @@
 
 			window.open(url, title, status);
 		}
+		$(document).ready(function(){
+			$('form').submit(function(){
+		 	  var result = alert("등록되었습니다.");
+		   
+			   return result;
+			})
+			})
 	</script>
 	<%@ include file="../include/footer.jsp"%>
 </body>

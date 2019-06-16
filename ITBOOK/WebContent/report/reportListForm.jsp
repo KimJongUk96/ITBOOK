@@ -44,11 +44,10 @@
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
 					<h1 class="innerpage-title">독후감</h1>
-					<h6 class="subtitle">I can find the answer in the book and the
-						book is the way to help me.</h6>
+					<h6 class="subtitle">책은 마음의 양식입니다. 책에서 소중한 인연을 만나보세요.</h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="index.html"><i
+							<li class="breadcrumb-item active"><a href="index.jsp"><i
 									class="ti-home"></i> Home</a></li>
 
 						</ol>
@@ -62,7 +61,7 @@
 			<div class="row">
 
 				<div class="col-sm-12 mb-5">
-					<div class="nav justify-content-center">
+					<!-- <div class="nav justify-content-center">
 						<ul
 							class="nav-tabs nav-tabs-style-2 text-center px-2 p-md-0 m-0 mb-4">
 							<li class="nav-filter active" data-filter="*">모두보기</li>
@@ -71,7 +70,7 @@
 							<li class="nav-filter" data-filter=".자연과학">자연과학</li>
 							<li class="nav-filter" data-filter=".인문사회">인문사회</li>
 						</ul>
-					</div>
+					</div> -->
 
 					<!-- 검색 폼 스타트 -->
 					<div id="searchForm">
@@ -98,7 +97,6 @@
 									<th scope="col">조회수</th>
 								</tr>
 							</thead>
-
 							<tbody>
 								<c:forEach var="reportList" items="${reportList}">
 									<tr>
@@ -113,15 +111,20 @@
 								</c:forEach>
 							</tbody>
 						</table>
-						<div align="right">
-							<a class="btn btn-primary" href="/report?command=Report_Reg_Form">글쓰기</a>
-						</div>
+						<c:if
+							test="${LoginUser.authority eq '1' or LoginUser.authority eq '2' or LoginUser.authority eq '3'}">
+							<div align="right">
+								<a class="btn btn-primary"
+									href="/report?command=Report_Reg_Form">글쓰기</a>
+							</div>
+						</c:if>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 	<script>
+	
 		function openPopUp() {
 			// window.name = "부모창 이름"; 
 			window.name = "parentForm";

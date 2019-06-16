@@ -80,11 +80,13 @@
 						</table> 
 						<div class="col-md-12"><span class="form-group"><textarea cols="40" rows="10"  name="noticeContent" class="form-control" >${notice.noticeContent}</textarea></span></div>
 							
+							<c:if test = "${LoginUser.authority eq 3}">
 						<div align="right">
 							<input type="submit" value="수정" class="btn btn-primary" >
 							<input type="button" value="삭제" class="btn btn-primary" onclick="location.href='/notice?command=noticeDeleteAction&noticeNum=${notice.noticeNum}'">
 							<input type="button" value="돌아가기" class="btn btn-primary" onclick="location.href='/notice?command=noticeListFormAction'">
 						</div>
+						</c:if>
 					</div>
 					</form>
 				</div>

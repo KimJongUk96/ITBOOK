@@ -73,9 +73,9 @@
 								<li class="nav-item"><a class="nav-link"
 									href="/meeting?command=meetingList">독서모임</a></li>
 								<li class="nav-item"><a class="nav-link"
-									href="/notice?command=noticeListFormActionl">운영게시판</a></li>
+									href="/notice?command=noticeListFormAction">운영게시판</a></li>
 								<li class="nav-item"><a class="nav-link"
-									href="portfolio-grid-column-4.html">후원하기</a></li>
+									href="/notice?command=introBusinessFormAction">후원하기</a></li>
 							</ul>
 						</div>
 					</div>

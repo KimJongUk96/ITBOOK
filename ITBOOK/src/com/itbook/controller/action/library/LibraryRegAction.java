@@ -34,7 +34,7 @@ public class LibraryRegAction implements Action {
 		
 		lDao.insertLibrary(lVo);
 		
-		new LibraryListAction().execute(request, response);
+		new AdminLibraryList().execute(request, response);
 		
 	}
 

@@ -32,7 +32,8 @@
 
 <!-- Theme CSS -->
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-
+<script type="text/javascript" src ="/js/library.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
 
@@ -84,13 +85,11 @@
 								name="libraryContent" placeholder="위치를 입력하세요.">
 						</div>
 
-						<button type="submit" class="btn btn-success">
-							<i class="fa fa-check-circle-o"></i>등록하기
-						</button>
-						<button type="button" class="btn btn-warning"
-							onclick="location.href='library?command=libraryList'">
-							<i class="fa  fa-close"></i>취소하기
-						</button>
+				
+						<button type="submit" class="btn btn-grad border-radius-left-0 mb-0"
+						onclick="return libraryCheck()">등록하기</button>
+						<button type="button" class="btn btn-grad border-radius-left-0 mb-0"
+						onclick="location.href='library?command=adminLibraryList'">취소하기</button>
 					</form>
 				</div>
 

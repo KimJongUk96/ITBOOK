@@ -124,24 +124,26 @@
 						data-items-sm="2" data-items-xs="1">
 						<!-- post -->
 
-						<c:forEach var="meetingList" items="${meetingList}">
-							<div class="item">
-								<div class="post">
-									<div class="post-info">
-										<div class="post-author">${meetingList.represent}</div>
-										,
-										<div class="post-time">
-											<a href="#!"><fmt:formatDate
-													value="${meetingList.metDate}" /></a> ,회원수 :
-											${meetingList.headCount}
-										</div>
-										<a class="post-title" href="#!">${meetingList.metName}</a>
-										<p class="mb-0">${meetingList.metIntro}</p>
+						<!-- 독서모임리스트 시작 -->
+						<%-- <c:forEach var="meetingList" items="${meetingList}"> --%>
+						<div class="item">
+							<div class="post">
+								<div class="post-info">
+									<div class="post-author">${meetingList.represent}</div>
+									,
+									<div class="post-time">
+										<a href="#!"><fmt:formatDate
+												value="${meetingList.metDate}" /></a> ,회원수 :
+										${meetingList.headCount}
 									</div>
+									<a class="post-title" href="#!">${meetingList.metName}</a>
+									<p class="mb-0">${meetingList.metIntro}</p>
 								</div>
 							</div>
-						</c:forEach>
-						<!-- <div class="item">
+						</div>
+						<%-- 		</c:forEach> --%>
+
+						<div class="item">
 							<div class="post">
 								<div class="post-info">
 									<div class="post-author">
@@ -158,7 +160,7 @@
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="item">
 							<div class="post">
 								<div class="post-info">
@@ -178,7 +180,7 @@
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="item">
 							<div class="post">
 								<div class="post-info">
@@ -197,10 +199,13 @@
 										had now those ought set often which</p>
 								</div>
 							</div>
-						</div> -->
+						</div>
+
+
 					</div>
 				</div>
 			</div>
+			<!-- 독서모임리스트 끝-->
 		</div>
 	</section>
 	<section class="service">
@@ -222,7 +227,7 @@
 						</div>
 						<h3 class="feature-box-title">공지사항</h3>
 						<p class="feature-box-desc">
-							또 다른 소중한 만남이 있습니다. <br><strong>운영게시판</strong>에서 만나보세요.
+							또 다른 소중한 만남이 있습니다. <br> <strong>운영게시판</strong>에서 만나보세요.
 
 						</p>
 						<a class="mt-3" href="/notice?command=noticeListFormAction">더보기</a>
@@ -267,20 +272,21 @@
 				<div class="col-md-7">
 					<div class="title text-left">
 						<h2>후원하기</h2>
-						<p>We are an insight and behaviour driven creative marketing
-							agency. A Full package Digital Creative Agency Specializing in:
-							Video Production, Web Design, Branding, Brand Strategy, Content
-							Marketing and Aerial Cinematography.</p>
-						<p>Our passion for customer excellence is just one reason why
-							we are the market leader. We've always worked very hard to give
-							our customers the best experience in dealing with our company.</p>
+						<br><br>
+						<p>
+							희망의 책을 후원해주셔서 감사드립니다.<br> 희망의 책 대전본부는 회원님들의 사랑과 관심의 후원으로 <strong>독서문화정책 연구사업,
+							독서문화홍보 및 진흥사업, 대전 지역 도서관 건립 등</strong>의 다양한 사업을 펼치고 있습니다. 여러분께서 전해주시는 소중한
+							후원금이 미래를 꿈꾸며 준비하는 이들에게 큰 격려와 도움이 될 것입니다.</p> <p><br>희망의 책은 기부금품 모집
+							및 사용내역을 투명하게 공개하고 있으며, 후원에 동참하기를 원하시면 <strong>이메일</strong>을 보내거나 <strong>신청서</strong>를 작성하여 
+							참여하실 수 있습니다.
+						</p>
 					</div>
 					<!-- price tab nav -->
 					<ul class="nav nav-tabs tab-grad">
 						<li class="nav-item"><a class="nav-link active"
-							data-toggle="tab" href="#price-1-tab"> Enterprise </a></li>
+							data-toggle="tab" href="#price-1-tab"> 개인단체 </a></li>
 						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#price-2-tab"> Business </a></li>
+							href="#price-2-tab"> 법인단체 </a></li>
 					</ul>
 					<!-- price tab end-->
 				</div>
@@ -294,7 +300,7 @@
 										<h2 class="text-white font-weight-bold mb-0 display-4">
 											<span>$</span>149.99
 										</h2>
-										<div>Enterprise Plan</div>
+										<div>개인단체</div>
 									</div>
 								</div>
 								<div class="card-body bg-light ">
@@ -310,7 +316,7 @@
 										<li class="list-group-item"><i class="fa fa-check"></i>Unlimited
 											Storage usage</li>
 									</ul>
-									<a class="btn btn-grad" href="#!">Get it now!</a>
+									<a class="btn btn-grad" href="#!">참여하기</a>
 									<div class="offer">-40%</div>
 								</div>
 							</div>
@@ -323,7 +329,7 @@
 										<h2 class="text-white font-weight-bold mb-0 display-4">
 											<span>$</span>129.99
 										</h2>
-										<div>Business Plan</div>
+										<div>법인단체</div>
 									</div>
 								</div>
 								<div class="card-body bg-light ">
@@ -339,7 +345,7 @@
 										<li class="list-group-item"><i class="fa fa-check"></i>500GB
 											Storage usage</li>
 									</ul>
-									<a class="btn btn-grad" href="#!">Get it now!</a>
+									<a class="btn btn-grad" href="#!">참여하기</a>
 									<div class="offer">-25%</div>
 								</div>
 							</div>
@@ -387,7 +393,8 @@
 								width="170" height="150" alt="희망의 책 로고" /> <!-- footer SVG logo End -->
 							</a>
 							<p class="mt-3">
-							사람과의 만남이 중요하듯 또 다른 소중한 만남이 있습니다.<br> 바로 <strong>책과의 만남</strong>입니다.
+								사람과의 만남이 중요하듯 또 다른 소중한 만남이 있습니다.<br> 바로 <strong>책과의
+									만남</strong>입니다.
 							</p>
 						</div>
 					</div>
@@ -424,7 +431,7 @@
 								<li class="nav-item"><a class="nav-link"
 									href="/notice?command=noticeListFormActionl">운영게시판</a></li>
 								<li class="nav-item"><a class="nav-link"
-									href="portfolio-grid-column-4.html">후원하기</a></li>
+									href="/notice?command=introBusinessFormAction">후원하기</a></li>
 							</ul>
 						</div>
 					</div>
@@ -432,7 +439,9 @@
 					<div class="col-md-3">
 						<div class="widget bg-grad p-4 all-text-white border-radius-3">
 							<i class="ti-email newsletter-icon"></i>
-							<p class="mb-2">여러분과 함께 만드는 <br>아름다운 소통과 교류의 장 </p>
+							<p class="mb-2">
+								여러분과 함께 만드는 <br>아름다운 소통과 교류의 장
+							</p>
 							<div class="form-group mb-0">
 								<!-- 	<input class="form-control border-white mb-3" type="email"
 									placeholder="Enter email..."> -->
@@ -453,26 +462,11 @@
 				<div
 					class="d-md-flex justify-content-between align-items-center py-3 text-center text-md-left">
 					<!-- copyright text -->
-					<div class="copyright-text-center" >
-					
-					Â©2019 All Rights Reserved by <a href="index.jsp"> 희망의책</a>
-			
+					<div class="copyright-text-center">
+
+						Â©2019 All Rights Reserved by <a href="index.jsp"> 희망의책</a>
+
 					</div>
-					<!-- copyright links-->
-					<!-- <div class="copyright-links primary-hover mt-3 mt-md-0">
-						<ul class="list-inline">
-							<li class="list-inline-item pl-2"><a
-								class="list-group-item-action" href="#">Home</a></li>
-							<li class="list-inline-item pl-2"><a
-								class="list-group-item-action" href="#">About Us</a></li>
-							<li class="list-inline-item pl-2"><a
-								class="list-group-item-action" href="#">Career</a></li>
-							<li class="list-inline-item pl-2"><a
-								class="list-group-item-action" href="#">Privacy Policy</a></li>
-							<li class="list-inline-item pl-2"><a
-								class="list-group-item-action pr-0" href="#">Use of terms</a></li>
-						</ul>
-					</div> -->
 				</div>
 			</div>
 		</div>

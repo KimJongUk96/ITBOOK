@@ -29,7 +29,7 @@ public class LibraryUpdateAction implements Action {
 		LibraryDAO lDao = LibraryDAO.getInstance();
 		lDao.updateLibrary(lVo);
 		
-		new LibraryListAction().execute(request, response);
+		new AdminLibraryList().execute(request, response);
 	}
 
 }
