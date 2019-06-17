@@ -161,6 +161,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
+                 
                 <li class ="notice"><a href="admin?command=noticeListForm"><i class="fa fa-magic"></i> 운영게시판 게시글 삭제</a></li>
                 <li class ="notice"><a href="admin?command=todayBookList"><i class="fa fa-magic"></i> 이달의책 게시글 삭제</a></li>
                 <li class ="notice"><a href="admin?command=reportListForm"><i class="fa fa-magic"></i> 독후감 삭제</a></li>
@@ -169,11 +170,12 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-book"></i> 
-                <span>책관리</span>
+                <span>기타관리</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li><a href="admin?command=bookListForm"><i class="fa fa-magic"></i> 등록된 책 삭제</a></li>
+	              <li><a href="admin?command=feePaymentList"><i class="fa fa-magic"></i> 후원 관리</a></li>
               </ul>
              </li>
         </section>

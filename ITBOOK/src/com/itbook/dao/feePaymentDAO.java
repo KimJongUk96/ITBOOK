@@ -31,29 +31,29 @@ public class feePaymentDAO {
 					+ "payAttach,payPosition,payMessage,payBank,payFee,bankName,paySponsor,payBankNum) values(?,?,?,?,?,?,?,?,?,?,?,?)";
 		
 			Connection conn = null;
-			PreparedStatement stmt = null;
+			PreparedStatement pstmt = null;
 			try {
 				conn = DBManager.getConnection();
-				stmt = conn.prepareStatement(sql);
+				pstmt = conn.prepareStatement(sql);
 				
-				stmt.setString(1, fVo.getPayName());//후원이름
-				stmt.setString(2, fVo.getPayEmail());//후원이메일
-				stmt.setString(3, fVo.getPayMobileNumber());//후원자 전화번호
-				stmt.setString(4, fVo.getPayZipcode());//우편번호
-				stmt.setString(5, fVo.getPayAttach());//소속
-				stmt.setString(6, fVo.getPayPosition());//직급
-				stmt.setString(7, fVo.getPayMessage());//메세지
-				stmt.setString(8, fVo.getPayBank());//은행
-				stmt.setString(9, fVo.getPayFee());//후원금액
-				stmt.setString(10, fVo.getBankName());//예금주
-				stmt.setString(11, fVo.getPaySponsor());//후원방식
-				stmt.setString(12, fVo.getPayBankNum());//계좌번호
+				pstmt.setString(1, fVo.getPayName());//후원이름
+				pstmt.setString(2, fVo.getPayEmail());//후원이메일
+				pstmt.setString(3, fVo.getPayMobileNumber());//후원자 전화번호
+				pstmt.setString(4, fVo.getPayZipcode());//우편번호
+				pstmt.setString(5, fVo.getPayAttach());//소속
+				pstmt.setString(6, fVo.getPayPosition());//직급
+				pstmt.setString(7, fVo.getPayMessage());//메세지
+				pstmt.setString(8, fVo.getPayBank());//은행
+				pstmt.setString(9, fVo.getPayFee());//후원금액
+				pstmt.setString(10, fVo.getBankName());//예금주
+				pstmt.setString(11, fVo.getPaySponsor());//후원방식
+				pstmt.setString(12, fVo.getPayBankNum());//계좌번호
 				
-				stmt.executeUpdate();
+				pstmt.executeUpdate();
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
-				DBManager.close(conn, stmt);
+				DBManager.close(conn, pstmt);
 			}
 		}
 		
@@ -115,6 +115,7 @@ public class feePaymentDAO {
 					fVo.setPayMessage(rs.getString("payMessage"));
 					fVo.setPayBank(rs.getString("payBank"));
 					fVo.setBankName(rs.getString("bankName"));
+					fVo.setPayFee(rs.getString("payFee"));
 					fVo.setPaySponsor(rs.getString("paySponsor"));
 					fVo.setPayBankNum(rs.getString("payBankNum"));
 					
