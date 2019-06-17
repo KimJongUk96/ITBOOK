@@ -2,6 +2,7 @@ eclipse.preferences.version=1
 encoding//WebContent/index.jsp=UTF-8
 encoding//src/com/itbook/controller/MeetingServlet.java=UTF-8
 encoding//src/com/itbook/dao/BookDAO.java=UTF-8
+encoding//src/com/itbook/dao/MeetingDAO.java=UTF-8
 encoding//src/com/itbook/vo/Book/BookBoardVO.java=UTF-8
 encoding//src/com/itbook/vo/Meeting/MeetingVO.java=UTF-8
 encoding//src/util/DBManager.java=UTF-8
