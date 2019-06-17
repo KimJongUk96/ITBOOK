@@ -27,231 +27,236 @@ public class MeetingDAO {
 		return instance;
 	}
 
-	// 독서모임 VO 속성
+	// ����紐⑥�� VO ����
 	/*
 	 * private int metNum; private String metName; private String metIntro; private
 	 * String represent; private Date metDate; private int headCount;
 	 */
 	public List<MeetingVO> selectAllMeetings() {
 
-	      String sql = "SELECT metNum" + "         ,metName"
-	            + "         ,metIntro" + "         ,represent"
-	            + "         ,metDate" + "         ,headCount" + "         ,metImg" + "     FROM itbook.meeting" + "     WHERE approval = 'T'" 
-	            + "   ORDER BY metDate DESC";
+		String sql = "SELECT metNum"
+				+ "         ,metName"
+				+ "         ,metIntro"
+				+ "         ,represent"
+				+ "         ,metDate"
+				+ "         ,headCount"
+				+ "         ,metImg"
+				+ "     FROM itbook.meeting"
+				+ "     WHERE approval = 'T'"
+				+ "   ORDER BY metDate DESC";
 
-	      List<MeetingVO> list = new ArrayList<MeetingVO>();
-	      Connection conn = null;
-	      PreparedStatement pstmt = null;
-	      ResultSet rs = null;
+		List<MeetingVO> list = new ArrayList<MeetingVO>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 
-	      try {
-	         conn = DBManager.getConnection();
-	         pstmt = conn.prepareStatement(sql);
-	         rs = pstmt.executeQuery();
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
 
-	         while (rs.next()) {
-	            MeetingVO mVo = new MeetingVO();
+			while (rs.next()) {
+				MeetingVO mVo = new MeetingVO();
 
-	            mVo.setMetNum(rs.getString("metNum"));
-	            mVo.setMetName(rs.getString("metName"));
-	            mVo.setMetIntro(rs.getString("metIntro"));
-	            mVo.setRepresent(rs.getString("represent"));
-	            mVo.setMetDate(rs.getDate("metDate"));
-	            mVo.setMetImg(rs.getString("metImg"));
-	            mVo.setHeadCount(rs.getInt("headCount"));
+				mVo.setMetNum(rs.getString("metNum"));
+				mVo.setMetName(rs.getString("metName"));
+				mVo.setMetIntro(rs.getString("metIntro"));
+				mVo.setRepresent(rs.getString("represent"));
+				mVo.setMetDate(rs.getDate("metDate"));
+				mVo.setMetImg(rs.getString("metImg"));
+				mVo.setHeadCount(rs.getInt("headCount"));
 
-	            // MeetingVO에 저장된 데이터 리스트에 추가
-	            list.add(mVo);
-	         }
+				list.add(mVo);
+			}
 
-	      } catch (Exception e) {
-	         // TODO: handle exception
-	         e.printStackTrace();
-	      } finally {
-	         DBManager.close(conn, pstmt, rs);
-	      }
-	      return list;
-	   }
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return list;
+	}
 
-	// 독서모임 신청하기 : 독서모임명, 독서모임소개, 대표자명 입력!
-	   public boolean insertMeeting(MeetingVO mVo) {
-	      
-	      
-	      boolean result = false;
-	      
-	            
-	      Connection conn = null;
-	      PreparedStatement pstmt = null;
-	      
-	      try {
-	         
-	         conn = DBManager.getConnection();
-	         conn.setAutoCommit( false );
-	         
-	         StringBuffer sql = new StringBuffer();
-	         
-	         sql.append("insert into itbook.meeting(metName,metGreeting,metIntro,represent,metPlace,keyword,metImg)");
-	         sql.append("values (?,?,?,?,?,?,?)");
-	         
+	// ����紐⑥�� ��泥���湲� : ����紐⑥��紐�, ����紐⑥����媛�, ������紐� ����!
+	public boolean insertMeeting(MeetingVO mVo) {
 
-	         pstmt = conn.prepareStatement(sql.toString());
-	         
-	         pstmt.setString(1, mVo.getMetName());
-	         pstmt.setString(2, mVo.getMetGreeting());
-	         pstmt.setString(3, mVo.getMetIntro());
-	         pstmt.setString(4, mVo.getRepresent());
-	         pstmt.setString(5, mVo.getMetPlace());
-	         pstmt.setString(6, mVo.getKeyword());
-	         pstmt.setString(7, mVo.getMetImg());
-	         
-	         int flag = pstmt.executeUpdate();
-	         
-	            if(flag > 0){
-	               result = true;
-	               conn.commit(); 
-	            }
+		boolean result = false;
 
-	        } catch (Exception e) {
-	            
-	           throw new RuntimeException(e.getMessage());
-	        }
-	         
-	         DBManager.close(conn, pstmt);
-	         return result;
-	   
-	   }
-	
-	
-	//관리자 모임페이징 총게시글 수 보기
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		try {
+
+			conn = DBManager.getConnection();
+			conn.setAutoCommit(false);
+
+			StringBuffer sql = new StringBuffer();
+
+			sql.append("insert into itbook.meeting(metName,metGreeting,metIntro,represent,metPlace,keyword,metImg)");
+			sql.append("values (?,?,?,?,?,?,?)");
+
+			pstmt = conn.prepareStatement(sql.toString());
+
+			pstmt.setString(1, mVo.getMetName());
+			pstmt.setString(2, mVo.getMetGreeting());
+			pstmt.setString(3, mVo.getMetIntro());
+			pstmt.setString(4, mVo.getRepresent());
+			pstmt.setString(5, mVo.getMetPlace());
+			pstmt.setString(6, mVo.getKeyword());
+			pstmt.setString(7, mVo.getMetImg());
+
+			int flag = pstmt.executeUpdate();
+
+			if (flag > 0) {
+				result = true;
+				conn.commit();
+			}
+
+		} catch (Exception e) {
+
+			throw new RuntimeException(e.getMessage());
+		}
+
+		DBManager.close(conn, pstmt);
+		return result;
+
+	}
+
+	// 愿�由ъ�� 紐⑥�����댁� 珥�寃���湲� �� 蹂닿린
 	public Paging adminMeetingRowCount(Paging paging) {
 		int cnt = 0;
 		String sql = "SELECT COUNT(*) CNT"
-	            + "     FROM itbook.meeting";
-	      
-	         Connection conn = null;
-	         PreparedStatement stmt = null;
-	         ResultSet rs = null;
-	         
-	         try
-	         {
-	            conn = DBManager.getConnection();
-	            stmt = conn.prepareStatement(sql);
-	            
-	            rs = stmt.executeQuery();
-	            
-	            while (rs.next())
-	            {
-	               cnt = rs.getInt("CNT");
-	               paging.setNumOfRow(cnt);;
-	            }
-	            
-	         }
-	         catch (Exception e)
-	         {
-	            e.printStackTrace();
-	         }finally {
-	 			DBManager.close(conn, stmt);
-	 		}
-	         return paging;
-	   }
+					+"FROM itbook.meeting";
 
-	
-	
-	
-	// 독서모임 별 게시판 가져오기
-	   // +최근 게시물 5개포함된 게시판 띄우기
-	   public List<MetBoardVO> selectFiveMetBoard(String metNum) {
-	      
-	      List<MetBoardVO> list = new ArrayList<MetBoardVO>();
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
 
-	      String sql = "select * from itbook.met_board where metNum=? order by regDate desc limit 5";
+		try {
+			conn = DBManager.getConnection();
+			stmt = conn.prepareStatement(sql);
 
-	      Connection conn = null;
-	      PreparedStatement pstmt = null;
-	      ResultSet rs = null;
+			rs = stmt.executeQuery();
 
-	      try {
-	         conn = DBManager.getConnection();
+			while (rs.next()) {
+				cnt = rs.getInt("CNT");
+				paging.setNumOfRow(cnt);
+				;
+			}
 
-	         pstmt = conn.prepareStatement(sql);
-	         pstmt.setString(1, metNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, stmt);
+		}
+		return paging;
+	}
 
-	         rs = pstmt.executeQuery();
+	// ����紐⑥�� 蹂� 寃����� 媛��몄�ㅺ린
+	// +理�洹� 寃���臾� 5媛��ы�⑤�� 寃����� ���곌린
+	public List<MetBoardVO> selectFiveMetBoard(String metNum) {
 
-	         while (rs.next()) {
-	            
-	            MetBoardVO mbVo = new MetBoardVO();
+		List<MetBoardVO> list = new ArrayList<MetBoardVO>();
 
-	            mbVo.setMetBrdNum(rs.getString("metBrdNum"));
-	            mbVo.setMetBrdName(rs.getString("metBrdName"));
-	            mbVo.setMetBrdContent(rs.getString("metBrdContent"));
-	            mbVo.setMetNum(rs.getString("metNum"));
-	            mbVo.setRegDate(rs.getDate("regDate"));
-	            
-	            list.add(mbVo);
+		String sql = "select * from itbook.met_board where metNum=? order by regDate desc limit 5";
 
-	         }
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 
-	      } catch (Exception e) {
-	         // TODO: handle exception
-	         e.printStackTrace();
-	      } finally {
-	         DBManager.close(conn, pstmt, rs);
-	      }
+		try {
+			conn = DBManager.getConnection();
 
-	      return list;
-	   }
-	
-	//페이징처리한 전체모임게시글
-	   public ArrayList<MetBoardVO> selectAllMetBoard(String metNum,Paging paging) {
-	      
-	      ArrayList<MetBoardVO> list = new ArrayList<MetBoardVO>();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, metNum);
 
-	      String sql = "select m.metBrdNum, m.metBrdName, m.regDate, m.metBrdCategory, m.metBrdCount, m.metBrdContent, m.memNum, m.metNum, b.memName "
-	            + "from met_board m, member b where m.memNum = b.memNum and m.metNum = ? order by m.regDate desc limit ?, 10";
-	      
-	      
-	      Connection conn = null;
-	      PreparedStatement pstmt = null;
-	      ResultSet rs = null;
+			rs = pstmt.executeQuery();
 
-	      try {
-	         conn = DBManager.getConnection();
+			while (rs.next()) {
 
-	         pstmt = conn.prepareStatement(sql);
-	         pstmt.setString(1, metNum);
-	         pstmt.setInt(2, ((paging.getPageNum() - 1) * paging.getPerPage()));
-	         rs = pstmt.executeQuery();
+				MetBoardVO mbVo = new MetBoardVO();
 
-	         while (rs.next()) {
-	            
-	            MetBoardVO mbVo = new MetBoardVO();
+				mbVo.setMetBrdNum(rs.getString("metBrdNum"));
+				mbVo.setMetBrdName(rs.getString("metBrdName"));
+				mbVo.setMetBrdContent(rs.getString("metBrdContent"));
+				mbVo.setMetNum(rs.getString("metNum"));
+				mbVo.setRegDate(rs.getDate("regDate"));
 
-	            mbVo.setMetBrdNum(rs.getString("metBrdNum"));
-	            mbVo.setMetBrdName(rs.getString("metBrdName"));
-	            mbVo.setMetBrdContent(rs.getString("metBrdContent"));
-	            mbVo.setMetNum(rs.getString("metNum"));
-	            mbVo.setRegDate(rs.getDate("regDate"));
-	            mbVo.setMetBrdCategory(rs.getString("metBrdCategory"));
-	            mbVo.setMemNum(rs.getString("memNum"));
-	            mbVo.setMetBrdCount(rs.getInt("metBrdCount"));
-	            mbVo.setMemName(rs.getString("memName"));
-	            
-	            list.add(mbVo);
+				list.add(mbVo);
 
-	         }
+			}
 
-	      } catch (Exception e) {
-	         // TODO: handle exception
-	         e.printStackTrace();
-	      } finally {
-	         DBManager.close(conn, pstmt, rs);
-	      }
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
 
-	      return list;
-	   }
-	// 독서모임 홈으로 연결
-	// 독서모임 메인 홈 상세내용 보기 : 글번호로 찾아온다. 실패하면 return null
+		return list;
+	}
+
+	// ���댁�泥�由ы�� ��泥대え��寃���湲�
+	public ArrayList<MetBoardVO> selectAllMetBoard(String metNum, Paging paging) {
+
+		ArrayList<MetBoardVO> list = new ArrayList<MetBoardVO>();
+
+		String sql = "select m.metBrdNum"
+					+"		,m.metBrdName"
+					+"		,m.regDate"
+					+"		,m.metBrdCategory"
+					+"		,m.metBrdCount"
+					+"		,m.metBrdContent"
+					+"		,m.memNum"
+					+"		,m.metNum"
+					+"		,b.memName"
+					+" from met_board m, member b"
+					+" where m.memNum = b.memNum and m.metNum = ?"
+					+" order by m.regDate desc limit ?, 10";
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			conn = DBManager.getConnection();
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, metNum);
+			pstmt.setInt(2, ((paging.getPageNum() - 1) * paging.getPerPage()));
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+
+				MetBoardVO mbVo = new MetBoardVO();
+
+				mbVo.setMetBrdNum(rs.getString("metBrdNum"));
+				mbVo.setMetBrdName(rs.getString("metBrdName"));
+				mbVo.setMetBrdContent(rs.getString("metBrdContent"));
+				mbVo.setMetNum(rs.getString("metNum"));
+				mbVo.setRegDate(rs.getDate("regDate"));
+				mbVo.setMetBrdCategory(rs.getString("metBrdCategory"));
+				mbVo.setMemNum(rs.getString("memNum"));
+				mbVo.setMetBrdCount(rs.getInt("metBrdCount"));
+				mbVo.setMemName(rs.getString("memName"));
+
+				list.add(mbVo);
+
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+
+		return list;
+	}
+
+	// ����紐⑥�� ���쇰� �곌껐
+	// ����紐⑥�� 硫��� �� ���몃�댁�� 蹂닿린 : 湲�踰��몃� 李얠���⑤��. �ㅽ�⑦��硫� return null
 	public MeetingVO selectOneMeetingByNum(String metNum) {
 
 		String sql = "SELECT metNum" + "			, metName" + "			, metIntro" + "			, metGreeting"
@@ -295,63 +300,62 @@ public class MeetingDAO {
 		return mVo;
 	}
 
-	// 독서모임 수정
+	// ����紐⑥�� ����
 	public boolean updateMeeting(MeetingVO mVo) {
-	      
-	      boolean result = false;
-	      
-	      Connection conn = null;
-	      PreparedStatement pstmt = null;
-	      
-	      try {
-	         
-	         conn = DBManager.getConnection();
-	         conn.setAutoCommit( false ); // 자동 커밋을 false로 한다.
-	         
-	         StringBuffer sql = new StringBuffer();
-	         sql.append("update itbook.meeting set");
-	         sql.append(" metName=?");
-	         sql.append(" ,metIntro=?");
-	         sql.append(" ,metGreeting=?");
-	         sql.append(" ,metPlace=?");
-	         sql.append(" ,keyword=?");
-	         sql.append(" ,metImg=?");
-	         sql.append("where metNum=?");
-	         
-	         System.out.println(sql.toString());
-	         
-	         System.out.println("수정 : "+mVo);
-	         //update할때 써주기.
-	         pstmt = conn.prepareStatement(sql.toString());
-	         pstmt.setString(1, mVo.getMetName());
-	         pstmt.setString(2, mVo.getMetIntro());
-	         pstmt.setString(3, mVo.getMetGreeting());
-	         pstmt.setString(4, mVo.getMetPlace());
-	         pstmt.setString(5, mVo.getKeyword());
-	         pstmt.setString(6, mVo.getMetImg());
-	         pstmt.setString(7, mVo.getMetNum());
-	         
-	         
-	         int flag = pstmt.executeUpdate();
-	            if(flag > 0){
-	                result = true;
-	                conn.commit(); // 완료시 커밋
-	            }
-	         
-	      } catch (Exception e) {
-	         try {
-	                conn.rollback(); // 오류시 롤백
-	            } catch (SQLException sqle) {
-	                sqle.printStackTrace();
-	            }
-	            throw new RuntimeException(e.getMessage());
-	        }
-	      
-	      DBManager.close(conn, pstmt);
-	      return result;
-	   }
 
-	// 모임신청 리스트(관리자 화면)
+		boolean result = false;
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		try {
+
+			conn = DBManager.getConnection();
+			conn.setAutoCommit(false); // ���� 而ㅻ��� false濡� ����.
+
+			StringBuffer sql = new StringBuffer();
+			sql.append("update itbook.meeting set");
+			sql.append(" metName=?");
+			sql.append(" ,metIntro=?");
+			sql.append(" ,metGreeting=?");
+			sql.append(" ,metPlace=?");
+			sql.append(" ,keyword=?");
+			sql.append(" ,metImg=?");
+			sql.append("where metNum=?");
+
+			System.out.println(sql.toString());
+
+			System.out.println("���� : " + mVo);
+			// update���� �⑥＜湲�.
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setString(1, mVo.getMetName());
+			pstmt.setString(2, mVo.getMetIntro());
+			pstmt.setString(3, mVo.getMetGreeting());
+			pstmt.setString(4, mVo.getMetPlace());
+			pstmt.setString(5, mVo.getKeyword());
+			pstmt.setString(6, mVo.getMetImg());
+			pstmt.setString(7, mVo.getMetNum());
+
+			int flag = pstmt.executeUpdate();
+			if (flag > 0) {
+				result = true;
+				conn.commit(); // ��猷��� 而ㅻ�
+			}
+
+		} catch (Exception e) {
+			try {
+				conn.rollback(); // �ㅻ��� 濡ㅻ갚
+			} catch (SQLException sqle) {
+				sqle.printStackTrace();
+			}
+			throw new RuntimeException(e.getMessage());
+		}
+
+		DBManager.close(conn, pstmt);
+		return result;
+	}
+
+	// 紐⑥����泥� 由ъ�ㅽ��(愿�由ъ�� ��硫�)
 	public ArrayList<MeetingVO> meetingList(Paging paging) {
 		String sql = "SELECT*FROM ITBOOK.MEETING order by metNum desc limit ?, 10";
 
@@ -389,39 +393,37 @@ public class MeetingDAO {
 		return list;
 	}
 
-	// 총게시글 수 보기
+	// 珥�寃���湲� �� 蹂닿린
 	public Paging meetingRowCount(Paging paging, String metNum) {
 		int cnt = 0;
 		String sql = "select COUNT(*) CNT from itbook.met_board where metNum=? ";
-	      
-	          Connection conn = null;
-	         PreparedStatement pstmt = null;
-	         ResultSet rs = null;
-	         
-	         try
-	         {
-	            conn = DBManager.getConnection();
-	            pstmt = conn.prepareStatement(sql);
-	            pstmt.setString(1, metNum);
 
-	            rs = pstmt.executeQuery();
-	            
-	            while (rs.next())
-	            {
-	               cnt = rs.getInt("CNT");
-	               paging.setNumOfRow(cnt);;
-	            }
-	            
-	         }
-	         catch (Exception e)
-	         {
-	            e.printStackTrace();
-	         }finally {
-	 			DBManager.close(conn, pstmt);
-	 		}
-	         return paging;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, metNum);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				cnt = rs.getInt("CNT");
+				paging.setNumOfRow(cnt);
+				;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+		return paging;
 	}
-	// 독서모임 승인
+
+	// ����紐⑥�� �뱀��
 	public void acceptMeeting(MeetingVO mVO) {
 		String sql = "Update itbook.meeting set metDate = sysdate(), approval = 'T'  where metNum = ?";
 
@@ -442,7 +444,7 @@ public class MeetingDAO {
 		}
 	}
 
-	// 독서모임 거절 및 삭제
+	// ����紐⑥�� 嫄곗�� 諛� ����
 	public void deleteMeeting(MeetingVO mVO) {
 		String sql = "Delete From itbook.meeting Where metNum = ?";
 
@@ -456,6 +458,30 @@ public class MeetingDAO {
 			pstmt.setString(1, mVO.getMetNum());
 
 			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+	}
+	
+	//독서모임 승인 후 모임 회원 수 올리기
+	
+	public void countHeadCount(int headCount) {
+		
+		String sql = "UPDATE itbook.meeting"
+					+ "SET headCount = headCount + 1"
+					+ "WHERE metNum=?"
+					+ "AND membe";
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.executeUpdate();
+	
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

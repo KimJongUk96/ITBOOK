@@ -91,12 +91,58 @@
 	<!-- =======================
    portfolio -->
 	<div class="container">
-		<div class="row mb-4">
+	<div class="row mb-4">
 
 			<input type="hidden" name="metNum" value="${meetingVo.metNum}">
 			<input type="hidden" name="metbrd" value="${metbrd.metBrdNum}">
+			
+					<div class="container" style="margin-top:3%;">
+						<div class="bg-white border-radius-3 py-5 all-text-dark pattern-overlay-2">
+						<div class="row">
+							<!-- item1 -->
+							<div class="col-md-4 col-6">
+								<div class="counter-item text-center">
+								<i class="ti-face-smile"></i>
+								<h3>${meetingVo.represent}</h3>
+								<p class="counter-item-text">대표자</p>
+								</div>
+							</div>
+							<!-- item2 -->
+							<div class="col-md-4 col-6">
+								<div class="counter-item text-center">
+								<i class="ti-alarm-clock"></i>
+								<h3>${meetingVo.metDate}</h3>
+								<p class="counter-item-text">개설일자</p>
+								</div>
+							</div>
+							<!-- item3 -->
+							<div class="col-md-4 col-6">
+								<div class="counter-item text-center">
+								<i class="ti-user"></i>
+								<h3 class="counter-item-digit" data-from="0" data-to="${meetingVo.headCount}" data-speed="3000"
+								data-refresh-interval="10">${meetingVo.headCount}명</h3>
+								<p class="counter-item-text">회원수</p>
+								</div>
+							</div>
+							
+						</div>
+						</div>
+					</div>
+		
+		<!-- 독서모임 간략2 -->	
+		<%-- <div class="col-sm-6 col-md-3">
+			<div class="feature-box h-100 text-center">
+				<div class="feature-box-icon">
+					<img class="w-50" src="../assets/images/clients/03.png" alt>
+				</div>
+				<h3 class="feature-box-title">${meetingVo.represent}</h3>
+				<h5 class="feature-box-desc">${meetingVo.metDate}</h5>
+				<h5 class="feature-box-desc">${meetingVo.headCount}명</h5>
+			</div>
+		</div> --%>
 
-		<div class="row mt-5">
+		<!-- 독서모임 간략3 -->
+		<%-- <div class="row mt-5">
 			<div class="col-md-12">
 				<!-- <div class="sticky-element is_stuck" style="top: 100px; width:369.96px; position: fixed;"> -->
 					<ul class="list-unstyled">
@@ -126,15 +172,15 @@
 						</li>
 					</ul>
 				</div>
-			<%-- <h5>대표자 : ${meetingVo.represent}</h5>
+			<h5>대표자 : ${meetingVo.represent}</h5>
 			<h5>개설일자 : ${meetingVo.metName}</h5>
-			<h5>모임인원수 : ${meetingVo.headCount}명</h5> --%>
+			<h5>모임인원수 : ${meetingVo.headCount}명</h5>
 				<table>
-					<%-- <tr>
+					<tr>
 						<td>대표자 : ${meetingVo.represent}</td>
 						<td>개설일자 :  ${meetingVo.metDate}</td>
 						<td>모임인원수 : ${meetingVo.headCount}명</td>
-					</tr> --%>
+					</tr>
 
 					<tr>
 						<td>
@@ -144,7 +190,7 @@
 						</td>
 						<td>
 							<a class="btn btn-grad mt-4" href="/meeting?command=metUpdate">
-								<%-- ${meeting.metName} --%>독서모임 수정
+								${meeting.metName}독서모임 수정
 							<i class="fa fa-external-link ml-2 mr-0"></i></a>
 						</td>
 					</tr>
@@ -152,33 +198,8 @@
 				<div class="divider mt-4"></div>
 
 				<!-- portfolio details End -->
-				</div>
-		</div>
-		
-		<%-- <!-- sidebar start -->
-		<div class="container">
-		<div class="row">
-		<aside class="col-md-3 sidebar order-last">
-			<!-- Update button -->
-			<div class="widget">
-				<h5 class="widget-title">독서모임 도구모음</h5>
-				<ul class="list-unstyled">
-					<li class="media mt-2">
-					<a class="btn btn-grad mt-4" href="/meeting?command=metUpdate">
-								${meeting.metName}독서모임 수정
-							<i class="fa fa-external-link ml-2 mr-0"></i></a>
-					</li>
-				</ul>
-			</div>
-			<div class="widget">
-				<h5 class="widget-title">Keywords</h5>
-				<div class="tags">
-					<a class="mb-2 mb-sm-0">${meetingVo.keyword}</a>
-				</div>
-			</div>
-		
-		</aside>
 		</div> --%>
+	</div>
 
 			<div class="table-responsive-sm">
 				<table class="table table-hover">
@@ -269,10 +290,10 @@
 				</blockquote>
 			</div>
 		<!-- 독서모임 소개 -->
-		<div class="col-md-6">
-			<h4 class="mb-4">우리 독서모임은</h4>
-			<h5 class="mb-2 text-light-gray">${meetingVo.metIntro}</h5>
-		</div>
+			<div class="col-md-6">
+				<h4 class="mb-4">우리 독서모임은</h4>
+				<h5 class="mb-2 text-light-gray">${meetingVo.metIntro}</h5>
+			</div>
 		</div>
 	</div>
 
