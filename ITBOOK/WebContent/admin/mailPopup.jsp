@@ -37,6 +37,7 @@
 					</div>
 					<div>
 					<button type="button" name="ajax" id="send" onclick="sendMessage()" class="btn btn-black" >발송</button>
+					<button type="button" onclick="goBack()" class="btn btn-black" >취소</button>
 					</div>
 		</div>
 		
@@ -63,10 +64,12 @@
 			success : function(data){
 				alert("메일 전송을 성공했습니다.");
 				 self.close();
-				opener.parent.location.reload();
-				
 			}
 		});
+	}
+	
+	function goBack() {
+	    self.close();
 	}
 	</script>
 

@@ -7,7 +7,7 @@
 <head>
 <script type="text/javascript" src="js/member.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Wizixo | Creative Multipurpose Bootstrap Template</title>
+<title>희망의 책 대전본부</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -294,7 +294,8 @@
 				document.frm.getElementById('authority').select();
 				return false;
 			}
-
+		return ture;
+		alert("회원가입이 완료되었습니다.");
 		}
 	</script>
 </body>

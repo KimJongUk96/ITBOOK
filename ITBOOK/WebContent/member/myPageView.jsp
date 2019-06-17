@@ -73,7 +73,6 @@
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="index.html"><i
 									class="ti-home"></i> Home</a></li>
-							<li class="breadcrumb-item">Table</li>
 						</ol>
 					</nav>
 				</div>
@@ -170,7 +169,7 @@
 								</h3>
 								
 
-								<input type = "text" name = "adr" value = "${LoginUser.adr}">
+								<input type = "text" class="form-control" name = "adr" value = "${LoginUser.adr}">
 							</div>
 							
 						</div>
@@ -186,7 +185,7 @@
 								</h3>
 								
 
-								<input type = "text" name = "phone" value = "${LoginUser.phone}">
+								<input type = "text" class="form-control" name = "phone" value = "${LoginUser.phone}">
 							</div>
 							
 						</div>
@@ -202,7 +201,7 @@
 								</h3>
 								
 
-								<input type = "text" name = "email" value = "${LoginUser.email}">
+								<input type = "text" class="form-control" name = "email" value = "${LoginUser.email}">
 							</div>
 							
 						</div>
@@ -213,7 +212,7 @@
     <div class="inner">
     <div class="centered">
 			<button type = "submit" class = "btn btn-grad border-radius-left-0 mb-0" onclick = "alert('다시 로그인 해주세요.')">수정하기</button>
-			<button type = "button" class = "btn btn-grad border-radius-left-0 mb-0" >취소</button>
+			<button type = "button" class = "btn btn-grad border-radius-left-0 mb-0" onclick = "goBack()">취소</button>
 			</div>
 			</div>
 			</div>
@@ -224,5 +223,10 @@
 
 
 	<%@ include file="../include/footer.jsp"%>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
 </body>
 </html>
