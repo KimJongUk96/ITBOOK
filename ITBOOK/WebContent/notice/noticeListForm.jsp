@@ -64,24 +64,14 @@
 			<div class="row">
 
 				<div class="col-sm-12  p-0">
-				<!-- <div class="nav justify-content-center">
-						<ul class="nav-tabs nav-tabs-style-2 text-center px-2 p-md-0 m-0 mb-4">
-							<li class="nav-filter active" data-filter="*">All Works</li>
-							<li class="nav-filter" data-filter=".공지">
-								<a href="/notice?command=noticeListFormAction&category=1">공지</a></li>
-							<li class="nav-filter" data-filter=".일반">일반</li>
-							<li class="nav-filter" data-filter=".행사 및 세미나">행사 및 세미나</li>
-							<li class="nav-filter" data-filter=".자료">자료</li>
-						</ul>
-					</div> -->
 					
 					<!-- 검색 폼 스타트 -->
 					<div id="searchForm">
 						<form name="frm" action="/notice?command=noticeListFormAction" method="post" onsubmit="return validateGalBoard()">
 							<select name="opt">
 								<option value="0">제목</option>
-							</select> <input type="text" size="20" name="condition" />&nbsp; <input
-								type="submit" value="검색" />
+							</select> <input type="text" size="20" name="condition" />&nbsp; 
+							<input type="submit" value="검색" />
 						</form>
 					</div>
 					<!-- 검색 폼 마지막 -->
@@ -113,7 +103,6 @@
 							</tbody>
 
 						</table>
-						<%-- <c:if test = ${LoginUser.authority eq '1'  or LoginUser.authority eq '2' or LoginUser.authority eq '3'}> --%>
 						<c:if test = "${LoginUser.authority eq 3}">
 						<div align="right">
 							<a class="btn btn-primary" href="/notice?command=noticeInsertFormAction">글쓰기</a>

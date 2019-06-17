@@ -66,7 +66,7 @@
 						<div class="col-12 col-md-10 col-lg-5 text-left mx-auto d-flex align-items-center">
 							<div class="w-100">
 								<h2 class="">희망의 책 대전본부</h2>
-								<h5 class="font-weight-light">Nice to see you! Please log in with your account.</h5>
+								<h5 class="font-weight-light">서비스를 이용하려면 로그인을 해주세요.</h5>
 								<form name = "frm" method = "post" action = "member?command=login" onsubmit = "return validate();">
 								<div class="form mt-4 ">
 									<div>
@@ -76,13 +76,14 @@
 									<div>
 										<div class="d-flex justify-content-between align-items-center">
 											<p class="text-left mb-2">비밀번호</p>
-											<a class="text-muted small mb-2" href="password-recovery.html">비밀번호 찾기</a>
+											<a class="text-muted small mb-2" href="password-recovery.html">비밀번호를 잃어버리셨나요? 비밀번호 찾기</a>
 										</div>
 										<span class="form-group"><input type="password" class="form-control" name = "memPw" id ="memPw" ></span>
 									</div>
 									<div class="row align-items-center no-gutters m-0">
-										<div class="col-6 col-md-8"><span class="text-muted">Don't have an account? <a href="signup.jsp">회원가입</a></span></div>
-										<div class="col-6 col-md-4 text-right"><button class="btn btn-dark">로그인</button></div>
+										<div class="col-6 col-md-8"><span class="text-muted">아이디가 없으신가요? <a href="signup.jsp">회원가입</a></span></div>
+										<div class="col-6 col-md-4 text-right"><button type="submit"class="btn btn-dark">로그인</button>&nbsp&nbsp<button type="button" class="btn btn-dark" onclick="goBack()">취소</button></div>
+										
 									</div>
 								</div>
 								</form>
@@ -125,6 +126,9 @@
 			return false;
 		}
     } 
+	     function goBack() {
+	    	    window.history.back();
+	    	}
 </script>
 
 </body>

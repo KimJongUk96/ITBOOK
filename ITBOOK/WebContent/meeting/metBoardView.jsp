@@ -115,7 +115,6 @@ function cmUpdateOpen(metComtNum){
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="/index.jsp"><i class="ti-home"></i>Home</a></li>
-							<li class="breadcrumb-item">독서모임</li>
 						</ol>
 					</nav>
 				</div>	
@@ -131,7 +130,7 @@ function cmUpdateOpen(metComtNum){
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 mb-5">
-					<h5 class="text-center mb-4">독서모임 게시판 상세보기</h5>
+					<h5 class="text-center mb-4">게시글 상세보기</h5>
 					<form name="frm" method="post"
 						action="/meeting?command=metBoardUpdateFormAction&metNum=${meetingVo.metNum }">
 						<input type="hidden" name="metBrdNum" value="${metbrd.metBrdNum}">
@@ -159,17 +158,13 @@ function cmUpdateOpen(metComtNum){
 									<th></th>
 									<td></td>
 								</tr>
-								<%-- <tr>
-
-									<th scope="col">내용</th>
-									<td><textarea name="metPostContent" class="form-control"
-											rows="10" style="width: 100%;" disabled="disabled">${metbrd.metBrdContent}</textarea></td>
-									<th></th>
-									<td></td>
-								</tr> --%>
 
 							</table>
-								<div class="col-md-12"><span class="form-group"><textarea cols="40" rows="10"  name="metbrdContent" class="form-control" >${metbrd.metBrdContent}</textarea></span></div>
+								<div class="col-md-12">
+									<span class="form-group">
+										<textarea cols="40" rows="10"  name="metbrdContent" class="form-control" readonly="readonly" >${metbrd.metBrdContent}</textarea>
+									</span>
+								</div>
 								
 							<div align="right">
 								<input type="submit" value="수정" class="btn btn-primary">
@@ -184,17 +179,15 @@ function cmUpdateOpen(metComtNum){
 					<!-- comments area -->
 					<div class="row mt-5 comments-area">
 						<div class="col-sm-12">
-							<h4>There are 2 comments</h4>
 							<div class="comment-list">
 								<!-- Comment-->
 								<c:forEach var="comment" items="${requestScope.commentList}">
 									<div class="comment">
-										<form name="frm" method="post"	action="/meeting?command=commentDeleteAction">
-											<input type="hidden" name="metPostNum" value="${metbrd.metBrdNum }">
+										<form name="frm" method="post"	action="/meeting?command=commentDeleteAction&metBrdNum=${metbrd.metBrdNum }&metNum=${meetingVo.metNum}">
+											<input type="hidden" name="metBrdNum" value="${metbrd.metBrdNum }">
 											<input type="hidden" name="metComtNum" value="${comment.metComtNum}">
 										<div class="comment-author">
-											<img class="avatar"
-												src="assets/images/thumbnails/avatar-01.jpg" alt="">
+											<img class="avatar"	src="assets/images/thumbnails/avatar-01.jpg" alt="">
 										</div>
 										
 										<div class="comment-body">
@@ -208,59 +201,40 @@ function cmUpdateOpen(metComtNum){
 												<p>${comment.metComtContent }</p>
 											</div>
 											<div class="comment-reply">
-												<a class="btn btn-xs btn-light" href="#">댓글</a>
-												<a href="#" class="btn btn-xs btn-light"
-												onclick="cmUpdateOpen(${comment.metComtNum})">수정</a>
+												<a href="#" class="btn btn-xs btn-light" onclick="cmUpdateOpen(${comment.metComtNum})">수정</a>
 												<input type="submit" value="삭제" class="btn btn-xs btn-light">
 												 
 											</div>
 										</div>
 									</form>
 										
-										<!-- sub comment-->
-										<!-- <div class="comment-child">
-											<div class="comment">
-												<div class="comment-author">
-													<img class="avatar"
-														src="assets/images/thumbnails/avatar-03.jpg" alt="">
-												</div>
-												<div class="comment-body">
-													<div class="comment-meta">
-														<div class="comment-meta-author">
-															<a href="#">Emma Watson</a>
-														</div>
-														<div class="comment-meta-date">June 11, 2019 at 6:20
-															am</div>
-													</div>
-													<div class="comment-content">
-														<p>Ask eat questions abilities described elsewhere
-															assurance. Appetite in unlocked advanced breeding
-															position concerns as. Cheerful get shutters yet for
-															repeated screened. An no am cause hopes at three. Prevent
-															behaved fertile he is mistake on.</p>
-													</div>
-													<div class="comment-reply">
-														<a class="btn btn-xs btn-light" href="#">댓글</a>
-													</div>
-												</div>
-											</div>
-										</div> -->
-										<!-- sub comment end-->
 									</div>
 									</c:forEach>
 									
 									<!-- 댓글 등록 -->
-									<form name="frm" method="post" action="meeting?command=commentWriteAction" onsubmit="return validateBoard()">
-									<input type="hidden" name="metPostNum" value="${metPost.metPostNum}"> 
+									<form name="frm" method="post" action="meeting?command=commentWriteAction&metBrdNum=${metbrd.metBrdNum }&metNum=${meetingVo.metNum}" onsubmit="return validateBoard()">
+									<input type="hidden" name="metBrdNum" value="${metbrd.metBrdNum}"> 
 									<input type="hidden" name="memNum" value="${LoginUser.memNum}">
 							<div class="row mt-5">
 								<div class="col-md-12">
-									<h2 class="mb-2">Leave a Reply</h2>
+									<h2 class="mb-2">댓글</h2><br>
 								</div>
-								<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" value="${LoginUser.memName}"></span></div>
-								<div class="col-md-12"><span class="form-group"><textarea name="metComtContent" cols="40" rows="6" class="form-control" placeholder="Message"></textarea></span></div>
-								<div class="col-md-12 text-center"><input type="submit" class="btn-block btn btn-dark" value="Post Comment"></div>
+									
 							</div>
+							<!-- border-dotted -->
+										<section class="py-4">
+											<div class="container">
+												<div class="d-block d-md-flex border border-dotted p-4 p-sm-5 border-radius-3">
+													<div class="col-md-2"><input type="text" class="form-control" value="${LoginUser.memName}"></div>
+														<div class="align-self-center text-center text-md-left">
+															<textarea name="metComtContent" cols="100" rows="2" class="form-control" placeholder="Message"></textarea>
+														</div>
+													<div class="mt-3 mt-md-0 text-center text-md-right ml-md-auto align-self-center">
+														<input type="submit" class="btn btn-primary btn-lg" value="등록">
+													</div>
+												</div>
+											</div>
+										</section>
 							</form>
 							</div>
 							

@@ -260,7 +260,7 @@ public class MeetingDAO {
 	public MeetingVO selectOneMeetingByNum(String metNum) {
 
 		String sql = "SELECT metNum" + "			, metName" + "			, metIntro" + "			, metGreeting"
-				+ "			, represent" + "			, metPlace" + "			, keyword" + "			, metDate"
+				+ "			, represent" + "			, metPlace" + "			, keyword" + "			, metDate"+ "			, metImg"
 				+ "			, headCount" + " FROM itbook.meeting" + " WHERE metNum = ?";
 
 		MeetingVO mVo = null;
@@ -288,6 +288,7 @@ public class MeetingDAO {
 				mVo.setMetPlace(rs.getString("metPlace"));
 				mVo.setKeyword(rs.getString("keyword"));
 				mVo.setMetDate(rs.getDate("metDate"));
+				mVo.setMetImg(rs.getString("metImg"));
 				mVo.setHeadCount(rs.getInt("headCount"));
 
 			}

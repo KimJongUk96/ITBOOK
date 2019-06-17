@@ -44,7 +44,6 @@
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="/index.jsp"><i class="ti-home"></i>Home</a></li>
-							<li class="breadcrumb-item">독서모임</li>
 						</ol>
 					</nav>
 				</div>	
@@ -64,7 +63,7 @@
 		<!-- Comment-respond -->
 							<div class="row mt-5">
 								<div class="col-md-12">
-									<h2 class="mb-2">글쓰기</h2>
+									<h2 class="mb-2">게시판 글쓰기</h2><br>
 								</div>
 								<div class="col-md-2">
 								<select class="custom-select select-big mb-3" name="metBrdCategory">
@@ -103,9 +102,9 @@
 								
 							</div>
 							
-								<div class="col-md-2" align="right">
-								<input type="submit" value="등록" class="btn-block btn btn-dark" onclick="return noticeCheck()"/> 
-								<input type="button" value="돌아가기 " class="btn-block btn btn-dark" onclick="location.href='/meeting?command=metPostListFormAction'"/></div>
+								<div align="right">
+								<input type="submit" value="등록" class="btn btn-primary" onclick="return noticeCheck()"/> 
+								<input type="button" value="취소 " class="btn btn-primary" onclick="location.href='/meeting?command=metBoardListFormAction&metNum=${meetingVo.metNum}'"/></div>
 			   </form>
 		</div>
 		

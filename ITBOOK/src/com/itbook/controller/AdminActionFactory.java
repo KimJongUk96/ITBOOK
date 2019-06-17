@@ -3,6 +3,7 @@ import com.itbook.controller.action.Action;
 import com.itbook.controller.action.MainAction;
 import com.itbook.controller.action.admin.AdminBookDeleteAction;
 import com.itbook.controller.action.admin.AdminBookListFormAction;
+import com.itbook.controller.action.admin.AdminFeePaymentListAction;
 import com.itbook.controller.action.admin.AdminMeetingAcceptListAction;
 import com.itbook.controller.action.admin.AdminMeetingDeleteAction;
 import com.itbook.controller.action.admin.AdminMeetingListAction;
@@ -82,6 +83,9 @@ public class AdminActionFactory {
 			//모임 삭제
 		}else if(command.equals("meetingDelete")) {
 			action = new AdminMeetingDeleteAction();
+			//후원 관리
+		}else if(command.equals("feePaymentList")) {
+			action = new AdminFeePaymentListAction();
 		}
 			return action;
 	}

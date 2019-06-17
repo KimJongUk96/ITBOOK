@@ -54,12 +54,12 @@ public class MetUpdateAction implements Action {
 					new DefaultFileRenamePolicy());
 
 			// 파라미터 값을 가져온다.
-			String metNum = request.getParameter("metNum");
-			String metName = request.getParameter("metName");
-			String metGreeting = request.getParameter("metGreeting");
-			String metIntro = request.getParameter("metIntro");
-			String metPlace = request.getParameter("metPlace");
-			String keyword = request.getParameter("keyword");
+			String metNum = multi.getParameter("metNum");
+			String metName = multi.getParameter("metName");
+			String metGreeting = multi.getParameter("metGreeting");
+			String metIntro = multi.getParameter("metIntro");
+			String metPlace = multi.getParameter("metPlace");
+			String keyword = multi.getParameter("keyword");
 			String existFile = multi.getParameter("metImg"); // 기존첨부파일
 
 			// 파라미터 값을 자바빈에 세팅한다.
