@@ -58,8 +58,9 @@
 			<div class="row">
 				<!-- Job positions -->
 				<div class="col-md-8">
+	<form name = "checkform">
 					<h2 class="mb-4">만 14세 이상 후원 신청 동의</h2>
-					<p>신청인이 만 14세 이상인 경우만 신청할 수 있습니다. 만 14세 이상입니까?  &nbsp;&nbsp;&nbsp;<input type="checkbox" id=""></p>
+					<p>신청인이 만 14세 이상인 경우만 신청할 수 있습니다. 만 14세 이상입니까?  &nbsp;&nbsp;&nbsp;<input type="checkbox" name="checkbox" value ="checkbox1"></p>
 					
 					<h2 class="mb-4">개인정보처리방침</h2>
 					<div class="col-md-12">
@@ -74,21 +75,21 @@
 					
 					
 					</textarea></div>
-					<p><span style="float:right;margin-right:20px;font-weight:normal;">개인정보 수집 및 이용 동의 &nbsp;&nbsp;&nbsp;<input type="checkbox"><br>
-					개인정보 제3자 제공 동의 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id=""></span></p>
+					<p><span style="float:right;margin-right:20px;font-weight:normal;">개인정보 수집 및 이용 동의 &nbsp;&nbsp;&nbsp;<input type="checkbox" name="checkbox" value="checkbox2"><br>
+					개인정보 제3자 제공 동의 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="checkbox" value="checkbox3"></span></p>
 					
 					<br><br><br>
 
-
+</form>
 					<!-- Apply form -->
 					<form name="frm" method="post" action="feePayment">
 					<input type="hidden" name = "command" value="feePaymentRegister">
 					<div class="row mt-5">
 						<div class="col-md-12">
 							<h2 class="mb-3">후원 신청자 정보</h2></div>
-						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="Name" name="payName" ></span></div>
-						<div class="col-md-6"><span class="form-group"><input type="email" class="form-control" placeholder="E-mail" name = "payEmail"></span></div>
-						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="Mobile number" name = "payMobileNumber"></span></div>
+						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="* 후원자 이름" name="payName" ></span></div>
+						<div class="col-md-6"><span class="form-group"><input type="email" class="form-control" placeholder="* E-mail" name = "payEmail"></span></div>
+						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="* Mobile number" name = "payMobileNumber"></span></div>
 						<div class="col-md-3">
 						<input type="text" id="sample4_postcode" name = "adr1" placeholder="우편번호" class="form-control" style ="width:150px" readonly="readonly">
 						</div>			
@@ -109,15 +110,31 @@
 					<div class="row mt-5">
 						<div class="col-md-12">
 							<h2 class="mb-3">후원 계좌 및 금액 정보</h2></div>
-						<!-- <div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="은행" name="payBank"></span></div> -->
-						<div class="col-md-6"><span class="form-group">
-						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="예금주" name="bankName"></span></div>
-						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="계좌번호" name="payBankNum"></span></div>
-						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="금액" name="payFee"></span></div>
-						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="후원방식" name="paySponsor"></span></div>
+						<div class="col-md-6"><span class="form-group"><select class = "custom-select select-big mb-3" name="payBank">
+						<option value='' selected>--은행선택 --</option>
+						<option value='농협'>농협</option>
+						<option value='기업'>기업</option>
+						<option value='신한'>신한</option>
+						<option value='우리'>우리</option>
+						<option value='외환'>외환</option>
+						<option value='하나'>하나</option>
+						<option value='우리'>우리</option>
+						<option value='국민'>국민</option>
+						<option value='신협'>신협</option>
 						
+						
+						</select></span></div>
+						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="* 예금주" name="bankName"></span></div>
+						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="* 계좌번호" name="payBankNum"></span></div>
+						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="* 금액(원)" name="payFee"></span></div>
+						<div class="col-md-6"><span class="form-group"><select class = "custom-select select-big mb-3" name="paySponsor">
+						<option value='' selected>-- 후원방식 --</option>
+						<option value='일시후원'>일시후원</option>
+						<option value='정기후원'>정기후원</option>
+						
+						</select></span></div>
 						<div class="col-md-12 text-center">
-						<input type="submit" class="btn-block btn btn-dark" value="Apply now"></div>
+						<input type="submit" class="btn-block btn btn-dark" value="Apply now" onclick="return donationCheck()"></div>
 					</div>
 						</form>
 
@@ -146,6 +163,7 @@
 	<!-- =======================
 	careers -->
 	<%@ include file="../include/footer.jsp"%>
+	<script type="text/javascript" src ="/js/donation.js"></script>
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<script type="text/javascript">
 function sample4_execDaumPostcode() {
@@ -198,6 +216,16 @@ function sample4_execDaumPostcode() {
 						}
 					}).open();
 		}
+		
+$(document).ready(function(){
+	$('form').submit(function(){
+ 	  var result = alert("등록되었습니다.");
+   
+	   return result;
+	})
+	})
+	
+
 </script>
 </body>
 </html>
