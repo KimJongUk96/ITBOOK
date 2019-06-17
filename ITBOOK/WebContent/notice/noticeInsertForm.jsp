@@ -64,9 +64,9 @@
 	공지사항 글쓰기 폼 시작 -->
 	<section>
 		<div class="container">
-		 <form name="frm" action="/notice?command=noticeInsertAction" method="post" onsubmit="return validateGalBoard()" enctype="multipart/form-data">
-		<input type="hidden" name="memNum" value="${list.memNum}">
-		<!-- Comment-respond -->
+			<form name="frm" action="/notice?command=noticeInsertAction" method="post" onsubmit="return validateGalBoard()" enctype="multipart/form-data">
+				<input type="hidden" name="memNum" value="${list.memNum}">
+		
 							<div class="row mt-5">
 								<div class="col-md-12">
 									<h2 class="mb-2">글쓰기</h2>
@@ -91,61 +91,17 @@
 								<div class="col-md-12" style="min-height:480px;"><span class="form-group"><textarea cols="40" rows="20"  name="noticeContent"
 								class="form-control" placeholder="Message"></textarea></span></div>
 								
-								
-								<div class="col-md-2 text-center">
-								<input type="submit" value="등록" class="btn-block btn btn-dark" onclick="return noticeCheck()"/> </div>
-								<div class="col-md-2 text-center">
-								<input type="button" value="돌아가기 " class="btn-block btn btn-dark" onclick="location.href='/notice?command=noticeListFormAction'"/></div>
-								
 							</div>
-		<%-- <table class="table table-bordered">
-   	 	<tbody>
-   	 		<tr>
-   	 			<th>
-	   	 			<select name="noticeCategory">
-						<option value="공지">공지</option>
-						<option value="일반">일반</option>
-						<option value="행사 및 세미나">행사 및 세미나</option>
-						<option value="자료">자료</option>
-					</select>
-				</th>
-								
-			</tr>
-   	    
-            <tr>
-                <th>제목: </th>
-                <td><input type="text" placeholder="제목을 입력하세요. " name="noticeTitle" class="form-control"/></td>
-            </tr>
-            
-             <tr>
-                <th>작성자: </th>
-                <td><input type="text" placeholder="관리자" value = "${LoginUser.memName}" class="form-control"/></td>
-            </tr>
-            <tr>
-                <th>내용: </th>
-                <td><textarea placeholder="내용을 입력하세요. " name="noticeContent" class="form-control"></textarea></td>
-            </tr>
-            <tr>
-                <th>첨부파일: </th>
-                <td><input type="file" name="noticeFile"/></td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <input type="submit" value="등록" class="pull-right" onclick="return noticeCheck()" >
-                    <input type="reset" value="취소" onclick="location.href='/notice?command=noticeListFormAction'" class="pull-left"/>
-                    <input type="button" value="돌아가기 " class="pull-right" onclick="location.href='/notice?command=noticeListFormAction'"/>
-                    
-                </td>
-            </tr>
-     
-    	</tbody>
-			</table> --%>
+								<div align="right">
+									<input type="submit" value="등록" class="btn btn-primary" onclick="return noticeCheck()"/>
+									<input type="button" value="취소 " class="btn btn-primary" onclick="location.href='/notice?command=noticeListFormAction'"/>
+								</div>
 			   </form>
 		</div>
-		
 	</section>
 	<!-- =======================
 	공지사항 글쓰기 폼 끝 -->
+	
 	<%@ include file="../include/footer.jsp"%>
 	</body>
 </html>

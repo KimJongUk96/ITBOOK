@@ -232,6 +232,7 @@ public class MetBoardDAO {
 	            /* mVo.setMetBrdFile(rs.getString("metBrdFile")); */
 	               mVo.setMetBrdCategory(rs.getString("metBrdCategory"));
 	               mVo.setMemName(rs.getString("memName"));
+	               mVo.setMemNum(rs.getString("memNum"));
 	               
 	            }
 	            

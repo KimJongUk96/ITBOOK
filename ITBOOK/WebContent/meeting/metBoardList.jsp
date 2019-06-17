@@ -48,7 +48,6 @@
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="/index.jsp"><i class="ti-home"></i>Home</a></li>
-							<li class="breadcrumb-item">독서모임</li>
 						</ol>
 					</nav>
 				</div>	
@@ -62,7 +61,7 @@
       <div class="container">
          <div class="row">
             <div class="col-sm-12 mb-5">
-               <h5 class="text-center mb-4">${meetingVo.metName} 게시판</h5> 
+               <h5 class="text-center mb-4">${meetingVo.metName}&nbsp; 게시판</h5> 
                <div class="table-responsive-sm">
                   <table class="table table-hover">
                   
@@ -98,7 +97,7 @@
                   </table>
              	 <div align="right">
              	 
-                  <a class="btn btn-grad" href="meeting?command=metBoardWriteFormAction&metNum=${meetingVo.metNum }">등록</a>
+                  <a class="btn btn-primary"  href="meeting?command=metBoardWriteFormAction&metNum=${meetingVo.metNum }">글쓰기</a>
 
                   </div>
                </div>
