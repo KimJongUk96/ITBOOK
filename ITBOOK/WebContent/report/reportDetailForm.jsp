@@ -78,7 +78,7 @@
 								</tr>
 								<tr>
 									<th scope="col">작성자</th>
-									<td>${LoginUser.memName}</td>
+									<td>${reportList.memName}</td>
 									<th>조회수</th>
 									<td>${reportList.reportCount}</td>
 
