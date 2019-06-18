@@ -44,31 +44,37 @@
 			<div class="box">
 			
 				<div class="box-header with-border">
-					<h3 class="box-title">이달의 책 관리</h3>
+					<h3 class="box-title">회원정보 관리</h3>
 				</div>
-				<form name = "frm" id ="frm" method = "post" action = "/admin?command=todayBookDelete">
+				<form name = "frm" id ="frm" method = "post" action = "admin?command=memberDelete">
 				<div class="box-body">
 
 <div>
 
  <table class="table table-bordered" id="user-table">
 	<thead>
-	<tr><th colspan="4" style = "text-align: center;">이달의책 목록</th></tr>
+	<tr><th colspan="6" style = "text-align: center;">회원정보</th></tr>
 	<tr>
 	    <th style="width: 10px; text-align:center;"><input type = "checkbox" name = "AllCheck" ></th>
-		<th style="width: 100px; text-align: center;">제목</th>
-		<th style="width: 100px;text-align: center;">저자</th>
-		<th style="width: 100px;text-align: center;">출판사</th>
+		<th style="width: 100px; text-align: center;">아이디</th>
+		<th style="width: 100px;text-align: center;">이름</th>
+		<th style="width: 100px;text-align: center;">이메일</th>
+		<th style="width: 100px;text-align: center;">가입일</th>
+		<th style="width: 50px;text-align: center;">회원등급</th>
 	</tr>
 	</thead>
 
-<c:forEach items="${bookBrdList}" var="bookBrdList">
+<c:forEach items="${memberList}" var="MemberVO">
 	<tbody >
 	<tr style ="text-align:center;">
-		<td><input type ="checkbox" value="${bookBrdList.bookBrdNum}" name="bookBrdNum" ></td>
-		<td><a href="book?command=adminTodayBookUpdateFormAction&bookBrdNum=${bookBrdList.bookBrdNum}" target="_blank">${bookBrdList.bookBrdTitle}</a></td>
-		<td>${bookBrdList.writer}</td>
-		<td>${bookBrdList.publisher}</td>	
+		<td><input type ="checkbox" value="${MemberVO.memNum}" name="memNum" ></td>
+		<td>${MemberVO.memId}</td>
+		<td>${MemberVO.memName}</td>
+		<td>${MemberVO.email}</td>	
+		<td>${MemberVO.signDate}</td>
+ 		<c:if test = "${MemberVO.authority eq '1'}"><td>일반회원</td></c:if>	
+		<c:if test = "${MemberVO.authority eq '2'}"><td>기부회원</td></c:if>
+		<c:if test = "${MemberVO.authority eq '3'}"><td>관리자</td></c:if> 
 		
 	</tr>
 	</tbody>
@@ -85,7 +91,7 @@
     <div class="centered">
 						<ul class="pagination justify-content-center">
 						<c:if test="${paging.pageNum > 1}">
-							<li class="page-item"><a class ="page-link" href="admin?command=todayBookList&pageNum=${paging.pageNum - 1}">Prev</a></li>
+							<li class="page-item"><a class ="page-link" href="admin?command=memberListForm&pageNum=${paging.pageNum - 1}">Prev</a></li>
 						
 							
 						</c:if>	
@@ -99,14 +105,14 @@
                        
                                           <c:otherwise>
                                              <li class="page-item"><a class ="page-link"
-                                                href="admin?command=todayBookList&pageNum=${idx}">${idx}</a></li>
+                                                href="admin?command=memberListForm&pageNum=${idx}">${idx}</a></li>
                                           </c:otherwise>
                                           
                                        </c:choose>
                                     </c:forEach>
 						
 							<c:if test="${paging.numOfPage != paging.pageNum}">
-                                    <li class="page-item"><a class = "page-link" href="admin?command=todayBookList&pageNum=${paging.pageNum + 1}">Next</a></li>   
+                                    <li class="page-item"><a class = "page-link" href="admin?command=memberListForm&pageNum=${paging.pageNum + 1}">Next</a></li>   
                                     </c:if>
 							
 
@@ -139,9 +145,9 @@
 	var chk = $(this).is(":checked");
 	
 	if(chk){
-		$("input[name='bookBrdNum']").prop("checked", true);
+		$("input[name='memNum']").prop("checked", true);
 	} else{
-		$("input[name='bookBrdNum']").prop("checked", false);
+		$("input[name='memNum']").prop("checked", false);
 	}
 }); 
 
@@ -150,14 +156,16 @@
 		if(!confirm('정말로 삭제하시겠습니까?')) return;
 		$('#frm')[0].submit();
 	});   
-    
+     
+ 
     </script>
-        <script type="text/javascript">
-        $(document).ready(function(){
-     	   if($('.book').trigger('click'))
-     		$('.tree ').addClass("active");
-     	    $('#m5').attr('style','gray;')
-     	    $('#m7').attr('style','gray;')
-     	}); 
+    
+    <script type="text/javascript">
+   $(document).ready(function(){
+	   if($('.member').trigger('click'))
+		$('.treevie ').addClass("active");
+	    $('#m1').attr('style','gray;')
+	}); 
 </script>
+
 <%@include file="../include/adminfooter.jsp"%>

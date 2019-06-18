@@ -651,5 +651,27 @@ public class BookDAO {
 		}
 		return list;
 	}
+	
+	//관리자 책 리스트 삭제
+	public void todayBookDelete(BookBoardVO bVO) {
+		String sql = "delete from itbook.book_board where bookBrdNum=?";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = DBManager.getConnection();
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, bVO.getBookBrdNum());
+			
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+
+	}
 
 }

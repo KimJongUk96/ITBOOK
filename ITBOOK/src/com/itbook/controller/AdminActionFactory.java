@@ -7,6 +7,7 @@ import com.itbook.controller.action.admin.AdminFeePaymentListAction;
 import com.itbook.controller.action.admin.AdminMeetingAcceptListAction;
 import com.itbook.controller.action.admin.AdminMeetingDeleteAction;
 import com.itbook.controller.action.admin.AdminMeetingListAction;
+import com.itbook.controller.action.admin.AdminMeetingRefuseAction;
 import com.itbook.controller.action.admin.AdminMeetingUpdateAction;
 import com.itbook.controller.action.admin.AdminMemberDeleteAction;
 import com.itbook.controller.action.admin.AdminMemberEmailListFormAction;
@@ -15,10 +16,12 @@ import com.itbook.controller.action.admin.AdminNoticeDeleteAction;
 import com.itbook.controller.action.admin.AdminNoticeListFormAction;
 import com.itbook.controller.action.admin.AdminReportDeleteAction;
 import com.itbook.controller.action.admin.AdminReportListForm;
+import com.itbook.controller.action.admin.AdminTodayBookDeleteAction;
 import com.itbook.controller.action.admin.AdminTodayBookListFormAction;
 import com.itbook.controller.action.admin.MailPopupForm;
 import com.itbook.controller.action.book.AdminTodayBookListAction;
 import com.itbook.controller.action.book.AdminTodayBookRegisterFormAction;
+import com.itbook.controller.action.library.AdminLibraryList;
 
 public class AdminActionFactory {
 	private static AdminActionFactory instance = new AdminActionFactory();
@@ -71,6 +74,9 @@ public class AdminActionFactory {
 			//이달의 책 관리자 화면으로 이동
 		}else if(command.equals("todayBookList")) {
 			action = new AdminTodayBookListFormAction();
+			//이달의 책 삭제
+		}else if(command.equals("todayBookDelete")) {
+			action = new AdminTodayBookDeleteAction();
 			//모임 승인거절 화면으로 이동
 		}else if(command.equals("meetingAcceptListForm")) {
 			action = new AdminMeetingAcceptListAction();
@@ -86,6 +92,9 @@ public class AdminActionFactory {
 			//후원 관리
 		}else if(command.equals("feePaymentList")) {
 			action = new AdminFeePaymentListAction();
+			//모임거절
+		}else if(command.equals("meetingRefuseAction")) {
+			action = new AdminMeetingRefuseAction();
 		}
 			return action;
 	}
