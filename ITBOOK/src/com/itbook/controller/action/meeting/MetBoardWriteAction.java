@@ -15,6 +15,13 @@ import com.itbook.vo.Meeting.MetPostVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+/**
+ * 독서모임게시판 게시글 등록 액션 클래스 
+ * 
+ * @author 김정민
+ *
+ */
+
 public class MetBoardWriteAction implements Action{
 	
 	@Override

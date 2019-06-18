@@ -11,6 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
 
+/**
+ * 첨부파일 다운로드하는 액션 클래스 
+ * 
+ * @author 김정민
+ *
+ */
+
 public class FileDownloadAction implements Action{
 	
 	@Override

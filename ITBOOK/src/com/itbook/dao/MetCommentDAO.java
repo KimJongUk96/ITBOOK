@@ -10,6 +10,14 @@ import com.itbook.vo.Meeting.MetCommentVO;
 
 import util.DBManager;
 
+/**
+ * 
+ * 독서모임게시판 댓글 등록, 삭제, 조회를 할 수 있는 클래스(싱글톤)
+ * 
+ * @author 김정민
+ *
+ */
+
 public class MetCommentDAO {
 	
 	private static MetCommentDAO instance = new MetCommentDAO();

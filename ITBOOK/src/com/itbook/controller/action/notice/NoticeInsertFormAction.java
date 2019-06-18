@@ -9,6 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
 
+/**
+ * 공지사항 등록 폼으로 이동하는 액션 클래스 
+ * 
+ * @author 김정민
+ *
+ */
+
 public class NoticeInsertFormAction implements Action {
 	
 	@Override

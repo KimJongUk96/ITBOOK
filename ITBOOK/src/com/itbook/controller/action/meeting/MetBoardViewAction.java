@@ -19,6 +19,13 @@ import com.itbook.vo.Meeting.MetBoardVO;
 import com.itbook.vo.Meeting.MetCommentVO;
 import com.itbook.vo.Meeting.MetPostVO;
 
+/**
+ * 독서모임게시판 게시글 상세보기 액션 클래스 
+ * 
+ * @author 김정민
+ *
+ */
+
 public class MetBoardViewAction implements Action{
 	
 	@Override
