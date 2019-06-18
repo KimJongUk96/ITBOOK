@@ -1,13 +1,13 @@
 package com.itbook.vo.Report;
-/**독후감게시판테이블
- * 독후감게시판번호
- * 독후감제목
- * 독후감내용
- * 작성일자
- * 조회수
- * 책번호
- * 회원번호
- * @author 종욱
+/**����媛�寃��������대�
+ * ����媛�寃�����踰���
+ * ����媛���紐�
+ * ����媛��댁��
+ * ���깆�쇱��
+ * 議고����
+ * 梨�踰���
+ * ����踰���
+ * @author 醫���
  *
  */
 
@@ -20,20 +20,12 @@ public class ReportBoardVO {
 	private String reportContent;
 	private Date reportDate;
 	private int reportCount;
-	private String bookNum;
-	private String memNum;
 	private String memName;
 	private String writer;
 	private String publisher;
 	private String reportCategory;
-
-	public String getReportCategory() {
-		return reportCategory;
-	}
-
-	public void setReportCategory(String reportCategory) {
-		this.reportCategory = reportCategory;
-	}
+	private String bookNum;
+	private String memNum;
 
 	public String getReportNum() {
 		return reportNum;
@@ -75,22 +67,6 @@ public class ReportBoardVO {
 		this.reportCount = reportCount;
 	}
 
-	public String getBookNum() {
-		return bookNum;
-	}
-
-	public void setBookNum(String bookNum) {
-		this.bookNum = bookNum;
-	}
-
-	public String getMemNum() {
-		return memNum;
-	}
-
-	public void setMemNum(String memNum) {
-		this.memNum = memNum;
-	}
-
 	public String getMemName() {
 		return memName;
 	}
@@ -115,14 +91,36 @@ public class ReportBoardVO {
 		this.publisher = publisher;
 	}
 
+	public String getBookNum() {
+		return bookNum;
+	}
+
+	public void setBookNum(String bookNum) {
+		this.bookNum = bookNum;
+	}
+
+	public String getMemNum() {
+		return memNum;
+	}
+
+	public void setMemNum(String memNum) {
+		this.memNum = memNum;
+	}
+
+	public void setReportCategory(String reportCategory) {
+		this.reportCategory = reportCategory;
+	}
+
+	public String getReportCategory() {
+		return reportCategory;
+	}
+
 	@Override
 	public String toString() {
 		return "ReportBoardVO [reportNum=" + reportNum + ", reportTitle=" + reportTitle + ", reportContent="
-				+ reportContent + ", reportDate=" + reportDate + ", reportCount=" + reportCount + ", bookNum=" + bookNum
-				+ ", memNum=" + memNum + ", memName=" + memName + ", writer=" + writer + ", publisher=" + publisher
-				+ ", reportCategory=" + reportCategory + "]";
+				+ reportContent + ", reportDate=" + reportDate + ", reportCount=" + reportCount + ", memName=" + memName
+				+ ", writer=" + writer + ", publisher=" + publisher + ", reportCategory=" + reportCategory
+				+ ", bookNum=" + bookNum + ", memNum=" + memNum + "]";
 	}
-
-	
 
 }

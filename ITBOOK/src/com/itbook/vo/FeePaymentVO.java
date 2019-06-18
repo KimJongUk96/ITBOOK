@@ -1,26 +1,37 @@
 package com.itbook.vo;
+
 /**
- * 회비납부내용
- * 날짜
- * 회원번호
- * @author 종욱
+ * 후원번호
+ * 후원자명
+ * 후원자이메일
+ * 후원자전화번호
+ * 후원자우편번호
+ * 후원자 소속
+ * 후원자 직급
+ * 후원자 메세지
+ * 은행
+ * 금액
+ * 후원방법
+ * 계좌번호
+ * @author 정원
  *
  */
 
 public class FeePaymentVO{
-	private String payNum; //후원번호
-	private String payName; //후원이름
-	private String payEmail; //후원이메일
-	private String payMobileNumber; //후원자 전화번호
-	private String payZipcode; //우편번호
-	private String payAttach; //소속
-	private String payPosition; //직급
-	private String payMessage; //메세지
-	private String payBank; //은행
-	private String payFee; //후원금액
-	private String paySponsor; //후원방식
-	private String payBankNum; //계좌번호
-	private String bankName; //예금주
+	private String payNum; 
+	private String payName; 
+	private String payEmail; 
+	private String payMobileNumber; 
+	private String payZipcode; 
+	private String payAttach;
+	private String payPosition;
+	private String payMessage; 
+	private String payBank; 
+	private String payFee; 
+	private String paySponsor; 
+	private String payBankNum; 
+	private String bankName; 
+	
 	public String getPayNum() {
 		return payNum;
 	}
