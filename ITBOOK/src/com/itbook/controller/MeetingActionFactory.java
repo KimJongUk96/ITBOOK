@@ -3,6 +3,7 @@ package com.itbook.controller;
 import com.itbook.controller.action.Action;
 import com.itbook.controller.action.meeting.CommentDeleteAction;
 import com.itbook.controller.action.meeting.CommentWriteAction;
+import com.itbook.controller.action.meeting.JoinMemberPopupAction;
 import com.itbook.controller.action.meeting.MeetingApplyAction;
 import com.itbook.controller.action.meeting.MeetingApplyFormAction;
 import com.itbook.controller.action.meeting.MeetingHomeAction;
@@ -116,6 +117,8 @@ public class MeetingActionFactory {
 			
 			action = new CommentDeleteAction();
 			
+		} else if(command.equals("joinMemberPopup")) {
+			action = new JoinMemberPopupAction();
 		}
 		
 		return action;

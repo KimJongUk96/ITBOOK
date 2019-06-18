@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>희망의 책 공지사항</title>
+<title>희망의 책 운영 게시판</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,14 +43,11 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">희망의 책 공지사항</h1>
-					<h6 class="subtitle">We transform your perception into an
-						excellent website</h6>
+					<h1 class="innerpage-title">운영 게시판</h1>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="index.html"><i
 									class="ti-home"></i> Home</a></li>
-							<li class="breadcrumb-item">Table</li>
 						</ol>
 					</nav>
 				</div>
@@ -89,7 +86,7 @@
 								</div>
 								
 								<div class="col-md-12" style="min-height:480px;"><span class="form-group"><textarea cols="40" rows="20"  name="noticeContent"
-								class="form-control" placeholder="Message"></textarea></span></div>
+								class="form-control" placeholder="내용"></textarea></span></div>
 								
 							</div>
 								<div align="right">
