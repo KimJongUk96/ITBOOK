@@ -34,11 +34,7 @@ public class ReportDetailFormAction implements Action {
 		//데이터에 저장하고 상세보기 조회
 		ReportBoardVO rVo = rDao.selectOneReportByNum(reportNum);
 		
-		// 댓글 목록보기
-		ArrayList<ReportCommentVO> commentList = rDao.getCommentList(reportNum);
-
-		if (commentList.size() > 0)
-			request.setAttribute("commentList", commentList);
+		
 		request.setAttribute("reportList", rVo);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
