@@ -105,7 +105,7 @@
 						</table>
 						<c:if test = "${LoginUser.authority eq 3}">
 						<div align="right">
-							<a class="btn btn-primary" href="/notice?command=noticeInsertFormAction">글쓰기</a>
+							<a class="btn btn-grad" href="/notice?command=noticeInsertFormAction">글쓰기</a>
 						</div>
 						</c:if>
 					</div>

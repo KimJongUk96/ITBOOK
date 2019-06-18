@@ -73,8 +73,7 @@
 									<option value="자료">자료</option>
 								</select>
 								</div>
-								<div class="col-md-7"><span class="form-group"><input type="text" class="form-control" placeholder="제목" name="metBrdName"></span></div>
-								<!-- <div class="col-md-6"><span class="form-group"><input type="email" class="form-control" placeholder="E-mail"></span></div> -->
+								<div class="col-md-7"><span class="form-group"><input type="text" class="form-control" placeholder="제목을 입력하세요." name="metBrdName"></span></div>
 								
 								<div class="col-md-3">
 									<div class="form-group">
@@ -82,11 +81,12 @@
 									</div>
 								</div>
 								
-								<div class="col-md-12" style="min-height:480px;"><span class="form-group"><textarea cols="40" rows="20"  name="metBrdContent"
-								class="form-control" placeholder="Message"></textarea></span></div>
-								
+								<div class="col-md-12" style="min-height:480px;">
+									<span class="form-group">
+										<textarea cols="40" rows="20"  name="metBrdContent" class="form-control" placeholder="내용을 입력하세요."></textarea>
+									</span>
+								</div>
 							</div>
-							
 								<div align="right">
 								<input type="submit" value="등록" class="btn btn-grad" onclick="return noticeCheck()"/> 
 								<input type="button" value="취소 " class="btn btn-grad" onclick="location.href='/meeting?command=metBoardListFormAction&metNum=${meetingVo.metNum}'"/></div>

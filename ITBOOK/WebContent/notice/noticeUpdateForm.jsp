@@ -108,8 +108,8 @@
 							</span></div>
 							
 						<div align="right">
-							<input type="submit"  class="btn btn-primary" value="수정" >
-							<input type="button" value="취소" id="cancel" class="btn btn-primary">
+							<input type="submit"  class="btn btn-grad" value="수정" >
+							<input type="button" value="취소" id="cancel" class="btn btn-grad">
 						</div>
 					</div>
 					</form>
