@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>책 조회</title>
+   <title>도서관 조회</title>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
    <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,7 +48,7 @@
                   <ol class="breadcrumb">
                      <li class="breadcrumb-item active"><a href="index.jsp"><i
                            class="ti-home"></i>Home</a></li>
-                     <li class="breadcrumb-item">도서관 조회</li>
+           
                   </ol>
                </nav>
             </div>

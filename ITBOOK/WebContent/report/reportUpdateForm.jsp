@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Wizixo | Creative Multipurpose Bootstrap Template</title>
+<title>희망의책 도서관</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,11 +43,10 @@
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
 					<h1 class="innerpage-title">희망의 책 독후감 수정</h1>
-					<h6 class="subtitle">I can find the answer in the book and the
-						book is the way to help me.</h6>
+					<h6 class="subtitle"> </h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="index.html"><i
+							<li class="breadcrumb-item active"><a href="index.jsp"><i
 									class="ti-home"></i> Home</a></li>
 
 						</ol>
