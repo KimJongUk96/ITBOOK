@@ -59,19 +59,21 @@
 				<div class="col-md-12 col-lg-6 align-self-center ">
 					<div class="title text-left">
 						<h2>희망의 책은 <span class="text-primary">법인세법</span>에 의거한  <span class="text-primary"><br>지정기부금단체</span>입니다.</h2>
-						<p class="mb-0"><br>후원해주신 기부금은 <strong>법인은 소득 금액의 10%, 개인은 30% 범위 </strong> 내에서 <strong> <br>손비인정 또는 소득공제</strong>를 받을 수 있는 기부금 영수증을 발급해드립니다. </p>
+						<div class="col-11" style="font-size: 14pt; margin-top:8%">
+							후원해주신 기부금은 <strong>법인은 소득 금액의 10%, 개인은 30% 범위 </strong> 내에서 <strong>손비인정 또는 소득공제</strong>를 받을 수 있는 기부금 영수증을 발급해드립니다.
+						</div>
 						<div class="list-group-inline list-group-number list-unstyled mt-4">
-							<a href="#" class="list-group-item list-group-item-action"><span>01</span> Creative Ideas</a>
-							<a href="#" class="list-group-item list-group-item-action"><span>02</span> Super Responsive for all devices</a>
-							<a href="#" class="list-group-item list-group-item-action"><span>03</span> Extensive documentation</a>
-							<a href="#" class="list-group-item list-group-item-action"><span>04</span> Excellent features</a>
+							<a class="list-group-item list-group-item-action"><span>01</span> 독서문화 사업 연구 지원</a>
+							<a class="list-group-item list-group-item-action"><span>02</span> 사람 네트워크의 형성 기회</a>
+							<a class="list-group-item list-group-item-action"><span>03</span> 전국 도서문화 확산과 생각 나눔</a>
+							<a class="list-group-item list-group-item-action"><span>04</span> 문화예술교육 프로그램 지원</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-10 col-lg-6 mx-md-auto align-self-center ">
-					<img class="rounded" src="https://i.ibb.co/hct7v9B/meeting.jpg" alt="">
+					<img class="rounded" src="https://i.ibb.co/2KCZwkB/Waysto-Give.jpg"  alt="">
 					<div class="position-absolute left-0 bottom-0 ml-4 ml-md-n2 mb-3">
-						<a class="btn btn-grad" href="/notice?command=donationWriteFormAction"> <i class="fa fa-play text-white"></i>후원하기 </a>
+						<a class="btn btn-dark" href="/notice?command=donationWriteFormAction"> <i class="fa fa-play text-white"></i>후원하기 </a>
 					</div>
 				</div>
 			</div>
