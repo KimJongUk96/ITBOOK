@@ -1,7 +1,7 @@
 package com.itbook.controller.action.report;
 
 import java.io.IOException;
-import java.util.ArrayList;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,10 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
-import com.itbook.dao.NoticeDAO;
+
 import com.itbook.dao.ReportDAO;
 import com.itbook.vo.Report.ReportBoardVO;
-import com.itbook.vo.Report.ReportCommentVO;
 
 /**
  * @author 수아

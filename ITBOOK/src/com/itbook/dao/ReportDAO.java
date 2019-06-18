@@ -1,7 +1,7 @@
 package com.itbook.dao;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 
 import com.itbook.vo.Paging;
 import com.itbook.vo.Report.ReportBoardVO;
-import com.itbook.vo.Report.ReportCommentVO;
+
 
 import util.DBManager;
 
@@ -98,7 +98,6 @@ public class ReportDAO {
 
 	// 독후감 상세보기
 	public ReportBoardVO selectOneReportByNum(String reportNum) {
-		//String sql = "select r.reportNum,r.reportTitle,r.reportContent,r.reportDate,r.reportCount,r.bookNum,m.memName,r.writer,r.publisher from itbook.report_board r, itbook.member m where r.memNum = m.memNum";
 		String sql = "select * from itbook.report_board where reportNum=?";
 
 		ReportBoardVO rVo = new ReportBoardVO();
@@ -125,6 +124,7 @@ public class ReportDAO {
 				rVo.setWriter(rs.getString("writer"));
 				rVo.setPublisher(rs.getString("publisher"));
 				rVo.setReportCategory(rs.getString("reportCategory"));
+				rVo.setMemName(rs.getString("memName"));
 			
 			}
 
@@ -335,93 +335,5 @@ public class ReportDAO {
 	}
 
 
-	// 독후감 댓글 등록
-	public boolean insertComment(ReportCommentVO comment) {
-		
-		boolean result = false;
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		
-		try {
-			conn = DBManager.getConnection();		
-			// 자동 커밋을 false로 한다.
-			conn.setAutoCommit(false);
-
-			StringBuffer sql = new StringBuffer();
-			sql.append("INSERT INTO report_comment (ReportNum, ReportComtContent, ReportComtDate, MemNum) VALUES(?,?,sysdate(),?)");
-
-
-			pstmt = conn.prepareStatement(sql.toString());
-			pstmt.setString(1, comment.getReportNum());
-			pstmt.setString(2, comment.getReportComtContent());
-			pstmt.setString(3, comment.getMemNum());
-
-			int flag = pstmt.executeUpdate();
-			if (flag > 0) {
-				result = true;
-				conn.commit(); // 완료시 커밋
-			}
-
-		} catch (Exception e) {		
-				try {
-					conn.rollback();
-		} catch (SQLException sqle) {
-			sqle.printStackTrace();
-				} // 오류시 롤백			
-				e.printStackTrace();
-
-		throw new RuntimeException(e.getMessage());
-		}
 	
-		return result;
-	}
-
-	// 댓글 목록 가져오기
-	public ArrayList<ReportCommentVO> getCommentList(String reportNum) {
-		ArrayList<ReportCommentVO> list = new ArrayList<ReportCommentVO>();
-
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		try {
-			conn = DBManager.getConnection();
-
-			/*
-			 * 댓글의 페이지 처리를 하고싶다면 이 쿼리를 사용하면 된다. SELECT * FROM (SELECT ROWNUM AS rnum, data.*
-			 * FROM (SELECT LEVEL, COMMENT_NUM, COMMENT_BOARD, COMMENT_ID, COMMENT_DATE,
-			 * COMMENT_PARENT, COMMENT_CONTENT FROM BOARD_COMMENT WHERE COMMENT_BOARD = ?
-			 * START WITH COMMENT_PARENT = 0 CONNECT BY PRIOR COMMENT_NUM = COMMENT_PARENT)
-			 * data) WHERE rnum>=? and rnum<=? ;
-			 */
-
-			StringBuffer sql = new StringBuffer();
-			sql.append("select r.reportComtNum, r.reportComtContent, r.reportComtDate, r.reportNum, r.memNum, m.memName as memName from report_comment r, member m where m.memNum = r.memNum and r.reportNum = ?");
-			
-			pstmt = conn.prepareStatement(sql.toString());
-			pstmt.setString(1, reportNum);
-
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				ReportCommentVO comment = new ReportCommentVO();
-//				MemberVO mem = new MemberVO();
-				comment.setReportComtNum(rs.getString("reportComtNum"));
-				comment.setReportComtContent(rs.getString("reportComtContent"));
-				comment.setReportComtDate(rs.getDate("reportComtDate"));
-				comment.setReportNum(rs.getString("reportNum"));
-				comment.setMemNum(rs.getString("memNum"));
-				comment.setMemName(rs.getString("memName"));
-			
-				
-				list.add(comment);
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new RuntimeException(e.getMessage());
-		}
-
-		return list;
-	} // end getCommentList
-
 }
