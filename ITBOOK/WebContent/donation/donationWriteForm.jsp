@@ -94,7 +94,7 @@
 						<input type="text" id="sample4_postcode" name = "adr1" placeholder="우편번호" class="form-control" style ="width:150px" readonly="readonly">
 						</div>			
 						<div class="col-md-3">
-									<input type="button" onclick="sample4_execDaumPostcode()" class ="btn btn-dark" value="우편번호 찾기" ><br>
+									<input class="btn btn-success" type="button" onclick="sample4_execDaumPostcode()" class ="btn btn-dark" value="우편번호 찾기" ><br>
 						</div>		
 						<div class="col-md-12">	
 									<input type="text" id="sample4_roadAddress" name = "payZipcode" id = "adr" placeholder="도로명주소" class="form-control" readonly="readonly">
@@ -134,25 +134,22 @@
 						
 						</select></span></div>
 						<div class="col-md-12 text-center">
-						<input type="submit" class="btn-block btn btn-dark" value="Apply now" onclick="return donationCheck()"></div>
+						<input type="submit" class="btn-block btn btn-success" value="후원 완료" onclick="return donationCheck()"></div>
 					</div>
 						</form>
 
 				</div>
+				
+				
 				<!-- Sidebar -->
 				<div class="col-md-4 sidebar">
 					<div class="sticky-element">
-						<h2 class="mt-3 mt-md-0 mb-3">Job details</h2>
+						<h3 class="mt-3 mt-md-0 mb-3">문의하기</h3>
 						<ul class="list-unstyled p-0">
-							<li class="mb-3"><strong>Posted:</strong> 3 July 2018 </li>
-							<li class="mb-3"><strong>Location:</strong> London </li>
-							<li class="mb-3"><strong>Specialism:</strong> IT </li>
-							<li class="mb-3"><strong>Job type:</strong> Permanent </li>
-							<li class="mb-3"><strong>Reference number:</strong> CRR0001-18 </li>
-							<li class="mb-3"><strong>Contact:</strong> Jessica Mores</li>
-							<li class="mb-3"><strong>Phone:</strong> (+251) 854-6308 </li> 
+							<li class="mb-3"><strong>담당자:</strong> 강신철 </li>
+							<li class="mb-3"><strong>전화번호:</strong> (042) 252-9540</li>
+							<li class="mb-3"><strong>이메일:</strong> djbook21@hanmail.net</li>
 						</ul>
-						<a class="d-block mt-3" href="#"><i class="fa fa-print mr-2"></i> Print</a>
 					</div>
 				</div>
 				<!-- Sidebar end-->
