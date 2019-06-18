@@ -87,24 +87,24 @@
 					<div class="col-md-3">
 						<div class="form-group">
 							<span class="form-group"><input type="text"
-								class="form-control" placeholder="책 제목" name="bookTitle"></span>
+								class="form-control" placeholder="책 제목을 입력하세요." name="bookTitle"></span>
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="form-group">
 							<span class="form-group"><input type="text"
-								class="form-control" placeholder="저자" name="writer"></span>
+								class="form-control" placeholder="저자를 입력하세요." name="writer"></span>
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="form-group">
 							<span class="form-group"><input type="text"
-								class="form-control" placeholder="출판사" name="publisher"></span>
+								class="form-control" placeholder="출판사를 입력하세요." name="publisher"></span>
 						</div>
 					</div>
 					<div class="col-md-7">
 						<span class="form-group"><input type="text"
-							class="form-control" placeholder="제목" name="reportTitle"></span>
+							class="form-control" placeholder="제목을 입력하세요." name="reportTitle"></span>
 					</div>
 					<div class="col-md-12" style="min-height: 480px;">
 						<span class="form-group"><textarea cols="40" rows="20"

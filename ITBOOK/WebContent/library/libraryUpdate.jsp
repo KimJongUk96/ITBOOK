@@ -73,7 +73,7 @@
 						<div class="form-group">
 							<label>도서관 명</label> <input class="form-control" type="text"
 								name="libraryTitle" value="${libraryList.libraryTitle}"
-								placeholder="* 제목을 입력하세요.">
+								placeholder="제목을 입력하세요.">
 						</div>
 
 						<div class="form-group">
@@ -93,10 +93,9 @@
 
 						<button type="button" id="delete"
 							class="btn btn-grad border-radius-left-0 mb-0">삭제</button>
-					
+
 						<button type="button" id="cancle"
-							class="btn btn-grad border-radius-left-0 mb-0">
-							취소</button>
+							class="btn btn-grad border-radius-left-0 mb-0">취소</button>
 					</form>
 				</div>
 
@@ -108,13 +107,19 @@
 
 	</section>
 
+
+	<%@ include file="../include/footer.jsp"%>
+
 	<script type="text/javascript">
 		$(document)
 				.ready(
 						function() {
-							$('#cancel').on("click", function(event) {
-								self.location = "library?command=adminLibraryList";
-							});
+							$('#cancel')
+									.on(
+											"click",
+											function(event) {
+												self.location = "library?command=adminLibraryList";
+											});
 							$('#delete')
 									.on(
 											"click",
@@ -139,7 +144,5 @@
 							});
 						});
 	</script>
-
-	<%@ include file="../include/footer.jsp"%>
 </body>
 </html>

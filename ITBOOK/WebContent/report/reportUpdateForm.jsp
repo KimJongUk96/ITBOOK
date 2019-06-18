@@ -57,64 +57,6 @@
 			</div>
 		</div>
 	</div>
-	<%-- <section>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-2">
-
-					<input type="hidden" name="bookNum" value="${reportList.bookNum}">
-					<input type="hidden" name="memNum" value="${LoginUser.memNum}">
-					<button type="button" class="form-control" name="bookTitle"
-						onclick="openPopUp()">책 검색</button>
-				</div>
-			</div>
-
-			<form name="frm" method="post"
-				action="report?command=Report_Update&reportNum=${reportList.reportNum}">
-				<div class="col-md-4">
-					<div class="form-group">
-						<label>분류</label> <select class="custom-select select-big mb-3"
-							name="reportCategory">
-							<option value="문학">문학</option>
-							<option value="경제">경제</option>
-							<option value="자연과학">자연과학</option>
-							<option value="인문사회">인문사회</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label>책 제목</label> <input class="form-control" name="bookTitle"
-							value="${bookList.bookTitle}" placeholder="책 제목을 입력하세요.">
-					</div>
-					<div class="form-group">
-						<label>저자</label> <input class="form-control" type="text"
-							value="${reportList.writer}" name="writer"
-							placeholder="저자를 입력하세요.">
-					</div>
-					<div class="form-group">
-						<label>출판사</label> <input class="form-control" type="text"
-							value="${reportList.publisher}" name="publisher"
-							placeholder="출판사를 입력하세요.">
-					</div>
-					<div class="form-group">
-						<label>제목</label> <input class="form-control" name="reportTitle"
-							value="${reportList.reportTitle}" placeholder="제목을 입력하세요.">
-					</div>
-					<div class="form-group">
-						<label>내용</label>
-						<textarea class="form-control" rows="10" name="reportContent"
-							placeholder="내용을 입력하세요.">${reportList.reportContent}</textarea>
-					</div>
-					<button type="submit" class="btn btn-success">
-						<i class="fa fa-check-circle-o"></i>수정
-					</button>
-					<a class="btn btn-warning"
-						href="report?command=Report_Detail&reportNum=${reportList.reportNum}"><i
-						class="fa fa-close"></i>취소</a>
-				</div>
-			</form>
-		</div>
-
-	</section> --%>
 	<section>
 		<div class="container">
 			<form name="frm" method="post" action="report?command=Report_Update&reportNum=${reportList.reportNum}">
@@ -145,24 +87,24 @@
 					<div class="col-md-3">
 						<div class="form-group">
 							<span class="form-group"><input type="text"
-								class="form-control" placeholder="책 제목" name="bookTitle" value="${bookList.bookTitle}" ></span>
+								class="form-control" placeholder="책 제목을 입력하세요." name="bookTitle" value="${bookList.bookTitle}" ></span>
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="form-group">
 							<span class="form-group"><input type="text"
-								class="form-control" placeholder="저자" name="writer" value="${reportList.writer}"></span>
+								class="form-control" placeholder="저자를 입력하세요." name="writer" value="${reportList.writer}"></span>
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="form-group">
 							<span class="form-group"><input type="text"
-								class="form-control" placeholder="출판사" name="publisher" value="${reportList.publisher}"></span>
+								class="form-control" placeholder="출판사를 입력하세요." name="publisher" value="${reportList.publisher}"></span>
 						</div>
 					</div>
 					<div class="col-md-7">
 						<span class="form-group"><input type="text"
-							class="form-control" placeholder="제목" name="reportTitle" value="${reportList.reportTitle}"></span>
+							class="form-control" placeholder="제목을 입력하세요." name="reportTitle" value="${reportList.reportTitle}"></span>
 					</div>
 					<div class="col-md-12" style="min-height: 480px;">
 						<span class="form-group"><textarea cols="40" rows="20"
