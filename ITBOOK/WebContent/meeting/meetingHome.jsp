@@ -250,7 +250,7 @@
 									href="/meeting?command=metBoardViewAction&metBrdNum=${metbrd.metBrdNum}">${metbrd.metBrdName}</a></td>
 								<!-- <td>모임관리자</td> -->
 								<th></th>
-								<td><fmt:formatDate value="${metbrd.metBrdDate}" /></td>
+								<td><fmt:formatDate value="${metbrd.regDate}" /></td>
 							</tr>
 							</c:if>
 						</c:forEach>
