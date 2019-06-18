@@ -100,7 +100,7 @@
 						<div class="bg-white border-radius-3 py-5 all-text-dark pattern-overlay-2">
 						<div class="row">
 							<!-- item1 -->
-							<div class="col-md-4 col-6">
+							<div class="col-md-3 col-6">
 								<div class="counter-item text-center">
 								<i class="ti-face-smile"></i>
 								<h3>${meetingVo.represent}</h3>
@@ -108,7 +108,7 @@
 								</div>
 							</div>
 							<!-- item2 -->
-							<div class="col-md-4 col-6">
+							<div class="col-md-3 col-6">
 								<div class="counter-item text-center">
 								<i class="ti-alarm-clock"></i>
 								<h3>${meetingVo.metDate}</h3>
@@ -116,7 +116,7 @@
 								</div>
 							</div>
 							<!-- item3 -->
-							<div class="col-md-4 col-6">
+							<div class="col-md-3 col-6">
 								<div class="counter-item text-center">
 								<i class="ti-user"></i>
 								<h3 class="counter-item-digit" data-from="0" data-to="${meetingVo.headCount}" data-speed="3000"
@@ -124,7 +124,14 @@
 								<p class="counter-item-text">회원수</p>
 								</div>
 							</div>
-							
+							<!-- item4 -->
+							<div class="col-md-3 col-6">
+								<div class="counter-item text-center">
+								<i class="ti-user"></i>
+								<h3>${meetingVo.location}</h3>
+								<p class="counter-item-text">${meetingVo.metPlace}</p>
+								</div>
+							</div>
 						</div>
 						</div>
 					</div>
@@ -228,7 +235,7 @@
 							</c:if>
 						<c:forEach var="metbrd" items="${metboardList}" varStatus="var">
 							
-							<c:if test="${not empty metboardList }">
+							<c:if test="${not empty metboardList}">
 							<tr>
 								<th scope="row">${var.count}</th>
 								<th>${metbrd.metBrdCategory}</th>
@@ -246,6 +253,10 @@
 			</div>
 
 		<div>
+		
+		<div style="margin-top: 15%;">
+			<span style="font-size: 25px;">멤버쉽 신청내역</span>
+		</div>
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -280,10 +291,34 @@
 		</div>
 
 		<!-- 활동사진 밑 코멘트 -->
-		<div class="row mt-4">
+		<div style="margin-top: 10%;">
+			<span style="font-size: 25px;">독서모임 소개</span>
+		</div>
+		<section class="bg-light triangle-down py-5">
+			<div class="container">
+				<div class="row justify-content-center">
+				<div class="col-md-8 text-center">
+					<h5>${meetingVo.metIntro}</h5>
+				</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- 대표자 인사말 -->
+		<div class="col-md-11 text-center" style="margin-top: 5%;">
+		<blockquote class="blockquote">
+			<h5 class="mb-2 text-light-gray">${meetingVo.metGreeting}</h5>
+			<cite>- ${meetingVo.represent}</cite>
+		</blockquote>
+		</div>
+		
+		</div>
+
+		
+		<%-- <div class="row mt-4">
 			<!-- portfolio Greeting -->
 			<div class="col-md-6">
-				<h4 class="mb-4">${meetingVo.metName}의 인사말</h4>
+				<h4 class="mb-4"><b>${meetingVo.metName}의 인사말</b></h4>
 				<blockquote class="blockquote" cite="#">
 					<h5 class="mb-2 text-light-gray">${meetingVo.metGreeting}</h5>
 					<cite>- ${meetingVo.represent}</cite>
@@ -291,13 +326,13 @@
 			</div>
 		<!-- 독서모임 소개 -->
 			<div class="col-md-6">
-				<h4 class="mb-4">우리 독서모임은</h4>
+				<h4 class="mb-4"><b>우리 독서모임은</b></h4>
 				<h5 class="mb-2 text-light-gray">${meetingVo.metIntro}</h5>
 			</div>
-		</div>
+		</div> --%>
 	</div>
 
-		<div class="row">
+		<div class="row" style="margin-top: 10%;">
 			<div class="col-md-12">
 				<!-- tag and share -->
 				<div class="divider mb-4"></div>
