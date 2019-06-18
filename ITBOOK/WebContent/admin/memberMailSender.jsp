@@ -146,6 +146,7 @@
 		$("input[name='email']").prop("checked", false);
 	}
 });
+
 function sendEmailForm(){
 
 	 var total_cnt=0;
@@ -169,6 +170,7 @@ function sendEmailForm(){
    $(document).ready(function(){
 	   if($('.send').trigger('click'))
 		$('.treevie ').addClass("active");
+	    $('#m2').attr('style','gray;')
 	}); 
 </script>
 

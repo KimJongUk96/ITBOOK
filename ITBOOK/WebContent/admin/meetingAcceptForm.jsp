@@ -160,5 +160,12 @@ $('form').submit(function(){
 })
     
     </script>
+    <script type="text/javascript">
+   $(document).ready(function(){
+	   if($('.meetingAc').trigger('click'))
+		$('.treevi ').addClass("active");
+	    $('#m4').attr('style','gray;')
+	}); 
+</script>
 
 <%@include file="../include/adminfooter.jsp"%>
