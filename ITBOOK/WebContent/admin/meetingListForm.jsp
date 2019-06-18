@@ -141,7 +141,7 @@
 <script>
 // 올체크
  $("input[name=AllCheck]").click(function(){
-	var chk = $(this).is(":checked");
+	var chk = $(this).is(":checked"); 
 	
 	if(chk){
 		$("input[name='metNum']").prop("checked", true);
@@ -154,13 +154,16 @@ $("#btn").click(function(btn){
 	btn.preventDefault();
 	if(!confirm('정말로 삭제하시겠습니까?')) return;
 	$('#frm')[0].submit();
+	alert('삭제되었습니다.')
+	
 });    
     </script>
     
     <script type="text/javascript">
    $(document).ready(function(){
-	   if($('.meeting').trigger('click'))
+	   if($('.meetingDe').trigger('click'))
 		$('.treevi ').addClass("active");
+	    $('#m3').attr('style','gray;')
 	}); 
 </script>
 

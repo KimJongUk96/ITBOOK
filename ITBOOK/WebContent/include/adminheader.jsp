@@ -139,8 +139,8 @@
                <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu" id="menu">
-                 <li class ="send"><a href="admin?command=senderEmailListFormAction"><i class="fa fa-magic" id="send">  메일전송</i></a></li>
-                <li class ="send"><a href="admin?command=memberListForm"><i class="fa fa-magic"></i> 회원정보 삭제</a></li>
+                 <li class ="send"><a href="admin?command=senderEmailListFormAction"><i class="fa fa-magic" id="send"><span style="color:white" id="m1"> 메일전송</span></i></a></li>
+                <li class ="member"><a href="admin?command=memberListForm"><i class="fa fa-magic"></i><span style="color:white" id="m2"> 회원정보 삭제</span></a></li>
               </ul>
             </li>
             <li class="treevi">
@@ -150,8 +150,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li class="meeting"><a href="admin?command=meetingAcceptListForm"><i class="fa fa-magic"></i> 모임 승인·거절</a></li>
-                <li class="meeting"><a href="admin?command=meetingListForm"><i class="fa fa-magic"></i> 모임 삭제</a></li>
+                <li class="meetingAc"><a href="admin?command=meetingAcceptListForm"><i class="fa fa-magic"></i><span style="color:white" id="m3"> 모임 승인·거절</span></a></li>
+                <li class="meetingDe"><a href="admin?command=meetingListForm"><i class="fa fa-magic"></i><span style="color:white" id="m4"> 모임 삭제</span></a></li>
               </ul>
             </li>
             <li class="tree">
@@ -161,21 +161,20 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                 
-                <li class ="notice"><a href="admin?command=noticeListForm"><i class="fa fa-magic"></i> 운영게시판 게시글 삭제</a></li>
-                <li class ="notice"><a href="admin?command=todayBookList"><i class="fa fa-magic"></i> 이달의책 게시글 삭제</a></li>
-                <li class ="notice"><a href="admin?command=reportListForm"><i class="fa fa-magic"></i> 독후감 삭제</a></li>
+                <li class ="notice"><a href="admin?command=noticeListForm"><i class="fa fa-magic"></i><span style="color:white" id="m5"> 운영게시판 게시글 삭제</span></a></li>
+                <li class ="book"><a href="admin?command=todayBookList"><i class="fa fa-magic"></i><span style="color:white" id="m6"> 이달의책 게시글 삭제</span></a></li>
+                <li class ="report"><a href="admin?command=reportListForm"><i class="fa fa-magic"></i><span style="color:white" id="m7"> 독후감 삭제</span></a></li>
               </ul>
             </li>
-            <li class="treeview">
+            <li class="treev">
               <a href="#">
                 <i class="fa fa-book"></i> 
                 <span>기타관리</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="admin?command=bookListForm"><i class="fa fa-magic"></i> 등록된 책 삭제</a></li>
-	              <li><a href="admin?command=feePaymentList"><i class="fa fa-magic"></i> 후원 관리</a></li>
+                <li class="bookDe"><a href="admin?command=bookListForm"><i class="fa fa-magic"></i><span style="color:white" id="m8"> 등록된 책 삭제</span></a></li>
+                <li class="fee"><a href="admin?command=feePaymentList"><i class="fa fa-magic"></i><span style="color:white" id="m9"> 후원 관리</span></a></li>
               </ul>
              </li>
         </section>

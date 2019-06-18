@@ -155,10 +155,12 @@
     </script>
     
         <script type="text/javascript">
-   $(document).ready(function(){
-	   if($('.notice').trigger('click'))
-		$('.tree ').addClass("active");
-	}); 
+        $(document).ready(function(){
+     	   if($('.report').trigger('click'))
+     		$('.tree ').addClass("active");
+     	    $('#m5').attr('style','gray;')
+     	    $('#m6').attr('style','gray;')
+     	}); 
 </script>
 
 <%@include file="../include/adminfooter.jsp"%>
