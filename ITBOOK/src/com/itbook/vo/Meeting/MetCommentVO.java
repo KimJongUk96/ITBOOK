@@ -1,12 +1,13 @@
 package com.itbook.vo.Meeting;
+
 /**
- * ëª¨ì„ëŒ“ê¸€ë²ˆí˜¸
- * ë‚´ìš©
- * ì‘ì„±ì¼ì
- * ëª¨ì„ê²Œì‹œê¸€ë²ˆí˜¸
- * íšŒì›ë²ˆí˜¸
- * @author ì¢…ìš±
- *
+ * ¸ğÀÓ°Ô½Ã±Û´ñ±Û¹øÈ£
+ * ¸ğÀÓ°Ô½Ã±Û´ñ±Û³»¿ë
+ * ¸ğÀÓ°Ô½Ã±Û´ñ±ÛÀÛ¼ºÀÏÀÚ
+ * È¸¿ø¸í
+ * È¸¿ø¹øÈ£
+ * ¸ğÀÓ°Ô½Ã±Û¹øÈ£
+ * @author Á¤¿ø
  */
 
 import java.sql.Date;
@@ -16,23 +17,10 @@ public class MetCommentVO {
 	private String metComtNum;
 	private String metComtContent;
 	private Date metComtDate;
-	private String metBrdNum;
-	private String memNum;
 	private String memName;
-	private String metPostNum;
-	public String getMetPostNum() {
-		return metPostNum;
-	}
-	public void setMetPostNum(String metPostNum) {
-		this.metPostNum = metPostNum;
-	}
-	public String getMemName() {
-		return memName;
-	}
-	public void setMemName(String memName) {
-		this.memName = memName;
-	}
-	private String metComtParent;
+	private String memNum;
+	private String metBrdNum;
+	
 	public String getMetComtNum() {
 		return metComtNum;
 	}
@@ -51,11 +39,11 @@ public class MetCommentVO {
 	public void setMetComtDate(Date metComtDate) {
 		this.metComtDate = metComtDate;
 	}
-	public String getMetBrdNum() {
-		return metBrdNum;
+	public String getMemName() {
+		return memName;
 	}
-	public void setMetBrdNum(String metBrdNum) {
-		this.metBrdNum = metBrdNum;
+	public void setMemName(String memName) {
+		this.memName = memName;
 	}
 	public String getMemNum() {
 		return memNum;
@@ -63,20 +51,18 @@ public class MetCommentVO {
 	public void setMemNum(String memNum) {
 		this.memNum = memNum;
 	}
-	public String getMetComtParent() {
-		return metComtParent;
+	public String getMetBrdNum() {
+		return metBrdNum;
 	}
-	public void setMetComtParent(String metComtParent) {
-		this.metComtParent = metComtParent;
+	public void setMetBrdNum(String metBrdNum) {
+		this.metBrdNum = metBrdNum;
 	}
+	
+	
 	@Override
 	public String toString() {
 		return "MetCommentVO [metComtNum=" + metComtNum + ", metComtContent=" + metComtContent + ", metComtDate="
-				+ metComtDate + ", metBrdNum=" + metBrdNum + ", memNum=" + memNum + ", memName=" + memName
-				+ ", metPostNum=" + metPostNum + ", metComtParent=" + metComtParent + "]";
+				+ metComtDate + ", memName=" + memName + ", memNum=" + memNum + ", metBrdNum=" + metBrdNum + "]";
 	}
-	
-	
-	
 	
 }

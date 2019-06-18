@@ -3,44 +3,32 @@ package com.itbook.vo.Meeting;
 import java.util.Date;
 
 /**
- * 모임게시판번호
- * 게시판명
+ * 모임게시글번호
+ * 제목
+ * 분류
  * 내용
+ * 작성일자
+ * 조회수
+ * 첨부파일
+ * 회원명
+ * 회원번호
  * 모임번호
- * @author 종욱
+ * @author 정원
  *
  */
 public class MetBoardVO {
 	
 	private String metBrdNum;
 	private String metBrdName;
-	private String metBrdContent;
-	private String metBrdFile;
-	private int metBrdCount;
-	private Date regDate;
-	private String metNum;
 	private String metBrdCategory;
+	private String metBrdContent;
+	private Date regDate;
+	private int metBrdCount;
+	private String metBrdFile;
 	private String memName;
+	private String metNum;
 	private String memNum;
 	
-	public String getMemNum() {
-		return memNum;
-	}
-	public void setMemNum(String memNum) {
-		this.memNum = memNum;
-	}
-	public String getMemName() {
-		return memName;
-	}
-	public void setMemName(String memName) {
-		this.memName = memName;
-	}
-	public String getMetBrdCategory() {
-		return metBrdCategory;
-	}
-	public void setMetBrdCategory(String metBrdCategory) {
-		this.metBrdCategory = metBrdCategory;
-	}
 	public String getMetBrdNum() {
 		return metBrdNum;
 	}
@@ -53,23 +41,17 @@ public class MetBoardVO {
 	public void setMetBrdName(String metBrdName) {
 		this.metBrdName = metBrdName;
 	}
+	public String getMetBrdCategory() {
+		return metBrdCategory;
+	}
+	public void setMetBrdCategory(String metBrdCategory) {
+		this.metBrdCategory = metBrdCategory;
+	}
 	public String getMetBrdContent() {
 		return metBrdContent;
 	}
 	public void setMetBrdContent(String metBrdContent) {
 		this.metBrdContent = metBrdContent;
-	}
-	public String getMetBrdFile() {
-		return metBrdFile;
-	}
-	public void setMetBrdFile(String metBrdFile) {
-		this.metBrdFile = metBrdFile;
-	}
-	public int getMetBrdCount() {
-		return metBrdCount;
-	}
-	public void setMetBrdCount(int metBrdCount) {
-		this.metBrdCount = metBrdCount;
 	}
 	public Date getRegDate() {
 		return regDate;
@@ -77,26 +59,44 @@ public class MetBoardVO {
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
+	public int getMetBrdCount() {
+		return metBrdCount;
+	}
+	public void setMetBrdCount(int metBrdCount) {
+		this.metBrdCount = metBrdCount;
+	}
+	public String getMetBrdFile() {
+		return metBrdFile;
+	}
+	public void setMetBrdFile(String metBrdFile) {
+		this.metBrdFile = metBrdFile;
+	}
+	public String getMemName() {
+		return memName;
+	}
+	public void setMemName(String memName) {
+		this.memName = memName;
+	}
 	public String getMetNum() {
 		return metNum;
 	}
 	public void setMetNum(String metNum) {
 		this.metNum = metNum;
 	}
+	public String getMemNum() {
+		return memNum;
+	}
+	public void setMemNum(String memNum) {
+		this.memNum = memNum;
+	}
+	
+	
 	@Override
 	public String toString() {
-		return "MetBoardVO [metBrdNum=" + metBrdNum + ", metBrdName=" + metBrdName + ", metBrdContent=" + metBrdContent
-				+ ", metBrdFile=" + metBrdFile + ", metBrdCount=" + metBrdCount + ", regDate=" + regDate
-				+ ", metNum=" + metNum + ", metBrdCategory=" + metBrdCategory + ", memName=" + memName + ", memNum="
-				+ memNum + "]";
+		return "MetBoardVO [metBrdNum=" + metBrdNum + ", metBrdName=" + metBrdName + ", metBrdCategory="
+				+ metBrdCategory + ", metBrdContent=" + metBrdContent + ", regDate=" + regDate + ", metBrdCount="
+				+ metBrdCount + ", metBrdFile=" + metBrdFile + ", memName=" + memName + ", metNum=" + metNum
+				+ ", memNum=" + memNum + "]";
 	}
-
-	
-	
-	
-	
-	
-	
-	
 	
 }

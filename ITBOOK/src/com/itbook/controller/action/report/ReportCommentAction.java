@@ -19,7 +19,7 @@ public class ReportCommentAction implements Action{
 	        ReportDAO dao = ReportDAO.getInstance();
 	        ReportCommentVO comment = new ReportCommentVO();
 	        
-	        // 파리미터 값을 가져온다.
+	        // ��由щ�명�� 媛��� 媛��몄�⑤��.
 	        String ReportNum = request.getParameter("reportNum");
 	        String MemNum = request.getParameter("memNum");
 	        String ReportComtContent = request.getParameter("reportComtContent");	       
@@ -28,15 +28,14 @@ public class ReportCommentAction implements Action{
 	        comment.setMemNum(MemNum); 
 	        comment.setReportComtContent(ReportComtContent);	      
 	              
-	        boolean result = dao.insertComment(comment);
+		/* boolean result = dao.insertComment(comment); */
 	 
-	        if(result){
-	            response.setContentType("text/html;charset=euc-kr");
-	            PrintWriter out = response.getWriter();
-	            
-	            new ReportDetailFormAction().execute(request, response);
-	            out.close();
-	        }
+		/*
+		 * if(result){ response.setContentType("text/html;charset=euc-kr"); PrintWriter
+		 * out = response.getWriter();
+		 * 
+		 * new ReportDetailFormAction().execute(request, response); out.close(); }
+		 */
 	        
 	        
 	    }
