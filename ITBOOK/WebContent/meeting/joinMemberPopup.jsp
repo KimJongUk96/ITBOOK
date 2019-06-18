@@ -17,7 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/font-awesome.min.css" />
 	<link rel="stylesheet" type="text/css" href="assets/vendor/themify-icons/css/themify-icons.css" />
 	<link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.min.css" />
-
+ 
 	<!-- Theme CSS -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 </head>
