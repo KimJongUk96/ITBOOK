@@ -31,20 +31,6 @@
 
 	<!-- Theme CSS -->
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-	
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script type="text/javascript">
-	
-	
-	$(document).ready(function(){
-		$('form').submit(function(){
-	 	  var result = alert("수정되었습니다.");
-	   
-		   return result;
-		})
-		})
-	
-	</script>
 	</head>
 	
 <body>
@@ -105,19 +91,18 @@
 									<th scope="col">첨부파일</th>
 									<td><input type="file" name="metBrdFile"/></td>
 								</tr>
-								 <tr>
-								
-									<th scope="col">내용</th>
-									<td><textarea name="metBrdContent" class="form-control" rows="10" style="width:100%;">${metbrd.metBrdContent}</textarea></td> 
-									<th></th>
-									<td></td>
-								</tr> 
 								
 						</table>
+							<div class="col-md-12">
+								<span class="form-group">
+									<textarea cols="40" rows="15"  name="metBrdContent" class="form-control" >${metbrd.metBrdContent}</textarea>
+								</span>
+							</div>
+							
 							
 						<div align="right">
-							<input type="submit"  class="btn btn-primary" value="수정" >
-							<input type="button" value="취소" id="cancel" class="btn btn-primary" onclick="location.href='/meeting?command=metPostListFormAction&page=${pageNum}'">
+							<input type="submit"  class="btn btn-grad" value="수정" >
+							<input type="button" value="취소" class="btn btn-grad" onclick="location.href='/meeting?command=metBoardListFormAction&page=${pageNum}'">
 						</div>
 					</div>
 					</form>

@@ -43,15 +43,14 @@ public class MetCommentDAO {
             
             StringBuffer sql = new StringBuffer();
             sql.append("INSERT INTO met_comment");
-            sql.append(" (metBrdNum, memNum, metComtParent, metComtContent");
+            sql.append(" (metBrdNum, memNum, metComtContent");
             sql.append(" , metComtDate)");
-            sql.append(" VALUES(?,?,?,?,sysdate())");
+            sql.append(" VALUES(?,?,?, sysdate())");
     
             pstmt = conn.prepareStatement(sql.toString());
             pstmt.setString(1, comment.getMetBrdNum());
             pstmt.setString(2, comment.getMemNum());
-            pstmt.setString(3, comment.getMetComtParent());
-            pstmt.setString(4, comment.getMetComtContent());
+            pstmt.setString(3, comment.getMetComtContent());
             
             int flag = pstmt.executeUpdate();
             if(flag > 0){

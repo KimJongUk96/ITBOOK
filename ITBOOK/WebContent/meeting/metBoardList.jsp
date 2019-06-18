@@ -97,7 +97,7 @@
                   </table>
              	 <div align="right">
              	 
-                  <a class="btn btn-primary"  href="meeting?command=metBoardWriteFormAction&metNum=${meetingVo.metNum }">글쓰기</a>
+                  <a class="btn btn-grad"  href="meeting?command=metBoardWriteFormAction&metNum=${meetingVo.metNum }">글쓰기</a>
 
                   </div>
                </div>

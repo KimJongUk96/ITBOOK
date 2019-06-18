@@ -114,7 +114,7 @@
 						<c:if
 							test="${LoginUser.authority eq '1' or LoginUser.authority eq '2' or LoginUser.authority eq '3'}">
 							<div align="right">
-								<a class="btn btn-primary"
+								<a class="btn btn-grad border-radius-left-0 mb-0"
 									href="/report?command=Report_Reg_Form">글쓰기</a>
 							</div>
 						</c:if>

@@ -24,9 +24,9 @@ public class CommentDeleteAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String metComtNum = request.getParameter("metComtNum");
-		String metPostNum = request.getParameter("metPostNum");
+		String metBrdNum = request.getParameter("metBrdNum");
 		
-		System.out.println("metPostNum : " + metPostNum );
+		System.out.println("metBrdNum : " + metBrdNum );
 		
 		MetCommentDAO dao = MetCommentDAO.getInstance();
 		boolean result = dao.deleteComment(metComtNum);

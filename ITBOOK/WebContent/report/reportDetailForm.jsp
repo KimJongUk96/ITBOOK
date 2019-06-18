@@ -42,8 +42,8 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">희망의 책 독후감</h1>
-					<h6 class="subtitle"> </h6>
+					<h1 class="innerpage-title">독후감</h1>
+					<h6 class="subtitle"></h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="index.jsp"><i
@@ -138,22 +138,26 @@
 							</table>
 							<div class="col-md-12">
 								<span class="form-group"><textarea cols="40" rows="10"
-										name="reportList" class="form-control">${reportList.reportContent}</textarea></span>
+										name="reportList" class="form-control" readonly="readonly">${reportList.reportContent}</textarea></span>
 							</div>
-							<c:if test="${LoginUser.authority eq '1' or LoginUser.authority eq '2' or LoginUser.authority eq '3'}">
+							<c:if
+								test="${LoginUser.authority eq '1' or LoginUser.authority eq '2' or LoginUser.authority eq '3'}">
 								<div align="right">
 									<button type="submit"
-							class="btn btn-grad border-radius-left-0 mb-0">수정하기</button>
+										class="btn btn-grad border-radius-left-0 mb-0">수정</button>
+
 									
-							<a href="report?command=Report_Delete&reportNum=${reportList.reportNum}">
-							<button type="button" class="btn btn-grad border-radius-left-0 mb-0">삭제하기</button></a>
-							
+										<button type="button" id="delete"
+											class="btn btn-grad border-radius-left-0 mb-0">삭제</button>
+									
+										<button type="button" id="cancel"
+											class="btn btn-grad border-radius-left-0 mb-0">취소</button>
 								</div>
 							</c:if>
 						</div>
 					</form>
 
-					<br> <br> <br> <br> <br> <br>
+					<!-- <br> <br> <br> <br> <br> <br>
 
 					<div class="col-md-12 text-center">
 						<button type="button"
@@ -164,11 +168,38 @@
 						</a>
 						<button type="button"
 							class="btn btn-grad border-radius-left-0 mb-0">다음 글</button>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
 	</section>
 	<%@ include file="../include/footer.jsp"%>
+
+<script type="text/javascript">
+$(document).ready(
+	      function() {
+	         $('#cancel').on("click",function(event) {
+	                  self.location = "report?command=Report_List";
+	               });
+	         $('#delete').on("click", function(evt) {
+	            
+	            var confirmStat = confirm("삭제하시겠습니까?");
+	            
+	            if(confirmStat == true){
+	               var reportNum = $('#reportNum').val();
+	               alert("삭제되었습니다.");
+	               self.location = "report?command=Report_Delete&reportNum=${reportList.reportNum}";   
+	            } else{
+	               return false;
+	            }
+	            
+	         });
+	         
+	         $('.Message').on("click", function(event){
+	            
+	         });
+	      });
+
+</script>
 </body>
 </html>
