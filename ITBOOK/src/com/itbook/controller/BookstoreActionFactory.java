@@ -1,3 +1,7 @@
+/**
+ * @author 동준
+ *
+ */
 package com.itbook.controller;
 
 import com.itbook.controller.action.Action;
@@ -33,21 +37,27 @@ private static BookstoreActionFactory instance = new BookstoreActionFactory();
 		}else if(command.equals("bookstoreList")) {
 			action = new BookstoreListAction();
 			
+			//책방리스트로 이동(관리자)
 		}else if(command.equals("adminBookstoreList")) {
 			action = new AdminBookstoreList();
 			
+			//책방등록폼으로 이동(관리자)
 		}else if(command.equals("bookstoreRegisterForm")) {
 			action = new BookstoreRegisterForm();
 			
+			//책방등록(관리자)
 		}else if(command.equals("bookstoreRegister")) {
 			action = new BookstoreRegister();
 			
+			//책방 수정폼으로 이동(관리자)
 		}else if(command.equals("bookstoreUpdateForm")) {
 			action = new BookstoreUpdateForm();
 			
+			//책방 수정(관리자)
 		}else if(command.equals("bookstoreUpdate")) {
 			action = new BookstoreUpdate();
 			
+			//책방 삭제(관리자)
 		}else if(command.equals("bookstoreDelete")) {
 			action = new BookstoreDelete();
 		}

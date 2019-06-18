@@ -10,6 +10,7 @@ import java.util.List;
 import com.itbook.vo.Paging;
 import com.itbook.vo.Meeting.MeetingVO;
 import com.itbook.vo.Meeting.MetBoardVO;
+import com.itbook.vo.main.MainDTO;
 
 import util.DBManager;
 
@@ -39,7 +40,7 @@ public class MeetingDAO {
 				+ "         ,metIntro"
 				+ "         ,represent"
 				+ "         ,metDate"
-				+ "         ,headCount"
+				+ "         ,(select count(*) from itbook.mem_list WHERE approval = 'T' and  metNum = itbook.meeting.metNum) as headCount"
 				+ "			,location"
 				+ "			,metPlace"
 				+ "			,keyword"
@@ -84,6 +85,49 @@ public class MeetingDAO {
 		return list;
 	}
 
+	
+	public List<MainDTO> selectMainMeetings() {
+
+		String sql = "SELECT metNum"
+				+ "         ,metName"
+				+ "         ,metImg"
+				+ "         ,metIntro"
+				+ "         ,metPlace"
+				+ "     FROM itbook.meeting"
+				+ "     WHERE approval = 'T'"
+				+ "   ORDER BY metDate DESC";
+
+		List<MainDTO> list = new ArrayList<MainDTO>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				MainDTO mVo = new MainDTO();
+
+				mVo.setMetNum(rs.getString("metNum"));
+				mVo.setMetName(rs.getString("metName"));
+				mVo.setMetImg(rs.getString("metImg"));
+				mVo.setMetIntro(rs.getString("metIntro"));
+				mVo.setMetPlace(rs.getString("metPlace"));
+				list.add(mVo);
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return list;
+	}
+	
+	
 	// 독서모임 신청하기
 	public boolean insertMeeting(MeetingVO mVo) {
 
@@ -274,7 +318,7 @@ public class MeetingDAO {
 				+ "			, keyword"
 				+ "			, metDate"
 				+ "			, metImg"
-				+ "			, headCount"
+				+ "			, (select count(*) from itbook.mem_list WHERE approval = 'T' and  metNum = itbook.meeting.metNum) as headCount"
 				+ " FROM itbook.meeting"
 				+ " WHERE metNum = ?";
 

@@ -22,10 +22,13 @@ public class BookstoreListAction implements Action {
 		
 		BookstoreDAO bsDao = BookstoreDAO.getInstance();
 		
-		//페이징 처리
+		//페이징 처리 한페이지에 12개의 데이터가 나옴
 		Paging paging = new Paging(12, 1);
+		
 		int pageNum = request.getParameter("pageNum") == null ? 1 : Integer.parseInt(request.getParameter("pageNum"));
 		paging.setPageNum(pageNum);
+		
+		//책방의 전체 데이터 행을 카운트함.
 		bsDao.selectBookstoreRowCount(paging);
 		 
 		ArrayList<BookstoreVO> bookstoreList = bsDao.selectBookstoreList(paging);

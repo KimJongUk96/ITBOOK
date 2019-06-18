@@ -25,6 +25,7 @@ public class JoinMeetingAction implements Action{
 		mVo.setMetNum(metNum);
 		mVo.setMemId(memId);
 		mVo.setMemName(memName);
+		System.out.println(mVo);
 		
 		MemberDAO mDao = MemberDAO.getInstance();
 		mDao.joinMember(mVo);

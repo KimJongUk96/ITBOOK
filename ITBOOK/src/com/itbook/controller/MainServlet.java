@@ -1,6 +1,7 @@
 package com.itbook.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
+import com.itbook.dao.BookDAO;
+import com.itbook.dao.MeetingDAO;
+import com.itbook.vo.main.MainDTO;
 
 /**
  * Servlet implementation class MainServlet
@@ -18,22 +22,35 @@ import com.itbook.controller.action.Action;
 public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * Default constructor. 
-     */
-    public MainServlet() {
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * Default constructor.
+	 */
+	public MainServlet() {
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		String command = request.getParameter("command");
 		System.out.println("MainServlet에서 요청을 받음을 확인 : " + command);
 
+		// selectMainMeetings
+		MeetingDAO mDao = MeetingDAO.getInstance();
+		List<MainDTO> meetingMainList = mDao.selectMainMeetings();
+		request.setAttribute("meetingMainList", meetingMainList);
+		
+		// selectMainTodayBooks
+		BookDAO bDao = BookDAO.getInstance();
+		List<MainDTO> maintodayBookList = bDao.selectMainTodayBooks();
+		request.setAttribute("maintodayBookList", maintodayBookList);
+
 		if (command == null) {
+
 			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 			dispatcher.forward(request, response);
 
@@ -42,13 +59,15 @@ public class MainServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 
 		} else {
+
 			ActionFactory af = ActionFactory.getInstance();
 			Action action = af.getAction(command);
 
 			if (action != null) {
 				action.execute(request, response);
-			
-		} else if (command.equals("meetingList")) {
+
+			} else if (command.equals("meetingList")) {
+				
 				RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 				dispatcher.forward(request, response);
 
@@ -58,9 +77,11 @@ public class MainServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

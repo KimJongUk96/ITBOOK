@@ -23,7 +23,7 @@ public class BookstoreDAO {
 		return instance;
 	}
 	
-	
+	//책방의 전체 데이터 행을 카운트함.
 	public Paging selectBookstoreRowCount(Paging paging) {
 		int cnt = 0;
 		String sql = "SELECT COUNT(*) CNT"
@@ -56,7 +56,7 @@ public class BookstoreDAO {
 	         return paging;
 	   }
 	
-	//책방리스트
+	//페이징 처리를 하고 책방리스트를 보여줌(회원)
 	public ArrayList<BookstoreVO> selectBookstoreList(Paging paging) {
 		String sql = "select * from itbook.bookstore order by bookstoreNum desc limit ?,12";
 		ArrayList<BookstoreVO> list = new ArrayList<BookstoreVO>();
@@ -88,6 +88,7 @@ public class BookstoreDAO {
 		return list;
 	}
 	
+	//페이징 처리를 하고 책방리스트를 보여줌(관리자)
 	public ArrayList<BookstoreVO> adminSelectBookstoreList(Paging paging) {
 		String sql = "select * from itbook.bookstore order by bookstoreNum desc limit ?,10";
 		ArrayList<BookstoreVO> list = new ArrayList<BookstoreVO>();
@@ -119,7 +120,7 @@ public class BookstoreDAO {
 		return list;
 	}
 	
-
+	//책방 등록
 	public void insertBookstore(BookstoreVO bsVo) {
 		String sql = "insert into itbook.bookstore(bookstoreTitle,bookstoreContent,bookstoreUrl,memNum) values(?,?,?,?)";
 	
@@ -141,6 +142,7 @@ public class BookstoreDAO {
 		}
 	}
 	
+	//책방 수정
 	public void updateBookstore(BookstoreVO bsVo) {
 		String sql = "update itbook.bookstore set bookstoreTitle=?, bookstoreContent=?, bookstoreUrl=? where bookstoreNum=?";
 		Connection conn = null;
@@ -163,7 +165,7 @@ public class BookstoreDAO {
 		}
 	}
 
-
+	//책방 삭제
 	public void deleteBookstore(String bookstoreNum) {
 		String sql = "delete from itbook.bookstore where bookstoreNum=?";
 		
@@ -184,8 +186,8 @@ public class BookstoreDAO {
 		}
 
 	}
-
-	//상세보기
+	
+	//책방 상세보기(관리자)
 	public BookstoreVO selectOneBookstoreNum(String bookstoreNum) {
 		String sql = "select * from itbook.bookstore where bookstoreNum = ?";
 
