@@ -146,8 +146,12 @@ v<%@ page language="java" contentType="text/html; charset=UTF-8"
 <!-- </div> -->
 <!-- /.content-wrapper -->
 
-<script>
-
-    </script>
+<script type="text/javascript">
+        $(document).ready(function(){
+     	   if($('.fee').trigger('click'))
+     		$('.treev ').addClass("active");
+     	    $('#m8').attr('style','gray;')
+     	}); 
+</script>
 
 <%@include file="../include/adminfooter.jsp"%>

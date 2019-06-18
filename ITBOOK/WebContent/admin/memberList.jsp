@@ -157,6 +157,15 @@
 		$('#frm')[0].submit();
 	});   
      
+ 
     </script>
+    
+    <script type="text/javascript">
+   $(document).ready(function(){
+	   if($('.member').trigger('click'))
+		$('.treevie ').addClass("active");
+	    $('#m1').attr('style','gray;')
+	}); 
+</script>
 
 <%@include file="../include/adminfooter.jsp"%>

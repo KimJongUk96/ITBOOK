@@ -151,5 +151,13 @@
 	});   
     
     </script>
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+     	   if($('.bookDe').trigger('click'))
+     		$('.treev ').addClass("active");
+     	    $('#m9').attr('style','gray;')
+     	}); 
+</script>
 
 <%@include file="../include/adminfooter.jsp"%>
