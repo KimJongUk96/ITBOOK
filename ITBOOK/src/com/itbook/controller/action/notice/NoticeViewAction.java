@@ -11,6 +11,13 @@ import com.itbook.controller.action.Action;
 import com.itbook.dao.NoticeDAO;
 import com.itbook.vo.Notice.NoticeVO;
 
+/**
+ * 공지사항 상세보기 폼으로 이동하는 액션 클래스 
+ * 
+ * @author 김정민
+ *
+ */
+
 public class NoticeViewAction implements Action {
 
 	@Override

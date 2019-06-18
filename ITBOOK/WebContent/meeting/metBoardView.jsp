@@ -76,25 +76,6 @@ function cmDeleteOpen(metComtNum){
 }
 
 
-// 댓글 삭제
-function deleteCmt(metComtNum)
-{
-    var param="metComtNum="+metComtNum;
-    
-    httpRequest = getXMLHttpRequest(); 
-    httpRequest.onreadystatechange = checkFunc;
-    httpRequest.open("POST", "com.itbook.controller.action.meeting.CommentDeleteAction", true);    
-    httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=EUC-KR'); 
-    httpRequest.send(param);
-}
-
-// 댓글 수정창
-function cmUpdateOpen(metComtNum){
-    window.name = "parentForm";
-    window.open("CommentUpdateFormAction.co?num="+metComtNum,
-                "updateForm", "width=570, height=350, resizable = no, scrollbars = no");
-}
-
 
 
 </script>

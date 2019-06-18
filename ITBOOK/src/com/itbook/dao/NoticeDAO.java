@@ -17,11 +17,12 @@ import com.itbook.vo.Notice.NoticeVO;
 
 /**
  * 
- * 공지사항 등록, 수정, 삭제, 조회를 할 수 있는 클래스
+ * 공지사항 등록, 수정, 삭제, 조회를 할 수 있는 클래스(싱글톤)
  * 
  * @author 김정민
  *
  */
+
 public class NoticeDAO {
 
 	private static NoticeDAO instance = new NoticeDAO();

@@ -19,20 +19,20 @@ public class MeetingApplyAction implements Action{
 		public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
 	
-		// 업로드 파일 사이즈
+		// ��濡��� ���� �ъ�댁�
         int fileSize= 5*1024*1024;
-        // 업로드될 폴더 경로
+        // ��濡����� �대�� 寃쎈�
         String uploadPath = request.getServletContext().getRealPath("/META-INF/UploadFolder");
         
         System.out.println("============ MeetingImg = " + uploadPath);
         
         try {
             
-            // 파일업로드 
+            // ���쇱��濡��� 
             MultipartRequest multi = new MultipartRequest
                     (request, uploadPath, fileSize, "UTF-8", new DefaultFileRenamePolicy());
  
-            // 파일이름 가져오기
+            // ���쇱�대� 媛��몄�ㅺ린
             String fileName = "";
             Enumeration<String> names = multi.getFileNames();
             
@@ -52,6 +52,7 @@ public class MeetingApplyAction implements Action{
 			mVo.setMetGreeting(multi.getParameter("metGreeting"));
 			mVo.setMetIntro(multi.getParameter("metIntro"));
 			mVo.setRepresent(multi.getParameter("represent"));
+			mVo.setLocation(multi.getParameter("location"));
 			mVo.setMetPlace(multi.getParameter("metPlace"));
 			mVo.setKeyword(multi.getParameter("keyword"));
 			mVo.setMetImg(multi.getFilesystemName("metImg"));
@@ -66,7 +67,7 @@ public class MeetingApplyAction implements Action{
             } catch (Exception e) {
                 
             	e.printStackTrace();
-                System.out.println("글 작성 오류 : " + e.getMessage());
+                System.out.println("湲� ���� �ㅻ� : " + e.getMessage());
             }
         	
         

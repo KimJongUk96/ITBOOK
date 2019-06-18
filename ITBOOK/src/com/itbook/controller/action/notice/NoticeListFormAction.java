@@ -13,6 +13,13 @@ import com.itbook.controller.action.Action;
 import com.itbook.dao.NoticeDAO;
 import com.itbook.vo.Notice.NoticeVO;
 
+/**
+ * 공지사항 리스트를 불러오는 액션 클래스 
+ * 
+ * @author 김정민
+ *
+ */
+
 public class NoticeListFormAction implements Action{
 
 	@Override
@@ -31,7 +38,6 @@ public class NoticeListFormAction implements Action{
 		// 검색조건과 검색내용을 가져온다.
 		String opt = request.getParameter("opt");
 		String condition = request.getParameter("condition");
-		String category = request.getParameter("category");
 		
 		
 

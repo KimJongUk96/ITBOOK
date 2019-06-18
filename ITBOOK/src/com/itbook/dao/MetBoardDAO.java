@@ -11,6 +11,14 @@ import com.itbook.vo.Meeting.MetBoardVO;
 
 import util.DBManager;
 
+/**
+ * 
+ * 독서모임게시판 등록, 수정, 삭제, 조회를 할 수 있는 클래스(싱글톤)
+ * 
+ * @author 김정민
+ *
+ */
+
 public class MetBoardDAO {
 
 	private static MetBoardDAO instance = new MetBoardDAO();

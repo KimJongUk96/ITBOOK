@@ -13,6 +13,13 @@ import com.itbook.vo.Notice.NoticeVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+/**
+ * 공지사항 수정 해주는 액션 클래스 
+ * 
+ * @author 김정민
+ *
+ */
+
 public class NoticeUpdateAction implements Action{
 	
 	@Override

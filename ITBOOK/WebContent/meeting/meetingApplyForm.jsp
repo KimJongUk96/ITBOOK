@@ -50,6 +50,34 @@
 	
 	</script>
 	
+	<script type="text/javascript">
+	$(document).ready(function(){
+		
+			$('#metIntro').on('keyup', function(){
+				if($(this).val().length > 3000){
+					$(this).val($(this).val().substring(0, 3000));
+				}
+			
+			$('#metGreeting').on('keyup', function(){
+				if($(this).val().length > 333){
+					$(this).val($(this).val().substring(0, 333));
+				}
+			})
+		})
+	</script>
+	
+	<script type="text/javascript">
+	$("input[name='keyword']").on("click", function(){
+		
+		var cnt = $("input:checked[name='keyword']").size();
+		
+		if(cnt > 2){
+			$(this).attr("checked", false);
+			alert("선택은 1개만 가능합니다.");
+			}
+		}
+	</script>
+	
 </head>
 <body>
 <!-- header 삽입 -->
@@ -92,19 +120,19 @@
 					<!-- 독서모임명 -->
 					<div class="form-group">
 						<label>독서모임명</label>
-						<input type="text" name="metName" class="form-control" placeholder="독서모임명을 입력해주세요.">
+						<input type="text" name="metName" class="form-control" placeholder="독서모임명을 입력해주세요." maxlength=33>
 					</div>
 
 					<!-- 독서모임소개 -->
 					<div class="form-group">
 						<label>독서모임소개</label>
-						<textarea name="metIntro" class="form-control" rows="7" placeholder="독서모임을 소개합니다."></textarea>
+						<textarea id="metIntro" name="metIntro" class="form-control" rows="7" placeholder="독서모임을 소개합니다."></textarea>
 					</div>
 					
 					<!-- 독서모임 인사말 -->
 					<div class="form-group">
 						<label>인사말</label>
-						<textarea name="metGreeting" class="form-control" rows="2" placeholder="대표 인사말을 입력하세요."></textarea>
+						<textarea id="metGreeting" name="metGreeting" class="form-control" rows="2" placeholder="대표 인사말을 입력하세요."></textarea>
 					</div>
 					
 					<!-- 대표자명 -->
@@ -142,13 +170,13 @@
 					</div>
 						
 					<div class="custom-control custom-checkbox mr-sm-2">
-						<input type="checkbox" name="keyword" value="health" class="custom-control-input" id="health&beauti">
-						<label class="custom-control-label" for="health&beauti">건강/뷰티</label>
+						<input type="checkbox" name="keyword" value="health" class="custom-control-input" id="health">
+						<label class="custom-control-label" for="health">건강/뷰티</label>
 					</div>
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="business" class="custom-control-input" id="economy&business">
-						<label class="custom-control-label" for="economy&business">경제/경영</label>
+						<input type="checkbox" name="keyword" value="business" class="custom-control-input" id="business">
+						<label class="custom-control-label" for="business">경제/경영</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
@@ -162,13 +190,13 @@
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="social" class="custom-control-input" id="social&science">
-						<label class="custom-control-label" for="social&science">사회과학</label>
+						<input type="checkbox" name="keyword" value="social" class="custom-control-input" id="social">
+						<label class="custom-control-label" for="social">사회과학</label>
 					</div>
 					
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="IT" class="custom-control-input" id="IT&programing">
-						<label class="custom-control-label" for="IT&programing">IT/개발</label>
+						<input type="checkbox" name="keyword" value="IT" class="custom-control-input" id="IT">
+						<label class="custom-control-label" for="IT">IT/개발</label>
 					</div>
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
@@ -182,8 +210,8 @@
 					</div>
 					
 					<div class="custom-control custom-checkbox mr-sm-2">
-						<input type="checkbox" name="keyword" value="art" class="custom-control-input" id="art&popculture">
-						<label class="custom-control-label" for="art&popculture">예술/대중문화</label>
+						<input type="checkbox" name="keyword" value="art" class="custom-control-input" id="art">
+						<label class="custom-control-label" for="art">예술/대중문화</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
@@ -192,8 +220,8 @@
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="child" class="custom-control-input" id="child&teenager">
-						<label class="custom-control-label" for="child&teenager">아동/청소년</label>
+						<input type="checkbox" name="keyword" value="child" class="custom-control-input" id="child">
+						<label class="custom-control-label" for="child">아동/청소년</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
@@ -202,18 +230,18 @@
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="selfimprove" class="custom-control-input" id="self-improve">
-						<label class="custom-control-label" for="self-improve">자기계발</label>
+						<input type="checkbox" name="keyword" value="selfimprove" class="custom-control-input" id="selfimprove">
+						<label class="custom-control-label" for="selfimprove">자기계발</label>
 					</div>
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="natural" class="custom-control-input" id="natural&science">
-						<label class="custom-control-label" for="natural&science">자연/과학</label>
+						<input type="checkbox" name="keyword" value="natural" class="custom-control-input" id="natural">
+						<label class="custom-control-label" for="natural">자연/과학</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="computer" class="custom-control-input" id="computer&internet">
-						<label class="custom-control-label" for="computer&internet">컴퓨터/인터넷</label>
+						<input type="checkbox" name="keyword" value="computer" class="custom-control-input" id="computer">
+						<label class="custom-control-label" for="computer">컴퓨터/인터넷</label>
 					</div>
 					
 					<label class="mt-3">대표이미지 설정</label>
