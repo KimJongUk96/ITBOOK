@@ -27,7 +27,7 @@ public class MeetingDAO {
 		return instance;
 	}
 
-	// ����紐⑥�� VO ����
+	// MeetingVO에서 값을 가져옴(DB등록된 모든 데이터 가져오기)
 	/*
 	 * private int metNum; private String metName; private String metIntro; private
 	 * String represent; private Date metDate; private int headCount;
@@ -40,6 +40,9 @@ public class MeetingDAO {
 				+ "         ,represent"
 				+ "         ,metDate"
 				+ "         ,headCount"
+				+ "			,location"
+				+ "			,metPlace"
+				+ "			,keyword"
 				+ "         ,metImg"
 				+ "     FROM itbook.meeting"
 				+ "     WHERE approval = 'T'"
@@ -63,8 +66,11 @@ public class MeetingDAO {
 				mVo.setMetIntro(rs.getString("metIntro"));
 				mVo.setRepresent(rs.getString("represent"));
 				mVo.setMetDate(rs.getDate("metDate"));
-				mVo.setMetImg(rs.getString("metImg"));
 				mVo.setHeadCount(rs.getInt("headCount"));
+				mVo.setLocation(rs.getString("location"));
+				mVo.setMetPlace(rs.getString("metPlace"));
+				mVo.setKeyword(rs.getString("keyword"));
+				mVo.setMetImg(rs.getString("metImg"));
 
 				list.add(mVo);
 			}
@@ -78,7 +84,7 @@ public class MeetingDAO {
 		return list;
 	}
 
-	// ����紐⑥�� ��泥���湲� : ����紐⑥��紐�, ����紐⑥����媛�, ������紐� ����!
+	// 독서모임 신청하기
 	public boolean insertMeeting(MeetingVO mVo) {
 
 		boolean result = false;
@@ -93,8 +99,8 @@ public class MeetingDAO {
 
 			StringBuffer sql = new StringBuffer();
 
-			sql.append("insert into itbook.meeting(metName,metGreeting,metIntro,represent,metPlace,keyword,metImg)");
-			sql.append("values (?,?,?,?,?,?,?)");
+			sql.append("insert into itbook.meeting(metName,metGreeting,metIntro,represent,location,metPlace,keyword,metImg)");
+			sql.append("values (?,?,?,?,?,?,?,?)");
 
 			pstmt = conn.prepareStatement(sql.toString());
 
@@ -102,9 +108,10 @@ public class MeetingDAO {
 			pstmt.setString(2, mVo.getMetGreeting());
 			pstmt.setString(3, mVo.getMetIntro());
 			pstmt.setString(4, mVo.getRepresent());
-			pstmt.setString(5, mVo.getMetPlace());
-			pstmt.setString(6, mVo.getKeyword());
-			pstmt.setString(7, mVo.getMetImg());
+			pstmt.setString(5, mVo.getLocation());
+			pstmt.setString(6, mVo.getMetPlace());
+			pstmt.setString(7, mVo.getKeyword());
+			pstmt.setString(8, mVo.getMetImg());
 
 			int flag = pstmt.executeUpdate();
 
@@ -123,7 +130,7 @@ public class MeetingDAO {
 
 	}
 
-	// 愿�由ъ�� 紐⑥�����댁� 珥�寃���湲� �� 蹂닿린
+	// 독서모임 신청하면 관리자 화면에 페이징
 	public Paging adminMeetingRowCount(Paging paging) {
 		int cnt = 0;
 		String sql = "SELECT COUNT(*) CNT"
@@ -153,8 +160,7 @@ public class MeetingDAO {
 		return paging;
 	}
 
-	// ����紐⑥�� 蹂� 寃����� 媛��몄�ㅺ린
-	// +理�洹� 寃���臾� 5媛��ы�⑤�� 寃����� ���곌린
+	// 독서모임 홈에 5개의 공지사항 게시글 띄우기
 	public List<MetBoardVO> selectFiveMetBoard(String metNum) {
 
 		List<MetBoardVO> list = new ArrayList<MetBoardVO>();
@@ -197,7 +203,7 @@ public class MeetingDAO {
 		return list;
 	}
 
-	// ���댁�泥�由ы�� ��泥대え��寃���湲�
+	// 독서모임 홈에 공지사항 게시판 모든 데이터 가져오기
 	public ArrayList<MetBoardVO> selectAllMetBoard(String metNum, Paging paging) {
 
 		ArrayList<MetBoardVO> list = new ArrayList<MetBoardVO>();
@@ -255,13 +261,22 @@ public class MeetingDAO {
 		return list;
 	}
 
-	// ����紐⑥�� ���쇰� �곌껐
-	// ����紐⑥�� 硫��� �� ���몃�댁�� 蹂닿린 : 湲�踰��몃� 李얠���⑤��. �ㅽ�⑦��硫� return null
+	// 독서모임 홈에 선택한 모임 상세보기
 	public MeetingVO selectOneMeetingByNum(String metNum) {
 
-		String sql = "SELECT metNum" + "			, metName" + "			, metIntro" + "			, metGreeting"
-				+ "			, represent" + "			, metPlace" + "			, keyword" + "			, metDate"+ "			, metImg"
-				+ "			, headCount" + " FROM itbook.meeting" + " WHERE metNum = ?";
+		String sql = "SELECT metNum"
+				+ "			, metName"
+				+ "			, metIntro"
+				+ "			, metGreeting"
+				+ "			, represent"
+				+ "			, location"
+				+ "			, metPlace"
+				+ "			, keyword"
+				+ "			, metDate"
+				+ "			, metImg"
+				+ "			, headCount"
+				+ " FROM itbook.meeting"
+				+ " WHERE metNum = ?";
 
 		MeetingVO mVo = null;
 		Connection conn = null;
@@ -285,6 +300,7 @@ public class MeetingDAO {
 				mVo.setMetIntro(rs.getString("metIntro"));
 				mVo.setMetGreeting(rs.getString("metGreeting"));
 				mVo.setRepresent(rs.getString("represent"));
+				mVo.setLocation(rs.getString("location"));
 				mVo.setMetPlace(rs.getString("metPlace"));
 				mVo.setKeyword(rs.getString("keyword"));
 				mVo.setMetDate(rs.getDate("metDate"));
@@ -301,7 +317,7 @@ public class MeetingDAO {
 		return mVo;
 	}
 
-	// ����紐⑥�� ����
+	// 독서모임 수정하기
 	public boolean updateMeeting(MeetingVO mVo) {
 
 		boolean result = false;
@@ -356,7 +372,7 @@ public class MeetingDAO {
 		return result;
 	}
 
-	// 紐⑥����泥� 由ъ�ㅽ��(愿�由ъ�� ��硫�)
+	// 독서모임 멤버쉽 회원 게시판 페이징 처리
 	public ArrayList<MeetingVO> meetingList(Paging paging) {
 		String sql = "SELECT*FROM ITBOOK.MEETING order by metNum desc limit ?, 10";
 
@@ -394,7 +410,7 @@ public class MeetingDAO {
 		return list;
 	}
 
-	// 珥�寃���湲� �� 蹂닿린
+	// 독서모임 홈에 공지사항 게시판 페이징 처리
 	public Paging meetingRowCount(Paging paging, String metNum) {
 		int cnt = 0;
 		String sql = "select COUNT(*) CNT from itbook.met_board where metNum=? ";
@@ -424,7 +440,7 @@ public class MeetingDAO {
 		return paging;
 	}
 
-	// ����紐⑥�� �뱀��
+	// 관리자 페이지에서 독서모임 승인하기
 	public void acceptMeeting(MeetingVO mVO) {
 		String sql = "Update itbook.meeting set metDate = sysdate(), approval = 'T'  where metNum = ?";
 
@@ -445,7 +461,7 @@ public class MeetingDAO {
 		}
 	}
 
-	// ����紐⑥�� 嫄곗�� 諛� ����
+	// 독서모임 삭제하기
 	public void deleteMeeting(MeetingVO mVO) {
 		String sql = "Delete From itbook.meeting Where metNum = ?";
 
@@ -467,13 +483,11 @@ public class MeetingDAO {
 	}
 	
 	//독서모임 승인 후 모임 회원 수 올리기
-	
 	public void countHeadCount(int headCount) {
 		
 		String sql = "UPDATE itbook.meeting"
 					+ "SET headCount = headCount + 1"
-					+ "WHERE metNum=?"
-					+ "AND membe";
+					+ "WHERE metNum=?";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;

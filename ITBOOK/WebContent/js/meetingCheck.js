@@ -47,4 +47,5 @@ function checkSub(){
 			document.checkSub.submit(url);
 		}
 	}
+	
 }

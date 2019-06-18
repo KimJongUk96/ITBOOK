@@ -39,6 +39,14 @@
 	height:313.59px;
 	overflow:hidden;
 	}
+	
+	body span {
+	width:270px;
+	overflow:hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: inline-block;
+	}
 	</style>
 </head>
 
@@ -81,16 +89,16 @@
 					<div class="nav justify-content-center">
 						<ul class="nav-tabs nav-tabs-style-2 text-center px-2 p-md-0 m-0 mb-4">
 							<li class="nav-filter active" data-filter="*">모든 모임</li>
-							<li class="nav-filter" data-filter= ".home">가정/육아</li>
+							<li class="nav-filter" data-filter=".home">가정/육아</li>
 							<li class="nav-filter" data-filter=".health">건강/뷰티</li>
 							<li class="nav-filter" data-filter=".business">경제/경영</li>
-							<li class="nav-filter" data-filter= ".education">교육</li>
+							<li class="nav-filter" data-filter=".education">교육</li>
 							<li class="nav-filter" data-filter=".literature">문학</li>
 							<li class="nav-filter" data-filter=".social">사회과학</li>
-							<li class="nav-filter" data-filter= ".IT">IT/개발</li>
+							<li class="nav-filter" data-filter=".IT">IT/개발</li>
 							<li class="nav-filter" data-filter=".leisure">여가생활</li>
 							<li class="nav-filter" data-filter=".history">역사</li>
-							<li class="nav-filter" data-filter= ".art">예술/영화</li>
+							<li class="nav-filter" data-filter=".art">예술/영화</li>
 							<li class="nav-filter" data-filter=".foreign">외국어/외국문학</li>
 							<li class="nav-filter" data-filter=".child">아동/청소년</li>
 							<li class="nav-filter" data-filter=".humanity">인문학</li>
@@ -109,7 +117,7 @@
 					<c:forEach var="meetingList" items="${meetingList}" varStatus="status">
 					
 						<!-- portfolio-card -->
-						<div class="portfolio-card isotope-item ${meetingList.keyword}">
+						<div class="portfolio-card isotope-item ${meetingList.keyword}" style="position: absolute; left: 0px; top: 0px;">
 							<div class="portfolio-card-body">
 								<div class="portfolio-card-header">
 								<!-- 이미지 -->
@@ -122,6 +130,7 @@
 									<fmt:formatDate value="${meetingList.metDate}"/>, 
 									회원수 : ${meetingList.headCount}
 									</div>
+									<div class="post-author">${meetingList.location}</div>
 									<div><h6 class="info-title"><b><a href="/meeting?command=meetingHome&metNum=${meetingList.metNum}" title="독서모임">${meetingList.metName}</a></b></h6></div>
 									<span>${meetingList.metIntro}</span>
 								</div>
