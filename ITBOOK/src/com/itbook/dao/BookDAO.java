@@ -12,6 +12,7 @@ import java.util.List;
 import com.itbook.vo.BookVO;
 import com.itbook.vo.Paging;
 import com.itbook.vo.Book.BookBoardVO;
+import com.itbook.vo.main.MainDTO;
 
 import util.DBManager;
 
@@ -28,6 +29,38 @@ public class BookDAO {
 		return instance;
 	}
 
+	public List<MainDTO> selectMainTodayBooks() {
+
+		String sql = "select bookBrdTitle,imgPath from itbook.book_board order by bookBrdNum desc";
+
+		List<MainDTO> list = new ArrayList<MainDTO>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				MainDTO mVo = new MainDTO();
+
+				mVo.setBookBrdTitle(rs.getString("bookBrdTitle"));
+				mVo.setImgPath(rs.getString("imgPath"));
+				list.add(mVo);
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return list;
+	}
+	
+	
 	// 이달의 책 리스트. (일반회원)
 	public List<BookBoardVO> selectTodayBookList() {
 
