@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"
 	charset="UTF-8">
 
-<title> 멤버쉽 가입 </title>
+<title> 모임가입 </title>
 
 	<!-- Favicon -->
 	<!-- Google Font -->
@@ -57,6 +57,7 @@
 					</div>
 					<div>
 					<button type="button" name="ajax" id="send" onclick="sendMessage()" class="btn btn-black" >가입</button>
+					<button type="button" onclick="goBack()" class="btn btn-black" >취소</button>
 					</div>
 		</div>
 		
@@ -88,6 +89,10 @@
 			}
 		});
 	}
+	function goBack(){
+		self.close();
+	}
+	
 	</script>
 
 </body>
