@@ -31,6 +31,8 @@
 
 <!-- Theme CSS -->
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+<script type="text/javascript" src ="/js/report.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 </head>
 <body>
@@ -42,7 +44,7 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">희망의 책 독후감 수정</h1>
+					<h1 class="innerpage-title">독후감</h1>
 					<h6 class="subtitle"> </h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
@@ -55,7 +57,7 @@
 			</div>
 		</div>
 	</div>
-	<section>
+	<%-- <section>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-2">
@@ -103,11 +105,79 @@
 							placeholder="내용을 입력하세요.">${reportList.reportContent}</textarea>
 					</div>
 					<button type="submit" class="btn btn-success">
-						<i class="fa fa-check-circle-o"></i>수정하기
+						<i class="fa fa-check-circle-o"></i>수정
 					</button>
 					<a class="btn btn-warning"
 						href="report?command=Report_Detail&reportNum=${reportList.reportNum}"><i
-						class="fa fa-close"></i>취소하기</a>
+						class="fa fa-close"></i>취소</a>
+				</div>
+			</form>
+		</div>
+
+	</section> --%>
+	<section>
+		<div class="container">
+			<form name="frm" method="post" action="report?command=Report_Update&reportNum=${reportList.reportNum}">
+				<input type="hidden" name="bookNum" value="${reportList.bookNum}">
+					<input type="hidden" name="memNum" value="${LoginUser.memNum}">
+				<div class="form-group">
+					<div class="col-md-4 col-xs-4">
+						<button type="button" class="form-control" onclick="openPopUp()">책
+							검색</button>
+						<div class="form-group">
+							<label>분류</label> <select class="custom-select select-big mb-3"
+								name="reportCategory">
+								<option value="문학">문학</option>
+								<option value="경제">경제</option>
+								<option value="자연과학">자연과학</option>
+								<option value="인문사회">인문사회</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<!-- Comment-respond -->
+				<div class="row mt-5">
+					<div class="col-md-12">
+						<h2 class="mb-2">글쓰기</h2>
+					</div>
+
+					<div class="col-md-3">
+						<div class="form-group">
+							<span class="form-group"><input type="text"
+								class="form-control" placeholder="책 제목" name="bookTitle" value="${bookList.bookTitle}" ></span>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<span class="form-group"><input type="text"
+								class="form-control" placeholder="저자" name="writer" value="${reportList.writer}"></span>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<span class="form-group"><input type="text"
+								class="form-control" placeholder="출판사" name="publisher" value="${reportList.publisher}"></span>
+						</div>
+					</div>
+					<div class="col-md-7">
+						<span class="form-group"><input type="text"
+							class="form-control" placeholder="제목" name="reportTitle" value="${reportList.reportTitle}"></span>
+					</div>
+					<div class="col-md-12" style="min-height: 480px;">
+						<span class="form-group"><textarea cols="40" rows="20"
+								name="reportContent" class="form-control"
+								placeholder="내용을 입력하세요.">${reportList.reportContent}</textarea></span>
+					</div>
+
+					<div class="col-md-12 text-right">
+						<button type="submit"
+							class="btn btn-grad border-radius-left-0 mb-0" onclick="return reportCheck()">수정</button>
+						<a href="report?command=Report_List">
+							<button type="button"
+								class="btn btn-grad border-radius-left-0 mb-0">취소</button>
+						</a>
+					</div>
 				</div>
 			</form>
 		</div>
@@ -135,6 +205,13 @@
 
 			window.open(url, title, status);
 		}
+		$(document).ready(function(){
+			$('form').submit(function(){
+		 	  var result = alert("수정되었습니다.");
+		   
+			   return result;
+			})
+			})
 	</script>
 	<%@ include file="../include/footer.jsp"%>
 </body>
