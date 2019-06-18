@@ -54,7 +54,6 @@
 	<tr><th colspan="5" style = "text-align: center;">공지사항 목록</th></tr>
 	<tr>
 	    <th style="width: 10px; text-align:center;"><input type = "checkbox" name = "AllCheck" ></th>
-	    <th style="width: 100px; text-align: center;">글번호</th>
 		<th style="width: 100px; text-align: center;">제목</th>
 		<th style="width: 100px;text-align: center;">작성자</th>
 		<th style="width: 100px;text-align: center;">작성일자</th>
@@ -66,7 +65,6 @@
 	<tbody >
 	<tr style ="text-align:center;">
 		<td><input type ="checkbox" value="${NoticeVO.noticeNum}" name="noticeNum" ></td>
-		<td>${NoticeVO.noticeNum}</td>
 		<td><a href="/notice?command=noticeViewAction&noticeNum=${NoticeVO.noticeNum}" target="_blank">${NoticeVO.noticeTitle}</a></td>
 		<td><%-- ${NoticeVO.notice} --%>관리자</td>
 		<td>${NoticeVO.noticeDate}</td>

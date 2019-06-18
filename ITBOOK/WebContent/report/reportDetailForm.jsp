@@ -97,9 +97,8 @@
 								<span class="form-group"><textarea cols="40" rows="10"
 										name="reportList" class="form-control" readonly="readonly">${reportList.reportContent}</textarea></span>
 							</div>
-							<c:if
-								test="${LoginUser.authority eq '1' or LoginUser.authority eq '2' or LoginUser.authority eq '3'}">
 								<div align="right">
+							<c:if test="${LoginUser.memNum eq reportList.memNum or LoginUser.authority eq '3'}">
 									<button type="submit"
 										class="btn btn-grad border-radius-left-0 mb-0">수정</button>
 
@@ -107,10 +106,10 @@
 										<button type="button" id="delete"
 											class="btn btn-grad border-radius-left-0 mb-0">삭제</button>
 									
+							</c:if>
 										<button type="button" id="cancel"
 											class="btn btn-grad border-radius-left-0 mb-0">취소</button>
 								</div>
-							</c:if>
 						</div>
 					</form>
 

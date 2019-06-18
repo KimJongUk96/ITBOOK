@@ -98,9 +98,9 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="reportList" items="${reportList}">
+								<c:forEach var="reportList" items="${reportList}" varStatus="status" >
 									<tr>
-										<th scope="row">${reportList.reportNum}</th>
+										<th scope = "row">${(paging.numOfRow - status.index) -  (paging.pageNum-1) * 10 }</th>
 										<th>${reportList.reportCategory}</th>
 										<td><a
 											href="/report?command=Report_Detail&reportNum=${reportList.reportNum}">${reportList.reportTitle }</a></td>

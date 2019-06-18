@@ -54,7 +54,6 @@
 	<tr><th colspan="6" style = "text-align: center;">독후감 목록</th></tr>
 	<tr>
 	    <th style="width: 10px; text-align:center;"><input type = "checkbox" name = "AllCheck" ></th>
-	    <th style="width: 100px; text-align: center;">글 번호</th>
 		<th style="width: 100px; text-align: center;">제목</th>
 		<th style="width: 100px;text-align: center;">작성자</th>
 		<th style="width: 100px;text-align: center;">작성일자</th>
@@ -66,9 +65,9 @@
 	<tbody >
 	<tr style ="text-align:center;">
 		<td><input type ="checkbox" value="${ReportVO.reportNum}" name="reportNum" ></td>
-		<td>${ReportVO.reportNum}</td>
 		<td>${ReportVO.reportTitle}</td>
-		<td>${ReportVO.reportContent}</td>
+		<td>${ReportVO.memName}</td>
+		<td>${ReportVO.reportDate}</td>
 		<td>${ReportVO.reportCount}</td>
 		
 	</tr>

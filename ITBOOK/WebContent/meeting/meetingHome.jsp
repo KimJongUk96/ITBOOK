@@ -82,9 +82,11 @@
 							<li><a class="btn btn-grad mt-4" onclick="joinPopup()">
 								모임 가입하기
 							<i class="fa fa-external-link ml-2 mr-0"></i></a>
+							<c:if test="${LoginUser.memName eq meetingVo.represent}">
 							<a class="btn btn-grad mt-4" href="/meeting?command=metUpdateFormAction&metNum=${meetingVo.metNum}">
 								독서모임 수정
 							<i class="fa fa-external-link ml-2 mr-0"></i></a></li>
+							</c:if>
 							
 						</ol>
 					</nav>
