@@ -55,12 +55,13 @@
 	<thead>
 	<tr><th colspan="6" style = "text-align: center;">모임신청 명단</th></tr>
 	<tr>
-	    <th style="width: 10px; text-align:center;"><input type = "checkbox" name = "AllCheck" ></th>
 		<th style="width: 100px; text-align: center;">모임명</th>
 		<th style="width: 100px;text-align: center;">모임소개</th>
 		<th style="width: 100px;text-align: center;">대표자</th>
 		<th style="width: 100px;text-align: center;">활동지역</th>
 		<th style="width: 50px;text-align: center;">신청일</th>
+		<th style="width: 50px;text-align: center;">승인여부</th>
+		
 	</tr>
 	</thead>
 
@@ -68,20 +69,20 @@
 <c:if test = "${MeetingVO.approval eq 'F'}">
 	<tbody >
 	<tr style ="text-align:center;">
-		<td><input type ="checkbox" value="${MeetingVO.metNum}" name="metNum" ></td>
 		<td>${MeetingVO.metName}</td>
 		<td>${MeetingVO.metIntro}</td>
 		<td>${MeetingVO.represent}</td>
 		<td>${MeetingVO.metPlace}
 		<td>${MemberVO.metDate}</td>
+		<td><a href="/admin?command=meetingRefuseAction&metNum=${MeetingVO.metNum}"><button type = "button" class="btn btn-danger" style = "float : right">거절</button></a>&nbsp;&nbsp;
+		    <a href="/admin?command=meetingUpdate&metNum=${MeetingVO.metNum}"><button type = "button" class="btn btn-primary" style = "float : right">승인</button></a></td>
 	</tr>
 	</tbody>
 	</c:if>
 </c:forEach>
 </table> 
 </div>
-		    <button type = "button" class="btn btn-danger" style = "float : right">거절</button>
-		    <button type = "submit" class="btn btn-primary" style = "float : right">승인</button>
+
 </div>
 			</form>
 			<section class="pt-0">

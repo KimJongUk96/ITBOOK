@@ -166,6 +166,17 @@
                 <li class ="report"><a href="admin?command=reportListForm"><i class="fa fa-magic"></i><span style="color:white" id="m7"> 독후감 삭제</span></a></li>
               </ul>
             </li>
+            <!-- <li class="tre">
+              <a href="#">
+                <i class="fa fa-book"></i> 
+                <span>기관관리</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li class="bookStore"><a href="admin?command=bookStoreList"><i class="fa fa-magic"></i><span style="color:white" id="m8"> 서점 삭제</span></a></li>
+                <li class="lib"><a href="admin?command=libList"><i class="fa fa-magic"></i><span style="color:white" id="m9"> 도서관 삭제</span></a></li>
+              </ul>
+             </li> -->
             <li class="treev">
               <a href="#">
                 <i class="fa fa-book"></i> 

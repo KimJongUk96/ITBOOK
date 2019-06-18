@@ -23,7 +23,7 @@ public class AdminMeetingAcceptListAction implements Action{
 		//책 페이징
 		Paging paging = new Paging(10,1);
 	    int pageNum = request.getParameter("pageNum") == null ? 1 : Integer.parseInt(request.getParameter("pageNum"));
-
+	    
 	    paging.setPageNum(pageNum);
 	    mDao.adminMeetingRowCount(paging);
 	    ArrayList<MeetingVO> metList = mDao.meetingList(paging);
