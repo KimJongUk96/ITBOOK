@@ -35,14 +35,14 @@
 	<!-- List div CSS -->
 	<style type="text/css">
 	.portfolio-card-body {
-	width:295px;
-	height:313.59px;
-	overflow:hidden;
+	width: 295px;
+	height: 313.59px;
+	overflow: hidden;
 	}
 	
 	body span {
-	width:270px;
-	overflow:hidden;
+	width: 270px;
+	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	display: inline-block;
