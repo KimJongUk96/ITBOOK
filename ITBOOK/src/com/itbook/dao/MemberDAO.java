@@ -458,7 +458,7 @@ public class MemberDAO {
 		 
 	 }
 	 public void refuseMemberShip(MemListVO mVo) {
-		 String sql = "update itbook.mem_list set metNum = 1 where memNum =?";
+		 String sql = "update itbook.mem_list set approval = 'R' where memNum = ?";
 		 
 		 Connection conn = null;
 		 PreparedStatement pstmt = null;

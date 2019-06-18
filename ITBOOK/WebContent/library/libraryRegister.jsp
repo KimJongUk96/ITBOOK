@@ -72,7 +72,7 @@
 						<%-- <input type ="hidden" name = "memNum" value = "${LoginUser.memNum}"> --%>
 						<div class="form-group">
 							<label>제목</label> <input class="form-control" type="text"
-								name="libraryTitle" placeholder="* 도서관 명을 입력하세요.">
+								name="libraryTitle" placeholder="도서관 명을 입력하세요.">
 						</div>
 
 						<div class="form-group">

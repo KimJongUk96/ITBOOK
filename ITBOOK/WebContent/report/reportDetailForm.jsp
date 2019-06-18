@@ -157,18 +157,7 @@
 						</div>
 					</form>
 
-					<!-- <br> <br> <br> <br> <br> <br>
-
-					<div class="col-md-12 text-center">
-						<button type="button"
-							class="btn btn-grad border-radius-left-0 mb-0">이전 글</button>
-						<a href="report?command=Report_List">
-							<button type="button"
-								class="btn btn-grad border-radius-left-0 mb-0">글 목록</button>
-						</a>
-						<button type="button"
-							class="btn btn-grad border-radius-left-0 mb-0">다음 글</button>
-					</div> -->
+			
 				</div>
 			</div>
 		</div>
