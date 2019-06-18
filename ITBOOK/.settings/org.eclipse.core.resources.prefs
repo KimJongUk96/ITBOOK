@@ -6,5 +6,6 @@ encoding//src/com/itbook/dao/MeetingDAO.java=UTF-8
 encoding//src/com/itbook/vo/Book/BookBoardVO.java=UTF-8
 encoding//src/com/itbook/vo/BookVO.java=UTF-8
 encoding//src/com/itbook/vo/Meeting/MeetingVO.java=UTF-8
+encoding//src/com/itbook/vo/Report/ReportBoardVO.java=UTF-8
 encoding//src/util/DBManager.java=UTF-8
 encoding/<project>=UTF-8
