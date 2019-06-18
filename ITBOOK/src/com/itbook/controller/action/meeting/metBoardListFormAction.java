@@ -14,6 +14,13 @@ import com.itbook.vo.Paging;
 import com.itbook.vo.Meeting.MeetingVO;
 import com.itbook.vo.Meeting.MetBoardVO;
 
+/**
+ * 독서모임게시판 리스트를 불러오는 액션 클래스 
+ * 
+ * @author 김정민
+ *
+ */
+
 public class metBoardListFormAction implements Action {
 
    @Override

@@ -16,6 +16,13 @@ import com.itbook.vo.Meeting.MeetingVO;
 import com.itbook.vo.Meeting.MetBoardVO;
 import com.itbook.vo.Meeting.MetPostVO;
 
+/**
+ * 독서모임게시판 게시글 수정 폼으로 이동하는 액션 클래스 
+ * 
+ * @author 김정민
+ *
+ */
+
 public class MetBoardUpdateFormAction implements Action {
 
 	@Override

@@ -85,21 +85,6 @@
 								<div class="col-md-12" style="min-height:480px;"><span class="form-group"><textarea cols="40" rows="20"  name="metBrdContent"
 								class="form-control" placeholder="Message"></textarea></span></div>
 								
-								<!-- 첨부파일 시작 -->
-								<!-- <div class="col-md-12">
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text">Upload</span>
-										</div>
-										<div class="custom-file">
-											<input type="file" name="noticeFile" class="custom-file-input" id="inputGroupFile01">
-											<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-										</div>
-									</div>
-								</div> -->
-								
-								
-								
 							</div>
 							
 								<div align="right">

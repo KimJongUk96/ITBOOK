@@ -9,6 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.itbook.controller.action.Action;
 import com.itbook.dao.NoticeDAO;
 
+/**
+ * 공지사항 삭제하는 액션 클래스 
+ * 
+ * @author 김정민
+ *
+ */
+
 public class NoticeDeleteAction implements Action {
 	
 	@Override

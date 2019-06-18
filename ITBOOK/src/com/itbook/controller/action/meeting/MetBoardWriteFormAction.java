@@ -13,6 +13,13 @@ import com.itbook.dao.MeetingDAO;
 import com.itbook.vo.Meeting.MeetingVO;
 import com.itbook.vo.Meeting.MetBoardVO;
 
+/**
+ * 독서모임게시판 게시글 등록폼으로 이동하는 액션 클래스 
+ * 
+ * @author 김정민
+ *
+ */
+
 public class MetBoardWriteFormAction implements Action {
 
 	@Override

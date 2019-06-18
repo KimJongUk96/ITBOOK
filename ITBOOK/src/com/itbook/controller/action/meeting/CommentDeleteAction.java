@@ -11,6 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.itbook.controller.action.Action;
 import com.itbook.dao.MetCommentDAO;
 
+/**
+ * 독서모임게시판 게시글의 댓글을 지우는 액션 클래스 
+ * 
+ * @author 김정민
+ *
+ */
+
 public class CommentDeleteAction implements Action {
 	
 	@Override
