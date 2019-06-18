@@ -141,7 +141,7 @@
 <script>
 // 올체크
  $("input[name=AllCheck]").click(function(){
-	var chk = $(this).is(":checked");
+	var chk = $(this).is(":checked"); 
 	
 	if(chk){
 		$("input[name='metNum']").prop("checked", true);
