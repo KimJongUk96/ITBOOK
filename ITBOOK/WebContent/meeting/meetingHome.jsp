@@ -79,6 +79,13 @@
 							<li class="breadcrumb-item active"><a href="/index.jsp"><i
 									class="ti-home"></i>Home</a></li>
 							<li class="breadcrumb-item">독서모임</li>
+							<li><a class="btn btn-grad mt-4" onclick="joinPopup()">
+								모임 가입하기
+							<i class="fa fa-external-link ml-2 mr-0"></i></a>
+							<a class="btn btn-grad mt-4" href="/meeting?command=metUpdate">
+								독서모임 수정
+							<i class="fa fa-external-link ml-2 mr-0"></i></a></li>
+							
 						</ol>
 					</nav>
 				</div> 
@@ -243,7 +250,7 @@
 									href="/meeting?command=metBoardViewAction&metBrdNum=${metbrd.metBrdNum}">${metbrd.metBrdName}</a></td>
 								<!-- <td>모임관리자</td> -->
 								<th></th>
-								<td><fmt:formatDate value="${metbrd.metBrdDate}" /></td>
+								<td><fmt:formatDate value="${metbrd.regDate}" /></td>
 							</tr>
 							</c:if>
 						</c:forEach>
