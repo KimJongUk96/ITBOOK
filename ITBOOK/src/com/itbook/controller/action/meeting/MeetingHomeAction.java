@@ -24,7 +24,10 @@ public class MeetingHomeAction implements Action {
 		String url = "/meeting/meetingHome.jsp";
 		
 		String metNum = request.getParameter("metNum");
+		String memNum = request.getParameter("memNum");
+		request.setAttribute("memNum", memNum);
 		System.out.println(metNum);
+		System.out.println(memNum);
 		MeetingDAO mDao = MeetingDAO.getInstance();
 		MemberDAO mlDao = MemberDAO.getInstance();
 		
@@ -33,7 +36,6 @@ public class MeetingHomeAction implements Action {
 		
 		ArrayList<MemListVO> memList = mlDao.meetingMemList();
 		request.setAttribute("memList", memList);
-		
 		request.setAttribute("meetingVo", meetingVo);
 		request.setAttribute("metboardList", metboardList);
 		

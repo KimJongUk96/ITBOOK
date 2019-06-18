@@ -98,6 +98,7 @@
              	 <div align="right">
              	 
                   <a class="btn btn-grad"  href="meeting?command=metBoardWriteFormAction&metNum=${meetingVo.metNum }">글쓰기</a>
+                  <a class="btn btn-grad"  href="/meeting?command=meetingHome&metNum=${meetingVo.metNum}" >뒤로가기</a>
 
                   </div>
                </div>

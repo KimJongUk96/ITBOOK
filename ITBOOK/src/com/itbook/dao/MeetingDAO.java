@@ -209,7 +209,8 @@ public class MeetingDAO {
 
 		List<MetBoardVO> list = new ArrayList<MetBoardVO>();
 
-		String sql = "select * from itbook.met_board where metNum=? order by regDate desc limit 5";
+		String sql = "Select m.metBrdNum, m.metBrdCategory, m.metBrdName, m.metNum, m.memNum, m.regDate, b.memName, b.memNum \n" + 
+				"from met_board m, member b where m.memNum = b.memNum and m.metNum = ? order by m.regDate desc limit 5 ";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -229,10 +230,12 @@ public class MeetingDAO {
 
 				mbVo.setMetBrdNum(rs.getString("metBrdNum"));
 				mbVo.setMetBrdName(rs.getString("metBrdName"));
-				mbVo.setMetBrdContent(rs.getString("metBrdContent"));
 				mbVo.setMetNum(rs.getString("metNum"));
+				mbVo.setMetBrdCategory(rs.getString("metBrdCategory"));
+				mbVo.setMemNum(rs.getString("memNum"));
+				mbVo.setMemName(rs.getString("memName"));
 				mbVo.setRegDate(rs.getDate("regDate"));
-
+				
 				list.add(mbVo);
 
 			}
