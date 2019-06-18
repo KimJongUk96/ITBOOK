@@ -28,11 +28,11 @@ public class CommentWriteAction implements Action {
 		MetCommentVO comment = new MetCommentVO();
 		
 		// 파리미터 값을 가져온다.
-        String metPostNum = request.getParameter("metPostNum");
+        String metBrdNum = request.getParameter("metBrdNum");
         String memNum = request.getParameter("memNum");
         String metComtContent = request.getParameter("metComtContent");
         
-        comment.setMetPostNum(metPostNum);
+        comment.setMetBrdNum(metBrdNum);
         comment.setMemNum(memNum);
         comment.setMetComtContent(metComtContent);
         

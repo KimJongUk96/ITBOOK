@@ -148,10 +148,10 @@ function cmDeleteOpen(metComtNum){
 								</div>
 								
 							<div align="right">
-								<input type="submit" value="수정" class="btn btn-primary">
-								<input type="button" value="삭제" class="btn btn-primary"
+								<input type="submit" value="수정" class="btn btn-grad">
+								<input type="button" value="삭제" class="btn btn-grad"
 									onclick="location.href='/meeting?command=metBoardDeleteAction&metBrdNum=${metbrd.metBrdNum}&metNum=${meetingVo.metNum }'">
-								<input type="button" value="돌아가기" class="btn btn-primary"
+								<input type="button" value="취소" class="btn btn-grad"
 									onclick="location.href='/meeting?command=metBoardListFormAction&metNum=${meetingVo.metNum }'">
 							</div>
 						</div>

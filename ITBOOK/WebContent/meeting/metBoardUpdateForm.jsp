@@ -116,8 +116,8 @@
 						</table>
 							
 						<div align="right">
-							<input type="submit"  class="btn btn-primary" value="수정" >
-							<input type="button" value="취소" id="cancel" class="btn btn-primary" onclick="location.href='/meeting?command=metPostListFormAction&page=${pageNum}'">
+							<input type="submit" class="btn btn-grad" value="수정" >
+							<input type="button" value="취소" id="cancel" class="btn btn-grad" onclick="location.href='/meeting?command=metPostListFormAction&page=${pageNum}'">
 						</div>
 					</div>
 					</form>

@@ -61,12 +61,12 @@ public class MetBoardViewAction implements Action{
 		
 		 // 게시글 번호를 이용하여 해당 글에 있는 댓글 목록을 가져온다.
 		
-//		MetCommentDAO metcommentDAO = MetCommentDAO.getInstance();
-//		ArrayList<MetCommentVO> commentList =
-//		metcommentDAO.getCommentList(metBrdNum);
-//		
-//		// 댓글이 1개라도 있다면 request에 commentList를 세팅한다. if(commentList.size() > 0)
-//		request.setAttribute("commentList", commentList);
+		MetCommentDAO metcommentDAO = MetCommentDAO.getInstance();
+		ArrayList<MetCommentVO> commentList =
+		metcommentDAO.getCommentList(metBrdNum);
+		
+		// 댓글이 1개라도 있다면 request에 commentList를 세팅한다. if(commentList.size() > 0)
+		request.setAttribute("commentList", commentList);
 		 
         
 		
