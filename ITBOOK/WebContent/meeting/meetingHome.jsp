@@ -222,6 +222,7 @@
 					<span style="font-size: 25px;">공지사항  </span>
 					<span style="font-size: 15px;"><a href="/meeting?command=metBoardListFormAction&metNum=${meetingVo.metNum}">게시글 더보기
 						<i class="fa fa-external-link ml-2 mr-0"></i></a></span>
+						 
 				</div>
 						
 					<thead>
@@ -241,15 +242,16 @@
 								</tr>
 							</c:if>
 						<c:forEach var="metbrd" items="${metboardList}" varStatus="var">
-							
+						
 							<c:if test="${not empty metboardList}">
+							
 							<tr>
 								<th scope="row">${var.count}</th>
 								<th>${metbrd.metBrdCategory}</th>
 								<td><a
 									href="/meeting?command=metBoardViewAction&metBrdNum=${metbrd.metBrdNum}">${metbrd.metBrdName}</a></td>
 								<!-- <td>모임관리자</td> -->
-								<th></th>
+								<th>${metbrd.memName}</th>
 								<td><fmt:formatDate value="${metbrd.regDate}" /></td>
 							</tr>
 							</c:if>
