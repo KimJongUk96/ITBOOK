@@ -3,30 +3,23 @@ package com.itbook.vo;
 import java.sql.Timestamp;
 
 /**
- * 모임가입일
- * 회원번호
- * 모임번호
- * 아이디 
- * 이름
- * 승인
- * @author 종욱
+ * 紐⑥��媛�����
+ * ����踰���
+ * 紐⑥��踰���
+ * ���대�� 
+ * �대�
+ * �뱀��
+ * @author 醫���
  *
  */
 public class MemListVO {
 	
-	private Timestamp joinDate;
 	private String memNum;
 	private String metNum;
+	private Timestamp joinDate;
 	private String memName;
 	private String memId;
 	private String approval;
-	
-	public Timestamp getJoinDate() {
-		return joinDate;
-	}
-	public void setJoinDate(Timestamp joinDate) {
-		this.joinDate = joinDate;
-	}
 	public String getMemNum() {
 		return memNum;
 	}
@@ -38,6 +31,12 @@ public class MemListVO {
 	}
 	public void setMetNum(String metNum) {
 		this.metNum = metNum;
+	}
+	public Timestamp getJoinDate() {
+		return joinDate;
+	}
+	public void setJoinDate(Timestamp joinDate) {
+		this.joinDate = joinDate;
 	}
 	public String getMemName() {
 		return memName;
@@ -51,7 +50,6 @@ public class MemListVO {
 	public void setMemId(String memId) {
 		this.memId = memId;
 	}
-	
 	public String getApproval() {
 		return approval;
 	}
@@ -61,12 +59,8 @@ public class MemListVO {
 	
 	@Override
 	public String toString() {
-		return "MemListVO [joinDate=" + joinDate + ", memNum=" + memNum + ", metNum=" + metNum + ", memName=" + memName
+		return "MemListVO [memNum=" + memNum + ", metNum=" + metNum + ", joinDate=" + joinDate + ", memName=" + memName
 				+ ", memId=" + memId + ", approval=" + approval + "]";
 	}
-	
-
-
-	
 	
 }

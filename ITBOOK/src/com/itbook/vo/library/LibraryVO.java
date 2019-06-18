@@ -1,12 +1,21 @@
 package com.itbook.vo.library;
 
+/**
+ * 도서관번호
+ * 도서관명
+ * 도서관 위치
+ * 도서관 URL
+ * 회원번호
+ * @author 정원
+ *
+ */
+
 public class LibraryVO {
 
 	private String libraryNum;
 	private String libraryTitle;
-	private String libraryContent; // 위치
+	private String libraryContent;
 	private String libraryUrl;
-	// memNum추가
 	private String memNum;
 
 	public String getLibraryNum() {
