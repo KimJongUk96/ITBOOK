@@ -48,8 +48,8 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">도서관 등록</h1>
-					<h6 class="subtitle">희망의 책 대전본부</h6>
+					<h1 class="innerpage-title">대전 도서관</h1>
+					<h6 class="subtitle"></h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="index.jsp"><i
@@ -87,9 +87,9 @@
 
 				
 						<button type="submit" class="btn btn-grad border-radius-left-0 mb-0"
-						onclick="return libraryCheck()">등록하기</button>
+						onclick="return libraryCheck()">등록</button>
 						<button type="button" class="btn btn-grad border-radius-left-0 mb-0"
-						onclick="location.href='library?command=adminLibraryList'">취소하기</button>
+						onclick="location.href='library?command=adminLibraryList'">취소</button>
 					</form>
 				</div>
 
@@ -97,7 +97,15 @@
 
 		</div>
 	</section>
-
+<script>
+$(document).ready(function(){
+	$('form').submit(function(){
+ 	  var result = alert("등록되었습니다.");
+   
+	   return result;
+	})
+	})
+</script>
 
 	<%@ include file="../include/footer.jsp"%>
 </body>

@@ -43,7 +43,7 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">우리동네 도서관</h1>
+					<h1 class="innerpage-title">대전 도서관</h1>
 					<h6 class="subtitle"></h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">

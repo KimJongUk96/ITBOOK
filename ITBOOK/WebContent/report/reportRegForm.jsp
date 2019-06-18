@@ -43,7 +43,7 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">희망의 책 독후감 등록</h1>
+					<h1 class="innerpage-title">독후감</h1>
 					<h6 class="subtitle"></h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
@@ -114,10 +114,10 @@
 
 					<div class="col-md-12 text-right">
 						<button type="submit"
-							class="btn btn-grad border-radius-left-0 mb-0" onclick="return reportCheck()">등록하기</button>
+							class="btn btn-grad border-radius-left-0 mb-0 " onclick="return reportCheck()">등록</button>
 						<a href="report?command=Report_List">
 							<button type="button"
-								class="btn btn-grad border-radius-left-0 mb-0">취소하기</button>
+								class="btn btn-grad border-radius-left-0 mb-0">취소</button>
 						</a>
 					</div>
 				</div>
