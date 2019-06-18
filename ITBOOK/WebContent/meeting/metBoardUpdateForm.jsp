@@ -31,6 +31,20 @@
 
 	<!-- Theme CSS -->
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript">
+	
+	
+	$(document).ready(function(){
+		$('form').submit(function(){
+	 	  var result = alert("수정되었습니다.");
+	   
+		   return result;
+		})
+		})
+	
+	</script>
 	</head>
 	
 <body>
@@ -102,9 +116,8 @@
 						</table>
 							
 						<div align="right">
-							<input type="reset"  class="btn btn-primary" value="작성취소" >
 							<input type="submit"  class="btn btn-primary" value="수정" >
-							<input type="button" value="목록" class="btn btn-primary" onclick="location.href='/meeting?command=metPostListFormAction&page=${pageNum}'">
+							<input type="button" value="취소" id="cancel" class="btn btn-primary" onclick="location.href='/meeting?command=metPostListFormAction&page=${pageNum}'">
 						</div>
 					</div>
 					</form>
