@@ -98,7 +98,7 @@ public class ReportDAO {
 
 	// 독후감 상세보기
 	public ReportBoardVO selectOneReportByNum(String reportNum) {
-		String sql = "select * from itbook.report_board where reportNum=?";
+		String sql = "select r.reportNum,r.reportTitle,r.reportContent,r.reportDate,r.reportCount,r.bookNum,r.writer,r.publisher,r.reportCategory,r.memNum,m.memName from itbook.report_board r , itbook.member m where r.memNum = m.memNum";
 
 		ReportBoardVO rVo = new ReportBoardVO();
 		Connection conn = null;
@@ -109,7 +109,6 @@ public class ReportDAO {
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, reportNum);
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
@@ -279,8 +278,6 @@ public class ReportDAO {
 				rVo.setReportCount(rs.getInt("reportCount"));
 				rVo.setMemName(rs.getString("memName"));
 				
-				
-
 				list.add(rVo);
 			}
 
