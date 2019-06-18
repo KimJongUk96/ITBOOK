@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Wizixo | Creative Multipurpose Bootstrap Template</title>
+<title>도서관 조회</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,9 +52,9 @@
 					<h6 class="subtitle">희망의 책 대전본부</h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="index.html"><i
-									class="ti-home"></i>Main</a></li>
-							<li class="breadcrumb-item">도서관 등록</li>
+							<li class="breadcrumb-item active"><a href="index.jsp"><i
+									class="ti-home"></i>Home</a></li>
+							
 						</ol>
 					</nav>
 				</div>
