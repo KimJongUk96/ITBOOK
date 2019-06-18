@@ -259,8 +259,8 @@
 				</table>
 			</div>
 
+		<c:if test="${LoginUser.memName eq meetingVo.represent}">
 		<div>
-		
 		<div style="margin-top: 15%;">
 			<span style="font-size: 25px;">멤버쉽 신청내역</span>
 		</div>
@@ -281,7 +281,7 @@
 					</tr>
 				</c:if>
 			<c:forEach var="memList" items="${memList}">
-				<c:if test="${memList.approval eq 'F' && memList.metNum eq meetingVo.metNum}">
+				<c:if test="${memList.approval eq 'F'}">
 					<input type="hidden" name="memNum" value="${memList.memNum}">
 					<tr style="text-align: center;">
 						<td>${memList.memId}</td>
@@ -296,6 +296,7 @@
 			</c:forEach>
 			</table>
 		</div>
+		</c:if>
 
 		<!-- 활동사진 밑 코멘트 -->
 		<div style="margin-top: 10%;">
