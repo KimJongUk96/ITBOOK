@@ -106,7 +106,7 @@ public class ReportDAO {
 		
 		ResultSet rs = null;
 
-		try {
+		try { 
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, reportNum);

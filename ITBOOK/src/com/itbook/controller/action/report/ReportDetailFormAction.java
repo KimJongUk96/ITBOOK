@@ -35,7 +35,6 @@ public class ReportDetailFormAction implements Action {
 		//데이터에 저장하고 상세보기 조회
 		ReportBoardVO rVo = rDao.selectOneReportByNum(reportNum);
 		
-		
 		request.setAttribute("reportList", rVo);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
