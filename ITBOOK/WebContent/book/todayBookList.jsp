@@ -75,8 +75,6 @@
 					<div class="post-item">
 						<div class="post-item-wrap">
 							<div class="post-image">
-							<%-- <input type="hidden" name="bookNum" value="${todayBookList.bookNum}">
-							<input type="hidden" name="bookBrdNum" value="${todayBookList.bookBrdNum}"> --%>
 								
 								<img src="/displayFile?fileName=${todayBookList.imgPath}" alt="">
 								<span class="post-meta-category bg-grad">${(paging.numOfRow - status.index) - (paging.pageNum -1) * 10}</span>

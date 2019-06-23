@@ -9,8 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.itbook.controller.action.Action;
 import com.itbook.dao.BookDAO;
 import com.itbook.dao.MeetingDAO;
 import com.itbook.vo.main.MainDTO;
@@ -39,12 +37,12 @@ public class MainServlet extends HttpServlet {
 		String command = request.getParameter("command");
 		System.out.println("MainServlet에서 요청을 받음을 확인 : " + command);
 
-		// selectMainMeetings
+		// 메인화면에서 모임 보여주기
 		MeetingDAO mDao = MeetingDAO.getInstance();
 		List<MainDTO> meetingMainList = mDao.selectMainMeetings();
 		request.setAttribute("meetingMainList", meetingMainList);
 		
-		// selectMainTodayBooks
+		// 메인화면에서 이달의 책 보여주기
 		BookDAO bDao = BookDAO.getInstance();
 		List<MainDTO> maintodayBookList = bDao.selectMainTodayBooks();
 		request.setAttribute("maintodayBookList", maintodayBookList);
@@ -58,22 +56,7 @@ public class MainServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 			dispatcher.forward(request, response);
 
-		} else {
-
-			ActionFactory af = ActionFactory.getInstance();
-			Action action = af.getAction(command);
-
-			if (action != null) {
-				action.execute(request, response);
-
-			} else if (command.equals("meetingList")) {
-				
-				RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-				dispatcher.forward(request, response);
-
-			}
-		}
-
+		} 
 	}
 
 	/**

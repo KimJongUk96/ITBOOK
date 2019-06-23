@@ -74,13 +74,7 @@
           </a>
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-              <!-- Messages: style can be found in dropdown.less-->
-
-              <!-- Notifications: style can be found in dropdown.less -->
-           
-              <!-- Tasks: style can be found in dropdown.less -->
-
-              <!-- User Account: style can be found in dropdown.less -->
+            
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <span>${LoginUser.memName}님 반갑습니다.</span>
@@ -129,7 +123,6 @@
           </div>
           <!-- search form -->
           <!-- /.search form -->
-          <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">관리자 메뉴</li>
             <li class="treevie" id="active">
@@ -166,17 +159,7 @@
                 <li class ="report"><a href="admin?command=reportListForm"><i class="fa fa-magic"></i><span style="color:white" id="m7"> 독후감 삭제</span></a></li>
               </ul>
             </li>
-            <!-- <li class="tre">
-              <a href="#">
-                <i class="fa fa-book"></i> 
-                <span>기관관리</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li class="bookStore"><a href="admin?command=bookStoreList"><i class="fa fa-magic"></i><span style="color:white" id="m8"> 서점 삭제</span></a></li>
-                <li class="lib"><a href="admin?command=libList"><i class="fa fa-magic"></i><span style="color:white" id="m9"> 도서관 삭제</span></a></li>
-              </ul>
-             </li> -->
+          
             <li class="treev">
               <a href="#">
                 <i class="fa fa-book"></i> 

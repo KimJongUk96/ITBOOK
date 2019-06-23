@@ -2,7 +2,6 @@ package com.itbook.controller.action.bookstore;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.itbook.controller.action.Action;
 import com.itbook.dao.BookstoreDAO;
 import com.itbook.vo.Paging;
-import com.itbook.vo.Book.BookBoardVO;
 import com.itbook.vo.Bookstore.BookstoreVO;
 
 public class AdminBookstoreList implements Action {

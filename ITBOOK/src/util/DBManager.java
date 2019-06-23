@@ -2,15 +2,6 @@ package util;
 
 import java.sql.*;
 
-
-/**
- * JDBC �곌껐怨� �댁��瑜� �쎄� 吏�����湲� ������ 
- * getConnection(), close() �깆�� 硫�����瑜� 吏������� �대����
- * 
- * @author ��誘�
- *
- */
-
 public class DBManager {
 
 	public static void main(String[] args) throws Exception {
@@ -43,13 +34,7 @@ public class DBManager {
 	
 			return null;
 		}
-	 /**
-	    * DQL(select)�� ������ �� 由ъ���� �댁��瑜� ���� 硫�����
-	    * 
-	    * @param conn
-	    * @param stmt
-	    * @param rs
-	    */
+	
 	   public static void close(Connection conn, Statement stmt, ResultSet rs){
 	      try{
 	         rs.close();
@@ -60,12 +45,7 @@ public class DBManager {
 	      }
 	   }
 	   
-	   /**
-	    * DML(insert, update, delete)�� ������ �� 由ъ���� �댁��瑜� ���� 硫�����
-	    * 
-	    * @param conn
-	    * @param stmt
-	    */
+	  
 	   public static void close(Connection conn, Statement stmt){
 	      try{
 	         stmt.close();

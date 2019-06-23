@@ -1,8 +1,3 @@
-/** 
- * 책 수정 화면으로 이동하게 하는 액션 클래스
- * 책 리스트 화면에서 책 번호를 클릭하게 되면 이동
- * @author DJ PARK
- * */
 package com.itbook.controller.action.book;
 
 import java.io.IOException;

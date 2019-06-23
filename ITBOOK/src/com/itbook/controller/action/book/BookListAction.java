@@ -22,18 +22,6 @@ public class BookListAction implements Action{
 		
 		BookDAO bDao = BookDAO.getInstance();
 	
-		
-//		List<BookVO> bookList = bDao.selectBookList();
-//		
-//		request.setAttribute("bookList", bookList);
-//		
-//		System.out.println(bookList + "BookList 출력완료");
-//		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-//		
-//		dispatcher.forward(request, response);
-		
-		
-		
 		//책 페이징
 		  Paging paging = new Paging(10,1);
 	      int pageNum = request.getParameter("pageNum") == null ? 1 : Integer.parseInt(request.getParameter("pageNum"));

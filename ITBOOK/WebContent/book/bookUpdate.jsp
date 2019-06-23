@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Wizixo | Creative Multipurpose Bootstrap Template</title>
+<title>책 수정</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,7 +68,6 @@
 						action="book?command=bookUpdate">
 
 						<input type="hidden" name="bookNum" value="${bookList.bookNum}">
-<%-- 						<input type ="hidden" name = "memNum" value = "${LoginUser.memNum}"> --%>
 						
 						<div class="form-group">
 							<label>제목</label> <input class="form-control" type="text"
@@ -98,16 +97,6 @@
 							<label>출판사</label> <input class="form-control" type="text"
 								name="publisher" value = "${bookList.publisher}" placeholder="* 출판사를 입력하세요.">
 						</div>
-
-
-<%-- 						<button type="submit" class="btn btn-success"><i class="fa fa-check-circle-o"></i>수정</button>
-							
-							
-							
-						<button type="button" class="btn btn-warning" onclick="location.href='book?command=bookDelete&bookNum=${bookList.bookNum}'" >
-						<i class="fa fa-close"></i>삭제</button> --%>
-						
-						
 
               	  <c:if test = "${LoginUser.authority eq '3' or bookList.memNum eq LoginUser.memNum}">
                   <button type="submit" class="btn btn-success"><i class="fa fa-check-circle-o"></i>수정</button>

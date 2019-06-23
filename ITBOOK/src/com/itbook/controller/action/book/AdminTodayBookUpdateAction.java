@@ -18,23 +18,7 @@ public class AdminTodayBookUpdateAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		BookBoardVO bVo = new BookBoardVO();
-//		
-//		bVo.setBookBrdNum(request.getParameter("bookBrdNum"));
-//		bVo.setBookBrdTitle(request.getParameter("bookBrdTitle"));
-//		bVo.setBookBrdContent(request.getParameter("bookBrdContent"));
-//		bVo.setBookNum(request.getParameter("bookNum"));
-//		bVo.setBookTitle(request.getParameter("bookTitle"));
-//		bVo.setWriter(request.getParameter("writer"));
-//		bVo.setPublisher(request.getParameter("publisher"));
-//		
-//		MemberVO memVo = (MemberVO)request.getSession().getAttribute("LoginUser");
-//		bVo.setMemNum(memVo.getMemNum());
-//		
-//		BookDAO bDao = BookDAO.getInstance();
-//		bDao.updateAdminTodayBook(bVo);
-//			
-//		new AdminTodayBookListAction().execute(request, response);
+
 
 		int fileSize = 5 * 1024 * 1024;
 		// 업로드될 폴더 경로

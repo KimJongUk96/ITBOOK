@@ -115,16 +115,6 @@
                      placeholder="*내용을 입력하세요."></textarea>
                </div>
                
-            
-                <!--   <label>파일 업로드</label>
-               
-                 <div class="custom-file">
-                  <label class="custom-file-label">Upload Book</label> ---
-                  <input type="file" class="custom-file-input" name ="imgPath">
-								 ------
-              	 </div>  -->
-              	 
-              	 
               <!-- 업로드 시작-->
                
                <div class="form-group">

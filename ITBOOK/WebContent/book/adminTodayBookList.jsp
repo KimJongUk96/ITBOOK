@@ -74,7 +74,6 @@
                      
                      <tbody>
                      <c:forEach var="todayBookList" items="${todayBookList}" varStatus="status">
-                       <%-- <input type="hidden" name="${todayBookList.bookNum}"> --%>
                         <tr>
                         
                         	<th scope = "row">${(paging.numOfRow - status.index) -  (paging.pageNum-1) * 10 }</th>

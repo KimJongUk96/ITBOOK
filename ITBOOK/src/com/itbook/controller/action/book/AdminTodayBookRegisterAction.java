@@ -20,28 +20,6 @@ public class AdminTodayBookRegisterAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-///*		BookBoardVO bVo = new BookBoardVO();
-//		
-//		
-//		bVo.setBookBrdTitle(request.getParameter("bookBrdTitle"));
-//		bVo.setBookBrdContent(request.getParameter("bookBrdContent"));
-//		bVo.setBookTitle(request.getParameter("bookTitle"));
-//		bVo.setWriter(request.getParameter("writer"));
-//		bVo.setPublisher(request.getParameter("publisher"));
-//		bVo.setBookNum(request.getParameter("bookNum"));
-//		//bVo.setImgPath(request.getParameter("imgPath"));
-//		
-//		//섹션값 가져오기.
-//		MemberVO memVo = (MemberVO)request.getSession().getAttribute("LoginUser");
-//	      bVo.setMemNum(memVo.getMemNum());
-//		
-//	    
-//		BookDAO bDao = BookDAO.getInstance();
-//		
-//		bDao.insertAdminTodayBookRegister(bVo);
-//		
-//		new AdminTodayBookListAction().execute(request, response);*/
-	
 		// 업로드 파일 사이즈
         int fileSize= 5*1024*1024;
         // 업로드될 폴더 경로

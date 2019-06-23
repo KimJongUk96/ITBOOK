@@ -34,28 +34,7 @@
    </head>
       <body>
 
-   <!-- =======================
-   Banner innerpage -->
-  <!--  <div class="innerpage-banner center bg-overlay-dark-7 py-7"
-      style="background: url(assets/images/bg/04.jpg) no-repeat; background-size: cover; background-position: center center;">
-      <div class="container">
-         <div class="row all-text-white">
-            <div class="col-md-12 align-self-center">
-               <h1 class="innerpage-title">책 검색</h1>
-               <h6 class="subtitle">희망의 책 대전본부</h6>
-               <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                     <li class="breadcrumb-item active"><a href="index.html"><i
-                           class="ti-home"></i>Main</a></li>
-                     <li class="breadcrumb-item">책 검색</li>
-                  </ol>
-               </nav>
-            </div>
-         </div>
-      </div>
-   </div> -->
-   <!-- =======================
-   Banner innerpage -->
+ 
    <section>
       <div class="container">
          <div class="row">
@@ -91,12 +70,7 @@
                      <tbody>
                      <c:forEach var="bookList" items="${bookList}">
                        
-                     <%--    <!--id를 통해서 부모창으로 넘겨줌. -->
-                        <input type="hidden" name="bookNum" id="bookNum" value="${bookList.bookNum}">
-                        <input type="hidden" name="bookTitle" id="bookTitle" value="${bookList.bookTitle}">
-                        <input type="hidden" name="writer" id="writer" value="${bookList.writer}">
-                        <input type="hidden" name="publisher" id="publisher" value="${bookList.publisher}">
-                        --%>
+                 
                         
                         <tr>
                         
@@ -132,15 +106,6 @@
 <script type="text/javascript">
 function sendToParent(booknum, bookTitle, writer, publisher){
 	
-	
-//	alert(booknum + bookTitle + writer + publisher);
-
-/*    window.opener.document.frm.bookNum.value = document.frm.bookNum.value;
-   window.opener.document.frm.bookTitle.value = document.frm.bookTitle.value;
-   window.opener.document.frm.writer.value = document.frm.writer.value;
-   window.opener.document.frm.publisher.value = document.frm.publisher.value;  */
-   
-   
    window.opener.document.frm.bookNum.value = booknum;
    window.opener.document.frm.bookTitle.value = bookTitle;
    window.opener.document.frm.writer.value = writer;

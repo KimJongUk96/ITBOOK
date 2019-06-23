@@ -1,7 +1,3 @@
-/**
- * @author 동준
- *
- */
 package com.itbook.controller;
 
 import com.itbook.controller.action.Action;
