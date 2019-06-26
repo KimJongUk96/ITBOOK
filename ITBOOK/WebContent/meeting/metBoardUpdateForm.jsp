@@ -31,6 +31,38 @@
 
 	<!-- Theme CSS -->
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript">
+	
+	
+	$(document).ready(
+		      function() {
+		         $('#cancel').on("click",function(event) {
+		        	 	var confirmStat = confirm("취소하시겠습니까?");
+		        	 	
+		        	 	 if(confirmStat == true){
+		        	 		var metNum = $('#metNum').val();
+		                  self.location = "/meeting?command=metBoardListFormAction&metNum=${meetingVo.metNum }";
+		        	 	} else{
+				               return false;
+		        	 	}
+		               });
+		         
+		         $('.Message').on("click", function(event){
+		            
+		         });
+		      });
+	
+	$(document).ready(function(){
+		$('form').submit(function(){
+	 	  var result = alert("수정되었습니다.");
+	   
+		   return result;
+		})
+		})
+	
+	</script>
 	</head>
 	
 <body>
@@ -102,7 +134,7 @@
 							
 						<div align="right">
 							<input type="submit"  class="btn btn-grad" value="수정" >
-							<input type="button" value="취소" class="btn btn-grad" onclick="location.href='/meeting?command=metBoardListFormAction&page=${pageNum}'">
+							<input type="button" value="취소" id="cancel" class="btn btn-grad" >
 						</div>
 					</div>
 					</form>

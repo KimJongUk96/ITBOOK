@@ -79,8 +79,10 @@
 							<li class="breadcrumb-item active"><a href="/index.jsp"><i
 									class="ti-home"></i>Home</a></li>
 							<li class="breadcrumb-item">독서모임</li>
+							<c:if test = "${LoginUser.authority eq '1' or LoginUser.authority eq '2' }">
 							<li><a class="btn btn-grad mt-4" onclick="joinPopup()">
 								모임 가입하기
+							</c:if>
 							<i class="fa fa-external-link ml-2 mr-0"></i></a>
 							<c:if test="${LoginUser.memName eq meetingVo.represent}">
 							<a class="btn btn-grad mt-4" href="/meeting?command=metUpdateFormAction&metNum=${meetingVo.metNum}">
@@ -224,7 +226,7 @@
 					<span style="font-size: 25px;">공지사항  </span>
 					<span style="font-size: 15px;"><a href="/meeting?command=metBoardListFormAction&metNum=${meetingVo.metNum}">게시글 더보기
 						<i class="fa fa-external-link ml-2 mr-0"></i></a></span>
-						 
+					
 				</div>
 						
 					<thead>

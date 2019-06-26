@@ -166,10 +166,12 @@
 											<div class="comment-content">
 												<p>${comment.metComtContent }</p>
 											</div>
+											
 											<div class="comment-reply">
-												<a href="#" class="btn btn-xs btn-light" onclick="cmUpdateOpen(${comment.metComtNum})">수정</a>
-												<input type="submit" value="삭제" class="btn btn-xs btn-light">
-												 
+												<c:if test = "${LoginUser.memNum eq comment.memNum}">
+													<a href="#" class="btn btn-xs btn-light" onclick="cmUpdateOpen(${comment.metComtNum})">수정</a>
+													<input type="submit" value="삭제" class="btn btn-xs btn-light">
+												</c:if>
 											</div>
 										</div>
 									</form>
