@@ -61,6 +61,7 @@ public class MetBoardWriteAction implements Action{
             mVo.setMetBrdContent(multi.getParameter("metBrdContent"));
             mVo.setMetBrdCategory(multi.getParameter("metBrdCategory"));
             mVo.setMemNum(multi.getParameter("memNum"));
+            mVo.setMetBrdFile(multi.getFilesystemName("metBrdFile"));
             
             boolean result = mDao.insertMetBoard(mVo);
             

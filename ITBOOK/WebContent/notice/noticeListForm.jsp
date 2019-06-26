@@ -50,7 +50,7 @@
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="index.jsp"><i
 									class="ti-home"></i> Home</a></li>
-							
+
 						</ol>
 					</nav>
 				</div>
@@ -64,18 +64,19 @@
 			<div class="row">
 
 				<div class="col-sm-12  p-0">
-					
+
 					<!-- 검색 폼 스타트 -->
 					<div id="searchForm">
-						<form name="frm" action="/notice?command=noticeListFormAction" method="post" onsubmit="return validateGalBoard()">
+						<form name="frm" action="/notice?command=noticeListFormAction"
+							method="post" onsubmit="return validateGalBoard()">
 							<select name="opt">
 								<option value="0">제목</option>
-							</select> <input type="text" size="20" name="condition" />&nbsp; 
-							<input type="submit" value="검색" />
+							</select> <input type="text" size="20" name="condition" />&nbsp; <input
+								type="submit" value="검색" />
 						</form>
 					</div>
 					<!-- 검색 폼 마지막 -->
-					
+
 					<div class="table-responsive-sm">
 						<table class="table table-hover">
 							<thead>
@@ -90,23 +91,25 @@
 							</thead>
 
 							<tbody>
-								<c:forEach var="notice" items="${noticeList}"  varStatus="status" >
+								<c:forEach var="notice" items="${noticeList}" varStatus="status">
 									<tr>
 										<th scope="row">${notice.noticeNum}</th>
 										<th>${notice.noticeCategory}</th>
-										<td><a href="/notice?command=noticeViewAction&noticeNum=${notice.noticeNum}">${notice.noticeTitle }</a></td>
+										<td><a
+											href="/notice?command=noticeViewAction&noticeNum=${notice.noticeNum}">${notice.noticeTitle }</a></td>
 										<td>관리자</td>
-										<td><fmt:formatDate value="${notice.noticeDate }"/></td>
+										<td><fmt:formatDate value="${notice.noticeDate }" /></td>
 										<td>${notice.noticeCount }</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 
 						</table>
-						<c:if test = "${LoginUser.authority eq 3}">
-						<div align="right">
-							<a class="btn btn-grad" href="/notice?command=noticeInsertFormAction">글쓰기</a>
-						</div>
+						<c:if test="${LoginUser.authority eq 3}">
+							<div align="right">
+								<a class="btn btn-grad"
+									href="/notice?command=noticeInsertFormAction">글쓰기</a>
+							</div>
 						</c:if>
 					</div>
 				</div>

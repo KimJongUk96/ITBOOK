@@ -43,8 +43,8 @@ public class MetBoardDAO {
 	         
 	         StringBuffer sql = new StringBuffer();
 	         
-	         sql.append("insert into met_board(metBrdName, metBrdContent, regDate, metBrdCategory, metNum, memNum, metBrdCount)");
-	         sql.append("values( ?, ?, sysdate(), ?, ?, ?, ?)");
+	         sql.append("insert into met_board(metBrdName, metBrdContent, regDate, metBrdCategory, metNum, memNum, metBrdCount, metBrdFile)");
+	         sql.append("values( ?, ?, sysdate(), ?, ?, ?, ?, ?)");
 	         
 	         pstmt = conn.prepareStatement(sql.toString());
 	         
@@ -54,6 +54,7 @@ public class MetBoardDAO {
 	         pstmt.setString(4, mVo.getMetNum());
 	         pstmt.setString(5, mVo.getMemNum());
 	         pstmt.setInt(6, mVo.getMetBrdCount());
+	         pstmt.setString(7,  mVo.getMetBrdFile());
 	         
 	         int flag = pstmt.executeUpdate();
 	         
@@ -213,7 +214,7 @@ public class MetBoardDAO {
 		//모임게시판 게시글 상세보기
 	      public MetBoardVO selectOneMetBoardByNum(String metBrdNum) {
 	         String sql = "select m.metBrdNum, m.metBrdName, m.metBrdContent, m.regDate, m.metBrdCount, m.metBrdCategory,"
-	               + "m.memNum, b.memName from met_board m, member b "
+	               + "m.memNum, m.metBrdFile, b.memName from met_board m, member b "
 	               + "where m.memNum = b.memNum and metBrdNum = ? ";
 	         
 	         MetBoardVO mVo = null;
@@ -237,7 +238,7 @@ public class MetBoardDAO {
 	               mVo.setMetBrdContent(rs.getString("metBrdContent"));
 	               mVo.setRegDate(rs.getDate("regDate"));
 	               mVo.setMetBrdCount(rs.getInt("metBrdCount"));
-	            /* mVo.setMetBrdFile(rs.getString("metBrdFile")); */
+	               mVo.setMetBrdFile(rs.getString("metBrdFile")); 
 	               mVo.setMetBrdCategory(rs.getString("metBrdCategory"));
 	               mVo.setMemName(rs.getString("memName"));
 	               mVo.setMemNum(rs.getString("memNum"));

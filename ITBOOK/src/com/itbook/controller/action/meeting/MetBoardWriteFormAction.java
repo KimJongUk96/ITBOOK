@@ -29,7 +29,6 @@ public class MetBoardWriteFormAction implements Action {
 		
 		// metNum 가져오기
 		String metNum = request.getParameter("metNum");
-		System.out.println("metNum : " + metNum);
 
 		MeetingDAO mDao = MeetingDAO.getInstance();
 		

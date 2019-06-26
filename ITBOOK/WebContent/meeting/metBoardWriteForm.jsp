@@ -28,6 +28,8 @@
 
 	<!-- Theme CSS -->
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+	
+	<script type="text/javascript" src ="/js/metboard.js"></script>
 </head>
 	<body>
 		<header>
@@ -88,7 +90,7 @@
 								</div>
 							</div>
 								<div align="right">
-								<input type="submit" value="등록" class="btn btn-grad" onclick="return noticeCheck()"/> 
+								<input type="submit" value="등록" class="btn btn-grad" onclick="return metboardCheck()"/> 
 								<input type="button" value="취소 " class="btn btn-grad" onclick="location.href='/meeting?command=metBoardListFormAction&metNum=${meetingVo.metNum}'"/></div>
 			   </form>
 		</div>

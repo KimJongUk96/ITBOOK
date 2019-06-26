@@ -33,52 +33,35 @@
 <!-- Theme CSS -->
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
 
- <script type="text/javascript">
- 
- // httpRequest 객체 생성
- function getXMLHttpRequest(){
-     var httpRequest = null;
- 
-     if(window.ActiveXObject){
-         try{
-             httpRequest = new ActiveXObject("Msxml2.XMLHTTP");    
-         } catch(e) {
-             try{
-                 httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-             } catch (e2) { httpRequest = null; }
-         }
-     }
-     else if(window.XMLHttpRequest){
-         httpRequest = new window.XMLHttpRequest();
-     }
-     return httpRequest;    
- }
-
-function checkFunc(){
-    if(httpRequest.readyState == 4){
-        // 결과값을 가져온다.
-        var resultText = httpRequest.responseText;
-        if(resultText == 1){ 
-            document.location.reload(); // 상세보기 창 새로고침
-        }
-    }
-}
-
-// 댓글 삭제창
-function cmDeleteOpen(metComtNum){
-    var msg = confirm("댓글을 삭제합니다.");    
-    if(msg == true){ // 확인을 누를경우
-        location.reload();
-    }
-    else{
-        return false; // 삭제취소
-    }
-}
-
-
-
-
-</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript">
+	
+	$(document).ready(
+		      function() {
+		         $('#cancel').on("click",function(event) {
+		                  self.location = "book?command=adminTodayBookList";
+		               });
+		         $('#delete').on("click", function(evt) {
+		            
+		            var confirmStat = confirm("정말로 삭제하시겠습니까?");
+		            
+		            if(confirmStat == true){
+		               var metBrdNum = $('#metBrdNum').val();
+		               var metNum = $('#metNum').val();
+		               alert("삭제되었습니다.");
+		               self.location = "/meeting?command=metBoardDeleteAction&metBrdNum=${metbrd.metBrdNum}&metNum=${meetingVo.metNum }";   
+		            } else{
+		               return false;
+		            }
+		            
+		         });
+		         
+		         $('.Message').on("click", function(event){
+		            
+		         });
+		      });
+	
+	</script>
 
 </head>
 
@@ -134,8 +117,8 @@ function cmDeleteOpen(metComtNum){
 								</tr>
 								<tr>
 									<th scope="col">첨부파일</th>
-									<td><a
-										href='/notice?command=fileDownloadAction&file_name=${metbrd.metBrdFile}'>${metbrd.metBrdFile}</a></td>
+									<td>
+									<a href='/notice?command=fileDownloadAction&file_name=${metbrd.metBrdFile}'>${metbrd.metBrdFile}</a></td>
 									<th></th>
 									<td></td>
 								</tr>
@@ -147,10 +130,12 @@ function cmDeleteOpen(metComtNum){
 									</span>
 								</div>
 								
+								
 							<div align="right">
+							<c:if test = "${LoginUser.memNum eq metbrd.memNum}">
 								<input type="submit" value="수정" class="btn btn-grad">
-								<input type="button" value="삭제" class="btn btn-grad"
-									onclick="location.href='/meeting?command=metBoardDeleteAction&metBrdNum=${metbrd.metBrdNum}&metNum=${meetingVo.metNum }'">
+								<input type="button" value="삭제" id="delete" class="btn btn-grad">
+							</c:if>
 								<input type="button" value="취소" class="btn btn-grad"
 									onclick="location.href='/meeting?command=metBoardListFormAction&metNum=${meetingVo.metNum }'">
 							</div>
@@ -193,7 +178,8 @@ function cmDeleteOpen(metComtNum){
 									</c:forEach>
 									
 									<!-- 댓글 등록 -->
-									<form name="frm" method="post" action="meeting?command=commentWriteAction&metBrdNum=${metbrd.metBrdNum }&metNum=${meetingVo.metNum}" onsubmit="return validateBoard()">
+									<form name="frm" method="post" action="meeting?command=commentWriteAction&metBrdNum=${metbrd.metBrdNum }&metNum=${meetingVo.metNum}" 
+									onsubmit="return validateBoard()">
 									<input type="hidden" name="metBrdNum" value="${metbrd.metBrdNum}"> 
 									<input type="hidden" name="memNum" value="${LoginUser.memNum}">
 							<div class="row mt-5">

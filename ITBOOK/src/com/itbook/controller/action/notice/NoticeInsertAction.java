@@ -77,25 +77,6 @@ public class NoticeInsertAction implements Action {
 }
 
 		
-//		String noticeTitle = request.getParameter("noticeTitle");
-//		String noticeContent = request.getParameter("noticeContent");
-//
-//		
-//		
-//		
-//		NoticeVO nVo = new NoticeVO();
-//		
-//		nVo.setNoticeTitle(noticeTitle);
-//		nVo.setNoticeContent(noticeContent);
-//
-//		
-//		NoticeDAO nDao = NoticeDAO.getInstance();
-//		nDao.insertNotice(nVo);
-//		
-//		System.out.println("방가");
-//		
-////		목록 화면으로 이동
-//		new NoticeListFormAction().execute(request, response);
 		
 		
 		
