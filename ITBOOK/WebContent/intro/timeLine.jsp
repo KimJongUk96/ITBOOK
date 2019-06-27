@@ -56,7 +56,7 @@
 						<aside class="col-md-3 sidebar order-last order-md-first">
 							<!-- 인사말 -->
 							<div class="widget">
-								<h3 class="widget-title"><a href="introTest.jsp">인사말</a></h3>
+								<h3 class="widget-title"><a href="../intro/introduce.jsp">인사말</a></h3>
 							</div>
 		
 							<!-- 연혁 -->
@@ -66,21 +66,22 @@
 		
 							<!-- 조직도 -->
 							<div class="widget widget-post">
-								<h3 class="widget-title"><a href="team.jsp">조직도</a></h3>
+								<h3 class="widget-title"><a href="../intro/team.jsp">조직도</a></h3>
 							</div>
 		
 							<!-- 찾아오시는 길 -->
 							<div class="widget widget-post">
-								<h3 class="widget-title"><a href="#">찾아오시는 길</a></h3>
+								<h3 class="widget-title"><a href="../intro/map.jsp">찾아오시는 길</a></h3>
 							</div>
 							
 						</aside>
 						<!-- sidebar end -->
 						
 						<!-- blog start -->
-						<div class="col-md-9 mb-6 order-first order-md-first text-center">
-							<h3 class="mb-2">사람과의 만남이 중요하듯 또 다른 소중한 만남이 있습니다. <br><br> 바로 <span class="text-primary">책과의 만남</span>입니다.</h3>
-							
+						<div class="col-md-9 mb-6 order-first order-md-first">
+							<div class="text-center">
+								<h3 class="mb-2">사람과의 만남이 중요하듯 또 다른 소중한 만남이 있습니다. <br><br> 바로 <span class="text-primary">책과의 만남</span>입니다.</h3>
+							</div>
 							
 							<br><br><br>
 							
