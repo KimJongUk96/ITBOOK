@@ -20,6 +20,7 @@ public class joinApprovalAction implements Action{
 		request.setAttribute("metNum", metNum);
 		MemListVO mVo = new MemListVO();
 		mVo.setMemNum(memNum);
+		mVo.setMetNum(metNum);
 		MemberDAO mDao = MemberDAO.getInstance();
 		mDao.approvalMeeting(mVo);
 		

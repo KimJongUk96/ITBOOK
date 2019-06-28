@@ -115,6 +115,7 @@
 					
 					<!-- 독서모임 신청하면 승인 후 자동생성 -->
 					<c:forEach var="meetingList" items="${meetingList}" varStatus="status">
+					<input type="hidden" name="memNum" value="${LoginUser.memNum}">
 					
 						<!-- portfolio-card -->
 						<div class="portfolio-card isotope-item ${meetingList.keyword}" style="position: absolute; left: 0px; top: 0px;">
@@ -131,7 +132,7 @@
 									회원수 : ${meetingList.headCount}
 									</div>
 									<div class="post-author">${meetingList.location}</div>
-									<div><h6 class="info-title"><b><a href="/meeting?command=meetingHome&metNum=${meetingList.metNum}" title="독서모임">${meetingList.metName}</a></b></h6></div>
+									<div><h6 class="info-title"><b><a href="/meeting?command=meetingHome&metNum=${meetingList.metNum}&memNum=${LoginUser.memNum}" title="독서모임">${meetingList.metName}</a></b></h6></div>
 									<span>${meetingList.metIntro}</span>
 								</div>
 							</div>

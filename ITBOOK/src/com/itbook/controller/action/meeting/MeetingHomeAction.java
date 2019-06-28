@@ -32,9 +32,11 @@ public class MeetingHomeAction implements Action {
 		MemberDAO mlDao = MemberDAO.getInstance();
 		
 		MeetingVO meetingVo = mDao.selectOneMeetingByNum(metNum);
+		MemListVO memListVo = mlDao.selectMemNum(memNum);
 		List<MetBoardVO> metboardList = mDao.selectFiveMetBoard(metNum);
 		
 		ArrayList<MemListVO> memList = mlDao.meetingMemList();
+		request.setAttribute("memListVo", memListVo);
 		request.setAttribute("memList", memList);
 		request.setAttribute("meetingVo", meetingVo);
 		request.setAttribute("metboardList", metboardList);
