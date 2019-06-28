@@ -14,6 +14,8 @@ import com.itbook.controller.action.notice.NoticeListFormAction;
 import com.itbook.controller.action.notice.NoticeUpdateAction;
 import com.itbook.controller.action.notice.NoticeUpdateFormAction;
 import com.itbook.controller.action.notice.NoticeViewAction;
+import com.itbook.controller.action.notice.YearEndTaxFormAction;
+import com.itbook.controller.action.notice.YearEndTaxInsertAction;
 
 /**
  * request로 받아온 매개변수의 command의 값으로 
@@ -92,11 +94,20 @@ public class NoticeActionFactory {
 
 			action = new IntroBusinessFormAction();
 
+		} else if (command.equals("yearEndTaxFormAction")) {
+
+			action = new YearEndTaxFormAction();
+
+		} else if (command.equals("yearEndTaxInsertAction")) {
+
+			action = new YearEndTaxInsertAction();
+
 		}
 		
 		return action;
 		
 	}
+	
 	
 	
 	

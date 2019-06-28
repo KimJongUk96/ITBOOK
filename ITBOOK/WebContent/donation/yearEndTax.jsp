@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>후원금 영수증 신청</title>
-<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="Webestica.com">
@@ -67,31 +66,31 @@
 
 				</form>
 					<!-- Apply form -->
-					<form name="frm" method="post" action="feePayment">
+					<form name="frm" method="post" action="/notice?command=yearEndTaxInsertAction">
 					<input type="hidden" name = "command" value="feePaymentRegister">
 					<div class="row mt-5">
 						<div class="col-md-12">
 							<h2 class="mb-3">영수증 신청자 정보</h2></div>
-						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="* 후원자 이름" name="payName" ></span></div>
-						<div class="col-md-6"><span class="form-group"><input type="email" class="form-control" placeholder="* 이메일" name = "payEmail"></span></div>
-						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="* 연락처" name = "payMobileNumber"></span></div>
+						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="* 후원자 이름" name="taxName" ></span></div>
+						<div class="col-md-6"><span class="form-group"><input type="email" class="form-control" placeholder="* 이메일" name = "taxEmail"></span></div>
+						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="* 연락처" name = "taxPhone"></span></div>
 						<div class="col-md-3">
-						<input type="text" id="sample4_postcode" name = "adr1" placeholder="우편번호" class="form-control" style ="width:150px" readonly="readonly">
+						<input type="text" id="sample4_postcode" name = "taxAdr1" placeholder="우편번호" class="form-control" style ="width:150px" readonly="readonly">
 						</div>			
 						<div class="col-md-3">
 									<input class="btn btn-success" type="button" onclick="sample4_execDaumPostcode()" class ="btn btn-dark" value="우편번호 찾기" ><br>
 						</div>		
 						<div class="col-md-6">	
-									<input type="text" id="sample4_roadAddress" name = "payZipcode" id = "adr" placeholder="도로명주소" class="form-control" readonly="readonly">
+									<input type="text" id="sample4_roadAddress" name = "taxAdr2" id = "adr" placeholder="도로명주소" class="form-control" readonly="readonly">
 									<span id="guide" style="color:#999"></span>
 						</div>
-						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="상세주소" name="payAttach"></span></div>
-						<div class="col-md-12"><span class="form-group"><textarea cols="40" rows="6" class="form-control" placeholder="메세지" name="payMessage"></textarea></span></div>
+						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="상세주소" name="taxAdr3"></span></div>
+						<div class="col-md-12"><span class="form-group"><textarea cols="40" rows="6" class="form-control" placeholder="메세지" name="taxMsg"></textarea></span></div>
 						
 					</div>
 					
 						<div class="col-md-12 text-center">
-						<input type="submit" class="btn-block btn btn-success" value="신청하기" onclick="return donationCheck()"></div>
+						<input type="submit" class="btn-block btn btn-success" value="신청하기" onclick="return taxCheck()"></div>
 						</form>
 
 				</div>
@@ -172,7 +171,7 @@ function sample4_execDaumPostcode() {
 		
 $(document).ready(function(){
 	$('form').submit(function(){
- 	  var result = alert("등록되었습니다.");
+ 	  var result = alert("신청되었습니다.");
    
 	   return result;
 	})
