@@ -19,7 +19,7 @@ public class RefuseMemberShipAction implements Action{
 		String metNum = request.getParameter("metNum");
 		request.setAttribute("metNum", metNum);
 		MemListVO mVo = new MemListVO();
-		mVo.setMemNum(memNum); 
+		mVo.setMemNum(memNum);
 		mVo.setMetNum(metNum);
 		MemberDAO mDao = MemberDAO.getInstance();
 		mDao.refuseMemberShip(mVo);
