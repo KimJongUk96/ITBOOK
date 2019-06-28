@@ -161,12 +161,14 @@
 	</div>
 
 			<div class="table-responsive-sm">
+			<input type="hidden" name="metNum" value="${meetingVo.metNum}">
+			<input type="hidden" name="memNum" value="${memList.memNum}">
 				<table class="table table-hover">
 				<!-- 공지사항 링크연결 -->
+			
 				<div>
 					<span style="font-size: 25px;">공지사항  </span>
-					<%-- <c:if test="${meetingVo.approval eq 'T'}"> --%>
-					<c:if test="${LoginUser.authority ne null}">
+					<c:if test="${LoginUser.authority ne null && memList.approval eq 'T' && meetingVo.metNum eq memList.metNum}">
 					<span style="font-size: 15px;"><a href="/meeting?command=metBoardListFormAction&metNum=${meetingVo.metNum}">게시글 더보기
 						<i class="fa fa-external-link ml-2 mr-0"></i></a></span>
 					</c:if>
