@@ -31,8 +31,7 @@
 					<h1 class="innerpage-title">${meetingVo.metName}</h1>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="/index.jsp"><i class="ti-home"></i>Home</a></li>
-							<li class="breadcrumb-item">독서모임</li>
+							<li class="breadcrumb-item active"><a href=""><i class="ti-home"></i>멤버쉽 가입</a></li>
 						</ol>
 					</nav>
 				</div>	
@@ -41,26 +40,24 @@
 	</div>
    <!-- =======================
    Banner innerpage -->
-	<h3>멤버쉽 가입</h3>
 		<div class="container">
 		<input type = "hidden" id="memNum" name = "memNum" value = "${LoginUser.memNum}">
 		<input type = "hidden" id="metNum" name = "metNum" value = "${meetingVo.metNum}">
-		
-		<div class="form mt-4">
-					<div>
-					<p class="text-left mb-2">이름</p>
-					<span class="form-group"><input type ="text" name = "memName" id = "memName" class="form-control" value="${LoginUser.memName}"/></span>
-							</div>
-							<p></p>
-							<div class ="wrap">
-					 아이디<span><input type ="text" name = "memId" id = "memId" class="form-control" value="${LoginUser.memId}"/></span>
-					</div>
-					<div>
-					<button type="button" name="ajax" id="send" onclick="sendMessage()" class="btn btn-black" >가입</button>
-					<button type="button" onclick="goBack()" class="btn btn-black" >취소</button>
-					</div>
-		</div>
-		
+		<table class="table table-hover">
+								<tr>
+									<th scope="col">이름</th>
+									<td>${LoginUser.memName}</td>
+								</tr>
+
+								<tr>
+									<th>아이디</th>
+									<td>${LoginUser.memId}</td>
+								</tr>
+								
+								
+		</table>
+		<button type="button" name="ajax" id="send" onclick="sendMessage()" class="btn btn-grad" >가입</button>
+					<button type="button" onclick="goBack()" class="btn btn-grad" >취소</button>
 		</div>
 		<!-- container -->
 	<script src='{% static "js/jquery-1.11.3.min.js" %}'></script>

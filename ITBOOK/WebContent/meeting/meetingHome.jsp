@@ -43,14 +43,28 @@
 			}
 		</style>
 
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 			function joinPopup() {
-
+		
 			var popUrl = "/meeting?command=joinMemberPopup&metNum=${meetingVo.metNum}";
 			var popOption = "width=650px, height=550px, resizable=no, location=no, top=300px, left=300px;"
 
 			window.open(popUrl, "모임 가입신청 ", popOption);
 			}
+		</script> -->
+
+		<script type="text/javascript">
+		function joinPopup() {
+		      var width = "350";
+		      var height = "330";
+		      var top = (window.screen.height - height) / 2;
+		      var left = (window.screen.width - width) / 2;
+		      var popUrl = "/meeting?command=joinMemberPopup&metNum=${meetingVo.metNum}";
+		      var popOption = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
+		            + width + ",height=" + height + ",top=" + top + ",left=" + left;
+
+		      window.open(popUrl, "모임 가입신청 ", popOption);
+		   }
 		</script>
 
 </head>
@@ -79,10 +93,8 @@
 							<li class="breadcrumb-item active"><a href="/index.jsp"><i
 									class="ti-home"></i>Home</a></li>
 							<li class="breadcrumb-item">독서모임</li>
-							<c:if test = "${LoginUser.authority eq '1' or LoginUser.authority eq '2' }">
 							<li><a class="btn btn-grad mt-4" onclick="joinPopup()">
 								모임 가입하기
-							</c:if>
 							<i class="fa fa-external-link ml-2 mr-0"></i></a>
 							<c:if test="${LoginUser.memName eq meetingVo.represent}">
 							<a class="btn btn-grad mt-4" href="/meeting?command=metUpdateFormAction&metNum=${meetingVo.metNum}">
@@ -146,87 +158,19 @@
 						</div>
 						</div>
 					</div>
-		
-		<!-- 독서모임 간략2 -->	
-		<%-- <div class="col-sm-6 col-md-3">
-			<div class="feature-box h-100 text-center">
-				<div class="feature-box-icon">
-					<img class="w-50" src="../assets/images/clients/03.png" alt>
-				</div>
-				<h3 class="feature-box-title">${meetingVo.represent}</h3>
-				<h5 class="feature-box-desc">${meetingVo.metDate}</h5>
-				<h5 class="feature-box-desc">${meetingVo.headCount}명</h5>
-			</div>
-		</div> --%>
-
-		<!-- 독서모임 간략3 -->
-		<%-- <div class="row mt-5">
-			<div class="col-md-12">
-				<!-- <div class="sticky-element is_stuck" style="top: 100px; width:369.96px; position: fixed;"> -->
-					<ul class="list-unstyled">
-						<li class="media mt-2">
-							<div class="d-flex w-40">
-								<h6>대표자:</h6>
-							</div>
-							<div class="media-body">
-								<span> ${meetingVo.represent}</span>
-							</div>
-						</li>
-						<li class="media mt-2">
-							<div class="d-flex w-40">
-								<h6>개설일자:</h6>
-							</div>
-							<div class="media-body">
-								<span> ${meetingVo.metDate}</span>
-							</div>
-						</li>
-						<li class="media mt-2">
-							<div class="d-flex w-40">
-								<h6>모임인원수:</h6>
-							</div>
-							<div class="media-body">
-								<span> ${meetingVo.headCount}명</span>
-							</div>
-						</li>
-					</ul>
-				</div>
-			<h5>대표자 : ${meetingVo.represent}</h5>
-			<h5>개설일자 : ${meetingVo.metName}</h5>
-			<h5>모임인원수 : ${meetingVo.headCount}명</h5>
-				<table>
-					<tr>
-						<td>대표자 : ${meetingVo.represent}</td>
-						<td>개설일자 :  ${meetingVo.metDate}</td>
-						<td>모임인원수 : ${meetingVo.headCount}명</td>
-					</tr>
-
-					<tr>
-						<td>
-							<a class="btn btn-grad mt-4" onclick="joinPopup()">
-								모임 가입하기
-							<i class="fa fa-external-link ml-2 mr-0"></i></a>
-						</td>
-						<td>
-							<a class="btn btn-grad mt-4" href="/meeting?command=metUpdate">
-								${meeting.metName}독서모임 수정
-							<i class="fa fa-external-link ml-2 mr-0"></i></a>
-						</td>
-					</tr>
-				</table>
-				<div class="divider mt-4"></div>
-
-				<!-- portfolio details End -->
-		</div> --%>
 	</div>
 
 			<div class="table-responsive-sm">
 				<table class="table table-hover">
 				<!-- 공지사항 링크연결 -->
 				<div>
-					<span style="font-size: 25px;">공지사항  </span>
+					<span style="font-size: 25px;">공지사항  </span> meetingVo.approval=${meetingVo.approval},${meetingVo.represent}
+					<%-- <c:if test="${meetingVo.approval eq 'T'}"> --%>
+					<c:if test="${LoginUser.authority ne null}">
 					<span style="font-size: 15px;"><a href="/meeting?command=metBoardListFormAction&metNum=${meetingVo.metNum}">게시글 더보기
 						<i class="fa fa-external-link ml-2 mr-0"></i></a></span>
-					
+					</c:if>
+						 
 				</div>
 						
 					<thead>
@@ -252,8 +196,9 @@
 							<tr>
 								<th scope="row">${var.count}</th>
 								<th>${metbrd.metBrdCategory}</th>
-								<td><a
-									href="/meeting?command=metBoardViewAction&metBrdNum=${metbrd.metBrdNum}">${metbrd.metBrdName}</a></td>
+								<th>${metbrd.metBrdName}</th>
+								<%-- <td><a
+									href="/meeting?command=metBoardViewAction&metBrdNum=${metbrd.metBrdNum}">${metbrd.metBrdName}</a></td> --%>
 								<!-- <td>모임관리자</td> -->
 								<th>${metbrd.memName}</th>
 								<td><fmt:formatDate value="${metbrd.regDate}" /></td>
