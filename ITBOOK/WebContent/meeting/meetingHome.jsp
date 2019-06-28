@@ -164,7 +164,7 @@
 				<table class="table table-hover">
 				<!-- 공지사항 링크연결 -->
 				<div>
-					<span style="font-size: 25px;">공지사항  </span> meetingVo.approval=${meetingVo.approval},${meetingVo.represent}
+					<span style="font-size: 25px;">공지사항  </span>
 					<%-- <c:if test="${meetingVo.approval eq 'T'}"> --%>
 					<c:if test="${LoginUser.authority ne null}">
 					<span style="font-size: 15px;"><a href="/meeting?command=metBoardListFormAction&metNum=${meetingVo.metNum}">게시글 더보기
@@ -197,9 +197,8 @@
 								<th scope="row">${var.count}</th>
 								<th>${metbrd.metBrdCategory}</th>
 								<th>${metbrd.metBrdName}</th>
-								<%-- <td><a
-									href="/meeting?command=metBoardViewAction&metBrdNum=${metbrd.metBrdNum}">${metbrd.metBrdName}</a></td> --%>
-								<!-- <td>모임관리자</td> -->
+							    <td><a
+									href="/meeting?command=metBoardViewAction&metBrdNum=${metbrd.metBrdNum}&metNum=${meetingVo.metNum}">${metbrd.metBrdName}</a></td>
 								<th>${metbrd.memName}</th>
 								<td><fmt:formatDate value="${metbrd.regDate}" /></td>
 							</tr>
