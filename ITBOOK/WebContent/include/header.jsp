@@ -214,7 +214,7 @@
 								<li class="dropdown-submenu"><a class="dropdown-item"
 									href="/notice?command=donationListFormAction">개인후원</a> </li>
 								<li class="dropdown-submenu"><a class="dropdown-item"
-									href="#">연말정산 영수증 신청</a></li>
+									href="../donation/yearEndTax.jsp">연말정산 영수증 신청</a></li>
 							</ul></li>
 
 						
