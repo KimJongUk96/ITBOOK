@@ -48,7 +48,7 @@ public class MainServlet extends HttpServlet {
 		request.setAttribute("maintodayBookList", maintodayBookList);
 
 		if (command == null) {
-
+			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 			dispatcher.forward(request, response);
 
@@ -56,7 +56,11 @@ public class MainServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 			dispatcher.forward(request, response);
 
-		} 
+		} else if (command.equals("notLogin")) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+			dispatcher.forward(request, response);
+
+		}
 	}
 
 	/**

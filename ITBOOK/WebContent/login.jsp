@@ -1,9 +1,12 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page session="false"%>
 <!doctype html>
 <html lang="">
+
 <head>
+
 	<title>희망의 책  대전본부</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -26,7 +29,6 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 
 </head>
-
 <body>
 	<div class="preloader">
 		<img src="assets/images/preloader.svg" alt="Pre-loader">
@@ -72,6 +74,12 @@
 									<div>
 										<p class="text-left mb-2">아아디</p>
 										<span class="form-group"><input type ="text" name = "memId" id = "memId" class="form-control"></span>
+										<c:if test = "${message ne null}">
+                           <div class="alert alert-info alert-dismissible" role="alert">
+                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                             ${message}
+                           </div>
+                           </c:if>   
 									</div>
 									<div>
 										<div class="d-flex justify-content-between align-items-center">
@@ -129,6 +137,8 @@
 	     function goBack() {
 	    	    window.history.back();
 	    	}
+	     
+
 </script>
 
 </body>

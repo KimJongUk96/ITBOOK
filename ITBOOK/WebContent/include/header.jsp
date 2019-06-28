@@ -76,7 +76,7 @@
 									class="ti-user mr-2"></i>내정보 </a>
 								<div class="dropdown-menu mt-2 shadow"
 									aria-labelledby="dropdownAccount">
-									<a class="dropdown-item" href="member/myPage.jsp">내 정보</a>
+									<a class="dropdown-item" href="/member=command?mypageAction">내 정보</a>
 								</div>
 							</c:if>
 

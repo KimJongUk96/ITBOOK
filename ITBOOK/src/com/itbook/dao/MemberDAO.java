@@ -30,8 +30,8 @@ public class MemberDAO {
 	 */
 	public void insertMember(MemberVO MemVO){
 		String sql = "insert into itbook.member ("
-				+"memId, memPw, jumin, memName, phone, email, authority, adr)"
-				+"values (?, ?, ?, ?, ?, ?, ?, ?)";
+				+"memId, memPw, jumin, memName, phone, email, authority, adr, adr2)"
+				+"values (?, ?, ?, ?, ?, ?, ?, ?,?)";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -48,7 +48,7 @@ public class MemberDAO {
 			pstmt.setString(6, MemVO.getEmail());
 			pstmt.setString(7, MemVO.getAuthority());
 			pstmt.setString(8,MemVO.getAdr());
-			
+			pstmt.setString(9, MemVO.getAdr2());
 			pstmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -63,7 +63,7 @@ public class MemberDAO {
 	 * @param memVO
 	 */
 	public void memberUpdate(MemberVO memVO) {
-		String sql = "update itbook.member set phone = ?, email = ?, adr = ? where memId = ?";
+		String sql = "update itbook.member set phone = ?, email = ?, adr = ?, adr2 = ? where memId = ?";
 						
 						
 		
@@ -77,7 +77,8 @@ public class MemberDAO {
 			pstmt.setString(1, memVO.getPhone());
 			pstmt.setString(2, memVO.getEmail());
 			pstmt.setString(3, memVO.getAdr());
-			pstmt.setString(4, memVO.getMemId());
+			pstmt.setString(4, memVO.getAdr2());
+			pstmt.setString(5, memVO.getMemId());
 			
 			
 			pstmt.executeUpdate();
@@ -205,6 +206,7 @@ public class MemberDAO {
 				memVO.setMemName(rs.getString("memName"));
 				memVO.setEmail(rs.getString("email"));
 				memVO.setAdr(rs.getString("adr"));
+				memVO.setAdr2(rs.getString("adr2"));
 				memVO.setAuthority(rs.getString("authority"));
 				memVO.setPhone(rs.getString("phone"));
 				memVO.setSignDate(rs.getTimestamp("signDate"));
@@ -285,6 +287,7 @@ public class MemberDAO {
 				   mVO.setMemPw(rs.getString("memPw"));
 				   mVO.setJumin(rs.getString("jumin"));
 				   mVO.setAdr(rs.getString("adr"));
+				   mVO.setAdr(rs.getString("adr2"));
 				   mVO.setAuthority(rs.getString("authority"));
 				   mVO.setEmail(rs.getString("email"));
 				   mVO.setPhone(rs.getString("phone"));
@@ -361,6 +364,7 @@ public class MemberDAO {
 				   mVO.setMemPw(rs.getString("memPw"));
 				   mVO.setJumin(rs.getString("jumin"));
 				   mVO.setAdr(rs.getString("adr"));
+				   mVO.setAdr(rs.getString("adr2"));
 				   mVO.setAuthority(rs.getString("authority"));
 				   mVO.setEmail(rs.getString("email"));
 				   mVO.setPhone(rs.getString("phone"));

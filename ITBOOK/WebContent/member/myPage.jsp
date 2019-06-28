@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Wizixo | Creative Multipurpose Bootstrap Template</title>
+<title>희망의책 대전본부 내정보</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -71,9 +71,6 @@
 					<h6 class="subtitle">수정버튼을 눌러서 회원정보를 수정할 수 있습니다.</h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="index.html"><i
-									class="ti-home"></i> Home</a></li>
-							<li class="breadcrumb-item">Table</li>
 						</ol>
 					</nav>
 				</div>
@@ -170,7 +167,7 @@
 								</h3>
 								
 
-								<p class="feature-box-desc">${LoginUser.adr}</p>
+								<p class="feature-box-desc">${LoginUser.adr}<br>${LoginUser.adr2}</p>
 							</div>
 							
 						</div>

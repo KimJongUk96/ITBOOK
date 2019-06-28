@@ -2,6 +2,7 @@ package com.itbook.controller;
 
 import com.itbook.controller.action.Action;
 import com.itbook.controller.action.MainAction;
+import com.itbook.controller.action.NotLoginAction;
 
 
 public class ActionFactory {
@@ -23,7 +24,9 @@ public class ActionFactory {
 
 		if (command.equals("main")) {
 			action = new MainAction();
-		} 
+		} else if(command.equals("notLogin")) {
+			action = new NotLoginAction();
+		}
 		return action;
 	}
 }

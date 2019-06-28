@@ -49,13 +49,13 @@ public class LoginAction implements Action{
 				case 0:
 				{
 						request.setAttribute("message", "비밀번호를 확인하세요" );
-						url = "main?command=loginForm";
+						url = "main?command=notLogin";
 						break;
 				}
 				case -1:
 				{
 						request.setAttribute("message", "존재하지않는 회원입니다.");
-						url = "main?command=loginForm";
+						url = "main?command=notLogin";
 						break;
 				}
 				default : request.setAttribute("message", "오류가 발생했습니다.");

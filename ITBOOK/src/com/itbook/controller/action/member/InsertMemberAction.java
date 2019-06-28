@@ -23,6 +23,7 @@ public class InsertMemberAction implements Action{
 		String memPw = request.getParameter("memPw");
 		String jumin = request.getParameter("jumin");
 		String adr = request.getParameter("adr");
+		String adr2 = request.getParameter("adr2");
 		String phone = request.getParameter("phone");
 		String authority = request.getParameter("authority");
 		String email = request.getParameter("email");
@@ -34,6 +35,7 @@ public class InsertMemberAction implements Action{
 		memVO.setJumin(jumin);
 		memVO.setMemName(memName);
 		memVO.setAdr(adr);
+		memVO.setAdr2(adr2);
 		memVO.setPhone(phone);
 		memVO.setAuthority(authority);
 		memVO.setEmail(email);

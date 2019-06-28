@@ -19,6 +19,7 @@ public class MemberModifyAction implements Action{
 		mVo.setMemId(request.getParameter("memId"));
 		mVo.setEmail(request.getParameter("email"));
 		mVo.setAdr(request.getParameter("adr"));
+		mVo.setAdr2(request.getParameter("adr2"));
 		mVo.setPhone(request.getParameter("phone"));
 		
 		System.out.println("memId : " + memId);

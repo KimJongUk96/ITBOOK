@@ -123,19 +123,25 @@
 										</div>
 										<div>
 											<p class="text-left mb-2">생년월일</p>
-											<span class="form-group"><input type="text"
-												name="jumin" id="jumin" class="form-control" maxlength="8"
+											<span class="form-group">
+											<input type="text" name="jumin" id="jumin" class="form-control" maxlength="8"
 												placeholder="ex)19960116"></span>
 										</div>
 										<p class="text-left mb-2">주소</p>
 										<input type="text" id="sample4_postcode" name="adr1"
 											placeholder="우편번호" class="form-control" style="width: 150px"
-											readonly="readonly"> <input type="button"
-											onclick="sample4_execDaumPostcode()" class="btn btn-dark"
-											value="우편번호 찾기"><br> <input type="text"
-											id="sample4_roadAddress" name="adr" id="adr"
+											readonly="readonly">
+											
+											 <input type="button" onclick="sample4_execDaumPostcode()" class="btn btn-dark"
+											value="우편번호 찾기"><br> 
+											
+											<input type="text" id="sample4_roadAddress" name="adr"
 											placeholder="도로명주소" class="form-control" readonly="readonly">
 										<span id="guide" style="color: #999"></span>
+										<div>
+										<p class="text-left mb-2">상세주소</p>
+										<input type="text" id="adr2" name="adr2" placeholder="상세주소" class="form-control">
+										</div>
 										<div>
 											<p class="text-left mb-2">핸드폰번호</p>
 											<span class="form-group"><input type="text"
@@ -239,6 +245,7 @@
 			var memName = document.frm.memName;
 			var jumin = document.frm.jumin;
 			var adr = document.frm.adr;
+			var adr2 = document.frm.adr2;
 			var phone = document.frm.phone;
 			var email = document.frm.email;
 			var authority = document.frm.authority;
@@ -274,6 +281,12 @@
 				window.alert("주소를 입력해주세요.");
 				document.frm.adr.focus();
 				document.frm.getElementById('adr').select();
+				return false;
+			}
+			if (adr2.value == '') {
+				window.alert("주소를 입력해주세요.");
+				document.frm.adr2.focus();
+				document.frm.getElementById('adr2').select();
 				return false;
 			}
 			if (phone.value == '') {

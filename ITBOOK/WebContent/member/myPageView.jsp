@@ -170,6 +170,7 @@
 								
 								<input type="hidden" id="sample4_postcode" name="adr1" value=""> 
 								<input type = "text" class="form-control"  id="sample4_roadAddress" onclick="sample4_execDaumPostcode()" name = "adr" value = "${LoginUser.adr}" readonly="readonly">
+								<input type = "text" class="form-control"  id="adr2" name = "adr2" value = "${LoginUser.adr}">
 							</div>
 							
 						</div>

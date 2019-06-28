@@ -11,6 +11,7 @@ import com.itbook.controller.action.member.LogoutAction;
 import com.itbook.controller.action.member.MemberIdCheckAction;
 import com.itbook.controller.action.member.MemberModifyAction;
 import com.itbook.controller.action.member.MemberModifyFormAction;
+import com.itbook.controller.action.member.MemberModifyGoAction;
 import com.itbook.controller.action.member.MemberPwModifyAction;
 import com.itbook.controller.action.member.MemberPwModifyFormAction;
 
@@ -63,6 +64,8 @@ public class MemberActionFactory {
 			action = new joinApprovalAction();
 		}else if(command.equals("refuseMemberShip")) {
 			action = new RefuseMemberShipAction();
+		}else if(command.equals("mypageAction")) {
+			action = new MemberModifyGoAction();
 		}
 		return action;
 	}
