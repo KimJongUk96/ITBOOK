@@ -93,9 +93,11 @@
 							<li class="breadcrumb-item active"><a href="/index.jsp"><i
 									class="ti-home"></i>Home</a></li>
 							<li class="breadcrumb-item">독서모임</li>
+							<c:if test="${LoginUser.authority ne null && memListVo.approval ne 'T' && meetingVo.metNum eq memListVo.metNum || meetingVo.metNum ne memListVo.metNum && LoginUser.authority ne null}">
 							<li><a class="btn btn-grad mt-4" onclick="joinPopup()">
 								모임 가입하기
 							<i class="fa fa-external-link ml-2 mr-0"></i></a>
+							</c:if>
 							<c:if test="${LoginUser.memName eq meetingVo.represent}">
 							<a class="btn btn-grad mt-4" href="/meeting?command=metUpdateFormAction&metNum=${meetingVo.metNum}">
 								독서모임 수정
@@ -118,6 +120,7 @@
 
 			<input type="hidden" name="metNum" value="${meetingVo.metNum}">
 			<input type="hidden" name="metbrd" value="${metbrd.metBrdNum}">
+			<input type="hidden" name="memNum" value="${memListVo.memNum}">
 			
 					<div class="container" style="margin-top:3%;">
 						<div class="bg-white border-radius-3 py-5 all-text-dark pattern-overlay-2">
@@ -161,14 +164,12 @@
 	</div>
 
 			<div class="table-responsive-sm">
-			<input type="hidden" name="metNum" value="${meetingVo.metNum}">
-			<input type="hidden" name="memNum" value="${memList.memNum}">
 				<table class="table table-hover">
 				<!-- 공지사항 링크연결 -->
 			
 				<div>
 					<span style="font-size: 25px;">공지사항  </span>
-					<c:if test="${LoginUser.authority ne null && memList.approval eq 'T' && meetingVo.metNum eq memList.metNum}">
+					<c:if test="${LoginUser.authority ne null &&LoginUser.memNum eq memListVo.memNum && memListVo.approval eq 'T' && meetingLVo.metNum eq memListVo.metNum || LoginUser.memName eq meetingVo.represent}">
 					<span style="font-size: 15px;"><a href="/meeting?command=metBoardListFormAction&metNum=${meetingVo.metNum}">게시글 더보기
 						<i class="fa fa-external-link ml-2 mr-0"></i></a></span>
 					</c:if>
@@ -198,8 +199,7 @@
 							<tr>
 								<th scope="row">${var.count}</th>
 								<th>${metbrd.metBrdCategory}</th>
-								<th><a
-									href="/meeting?command=metBoardViewAction&metBrdNum=${metbrd.metBrdNum}&metNum=${meetingVo.metNum}">${metbrd.metBrdName}</a></th>
+								<th>${metbrd.metBrdName}</th>
 								<th>${metbrd.memName}</th>
 								<td><fmt:formatDate value="${metbrd.regDate}" /></td>
 							</tr>
@@ -235,6 +235,7 @@
 				<c:if test="${memList.approval eq 'F'}">
 					<input type="hidden" name="memNum" value="${memList.memNum}">
 					<tr style="text-align: center;">
+					<c:if test="${memList.metNum eq meetingVo.metNum}">
 						<td>${memList.memId}</td>
 						<td>${memList.memName}</td>
 						<td>
@@ -242,6 +243,7 @@
 							<button type="button" class="btn btn-primary btn-sm">승인</button></a>&nbsp;&nbsp;
 							<a href="/member?command=refuseMemberShip&memNum=${memList.memNum}&metNum=${meetingVo.metNum}">
 							<button type="button" class="btn btn-danger btn-sm">거절</button></a></td>
+						</c:if>
 					</tr>
 				</c:if>
 			</c:forEach>

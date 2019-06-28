@@ -11,6 +11,7 @@ import javax.print.attribute.standard.PresentationDirection;
 import com.itbook.vo.MemListVO;
 import com.itbook.vo.MemberVO;
 import com.itbook.vo.Paging;
+import com.itbook.vo.Meeting.MeetingVO;
 
 public class MemberDAO {
 	
@@ -407,7 +408,7 @@ public class MemberDAO {
 	 }
 	 //멤버쉽 승인 
 	 public void approvalMeeting(MemListVO mVo) {
-		 String sql = "update itbook.mem_list set joinDate = sysdate(), approval = 'T' where memNum =?";
+		 String sql = "update itbook.mem_list set joinDate = sysdate(), approval = 'T' where memNum =? and metNum = ?";
 		 
 		 Connection conn = null;
 		 PreparedStatement pstmt = null;
@@ -416,6 +417,7 @@ public class MemberDAO {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, mVo.getMemNum());
+			pstmt.setString(2, mVo.getMetNum());
 			
 			pstmt.executeUpdate();
 			
@@ -461,8 +463,48 @@ public class MemberDAO {
 		 return list;
 		 
 	 }
+	 
+		public MemListVO selectMemNum(String memNum) {
+
+			String sql = "SELECT memNum, metNum, memId, memName, joinDate, approval from itbook.mem_List where memNum = ? and approval='T'";
+
+			MemListVO mVo = null;
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+
+			try {
+				conn = DBManager.getConnection();
+
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, memNum);
+
+				rs = pstmt.executeQuery();
+
+				if (rs.next()) {
+
+					mVo = new MemListVO();
+
+					   mVo.setMemNum(rs.getString("memNum"));
+					   mVo.setMetNum(rs.getString("metNum"));
+					   mVo.setMemId(rs.getString("memId"));
+					   mVo.setMemName(rs.getString("memName"));
+					   mVo.setJoinDate(rs.getTimestamp("joinDate"));
+					   mVo.setApproval(rs.getString("approval"));
+
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt, rs);
+			}
+			return mVo;
+		}
+	 
+	
 	 public void refuseMemberShip(MemListVO mVo) {
-		 String sql = "update itbook.mem_list set approval = 'R' where memNum = ?";
+		 String sql = "update itbook.mem_list set approval = 'R' where memNum = ? and metNum = ?";
 		 
 		 Connection conn = null;
 		 PreparedStatement pstmt = null;
@@ -471,7 +513,7 @@ public class MemberDAO {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, mVo.getMemNum());
-			
+			pstmt.setString(2, mVo.getMetNum());
 			pstmt.executeUpdate();
 			
 		} catch (Exception e) {
