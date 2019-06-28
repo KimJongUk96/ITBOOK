@@ -71,7 +71,7 @@
 					<div class="row mt-5">
 						<div class="col-md-12">
 							<h2 class="mb-3">영수증 신청자 정보</h2></div>
-						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="* 후원자 이름" name="taxName" ></span></div>
+						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="* 신청자 이름" name="taxName" ></span></div>
 						<div class="col-md-6"><span class="form-group"><input type="email" class="form-control" placeholder="* 이메일" name = "taxEmail"></span></div>
 						<div class="col-md-6"><span class="form-group"><input type="text" class="form-control" placeholder="* 연락처" name = "taxPhone"></span></div>
 						<div class="col-md-3">

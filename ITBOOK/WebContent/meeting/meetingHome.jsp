@@ -196,9 +196,8 @@
 							<tr>
 								<th scope="row">${var.count}</th>
 								<th>${metbrd.metBrdCategory}</th>
-								<th>${metbrd.metBrdName}</th>
-							    <td><a
-									href="/meeting?command=metBoardViewAction&metBrdNum=${metbrd.metBrdNum}&metNum=${meetingVo.metNum}">${metbrd.metBrdName}</a></td>
+								<th><a
+									href="/meeting?command=metBoardViewAction&metBrdNum=${metbrd.metBrdNum}&metNum=${meetingVo.metNum}">${metbrd.metBrdName}</a></th>
 								<th>${metbrd.memName}</th>
 								<td><fmt:formatDate value="${metbrd.regDate}" /></td>
 							</tr>
