@@ -42,6 +42,8 @@
    Banner innerpage -->
 		<div class="container">
 		<input type = "hidden" id="memNum" name = "memNum" value = "${LoginUser.memNum}">
+		<input type = "hidden" id="memName" name = "memName" value = "${LoginUser.memName}">
+		<input type = "hidden" id="memId" name = "memId" value = "${LoginUser.memId}">
 		<input type = "hidden" id="metNum" name = "metNum" value = "${meetingVo.metNum}">
 		<table class="table table-hover">
 								<tr>
