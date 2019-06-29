@@ -8,7 +8,7 @@
 <!-- portfolio-grid-column-4.html Form -->
 <html>
 <head>
-	<title>독서모임 신청</title>
+	<title>희망의 책 : 독서모임</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -62,12 +62,12 @@
 		<div class="container">
 			<div class="row all-text-white">
 				<div class="col-md-12 align-self-center">
-					<h1 class="innerpage-title">독서모임 수정</h1>
-					<h6 class="subtitle">나만의 독서모임 수정하기</h6>
+					<h1 class="innerpage-title">- ${meeting.metName} - 수정</h1>
+					<h6 class="subtitle">다함께 만들어가는 독서모임</h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="/index.jsp"><i class="ti-home"></i> Home</a></li>
-							<li class="breadcrumb-item">독서모임</li>
+							<li class="breadcrumb-item"><a href="/meeting?command=manageHomeAction&metNum=${ meeting.metNum}">관리 홈</a></li>
 						</ol>
 					</nav>
 				</div>
@@ -79,41 +79,37 @@
 
 
 	<!-- =======================
-	Form -->
+	Table -->
 	<section>
 		<div class="container">
 			<div class="row">
-				<form name="frm" method="post" action="/meeting?command=metUpdateAction&metNum=${meeting.metNum}" class="col-md-7" enctype="multipart/form-data">
+				<form name="frm" method="post" action="/meeting?command=metUpdateAction&metNum=${meeting.metNum}" class="col-md-10" enctype="multipart/form-data">
 				<input type="hidden" name="metNum" value="${meeting.metNum }">
-					<!-- 독서모임명 -->
-					<div class="form-group">
-						<label>독서모임명</label>
-						<input type="text" name="metName" class="form-control" value="${meeting.metName}">
-					</div>
-
-					<!-- 독서모임소개 -->
-					<div class="form-group">
-						<label>독서모임소개</label>
-						<textarea name="metIntro" class="form-control" rows="7">${meeting.metIntro}</textarea>
-					</div>
-					
-					<!-- 독서모임 인사말 -->
-					<div class="form-group">
-						<label>인사말</label>
-						<textarea name="metGreeting" class="form-control" rows="2">${meeting.metGreeting}</textarea>
-					</div>
-					
-					<!-- 대표자명 -->
-					<div class="form-group">
-						<label>대표자</label>
-						<input type="text" name="represent" value="${LoginUser.memName}" class="form-control" style="width:250px">
-						${LoginUser.memName}
-					</div>
-
-					<!-- Select -->
-					<div class="form-group">
-						<label>주 활동지역</label><br/>
-						<select id ="location" name="location" class="custom-select select-big mb-3" style="float:left; width:200px;">
+				<div class="col-sm-10 mb-6">
+					<h5 class="text-center mb-4"><strong>기본 정보</strong></h5>
+					<div class="table-responsive-sm">
+						<table class="table table-hover">
+						<colgroup>
+      						<col width="150px">
+        					<col width="370px">  <!-- 너비를 지정해주어야한다 -->
+    					</colgroup>
+							<tbody>
+								<tr>
+									<th scope="row">모임 이름</th>
+									<td><input type="text" name="metName" class="form-control" value="${meeting.metName}"></td>
+								
+								</tr>
+								<tr>
+									<th scope="row">모임 소개</th>
+									<td><textarea name="metIntro" class="form-control" rows="7">${meeting.metIntro}</textarea></td>
+								</tr>
+								<tr>
+									<th scope="row">인사말</th>
+									<td><textarea name="metGreeting" class="form-control" rows="2">${meeting.metGreeting}</textarea></td>
+								</tr>
+								<tr>
+									<th scope="row">활동지역</th>
+									<td><select id ="location" name="location" class="custom-select select-big mb-3" style="float:left; width:200px;">
 							<option selected>전국</option>
 							<option value="location1">서울특별시</option>
 							<option value="location2">인천광역시</option>
@@ -127,13 +123,13 @@
 							<option value="location10">울릉도</option>
 							<option value="location11">독도</option>
 						</select>
-							<input type="text" name="place" class="form-control" placeholder="활동장소를 입력하세요" style="float:left; width:468px; height:45.52px;">
-				 	</div>
-
-				<!-- <div class="col-md-6"> -->
-					<!-- custom checkbox -->
-					<label class="mt-3">활동주제</label>
-					<div class="custom-control custom-checkbox mr-sm-2">
+						<input type="text" name="place" class="form-control" placeholder="활동장소를 입력하세요" style="float:left; width:468px; height:45.52px;">
+						</td>
+								</tr>
+								<tr>
+									<th scope="row">활동주제</th>
+									<td>
+									<div class="custom-control custom-checkbox mr-sm-2">
 						<input type="checkbox" name="keyword" value="home" class="custom-control-input" id="home">
 						<label class="custom-control-label" for="home">가정/육아</label>
 					</div>
@@ -211,36 +207,31 @@
 					<div class="custom-control custom-checkbox mr-sm-2">	
 						<input type="checkbox" name="keyword" value="computer&internet" class="custom-control-input" id="computer&internet">
 						<label class="custom-control-label" for="computer&internet">컴퓨터/인터넷</label>
+					</div></td>
+								</tr>
+								<tr>
+									<th scope="row">기존파일</th>
+									<td><input class="form-control" type="text" value = "${meeting.metImg}" name ="imgPath" readonly="readonly"></td>
+								</tr>
+								<tr>
+									<th scope="row">수정파일</th>
+									<td><input type="file" class="form-control-file" name ="new_imgPath" value =""></td>
+								</tr>
+							</tbody>
+						</table>
+						</div>
+						<div class="text-center text-md-center mt-md-0 align-self-center ">
+						<button class="btn btn-grad" type="submit">수정</button>
+						<button class="btn btn-grad" type="reset">다시작성</button>
+						<input type ="button" class="btn btn-grad" value="취소" onclick="location.href='meeting?command=meetingList'">
 					</div>
-					<div class="form-group">
-                  	<label>기존 파일</label> <input class="form-control" type="text" value = "${meeting.metImg}" name ="imgPath" readonly="readonly">
-               		</div>
-         		
-         			    <!-- 업로드 시작-->
-               		<div class="form-group">
-					 <input type="file" class="form-control-file" name ="new_imgPath" value ="">                  
-              	 	</div>
-               			<!--업로드 끝  -->
-					<br><br>
-					<!-- post way -->
-					<div class="text-center text-md-left align-self-center">
-						<h5 class="m-0"><b>※독서모임은 관리자의 승인 후 활동 가능합니다.</b></h5>
-					</div>
-					<br>
-					<section>
-					<div class="text-center text-md-center mt-md-0 align-self-center ">
-						<button class="btn btn-outline-light mb-0" type="submit">수정</button>
-						<button class="btn btn-outline-light mb-0" type="reset">다시작성</button>
-						<input type ="button" class="btn btn-outline-light mb-0" value="취소" onclick="location.href='meeting?command=meetingList'">
-					</div>
-					</section>
+				</div>
 				</form>
 			</div>
 		</div>
 	</section>
-
 	<!-- =======================
-	Form -->
+	Table -->
 
 	<%@ include file="../include/footer.jsp"%>
 

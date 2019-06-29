@@ -5,6 +5,8 @@ import com.itbook.controller.action.meeting.CommentDeleteAction;
 import com.itbook.controller.action.meeting.CommentWriteAction;
 import com.itbook.controller.action.meeting.JoinMeetingAction;
 import com.itbook.controller.action.meeting.JoinMemberPopupAction;
+import com.itbook.controller.action.meeting.ManageHomeAction;
+import com.itbook.controller.action.meeting.ManageJoinAction;
 import com.itbook.controller.action.meeting.MeetingApplyAction;
 import com.itbook.controller.action.meeting.MeetingApplyFormAction;
 import com.itbook.controller.action.meeting.MeetingHomeAction;
@@ -120,6 +122,13 @@ public class MeetingActionFactory {
 			
 		} else if (command.equals("joinMeetingAction")) {
 			action = new JoinMeetingAction();
+			
+			//여기서부터 정민
+		} else if (command.equals("manageHomeAction")) {
+			action = new ManageHomeAction();
+			
+		} else if (command.equals("manageJoinAction")) {
+			action = new ManageJoinAction();
 		}
 
 		return action;

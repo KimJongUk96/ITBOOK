@@ -91,8 +91,10 @@
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item active"><a href="/index.jsp"><i
-									class="ti-home"></i>Home</a></li>
-							<li class="breadcrumb-item">독서모임</li>
+									class="ti-home"></i>Home&nbsp;&nbsp;&nbsp;</a>
+									<a href="/meeting?command=manageHomeAction&metNum=${meetingVo.metNum }">
+									<i class="ti-settings">모임관리</i>	</a></li>
+							
 							<c:if test="${LoginUser.authority ne null && memListVo.approval ne 'T' && meetingVo.metNum eq memListVo.metNum || meetingVo.metNum ne memListVo.metNum && LoginUser.authority ne null}">
 							<li><a class="btn btn-grad mt-4" onclick="joinPopup()">
 								모임 가입하기
@@ -209,47 +211,7 @@
 
 				</table>
 			</div>
-
-		<c:if test="${LoginUser.memName eq meetingVo.represent}">
-		<div>
-		<div style="margin-top: 15%;">
-			<span style="font-size: 25px;">멤버쉽 신청내역</span>
-		</div>
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th colspan="3" style="text-align: center;">멤버쉽 신청내역</th>
-				</tr>
-				<tr>
-					<th style="width: 50px; text-align: center;">신청자</th>
-					<th style="width: 50px; text-align: center;">이름</th>
-					<th style="width: 50px; text-align: center;">승인여부</th>
-				</tr>
-			</thead>
-				<c:if test="${empty memList}">
-					<tr>
-						<th colspan="3" style="text-align: center; color: gray;">가입신청한 멤버가 없습니다.</th>
-					</tr>
-				</c:if>
-			<c:forEach var="memList" items="${memList}">
-				<c:if test="${memList.approval eq 'F'}">
-					<input type="hidden" name="memNum" value="${memList.memNum}">
-					<tr style="text-align: center;">
-					<c:if test="${memList.metNum eq meetingVo.metNum}">
-						<td>${memList.memId}</td>
-						<td>${memList.memName}</td>
-						<td>
-							<a href="/member?command=approvalMeeting&memNum=${memList.memNum}&metNum=${meetingVo.metNum}">
-							<button type="button" class="btn btn-primary btn-sm">승인</button></a>&nbsp;&nbsp;
-							<a href="/member?command=refuseMemberShip&memNum=${memList.memNum}&metNum=${meetingVo.metNum}">
-							<button type="button" class="btn btn-danger btn-sm">거절</button></a></td>
-						</c:if>
-					</tr>
-				</c:if>
-			</c:forEach>
-			</table>
-		</div>
-		</c:if>
+		
 
 		<!-- 활동사진 밑 코멘트 -->
 		<div style="margin-top: 10%;">
