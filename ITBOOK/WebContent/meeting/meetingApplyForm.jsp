@@ -115,8 +115,8 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				<form name="frm" method="post" action="/meeting?command=meetingApply" class="col-md-7" enctype="multipart/form-data">
-
+				<form name="frm" method="post" action="/meeting?command=meetingApply&memNum=${LoginUser.memNum}" class="col-md-7" enctype="multipart/form-data">
+				<input type="hidden" name="memNum" value="${LoginUser.memNum}">
 					<!-- 독서모임명 -->
 					<div class="form-group">
 						<label>독서모임명</label>

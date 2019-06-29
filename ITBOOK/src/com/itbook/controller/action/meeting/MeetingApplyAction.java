@@ -56,7 +56,9 @@ public class MeetingApplyAction implements Action{
 			mVo.setMetPlace(multi.getParameter("metPlace"));
 			mVo.setKeyword(multi.getParameter("keyword"));
 			mVo.setMetImg(multi.getFilesystemName("metImg"));
+			mVo.setMemNum(multi.getParameter("memNum"));
 			
+			System.out.println(mVo +"MVO");
             boolean result = mDao.insertMeeting(mVo);
             
             if(result) {

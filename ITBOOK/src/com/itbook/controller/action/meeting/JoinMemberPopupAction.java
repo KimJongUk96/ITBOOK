@@ -18,6 +18,8 @@ public class JoinMemberPopupAction implements Action{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "/meeting/joinMemberPopup.jsp";
+		
+		String memName = request.getParameter("memName");
 		String metNum = request.getParameter("metNum"); 
 		
 		MeetingDAO mDao = MeetingDAO.getInstance();
