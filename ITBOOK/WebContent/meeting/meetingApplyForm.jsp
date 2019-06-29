@@ -36,6 +36,11 @@
 	form {
 	margin: 0 auto;
 	}
+	
+	.hd1 {
+	font-weight: bold;
+	font-size: large;
+	}
 	</style>
 	
 	<!-- Form JavaScript -->
@@ -50,6 +55,7 @@
 	
 	</script>
 	
+	<!-- textarea 글자수 제한 -->
 	<script type="text/javascript">
 	$(document).ready(function(){
 		
@@ -62,20 +68,21 @@
 				if($(this).val().length > 333){
 					$(this).val($(this).val().substring(0, 333));
 				}
-			})
-		})
+			});
+		});
 	</script>
 	
+	<!-- check-box 선택값 1개로 제한하기 -->
 	<script type="text/javascript">
-	$("input[name='keyword']").on("click", function(){
+	function check_only(chk) {
+		var cnt = document.getElementsByName("keyword"); //checkbox keyword의 배열값을 불러옴
 		
-		var cnt = $("input:checked[name='keyword']").size();
-		
-		if(cnt > 2){
-			$(this).attr("checked", false);
-			alert("선택은 1개만 가능합니다.");
+		for(var i=0; i<cnt.length; i++){ //checked한 배열의 차와 cnt가 같지 않으면 unchecked 상태로 돌려줌
+			if(cnt[i] != chk){
+				cnt[i].checked = false;
 			}
 		}
+	}
 	</script>
 	
 </head>
@@ -119,132 +126,139 @@
 				<input type="hidden" name="memNum" value="${LoginUser.memNum}">
 					<!-- 독서모임명 -->
 					<div class="form-group">
-						<label>독서모임명</label>
-						<input type="text" name="metName" class="form-control" placeholder="독서모임명을 입력해주세요." maxlength=33>
+						<label class="hd1">독서모임명</label>
+						<input type="text" name="metName" class="form-control" placeholder="독서모임명을 입력하세요." maxlength=33>
 					</div>
 
 					<!-- 독서모임소개 -->
 					<div class="form-group">
-						<label>독서모임소개</label>
-						<textarea id="metIntro" name="metIntro" class="form-control" rows="7" placeholder="독서모임을 소개합니다."></textarea>
+						<label class="hd1">독서모임소개</label>
+						<textarea id="metIntro" name="metIntro" class="form-control" rows="7" placeholder="독서모임 소개글을 입력하세요."></textarea>
 					</div>
 					
 					<!-- 독서모임 인사말 -->
 					<div class="form-group">
-						<label>인사말</label>
+						<label class="hd1">인사말</label>
 						<textarea id="metGreeting" name="metGreeting" class="form-control" rows="2" placeholder="대표 인사말을 입력하세요."></textarea>
 					</div>
 					
 					<!-- 대표자명 -->
 					<div class="form-group">
-						<label>대표자</label>
+						<label class="hd1">대표자</label>
 						<input type="text" name="represent" value="${LoginUser.memName}" class="form-control" style="width:250px" readonly>
 					</div>
 
 					<!-- Select -->
 					<div class="form-group">
-						<label>주 활동지역</label><br/>
+						<label class="hd1">주 활동지역</label><br/>
 						<select name="location" class="custom-select select-big mb-3" style="float:left; width:25%;">
 							<option selected>전국</option>
-							<option value="location1">서울특별시</option>
-							<option value="location2">인천광역시</option>
-							<option value="location3">대전광역시</option>
-							<option value="location4">세종특별자치시</option>
-							<option value="location5">대구광역시</option>
-							<option value="location6">부산광역시</option>
-							<option value="location7">울산광역시</option>
-							<option value="location8">광주광역시</option>
-							<option value="location9">제주도특별자치시</option>
-							<option value="location10">울릉도</option>
-							<option value="location11">독도</option>
+							<option value="서울특별시">서울특별시</option>
+							<option value="인천광역시">인천광역시</option>
+							<option value="대전광역시">대전광역시</option>
+							<option value="세종특별자치시">세종특별자치시</option>
+							<option value="대구광역시">대구광역시</option>
+							<option value="부산광역시">부산광역시</option>
+							<option value="울산광역시">울산광역시</option>
+							<option value="광주광역시">광주광역시</option>
+							<option value="경기도">경기도</option>
+							<option value="충청북도">충청북도</option>
+							<option value="충청남도">충청남도</option>
+							<option value="전라북도">전라북도</option>
+							<option value="경상북도">경상북도</option>
+							<option value="경상남도">경상남도</option>
+							<option value="제주도특별자치시">제주도특별자치시</option>
+							<option value="울릉도">울릉도</option>
+							<option value="독도">독도</option>
 						</select>
-							<input type="text" name="metPlace" class="form-control" placeholder="활동장소를 입력하세요" style="float:left; width:75%; height:45.52px;">
+							<input type="text" name="metPlace" class="form-control" placeholder="상세활동장소를 입력하세요" style="float:left; width:75%; height:45.52px;">
 				 	</div>
 
 				<!-- <div class="col-md-6"> -->
 					<!-- custom checkbox -->
-					<label class="mt-3">활동주제  (※가장 적합한 1개의 주제를 선택해주세요)</label>
+					<label class="mt-3 hd1">활동주제  (※가장 적합한 1개의 주제를 선택하세요)</label>
 					<div class="custom-control custom-checkbox mr-sm-2">
-						<input type="checkbox" name="keyword" value="home" class="custom-control-input" id="home">
+						<input type="checkbox" name="keyword" value="home" class="custom-control-input" id="home" onclick="check_only(this)"/>
 						<label class="custom-control-label" for="home">가정/육아</label>
 					</div>
 						
 					<div class="custom-control custom-checkbox mr-sm-2">
-						<input type="checkbox" name="keyword" value="health" class="custom-control-input" id="health">
+						<input type="checkbox" name="keyword" value="health" class="custom-control-input" id="health" onclick="check_only(this)"/>
 						<label class="custom-control-label" for="health">건강/뷰티</label>
 					</div>
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="business" class="custom-control-input" id="business">
+						<input type="checkbox" name="keyword" value="business" class="custom-control-input" id="business" onclick="check_only(this)"/>
 						<label class="custom-control-label" for="business">경제/경영</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="education" class="custom-control-input" id="education">
+						<input type="checkbox" name="keyword" value="education" class="custom-control-input" id="education" onclick="check_only(this)"/>
 						<label class="custom-control-label" for="education">교육</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="literature" class="custom-control-input" id="literature">
+						<input type="checkbox" name="keyword" value="literature" class="custom-control-input" id="literature" onclick="check_only(this)"/>
 						<label class="custom-control-label" for="literature">문학</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="social" class="custom-control-input" id="social">
+						<input type="checkbox" name="keyword" value="social" class="custom-control-input" id="social" onclick="check_only(this)"/>
 						<label class="custom-control-label" for="social">사회과학</label>
 					</div>
 					
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="IT" class="custom-control-input" id="IT">
+						<input type="checkbox" name="keyword" value="IT" class="custom-control-input" id="IT" onclick="check_only(this)"/>
 						<label class="custom-control-label" for="IT">IT/개발</label>
 					</div>
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="leisure" class="custom-control-input" id="leisure">
+						<input type="checkbox" name="keyword" value="leisure" class="custom-control-input" id="leisure" onclick="check_only(this)"/>
 						<label class="custom-control-label" for="leisure">여가생활</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="history" class="custom-control-input" id="history">
+						<input type="checkbox" name="keyword" value="history" class="custom-control-input" id="history" onclick="check_only(this)"/>
 						<label class="custom-control-label" for="history">역사</label>
 					</div>
 					
 					<div class="custom-control custom-checkbox mr-sm-2">
-						<input type="checkbox" name="keyword" value="art" class="custom-control-input" id="art">
+						<input type="checkbox" name="keyword" value="art" class="custom-control-input" id="art" onclick="check_only(this)"/>
 						<label class="custom-control-label" for="art">예술/대중문화</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="foreign" class="custom-control-input" id="foreign">
+						<input type="checkbox" name="keyword" value="foreign" class="custom-control-input" id="foreign" onclick="check_only(this)"/>
 						<label class="custom-control-label" for="foreign">외국어/외국문학</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="child" class="custom-control-input" id="child">
+						<input type="checkbox" name="keyword" value="child" class="custom-control-input" id="child" onclick="check_only(this)"/>
 						<label class="custom-control-label" for="child">아동/청소년</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="humanity" class="custom-control-input" id="humanity">
+						<input type="checkbox" name="keyword" value="humanity" class="custom-control-input" id="humanity" onclick="check_only(this)"/>
 						<label class="custom-control-label" for="humanity">인문학</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="selfimprove" class="custom-control-input" id="selfimprove">
+						<input type="checkbox" name="keyword" value="selfimprove" class="custom-control-input" id="selfimprove" onclick="check_only(this)"/>
 						<label class="custom-control-label" for="selfimprove">자기계발</label>
 					</div>
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="natural" class="custom-control-input" id="natural">
+						<input type="checkbox" name="keyword" value="natural" class="custom-control-input" id="natural" onclick="check_only(this)"/>
 						<label class="custom-control-label" for="natural">자연/과학</label>
 					</div>	
 						
 					<div class="custom-control custom-checkbox mr-sm-2">	
-						<input type="checkbox" name="keyword" value="computer" class="custom-control-input" id="computer">
+						<input type="checkbox" name="keyword" value="computer" class="custom-control-input" id="computer" onclick="check_only(this)"/>
 						<label class="custom-control-label" for="computer">컴퓨터/인터넷</label>
 					</div>
+					<br/>
 					
-					<label class="mt-3">대표이미지 설정</label>
+					<label class="mt-3 hd1">대표이미지</label>
 					
 					<div class="form-group">
                   	<input type="file" class="form-control-file" name ="metImg">
