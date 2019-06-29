@@ -71,7 +71,7 @@
 					<h6 class="subtitle">수정버튼을 눌러서 회원정보를 수정할 수 있습니다.</h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="index.html"><i
+							<li class="breadcrumb-item active"><a href="index.jsp"><i
 									class="ti-home"></i> Home</a></li>
 						</ol>
 					</nav>
@@ -92,21 +92,10 @@
 				<div class="row">
 				<div class="col-sm-12 text-center mt-5 mb-4">
 				
-							<div class="col-md-6 mb-4">
-							
-								<h5 class="mb-4"></h5>
-								<blockquote class="blockquote" cite="#">
-									<h5 class="mb-2 text-light-gray">
-										책은 마음의 양식입니다. <br> <strong>자신의 생각을 자유롭게 표현해보세요!</strong>
-									</h5>
-
-								</blockquote>
-
-							</div>
 						</div>
 					
 					<div class="divider">
-							<i class="ti-book"></i>
+							<i class="ti-check"></i>
 						</div>
 						<h5 class="mb-2 mt-5"></h5>
 						
@@ -170,7 +159,7 @@
 								
 								<input type="hidden" id="sample4_postcode" name="adr1" value=""> 
 								<input type = "text" class="form-control"  id="sample4_roadAddress" onclick="sample4_execDaumPostcode()" name = "adr" value = "${LoginUser.adr}" readonly="readonly">
-								<input type = "text" class="form-control"  id="adr2" name = "adr2" value = "${LoginUser.adr}">
+								<input type = "text" class="form-control"  id="adr2" name = "adr2" value = "${LoginUser.adr2}">
 							</div>
 							
 						</div>
