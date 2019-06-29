@@ -11,6 +11,7 @@ import com.itbook.controller.action.meeting.MeetingApplyAction;
 import com.itbook.controller.action.meeting.MeetingApplyFormAction;
 import com.itbook.controller.action.meeting.MeetingHomeAction;
 import com.itbook.controller.action.meeting.MeetingListAction;
+import com.itbook.controller.action.meeting.MembePopupAction;
 import com.itbook.controller.action.meeting.MetBoardDeleteAction;
 import com.itbook.controller.action.meeting.MetBoardUpdateAction;
 import com.itbook.controller.action.meeting.MetBoardUpdateFormAction;
@@ -19,6 +20,7 @@ import com.itbook.controller.action.meeting.MetBoardWriteAction;
 import com.itbook.controller.action.meeting.MetBoardWriteFormAction;
 import com.itbook.controller.action.meeting.MetUpdateAction;
 import com.itbook.controller.action.meeting.MetUpdateFormAction;
+import com.itbook.controller.action.meeting.memberDeleteAction;
 import com.itbook.controller.action.meeting.metBoardListFormAction;
 
 public class MeetingActionFactory {
@@ -119,17 +121,28 @@ public class MeetingActionFactory {
 
 		} else if (command.equals("joinMemberPopup")) {
 			action = new JoinMemberPopupAction();
-			
+
 		} else if (command.equals("joinMeetingAction")) {
 			action = new JoinMeetingAction();
-			
-			//여기서부터 정민
+
+			// 여기서부터 정민
 		} else if (command.equals("manageHomeAction")) {
 			action = new ManageHomeAction();
-			
+
 		} else if (command.equals("manageJoinAction")) {
 			action = new ManageJoinAction();
+			
+			// 모임관리자가 현재 회원리스트 보여주기.
+		} else if (command.equals("memberPopup")) {
+			action = new MembePopupAction();
+
+			// 모임관리자가 현재 회원 삭제하기
+		}  else if (command.equals("meetingMemberDelete")) {
+			action = new memberDeleteAction();
+
 		}
+
+		
 
 		return action;
 	}

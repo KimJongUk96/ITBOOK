@@ -522,5 +522,65 @@ public class MemberDAO {
 			DBManager.close(conn, pstmt);
 		}
 	 } 
+	 
+	//모임 회원 리스트
+	    public ArrayList<MemListVO> meetingMemberList(String metNum){
+	       String sql = "SELECT memNum, metNum, memId, memName, joinDate, approval from itbook.mem_List where metNum=? and approval ='T'";
+	       
+	       ArrayList<MemListVO> list = new ArrayList<MemListVO>();
+	       Connection conn = null;
+	       PreparedStatement pstmt = null;
+	       ResultSet rs = null;
+	       
+	       try {
+	          conn = DBManager.getConnection();
+	          pstmt = conn.prepareStatement(sql);
+	          pstmt.setString(1, metNum);
+	          rs = pstmt.executeQuery();
+	          
+	          
+	            while (rs.next()) {
+	               MemListVO mVo = new MemListVO();
+	               
+	               mVo.setMemNum(rs.getString("memNum"));
+	               mVo.setMetNum(rs.getString("metNum"));
+	               mVo.setMemId(rs.getString("memId"));
+	               mVo.setMemName(rs.getString("memName"));
+	               mVo.setJoinDate(rs.getTimestamp("joinDate"));
+	               mVo.setApproval(rs.getString("approval"));
+	               
+	                list.add(mVo);
+	            }
+	         
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      }finally {
+	         DBManager.close(conn, pstmt, rs);
+	      }
+	       return list;
+	       
+	    }
+	    
+	    //모임 관리자가 회원 삭제.
+	    public void memberDelete(MemListVO mVo) {
+	       String sql = "update itbook.mem_List set approval='R' where memNum=? and metNum=?";
+	       
+	       Connection conn = null;
+	       PreparedStatement pstmt = null;
+	       try {
+	         conn = DBManager.getConnection();
+	         pstmt = conn.prepareStatement(sql);
+	         
+	         pstmt.setString(1, mVo.getMemNum());
+	         pstmt.setString(2, mVo.getMetNum());
+	         pstmt.executeUpdate();
+	         
+	      } catch (Exception e) {
+	       e.printStackTrace();
+	      }finally {
+	         DBManager.close(conn, pstmt);
+	      }
+	    }
+	
 
 }
