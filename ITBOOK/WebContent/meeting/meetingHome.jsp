@@ -52,6 +52,20 @@
 			window.open(popUrl, "모임 가입신청 ", popOption);
 			}
 		</script> 
+		
+		<script type="text/javascript">
+      function memberPopup() {
+            var width = "500";
+            var height = "600";
+            var top = (window.screen.height - height) / 2;
+            var left = (window.screen.width - width) / 2;
+            var popUrl = "/meeting?command=memberPopup&metNum=${meetingVo.metNum}";
+            var popOption = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
+                  + width + ",height=" + height + ",top=" + top + ",left=" + left;
+
+            window.open(popUrl, "모임 회원리스트 ", popOption);
+         }
+      </script>
 
 
 
@@ -93,7 +107,11 @@
 								독서모임 수정
 							<i class="fa fa-external-link ml-2 mr-0"></i></a></li>
 							</c:if>
-							
+							<c:if test="${LoginUser.memName eq meetingVo.represent}">
+                    		 <a class="btn btn-grad mt-4" onclick="memberPopup()">
+                       			 회원리스트
+                     			<i class="fa fa-external-link ml-2 mr-0"></i></a>
+                     		</c:if>
 						</ol>
 					</nav>
 				</div> 
