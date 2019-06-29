@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itbook.controller.action.Action;
 import com.itbook.dao.MeetingDAO;
+import com.itbook.vo.MemListVO;
 import com.itbook.vo.Meeting.MeetingVO;
 
 public class AdminMeetingUpdateAction implements Action{
@@ -16,20 +17,29 @@ public class AdminMeetingUpdateAction implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String [] metNum = request.getParameterValues("metNum");
+		String memNum = request.getParameter("memNum");
+		String memName = request.getParameter("memName");
+		String memId = request.getParameter("memId");
 		if(metNum != null) {
 			for(int i = 0; i < metNum.length; i++) {
 				request.setAttribute("metNum", metNum);
 				System.out.println("metNum : " + metNum);
 				
 				MeetingVO mVO = new MeetingVO();
+				MemListVO mlVo = new MemListVO();
+				
 				mVO.setMetNum(metNum[i]);
+				mlVo.setMemNum(memNum);
+				mlVo.setMemName(memName);
+				mlVo.setMemId(memId);
 				
 				MeetingDAO mDao = MeetingDAO.getInstance();
 				mDao.acceptMeeting(mVO);
+				mDao.meetingManagerInsert(mlVo);
 				
 			}
 		}
-		
+
 		new AdminMeetingAcceptListAction().execute(request, response);
 	}
 

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.itbook.vo.MemListVO;
 import com.itbook.vo.Paging;
 import com.itbook.vo.Meeting.MeetingVO;
 import com.itbook.vo.Meeting.MetBoardVO;
@@ -143,8 +144,8 @@ public class MeetingDAO {
 
 			StringBuffer sql = new StringBuffer();
 
-			sql.append("insert into itbook.meeting(metName,metGreeting,metIntro,represent,location,metPlace,keyword,metImg)");
-			sql.append("values (?,?,?,?,?,?,?,?)");
+			sql.append("insert into itbook.meeting(metName,metGreeting,metIntro,represent,location,metPlace,keyword,metImg,memNum)");
+			sql.append("values (?,?,?,?,?,?,?,?,?)");
 
 			pstmt = conn.prepareStatement(sql.toString());
 
@@ -156,6 +157,7 @@ public class MeetingDAO {
 			pstmt.setString(6, mVo.getMetPlace());
 			pstmt.setString(7, mVo.getKeyword());
 			pstmt.setString(8, mVo.getMetImg());
+			pstmt.setString(9, mVo.getMemNum());
 
 			int flag = pstmt.executeUpdate();
 
@@ -504,6 +506,24 @@ public class MeetingDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
+			DBManager.close(conn, pstmt);
+		}
+	}
+	
+	public void meetingManagerInsert(MemListVO mVo) {
+		String sql = "insert into itbook.mem_list(memNum, metNum, memName, memId) select m.memNum,t.metNum,m.memName,m.memId from member m join meeting t on m.memNum = t.memNum";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
 			DBManager.close(conn, pstmt);
 		}
 	}
