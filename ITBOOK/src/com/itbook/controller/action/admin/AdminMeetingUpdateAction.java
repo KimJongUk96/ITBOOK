@@ -18,8 +18,11 @@ public class AdminMeetingUpdateAction implements Action{
 		
 		String [] metNum = request.getParameterValues("metNum");
 		String memNum = request.getParameter("memNum");
+		request.setAttribute("memNum", memNum);
 		String memName = request.getParameter("memName");
+		request.setAttribute("memName", memName);
 		String memId = request.getParameter("memId");
+		request.setAttribute("memId", memId);
 		if(metNum != null) {
 			for(int i = 0; i < metNum.length; i++) {
 				request.setAttribute("metNum", metNum);
@@ -29,6 +32,7 @@ public class AdminMeetingUpdateAction implements Action{
 				MemListVO mlVo = new MemListVO();
 				
 				mVO.setMetNum(metNum[i]);
+				mlVo.setMetNum(metNum[i]);
 				mlVo.setMemNum(memNum);
 				mlVo.setMemName(memName);
 				mlVo.setMemId(memId);
@@ -36,6 +40,7 @@ public class AdminMeetingUpdateAction implements Action{
 				MeetingDAO mDao = MeetingDAO.getInstance();
 				mDao.acceptMeeting(mVO);
 				mDao.meetingManagerInsert(mlVo);
+				mDao.meetingManagerUpdate(mlVo);
 				
 			}
 		}

@@ -8,7 +8,8 @@
 .container {
   width: 70%;
   height: 70%;
-  margin: 10px auto;
+  margin: 10p
+  x auto;
 }
 .outer {
   display: table;
@@ -75,7 +76,7 @@
 		<td>${MeetingVO.metPlace}
 		<td>${MemberVO.metDate}</td>
 		<td><a href="/admin?command=meetingRefuseAction&metNum=${MeetingVO.metNum}"><button type = "button" class="btn btn-danger" style = "float : right">거절</button></a>&nbsp;&nbsp;
-		    <a href="/admin?command=meetingUpdate&metNum=${MeetingVO.metNum}"><button type = "button" class="btn btn-primary" style = "float : right">승인</button></a></td>
+		    <a href="/admin?command=meetingUpdate&metNum=${MeetingVO.metNum}&memNum=${MeetingVO.memNum}"><button type = "button" class="btn btn-primary" style = "float : right">승인</button></a></td>
 	</tr>
 	</tbody>
 	</c:if>

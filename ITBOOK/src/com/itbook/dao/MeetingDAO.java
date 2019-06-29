@@ -448,6 +448,8 @@ public class MeetingDAO {
 				mVo.setKeyword(rs.getString("keyword"));
 				mVo.setHeadCount(rs.getInt("headCount"));
 				mVo.setApproval(rs.getString("approval"));
+				mVo.setMemNum(rs.getString("memNum"));
+				
 
 				list.add(mVo);
 			}
@@ -511,19 +513,44 @@ public class MeetingDAO {
 	}
 	
 	public void meetingManagerInsert(MemListVO mVo) {
-		String sql = "insert into itbook.mem_list(memNum, metNum, memName, memId) select m.memNum,t.metNum,m.memName,m.memId from member m join meeting t on m.memNum = t.memNum";
+		String sql = "insert into itbook.mem_list(memNum, metNum, memName, memId) select m.memNum,t.metNum,m.memName,m.memId from member m join meeting t on m.memNum = t.memNum where m.memNum = ? and t.metNum = ?";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, mVo.getMemNum());
+			pstmt.setString(2, mVo.getMetNum());
 			
 			pstmt.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
+			DBManager.close(conn, pstmt);
+		}
+	}
+	
+	public void meetingManagerUpdate(MemListVO mVo) {
+		String sql = "Update itbook.mem_list set approval = 'T' where memNum = ? and metNum = ?";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, mVo.getMemNum());
+			pstmt.setString(2, mVo.getMetNum());
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
 			DBManager.close(conn, pstmt);
 		}
 	}
