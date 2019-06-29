@@ -43,7 +43,7 @@
 			}
 		</style>
 
-		<!-- <script type="text/javascript">
+		 <script type="text/javascript">
 			function joinPopup() {
 		
 			var popUrl = "/meeting?command=joinMemberPopup&metNum=${meetingVo.metNum}";
@@ -51,21 +51,9 @@
 
 			window.open(popUrl, "모임 가입신청 ", popOption);
 			}
-		</script> -->
+		</script> 
 
-		<script type="text/javascript">
-		function joinPopup() {
-		      var width = "350";
-		      var height = "330";
-		      var top = (window.screen.height - height) / 2;
-		      var left = (window.screen.width - width) / 2;
-		      var popUrl = "/meeting?command=joinMemberPopup&metNum=${meetingVo.metNum}";
-		      var popOption = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
-		            + width + ",height=" + height + ",top=" + top + ",left=" + left;
 
-		      window.open(popUrl, "모임 가입신청 ", popOption);
-		   }
-		</script>
 
 </head>
 
@@ -122,7 +110,6 @@
 
 			<input type="hidden" name="metNum" value="${meetingVo.metNum}">
 			<input type="hidden" name="metbrd" value="${metbrd.metBrdNum}">
-			<input type="hidden" name="memNum" value="${memListVo.memNum}">
 			
 					<div class="container" style="margin-top:3%;">
 						<div class="bg-white border-radius-3 py-5 all-text-dark pattern-overlay-2">
