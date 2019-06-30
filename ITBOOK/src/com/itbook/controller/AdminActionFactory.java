@@ -16,6 +16,7 @@ import com.itbook.controller.action.admin.AdminNoticeDeleteAction;
 import com.itbook.controller.action.admin.AdminNoticeListFormAction;
 import com.itbook.controller.action.admin.AdminReportDeleteAction;
 import com.itbook.controller.action.admin.AdminReportListForm;
+import com.itbook.controller.action.admin.AdminTaxListAction;
 import com.itbook.controller.action.admin.AdminTodayBookDeleteAction;
 import com.itbook.controller.action.admin.AdminTodayBookListFormAction;
 import com.itbook.controller.action.admin.MailPopupForm;
@@ -95,6 +96,10 @@ public class AdminActionFactory {
 			//모임거절
 		}else if(command.equals("meetingRefuseAction")) {
 			action = new AdminMeetingRefuseAction();
+			//영수증 신청내역
+		}else if(command.equals("taxList")) {
+			action = new AdminTaxListAction();
+			
 		}
 			return action;
 	}

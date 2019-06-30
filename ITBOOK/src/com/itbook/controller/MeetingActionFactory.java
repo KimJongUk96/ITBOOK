@@ -7,6 +7,7 @@ import com.itbook.controller.action.meeting.JoinMeetingAction;
 import com.itbook.controller.action.meeting.JoinMemberPopupAction;
 import com.itbook.controller.action.meeting.ManageHomeAction;
 import com.itbook.controller.action.meeting.ManageJoinAction;
+import com.itbook.controller.action.meeting.ManageMemberAction;
 import com.itbook.controller.action.meeting.MeetingApplyAction;
 import com.itbook.controller.action.meeting.MeetingApplyFormAction;
 import com.itbook.controller.action.meeting.MeetingHomeAction;
@@ -139,6 +140,10 @@ public class MeetingActionFactory {
 			// 모임관리자가 현재 회원 삭제하기
 		}  else if (command.equals("meetingMemberDelete")) {
 			action = new memberDeleteAction();
+			
+			// 모임관리자가 현재 회원리스트 조회하기
+		} else if (command.equals("manageMemberAction")) {
+			action = new ManageMemberAction();
 
 		}
 

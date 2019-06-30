@@ -2,7 +2,11 @@ package com.itbook.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
+import com.itbook.vo.FeePaymentVO;
+import com.itbook.vo.Paging;
 import com.itbook.vo.donation.TaxVO;
 
 import util.DBManager;
@@ -54,5 +58,71 @@ public class TaxDAO {
 			DBManager.close(conn, pstmt);
 		}
 	}
-
-}
+		
+	// 연말정산 영수증 내역보기
+		public ArrayList<TaxVO> adminSelectTax(Paging paging) {
+			String sql = "select * from itbook.tax order by taxNum desc limit ?,10";
+			ArrayList<TaxVO> list = new ArrayList<TaxVO>();
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				conn = DBManager.getConnection();
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setInt(1, ((paging.getPageNum() - 1) * paging.getPerPage()));
+				rs = pstmt.executeQuery();
+				
+				while (rs.next()) {
+					TaxVO tVo = new TaxVO();
+					
+					tVo.setTaxNum(rs.getString("taxNum"));
+					tVo.setTaxName(rs.getString("taxName"));
+					tVo.setTaxPhone(rs.getString("taxPhone"));
+					tVo.setTaxAdr1(rs.getString("taxAdr1"));
+					tVo.setTaxAdr2(rs.getString("taxAdr2"));
+					tVo.setTaxAdr3(rs.getString("taxAdr3"));
+					tVo.setTaxEmail(rs.getString("taxEmail"));
+					tVo.setTaxMsg(rs.getString("taxMsg"));
+					list.add(tVo);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt, rs); // 예전에는 다 썼지만 이제 디비매너지를 통해서 한줄로 씀.
+			}
+			return list;
+		}
+		
+		public Paging selectTaxRowCount(Paging paging) {
+			int cnt = 0;
+			String sql = "SELECT COUNT(*) CNT"
+		            + "     FROM itbook.tax";
+		      
+		          Connection conn = null;
+		         PreparedStatement stmt = null;
+		         ResultSet rs = null;
+		         
+		         try
+		         {
+		            conn = DBManager.getConnection();
+		            stmt = conn.prepareStatement(sql);
+		            
+		            rs = stmt.executeQuery();
+		            
+		            while (rs.next())
+		            {
+		               cnt = rs.getInt("CNT");
+		               paging.setNumOfRow(cnt);;
+		            }
+		            
+		         }
+		         catch (Exception e)
+		         {
+		            e.printStackTrace();
+		         }finally {
+		 			DBManager.close(conn, stmt);
+		 		}
+		         return paging;
+		   }
+	}

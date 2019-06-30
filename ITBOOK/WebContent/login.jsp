@@ -83,13 +83,12 @@
 									<div>
 										<div class="d-flex justify-content-between align-items-center">
 											<p class="text-left mb-2">비밀번호</p>
-											<a class="text-muted small mb-2" href="password-recovery.html">비밀번호를 잃어버리셨나요? 비밀번호 찾기</a>
 										</div>
 										<span class="form-group"><input type="password" class="form-control" name = "memPw" id ="memPw" ></span>
 									</div>
 									<div class="row align-items-center no-gutters m-0">
 										<div class="col-6 col-md-8"><span class="text-muted">아이디가 없으신가요? <a href="signup.jsp">회원가입</a></span></div>
-										<div class="col-6 col-md-4 text-right"><button type="submit"class="btn btn-dark">로그인</button>&nbsp&nbsp<button type="button" class="btn btn-dark" onclick="goBack()">취소</button></div>
+										<div class="col-6 col-md-4 text-right"><button type="submit"class="btn btn-dark">로그인</button>&nbsp;&nbsp;<button type="button" class="btn btn-dark" onclick="goBack()">취소</button></div>
 										
 									</div>
 								</div>
@@ -136,6 +135,14 @@
 	     function goBack() {
 	    	    window.history.back();
 	    	}
+	     
+	     function memPw(){
+
+	         var popUrl ="/member?command=searchPwFormAction";
+	         var popOption = "width=650px, height=550px, resizable=no, location=no, top=300px, left=300px;"
+	            
+	            window.open(popUrl,"비밀번호찾기 ",popOption);    
+	     }
 	     
 
 </script>
