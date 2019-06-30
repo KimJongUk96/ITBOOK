@@ -14,6 +14,9 @@ public class MemberPwModifyFormAction implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "member/memberPwModifyForm.jsp";
 		
+		String memNum = request.getParameter("memNum");
+		request.setAttribute("memNum", memNum);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}

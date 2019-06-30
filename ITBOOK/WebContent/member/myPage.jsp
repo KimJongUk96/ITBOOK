@@ -84,6 +84,7 @@
 
 		<form name = "frm" method = "post" action = "/member?command=memberModifyForm">
 		<input type ="hidden" name = "memId" value = "${LoginUser.memId}">
+		<input type ="hidden" name = "memNum" value = "${LoginUser.memNum}">
 		<c:if test ="${LoginUser.authority eq 1 or LoginUser.authority eq 2 or LoginUser.authority eq 3}">
 			<div class="col-md-12">
 			</div>
@@ -202,7 +203,7 @@
     <div class="inner">
     <div class="centered">
 			<button type = "submit" class = "btn btn-grad border-radius-left-0 mb-0">수정하기</button>
-			<a href = "member?command=memberPwModifyForm" ><button type = "button" class = "btn btn-grad border-radius-left-0 mb-0">비밀번호 변경</button></a>
+			<a href = "member?command=memberPwModifyForm&memNum=${LoginUser.memNum}" ><button type = "button" class = "btn btn-grad border-radius-left-0 mb-0">비밀번호 변경</button></a>
 		</div>
 		</div>
 		</div>

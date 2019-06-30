@@ -147,7 +147,7 @@
 							<option value="울릉도">울릉도</option>
 							<option value="독도">독도</option>
 						</select>
-							<input type="text" name="place" class="form-control" placeholder="활동장소를 입력하세요" style="float:left; width:468px; height:45.52px;">
+							<input type="text" name="place" class="form-control" value="${meeting.metPlace}" style="float:left; width:468px; height:45.52px;">
 				 	</div>
 
 				<!-- <div class="col-md-6"> -->
@@ -252,9 +252,9 @@
 					<br>
 					<section>
 					<div class="text-center text-md-center mt-md-0 align-self-center ">
-						<button class="btn btn-outline-light mb-0" type="submit">수정</button>
-						<button class="btn btn-outline-light mb-0" type="reset">다시작성</button>
-						<input type ="button" class="btn btn-outline-light mb-0" value="취소" onclick="meetingList()">
+						<button class="btn btn-grad mb-0" type="submit">수정</button>
+						<button class="btn btn-grad mb-0" type="reset">다시작성</button>
+						<input type ="button" class="btn btn-grad mb-0" value="취소" onclick="meetingList()">
 					</div>
 					</section>
 				</form>

@@ -3,6 +3,7 @@ package com.itbook.controller.action.meeting;
 import java.io.IOException;
 import java.util.Enumeration;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,26 +44,26 @@ public class MetUpdateAction implements Action {
 //		
 //		new MeetingHomeAction().execute(request, response);
 		
-		
+		String url = "/meeting/meetingList.jsp";
 		
 		int fileSize = 5 * 1024 * 1024;
-		// 업로드될 폴더 경로
+		// ��濡����� �대�� 寃쎈�
 		String uploadPath = request.getServletContext().getRealPath("/META-INF/UploadFolder");
 
 		try {
 			MultipartRequest multi = new MultipartRequest(request, uploadPath, fileSize, "UTF-8",
 					new DefaultFileRenamePolicy());
 
-			// 파라미터 값을 가져온다.
+			// ���쇰�명�� 媛��� 媛��몄�⑤��.
 			String metNum = multi.getParameter("metNum");
 			String metName = multi.getParameter("metName");
 			String metGreeting = multi.getParameter("metGreeting");
 			String metIntro = multi.getParameter("metIntro");
 			String metPlace = multi.getParameter("metPlace");
 			String keyword = multi.getParameter("keyword");
-			String existFile = multi.getParameter("metImg"); // 기존첨부파일
+			String existFile = multi.getParameter("metImg"); // 湲곗〈泥⑤�����
 
-			// 파라미터 값을 자바빈에 세팅한다.
+			// ���쇰�명�� 媛��� ��諛�鍮��� �명������.
 			MeetingVO mVo = new MeetingVO();
 			
 			mVo.setMetNum(metNum);
@@ -71,13 +72,13 @@ public class MetUpdateAction implements Action {
 			mVo.setMetIntro(metIntro);
 			mVo.setMetPlace(metPlace);
 			mVo.setKeyword(keyword);
-			// 글 수정 시 업로드된 파일 가져오기
+			// 湲� ���� �� ��濡����� ���� 媛��몄�ㅺ린
 			
 			Enumeration<String> fileNames = multi.getFileNames();
 			if (fileNames.hasMoreElements()) {
 				String fileName = fileNames.nextElement();
 				String updateFile = multi.getFilesystemName(fileName);
-				if (updateFile == null) // 수정시 새로운 파일을 첨부 안했다면 기존파일명 세팅
+				if (updateFile == null) // ������ ��濡��� ���쇱�� 泥⑤� �����ㅻ㈃ 湲곗〈���쇰� �명��
 					mVo.setMetImg(existFile);
 				else
 					mVo.setMetImg(updateFile);
@@ -94,8 +95,11 @@ public class MetUpdateAction implements Action {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("글 수정 오류 : " + e.getMessage());
+			System.out.println("湲� ���� �ㅻ� : " + e.getMessage());
 		}
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+		dispatcher.forward(request, response);
 	}
-
+	
 }

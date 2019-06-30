@@ -41,6 +41,7 @@
    <!-- =======================
    Banner innerpage -->
 		<div class="container">
+		<div class="col-md-5 align-self-center" style="margin-top:7%;">
 		<input type = "hidden" id="memNum" name = "memNum" value = "${LoginUser.memNum}">
 		<input type = "hidden" id="memName" name = "memName" value = "${LoginUser.memName}">
 		<input type = "hidden" id="memId" name = "memId" value = "${LoginUser.memId}">
@@ -58,8 +59,11 @@
 								
 								
 		</table>
-		<button type="button" name="ajax" id="send" onclick="sendMessage()" class="btn btn-grad" >가입</button>
+			<div class="text-center text-md-center mt-md-0 align-self-center" style="margin-top:7%;">
+					<button type="button" name="ajax" id="send" onclick="sendMessage()" class="btn btn-grad" >가입</button>
 					<button type="button" onclick="goBack()" class="btn btn-grad" >취소</button>
+			</div>
+		</div>
 		</div>
 		<!-- container -->
 	<script src='{% static "js/jquery-1.11.3.min.js" %}'></script>

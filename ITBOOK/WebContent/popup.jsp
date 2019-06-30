@@ -37,9 +37,9 @@
 							<td><button type="submit" class="btn">중복체크</button></td>
 					</tr> --%>
 					<div>
-						<span class="form-group"><input type="text" name="memId"
-							value="${memId}" class="form-control" placeholder="아이디를 입력해주세요."
-							style="height: 30px"></span>
+						<span class="form-group"><input type="text" name="memId" id="memId"
+							value="${memId}" class="input" placeholder="아이디를 입력해주세요."
+							style="height: 30px" onkeyup="characterCheck()" onkeydown="characterCheck()"></span>
 						<button type="submit" class="btn btn-dark" style="height: 30px">중복확인</button>
 					</div>
 					<c:if test="${result == 1}">
@@ -91,7 +91,6 @@
 	<script type="text/javascript" src="js/custom.js"></script>
 
 	<script type="text/javascript">
-		
 	</script>
 </body>
 </html>
