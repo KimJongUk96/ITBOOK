@@ -7,6 +7,7 @@ import com.itbook.controller.action.notice.DonationWriteFormAction;
 import com.itbook.controller.action.notice.FileDownloadAction;
 import com.itbook.controller.action.notice.IntroAction;
 import com.itbook.controller.action.notice.IntroBusinessFormAction;
+import com.itbook.controller.action.notice.MapAction;
 import com.itbook.controller.action.notice.NoticeDeleteAction;
 import com.itbook.controller.action.notice.NoticeInsertAction;
 import com.itbook.controller.action.notice.NoticeInsertFormAction;
@@ -14,6 +15,8 @@ import com.itbook.controller.action.notice.NoticeListFormAction;
 import com.itbook.controller.action.notice.NoticeUpdateAction;
 import com.itbook.controller.action.notice.NoticeUpdateFormAction;
 import com.itbook.controller.action.notice.NoticeViewAction;
+import com.itbook.controller.action.notice.TeamAction;
+import com.itbook.controller.action.notice.TimeLineAction;
 import com.itbook.controller.action.notice.YearEndTaxFormAction;
 import com.itbook.controller.action.notice.YearEndTaxInsertAction;
 
@@ -101,6 +104,18 @@ public class NoticeActionFactory {
 		} else if (command.equals("yearEndTaxInsertAction")) {
 
 			action = new YearEndTaxInsertAction();
+
+		} else if (command.equals("timeLineAction")) {
+
+			action = new TimeLineAction();
+
+		} else if (command.equals("teamAction")) {
+
+			action = new TeamAction();
+
+		} else if (command.equals("mapAction")) {
+
+			action = new MapAction();
 
 		}
 		

@@ -21,24 +21,18 @@ public class ManageMemberAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
 		String url = "/meeting/manageMember.jsp";
-		
+
 		// metNum 가져오기
 		String metNum = request.getParameter("metNum");
 
-		System.out.println("metNum : " + metNum);
-
-		MeetingDAO metDao = MeetingDAO.getInstance();
+		MeetingDAO mDao = MeetingDAO.getInstance();
 		MemberDAO mlDao = MemberDAO.getInstance();
 
-		MeetingVO meetingVo = metDao.selectOneMeetingByNum(metNum);
-		List<MetBoardVO> metboardList = metDao.selectFiveMetBoard(metNum);
-
-		ArrayList<MemListVO> memList = mlDao.meetingMemList();
+		MeetingVO meetingVo = mDao.selectOneMeetingByNum(metNum);
+		List<MemListVO> memList = mlDao.meetingMemberList(metNum);
 
 		request.setAttribute("meetingVo", meetingVo);
-		request.setAttribute("metboardList", metboardList);
 		request.setAttribute("memList", memList);
 		// End metNum
 

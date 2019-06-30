@@ -57,12 +57,12 @@
 						<aside class="col-md-3 sidebar order-last order-md-first">
 							<!-- 인사말 -->
 							<div class="widget">
-								<h3 class="widget-title"><a href="../intro/introduce.jsp">인사말</a></h3>
+								<h3 class="widget-title"><a href="/notice?command=introAction">인사말</a></h3>
 							</div>
 		
 							<!-- 연혁 -->
 							<div class="widget widget-newsletter">
-								<h3 class="widget-title"><a href="../intro/timeLine.jsp">연혁</a></h3>
+								<h3 class="widget-title"><a href="/notice?command=timeLineAction">연혁</a></h3>
 							</div>
 		
 							<!-- 조직도 -->
@@ -72,7 +72,7 @@
 		
 							<!-- 찾아오시는 길 -->
 							<div class="widget widget-post">
-								<h3 class="widget-title"><a href="../intro/map.jsp">찾아오시는 길</a></h3>
+								<h3 class="widget-title"><a href="/notice?command=mapAction">찾아오시는 길</a></h3>
 							</div>
 							
 						</aside>

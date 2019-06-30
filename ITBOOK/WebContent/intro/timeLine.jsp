@@ -56,7 +56,7 @@
 						<aside class="col-md-3 sidebar order-last order-md-first">
 							<!-- 인사말 -->
 							<div class="widget">
-								<h3 class="widget-title"><a href="../intro/introduce.jsp">인사말</a></h3>
+								<h3 class="widget-title"><a href="/notice?command=introAction">인사말</a></h3>
 							</div>
 		
 							<!-- 연혁 -->
@@ -66,12 +66,12 @@
 		
 							<!-- 조직도 -->
 							<div class="widget widget-post">
-								<h3 class="widget-title"><a href="../intro/team.jsp">조직도</a></h3>
+								<h3 class="widget-title"><a href="/notice?command=teamAction">조직도</a></h3>
 							</div>
 		
 							<!-- 찾아오시는 길 -->
 							<div class="widget widget-post">
-								<h3 class="widget-title"><a href="../intro/map.jsp">찾아오시는 길</a></h3>
+								<h3 class="widget-title"><a href="/notice?command=mapAction">찾아오시는 길</a></h3>
 							</div>
 							
 						</aside>
@@ -211,7 +211,7 @@
 										<div class="col-md py-2">
 											<div class="card">
 												<div class="card-body">
-													<h4 class="mb-2">● 20010년도</h4>
+													<h4 class="mb-2">● 2010년도</h4>
 													<div class="list-group-number list-unstyled list-group-borderless">
 														<a href="#" class="list-group-item list-group-item-action">
 															<span>01</span>

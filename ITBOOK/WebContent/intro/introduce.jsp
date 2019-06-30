@@ -63,17 +63,17 @@
 		
 							<!-- 연혁 -->
 							<div class="widget widget-newsletter">
-								<h3 class="widget-title"><a href="../intro/timeLine.jsp">연혁</a></h3>
+								<h3 class="widget-title"><a href="/notice?command=timeLineAction">연혁</a></h3>
 							</div>
 		
 							<!-- 조직도 -->
 							<div class="widget widget-post">
-								<h3 class="widget-title"><a href="../intro/team.jsp">조직도</a></h3>
+								<h3 class="widget-title"><a href="/notice?command=teamAction">조직도</a></h3>
 							</div>
 		
 							<!-- 찾아오시는 길 -->
 							<div class="widget widget-post">
-								<h3 class="widget-title"><a href="../intro/map.jsp">찾아오시는 길</a></h3>
+								<h3 class="widget-title"><a href="/notice?command=mapAction">찾아오시는 길</a></h3>
 							</div>
 							
 						</aside>
