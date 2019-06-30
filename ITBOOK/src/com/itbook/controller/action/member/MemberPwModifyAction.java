@@ -17,7 +17,9 @@ public class MemberPwModifyAction implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		MemberVO mVo = new MemberVO();
-		
+		String memNum = request.getParameter("memNum");
+		request.setAttribute("memNum", memNum);
+		mVo.setMemNum(request.getParameter("memNum"));
 		mVo.setMemPw(request.getParameter("memPw"));
 		
 		MemberDAO mDao = MemberDAO.getInstance();

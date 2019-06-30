@@ -62,8 +62,8 @@
 
 	<section class="service">
 
-		<form name="frm" method="post" action="member?command=mypageAction">
-			<input type="hidden" name="memId" value="${LoginUser.memId}">
+		<form name="frm" method="post" action="member?command=memberPwModify&memNum=${LoginUser.memNum}">
+			<input type="hidden" name="memNum" value="${LoginUser.memNum}">
 			<c:if
 				test="${LoginUser.authority eq 1 or LoginUser.authority eq 2 or LoginUser.authority eq 3}">
 				<div class="col-md-12"></div>
@@ -82,11 +82,11 @@
 							<div class="feature-box f-style-3 h-100 icon-grad"
 								style="align: center">
 
-								<h5>비밀번호</h5>
-								<input type="text" name="memPw" value="${LoginUser.memPw}">
-
+								<h5>변경할 비밀번호</h5>
+								<input type="password" name="memPw" value="${memPw}">
+								
 								<h5>비밀번호 재확인</h5>
-								<input type="text" name="memPwCheck">
+								<input type="password" name="memPwCheck">
 								<button type="submit" class="btn btn-grad border-radius-left-0 mb-0" onclick="return pwModify();">비밀번호 변경</button>
 
 							</div>
@@ -99,7 +99,7 @@
 	<script>
 	$(document).ready(function(){
 		$('form').submit(function(){
-	 	  var result = alert("변경 되었습니다.");
+	 	  var result = alert("변경된 비밀번호로 다시 로그인 해주세요.");
 	   
 		   return result;
 		})

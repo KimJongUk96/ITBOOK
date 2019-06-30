@@ -125,16 +125,17 @@
 											<p class="text-left mb-2">생년월일</p>
 											<span class="form-group">
 											<input type="text" name="jumin" id="jumin" class="form-control" maxlength="8"
-												placeholder="ex)19960116"></span>
+												placeholder="ex)19960116" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;' ></span>
 										</div>
+										<div>
 										<p class="text-left mb-2">주소</p>
 										<input type="text" id="sample4_postcode" name="adr1"
-											placeholder="우편번호" class="form-control" style="width: 150px"
+											placeholder="우편번호" class= "form-control" style="width:50%;float:left"
 											readonly="readonly">
-											
 											 <input type="button" onclick="sample4_execDaumPostcode()" class="btn btn-dark"
-											value="우편번호 찾기"><br> 
-											
+											value="우편번호 찾기" style="width:25%;float:right">
+											</div>
+											<br> 
 											<input type="text" id="sample4_roadAddress" name="adr"
 											placeholder="도로명주소" class="form-control" readonly="readonly">
 										<span id="guide" style="color: #999"></span>
@@ -144,9 +145,9 @@
 										</div>
 										<div>
 											<p class="text-left mb-2">핸드폰번호</p>
-											<span class="form-group"><input type="text"
+											<span class="form-group"><input type="tel"
 												name="phone" id="phone" class="form-control"
-												placeholder="숫자만 입력해주세요." style="width: 250px"></span>
+												placeholder="숫자만 입력해주세요." maxlength="11" style="width: 250px" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;'></span>
 										</div>
 										<div>
 											<p class="text-left mb-2">이메일 주소</p>
@@ -185,6 +186,26 @@
 
 
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+		
+		<script>
+		function onlyNumber(event){
+			event = event || window.event;
+			var keyID = (event.which) ? event.which : event.keyCode;
+			if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+				return;
+			else
+				return false;
+		}
+		function removeChar(event) {
+			event = event || window.event;
+			var keyID = (event.which) ? event.which : event.keyCode;
+			if ( keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+				return;
+			else
+				event.target.value = event.target.value.replace(/[^0-9]/g, "");
+		}
+	</script>
+	
 	<script type="text/javascript">
 		//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
 		function sample4_execDaumPostcode() {
@@ -242,6 +263,7 @@
 
 			var memId = document.frm.memId;
 			var memPw = document.frm.memPw;
+			var checkPw = document.frm.checkPw;
 			var memName = document.frm.memName;
 			var jumin = document.frm.jumin;
 			var adr = document.frm.adr;
@@ -251,8 +273,7 @@
 			var authority = document.frm.authority;
 
 			//아이디 입력 유무
-			if (memId.value == ''
-					|| !(memId.value.length >= 4 && memId.value.length <= 12)) {
+			if (memId.value == ''|| !(memId.value.length >= 4 && memId.value.length <= 12)) {
 				window.alert("아이디를 최소 4 ~ 12 글자 사이로 입력해주세요.");
 				document.frm.memId.focus();
 				document.getElementById('memId').select();
@@ -263,6 +284,15 @@
 				window.alert("비밀번호를 입력해주세요.");
 				document.frm.memPw.focus();
 				document.getElementById('memPw').select();
+				return false;
+			}
+			
+			if(memPw.value != checkPw.value){
+				window.alert("비밀번호가 일치하지 않습니다.")
+				document.frm.memPw.focus();
+				document.getElementById('memPw').select();
+				document.frm.checkPw.focus();
+				document.getElementById('checkPw').select();
 				return false;
 			}
 			if (memName.value == '') {
@@ -284,7 +314,7 @@
 				return false;
 			}
 			if (adr2.value == '') {
-				window.alert("주소를 입력해주세요.");
+				window.alert("상세주소를 입력해주세요.");
 				document.frm.adr2.focus();
 				document.frm.getElementById('adr2').select();
 				return false;
