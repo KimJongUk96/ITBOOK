@@ -25,7 +25,7 @@ public class memberDeleteAction implements Action {
 		MemberDAO mDao = MemberDAO.getInstance();
 		mDao.memberDelete(mVo);
 		
-		new MembePopupAction().execute(request, response);
+		new ManageMemberAction().execute(request, response);
 		
 	}
 
