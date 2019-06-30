@@ -22,7 +22,6 @@ public class MemberModifyAction implements Action{
 		mVo.setAdr2(request.getParameter("adr2"));
 		mVo.setPhone(request.getParameter("phone"));
 		
-		System.out.println("memId : " + memId);
 		MemberDAO mDao = MemberDAO.getInstance();
 		mDao.memberUpdate(mVo);
 		

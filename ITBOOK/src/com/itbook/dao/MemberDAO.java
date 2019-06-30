@@ -96,7 +96,7 @@ public class MemberDAO {
 	public void memberPwUpdate(MemberVO memVO) {
 		String sql = "update itbook.member"
 						+"	set memPw = ?"
-						+" where memId = ? ";
+						+" where memNum = ? ";
 						
 		
 		Connection conn = null;
@@ -107,7 +107,7 @@ public class MemberDAO {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, memVO.getMemPw());
-			pstmt.setString(2, memVO.getMemId());
+			pstmt.setString(2, memVO.getMemNum());
 			
 			pstmt.executeUpdate();
 			
