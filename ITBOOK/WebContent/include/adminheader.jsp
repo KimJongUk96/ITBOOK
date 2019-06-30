@@ -163,12 +163,12 @@
             <li class="treev">
               <a href="#">
                 <i class="fa fa-book"></i> 
-                <span>기타관리</span>
+                <span>후원관리</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li class="bookDe"><a href="admin?command=bookListForm"><i class="fa fa-magic"></i><span style="color:white" id="m8"> 등록된 책 삭제</span></a></li>
-                <li class="fee"><a href="admin?command=feePaymentList"><i class="fa fa-magic"></i><span style="color:white" id="m9"> 후원 관리</span></a></li>
+                <li class="bookDe"><a href="admin?command=taxList"><i class="fa fa-magic"></i><span style="color:white" id="m8"> 영수증 신청내역</span></a></li>
+                <li class="fee"><a href="admin?command=feePaymentList"><i class="fa fa-magic"></i><span style="color:white" id="m9"> 후원 내역</span></a></li>
               </ul>
              </li>
         </section>
