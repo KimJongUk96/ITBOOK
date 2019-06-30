@@ -48,6 +48,20 @@
 	display: inline-block;
 	}
 	</style>
+	
+	<!-- Form JavaScript -->
+	<script type="text/javascript">
+	function meetingApply() {
+		
+		var value = ${LoginUser.authority};
+	
+		if(value != null){
+			location.href='meeting?command=meetingApplyFormAction';			
+		}else{
+			alert('로그인 후 이용가능합니다.');
+		}	
+	}
+	</script>
 </head>
 
 <body>
@@ -156,7 +170,7 @@
 					<h4 class="m-0"><b>소통의 장, 독서모임 신청하기</b></h4>
 				</div>
 				<div class="col-md-3 text-center text-md-right mt-3 mt-md-0 align-self-center ">
-					<a class="btn btn-outline-light mb-0" href="/meeting?command=meetingApplyFormAction" title="독서모임">독서모임 신청</a>
+					<button class="btn btn-grad mb-0" type="submit" onclick="return meetingApply()" title="독서모임">독서모임 신청</button>
 				</div>
 			</div>
 		</div>

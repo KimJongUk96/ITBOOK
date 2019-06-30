@@ -59,8 +59,9 @@ public class MetUpdateAction implements Action {
 			String metName = multi.getParameter("metName");
 			String metGreeting = multi.getParameter("metGreeting");
 			String metIntro = multi.getParameter("metIntro");
+			String location[] = multi.getParameterValues("loaction");
 			String metPlace = multi.getParameter("metPlace");
-			String keyword = multi.getParameter("keyword");
+			String keyword[] = multi.getParameterValues("keyword");
 			String existFile = multi.getParameter("metImg"); // 湲곗〈泥⑤�����
 
 			// ���쇰�명�� 媛��� ��諛�鍮��� �명������.
@@ -70,8 +71,26 @@ public class MetUpdateAction implements Action {
 			mVo.setMetName(metName);
 			mVo.setMetGreeting(metGreeting);
 			mVo.setMetIntro(metIntro);
+			
+			//selectbox 값 가져오기
+			if(location != null) {
+				for(int i = 0; i<location.length; i++) {
+					request.setAttribute("location", location[i]);
+					mVo.setLocation(location[i]);
+				}
+			}
+			
 			mVo.setMetPlace(metPlace);
-			mVo.setKeyword(keyword);
+			
+			//checkbox 값 가져오기
+			/* mVo.setKeyword(keyword); */
+			if(keyword != null) {
+				for(int i = 0; i<keyword.length; i++) {
+					request.setAttribute("keyword", keyword[i]);
+					mVo.setKeyword(keyword[i]);
+				}
+			}
+			
 			// 湲� ���� �� ��濡����� ���� 媛��몄�ㅺ린
 			
 			Enumeration<String> fileNames = multi.getFileNames();
@@ -83,8 +102,6 @@ public class MetUpdateAction implements Action {
 				else
 					mVo.setMetImg(updateFile);
 			}
-
-			
 			
 			MeetingDAO mDao = MeetingDAO.getInstance();
 			boolean result = mDao.updateMeeting(mVo);
