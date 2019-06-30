@@ -45,7 +45,7 @@
 								<h6 class="subtitle">다같이 만들어가는 독서모임</h6>
 								<nav aria-label="breadcrumb">
 									<ol class="breadcrumb">
-										<li class="breadcrumb-item active"><a href="index.jsp"><i class="ti-home"></i> Home</a></li>
+										<li class="breadcrumb-item active"><a href="/main?command=loginForm"><i class="ti-home"></i> Home</a></li>
 										<li class="breadcrumb-item"><a href="/meeting?command=meetingList">독서모임</a></li>
 									</ol>
 								</nav>

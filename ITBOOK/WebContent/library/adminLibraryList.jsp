@@ -46,7 +46,7 @@
                <h6 class="subtitle">희망의 책 대전본부</h6>
                <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                     <li class="breadcrumb-item active"><a href="index.jsp"><i
+                     <li class="breadcrumb-item active"><a href="/main?command=loginForm"><i
                            class="ti-home"></i>Home</a></li>
            
                   </ol>

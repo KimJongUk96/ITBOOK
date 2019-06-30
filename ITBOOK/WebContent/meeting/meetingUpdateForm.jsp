@@ -80,7 +80,7 @@
 					<h6 class="subtitle">나만의 독서모임 수정하기</h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="/index.jsp"><i class="ti-home"></i> Home</a></li>
+							<li class="breadcrumb-item active"><a href="/main?command=loginForm"><i class="ti-home"></i> Home</a></li>
 							<li class="breadcrumb-item">독서모임</li>
 						</ol>
 					</nav>

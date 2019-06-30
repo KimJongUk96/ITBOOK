@@ -47,7 +47,7 @@
 					<h6 class="subtitle">책은 마음의 양식입니다. 책에서 소중한 인연을 만나보세요.</h6>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="index.jsp"><i
+							<li class="breadcrumb-item active"><a href="/main?command=loginForm"><i
 									class="ti-home"></i> Home</a></li>
 
 						</ol>

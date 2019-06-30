@@ -47,7 +47,7 @@
 			function joinPopup() {
 		
 			var popUrl = "/meeting?command=joinMemberPopup&metNum=${meetingVo.metNum}";
-			var popOption = "width=650px, height=550px, resizable=no, location=no, top=300px, left=300px;"
+			var popOption = "width=550px, height=500px, resizable=no, location=no, top=300px, left=300px;"
 
 			window.open(popUrl, "모임 가입신청 ", popOption);
 			}
@@ -92,7 +92,7 @@
 					<h1 class="innerpage-title">${meetingVo.metName}</h1>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="/index.jsp"><i
+							<li class="breadcrumb-item active"><a href="/main?command=loginForm"><i
 									class="ti-home"></i>Home&nbsp;&nbsp;&nbsp;</a>
 									<a href="/meeting?command=manageHomeAction&metNum=${meetingVo.metNum }">
 									<c:if test="${LoginUser.memNum eq meetingVo.memNum }">

@@ -46,7 +46,7 @@
 					<h1 class="innerpage-title">운영 게시판</h1>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="index.html"><i
+							<li class="breadcrumb-item active"><a href="/main?command=loginForm"><i
 									class="ti-home"></i> Home</a></li>
 						</ol>
 					</nav>
