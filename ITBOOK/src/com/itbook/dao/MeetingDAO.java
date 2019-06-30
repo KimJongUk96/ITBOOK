@@ -323,6 +323,7 @@ public class MeetingDAO {
 				+ "			, keyword"
 				+ "			, metDate"
 				+ "			, metImg"
+				+ "			, memNum"
 				+ "			, (select count(*) from itbook.mem_list WHERE approval = 'T' and  metNum = itbook.meeting.metNum) as headCount"
 				+ " FROM itbook.meeting"
 				+ " WHERE metNum = ?";
@@ -355,6 +356,7 @@ public class MeetingDAO {
 				mVo.setMetDate(rs.getDate("metDate"));
 				mVo.setMetImg(rs.getString("metImg"));
 				mVo.setHeadCount(rs.getInt("headCount"));
+				mVo.setMemNum(rs.getString("memNum"));
 
 			}
 		} catch (Exception e) {

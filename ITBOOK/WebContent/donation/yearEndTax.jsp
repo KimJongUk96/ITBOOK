@@ -29,6 +29,9 @@
 
 <!-- Theme CSS -->
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+
+<script type="text/javascript" src ="/js/tax.js"></script>
+
 </head>
 <body>
 
@@ -169,14 +172,6 @@ function sample4_execDaumPostcode() {
 					}).open();
 		}
 		
-$(document).ready(function(){
-	$('form').submit(function(){
- 	  var result = alert("신청되었습니다.");
-   
-	   return result;
-	})
-	})
-	
 
 </script>
 </body>

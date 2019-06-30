@@ -95,23 +95,19 @@
 							<li class="breadcrumb-item active"><a href="/index.jsp"><i
 									class="ti-home"></i>Home&nbsp;&nbsp;&nbsp;</a>
 									<a href="/meeting?command=manageHomeAction&metNum=${meetingVo.metNum }">
-									<i class="ti-settings">모임관리</i>	</a></li>
-							
-							<c:if test="${LoginUser.authority ne null && memListVo.approval ne 'T' && meetingVo.metNum eq memListVo.metNum || meetingVo.metNum ne memListVo.metNum && LoginUser.authority ne null}">
+									<c:if test="${LoginUser.memNum eq meetingVo.memNum }">
+									<i class="ti-settings">모임관리</i></c:if>	</a></li>
+									
+							<c:if test="${LoginUser.authority ne null && memListVo.approval ne 'T' && meetingVo.metNum eq memListVo.metNum || meetingVo.metNum ne memListVo.metNum && LoginUser.authority ne null && meetingVo.represent ne LoginUser.memName}">
 							<li><a class="btn btn-grad mt-4" onclick="joinPopup()">
 								모임 가입하기
 							<i class="fa fa-external-link ml-2 mr-0"></i></a>
 							</c:if>
-							<c:if test="${LoginUser.memName eq meetingVo.represent}">
-							<a class="btn btn-grad mt-4" href="/meeting?command=metUpdateFormAction&metNum=${meetingVo.metNum}">
-								독서모임 수정
-							<i class="fa fa-external-link ml-2 mr-0"></i></a></li>
-							</c:if>
-							<c:if test="${LoginUser.memName eq meetingVo.represent}">
+							<%-- <c:if test="${LoginUser.memName eq meetingVo.represent}">
                     		 <a class="btn btn-grad mt-4" onclick="memberPopup()">
                        			 회원리스트
                      			<i class="fa fa-external-link ml-2 mr-0"></i></a>
-                     		</c:if>
+                     		</c:if> --%>
 						</ol>
 					</nav>
 				</div> 
